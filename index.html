@@ -1,0 +1,1905 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script>
+/* Lien partenaire : maisonravive.fr/?p=CODE ou maisonravive.fr/p/CODE, mémorisé 90 jours */
+(function(){var K='mr_ref',D=90*864e5;function clean(c){return(c||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,20)}
+try{var q=clean(new URLSearchParams(location.search).get('p'));if(q){localStorage.setItem(K,JSON.stringify({c:q,t:Date.now()}));history.replaceState(null,'',location.pathname+location.hash)}}catch(e){}
+window.mrRef=function(){try{var v=JSON.parse(localStorage.getItem(K)||'null');if(v&&Date.now()-v.t<D)return'\n\nPartenaire : '+v.c}catch(e){}return''};})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Tableau Vivant | LMOH Photography</title>
+<meta name="description" content="Votre plus belle photo de mariage, encadrée. Approchez votre téléphone : votre film démarre. Sans application, sans QR code. Dès 99 €.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wall:#2A3140; --wall-2:#232937; --light:rgba(243,223,184,.22);
+  --paper:#FFFFFF; --plaster:#EFEDEA; --ink:#1A1918; --muted:#6E6A64; --line:#DEDAD4;
+  --metal-1:#E1E4E7; --metal-2:#A7ADB4; --gold:#B8925A; --focus:#3B6FD8;
+  --serif:'Josefin Sans','Futura','Century Gothic',Arial,sans-serif; --sans:'Jost','Avenir Next',Avenir,'Helvetica Neue',Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#15181F;--plaster:#1C2029;--ink:#EEEAE3;--muted:#A9A39A;--line:#2F3542;--wall:#20262F;--wall-2:#1A1F27;color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#15181F;--plaster:#1C2029;--ink:#EEEAE3;--muted:#A9A39A;--line:#2F3542;--wall:#20262F;--wall-2:#1A1F27;color-scheme:dark}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:300 1.0625rem/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.2;margin:0}
+h1,h2{text-transform:uppercase;letter-spacing:.12em}
+h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin-bottom:1.3rem}
+h3{font-size:1.35rem;font-weight:400;margin-bottom:.5rem}
+p{margin:0 0 1rem;max-width:38em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:500 .95rem/1 var(--sans);letter-spacing:.02em;padding:1rem 1.6rem;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;transition:background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover{background:currentColor}
+.btn.ghost:hover span{color:var(--wall)}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--wall) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#F3EFE8}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--wall)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:76px;gap:1rem}
+.brand{display:flex;align-items:center;gap:1rem;text-decoration:none}
+.logo{display:inline-flex;flex-direction:column;align-items:center;gap:6px;line-height:1}
+.logo svg{width:20px;height:23px}
+.logo .word{font:300 .62rem/1 var(--sans);letter-spacing:.42em;margin-right:-.42em;white-space:nowrap}
+.logo .word b{font-weight:500}
+.brand i{font:300 .78rem/1 var(--serif);text-transform:uppercase;letter-spacing:.3em;opacity:.85;border-left:1px solid rgba(243,239,232,.3);padding-left:1rem}
+.bar nav{display:flex;gap:1.6rem;align-items:center}
+.bar nav a{font-size:.92rem;text-decoration:none;opacity:.85}
+.bar nav a:hover{opacity:1}
+.bar nav .btn{padding:.7rem 1.2rem;background:#F3EFE8;color:var(--wall);border-color:#F3EFE8}
+.bar nav .btn:hover{background:transparent;color:#F3EFE8}
+@media (max-width:760px){.bar nav a:not(.btn){display:none}.brand i{display:none}}
+
+/* Hero : le mur de galerie */
+.hero{background:radial-gradient(ellipse 55% 70% at 70% 30%,var(--light),transparent 70%),linear-gradient(180deg,var(--wall),var(--wall-2));color:#F3EFE8;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding:clamp(3rem,7vw,6rem) 0 clamp(3rem,6vw,5rem)}
+.hero h1{font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.25;margin-bottom:1.5rem}
+.hero .product{font:300 1rem/1.2 var(--serif);text-transform:uppercase;letter-spacing:.3em;color:#E4C995;margin-bottom:1.3rem}
+.hero p{font-size:1.15rem;color:rgba(243,239,232,.82);max-width:30em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero .btn{background:#F3EFE8;color:var(--wall);border-color:#F3EFE8}
+.hero .btn:hover{background:transparent;color:#F3EFE8}
+.hero .btn.ghost{background:transparent;color:#F3EFE8;border-color:rgba(243,239,232,.5)}
+.hero .btn.ghost:hover{background:rgba(243,239,232,.1)}
+.hero small{display:block;margin-top:1.4rem;color:rgba(243,239,232,.6);font-size:.88rem}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+
+/* Démo interactive */
+.stage{position:relative;aspect-ratio:5/4;touch-action:none;user-select:none;-webkit-user-select:none}
+.print{position:absolute;left:2%;top:10%;width:68%;aspect-ratio:3/2;background:#ccc center/cover;box-shadow:0 2px 0 rgba(255,255,255,.08) inset,0 30px 50px -18px rgba(0,0,0,.65),0 8px 18px rgba(0,0,0,.35);transform:perspective(1400px) rotateY(-4deg)}
+.print::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16),transparent 38%,transparent 70%,rgba(255,255,255,.05))}
+.repere{position:absolute;right:3.5%;bottom:5%;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.85);display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.repere svg{width:11px;height:13px;color:#2A3140}
+.repere::before,.repere::after{content:"";position:absolute;inset:-6px;border:1px solid rgba(255,255,255,.7);border-radius:50%;opacity:0}
+.stage.waiting .repere::before{animation:ring 2.2s var(--ease) infinite}
+.stage.waiting .repere::after{animation:ring 2.2s var(--ease) .7s infinite}
+@keyframes ring{0%{transform:scale(.8);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+.phone{position:absolute;width:27%;aspect-ratio:9/19;right:1%;bottom:-2%;border-radius:clamp(18px,3vw,30px);background:#0E0F12;padding:3.2%;box-shadow:0 0 0 1.5px #5d6168,0 30px 60px -15px rgba(0,0,0,.7);cursor:grab;transition:transform .9s var(--ease)}
+.phone:active{cursor:grabbing}
+.phone .screen{position:relative;width:100%;height:100%;border-radius:clamp(13px,2.2vw,22px);overflow:hidden;background:#000}
+.phone .island{position:absolute;top:2.5%;left:50%;transform:translateX(-50%);width:32%;height:3.4%;border-radius:20px;background:#000;z-index:3}
+.phone video,.phone .lock{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phone .lock{background:linear-gradient(160deg,#3a4152,#171a21);display:flex;flex-direction:column;align-items:center;padding-top:22%;color:#fff}
+.phone .lock b{font:300 clamp(1.4rem,3.6vw,2.4rem)/1 var(--sans)}
+.phone .lock span{font-size:clamp(.55rem,1vw,.7rem);opacity:.75;margin-top:.4rem}
+.phone video{opacity:0;transition:opacity .6s}
+.phone.playing video{opacity:1}
+.phone.playing .lock{opacity:0;transition:opacity .6s}
+.notif{position:absolute;left:5%;right:5%;top:8%;z-index:4;background:rgba(245,245,247,.92);color:#111;border-radius:12px;padding:6% 7%;font-size:clamp(.5rem,1vw,.68rem);line-height:1.3;transform:translateY(-140%);opacity:0;transition:transform .5s var(--ease),opacity .5s}
+.notif strong{display:block;font-weight:500}
+.phone.notified .notif{transform:none;opacity:1}
+.sound{position:absolute;right:6%;bottom:4%;z-index:4;border:0;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;font:500 clamp(.5rem,1vw,.66rem)/1 var(--sans);padding:.5em .8em;opacity:0;pointer-events:none;transition:opacity .4s}
+.phone.playing .sound{opacity:1;pointer-events:auto}
+.hint{position:absolute;left:2%;top:74%;width:60%;font-size:.85rem;color:rgba(243,239,232,.7);margin:0}
+.replay{background:none;border:0;color:#F3EFE8;text-decoration:underline;text-underline-offset:3px;font:inherit;cursor:pointer;padding:0}
+
+/* Étapes */
+section{padding:clamp(4rem,9vw,7rem) 0}
+.lead{font-family:var(--serif);font-weight:300;font-size:clamp(1.2rem,2.2vw,1.45rem);line-height:1.55;max-width:30em;margin-bottom:3rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,3rem);counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;border-top:1px solid var(--ink);padding-top:1.2rem}
+.steps li::before{content:counter(s);display:block;font:300 2.6rem/1 var(--serif);margin-bottom:1rem;color:var(--gold)}
+.steps p{color:var(--muted);font-size:1rem}
+@media (max-width:800px){.steps{grid-template-columns:1fr}}
+
+.plaster{background:var(--plaster)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.facts{display:grid;gap:1.6rem;margin-top:.5rem}
+.facts div{padding-left:1.2rem;border-left:2px solid var(--gold)}
+.facts p{color:var(--muted);margin:0;font-size:1rem}
+
+/* Salon : le tableau chez vous */
+.room{position:relative;margin-top:2rem;overflow:hidden;container-type:inline-size;background:#d9d3cb}
+.room-bg{width:100%;height:auto}
+.art{position:absolute;left:43%;top:51%;width:17.9%;aspect-ratio:3/2;transform:translate(-50%,-100%);transition:width .55s var(--ease);box-shadow:1.2cqw 1.6cqw 2.4cqw -.6cqw rgba(48,36,24,.42),.3cqw .5cqw .9cqw rgba(48,36,24,.22)}
+.art .pic{position:absolute;inset:0;background:#bbb center/cover}
+.art .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 40%,rgba(0,0,0,.05))}
+.art.noir{border:1.05cqw solid #1A1A1C;box-sizing:content-box}
+.art.blanc{border:1.05cqw solid #F3F1EC;box-sizing:content-box;box-shadow:1.2cqw 1.6cqw 2.4cqw -.6cqw rgba(48,36,24,.36),.3cqw .5cqw .9cqw rgba(48,36,24,.18),0 0 0 1px rgba(120,110,100,.25)}
+.art.noir::before,.art.blanc::before{content:"";position:absolute;inset:0;box-shadow:inset .25cqw .25cqw .5cqw rgba(0,0,0,.35);z-index:1;pointer-events:none}
+.art.plexi{border:0;box-shadow:1.6cqw 2cqw 2.8cqw -.6cqw rgba(48,36,24,.5),.4cqw .6cqw 1cqw rgba(48,36,24,.25)}
+.art.plexi .pic::after{background:linear-gradient(118deg,rgba(255,255,255,.42) 0 9%,rgba(255,255,255,.08) 22%,transparent 34%,transparent 78%,rgba(255,255,255,.1))}
+.art .mark{position:absolute;right:3%;bottom:4.5%;width:max(14px,1.9cqw);height:max(14px,1.9cqw);border-radius:50%;background:rgba(255,255,255,.88);display:grid;place-items:center;z-index:2;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.art .mark svg{width:46%;height:52%;color:#2A3140}
+.screen-ov{position:absolute;left:56.6%;top:40.9%;width:4.86%;height:15.98%;border-radius:.75cqw;overflow:hidden;background:#000;box-shadow:0 0 1.2cqw rgba(255,255,255,.18)}
+.screen-ov video{width:100%;height:100%;object-fit:cover;display:block}
+.screen-ov i{position:absolute;top:3%;left:50%;width:34%;height:3.2%;transform:translateX(-50%);background:#000;border-radius:9px}
+.room-ctrl{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2rem;margin-top:1.4rem}
+@media (max-width:760px){.room-ctrl{grid-template-columns:1fr}}
+.sizes{display:flex;gap:.6rem;flex-wrap:wrap}
+.chip{flex:1 1 8rem;text-align:left;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:.85rem 1rem;cursor:pointer;font:inherit;border-radius:4px;transition:border-color .2s}
+.chip b{display:block;font:400 1.05rem/1.3 var(--serif)}
+.chip span{font-size:.88rem;color:var(--muted)}
+.chip[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.caption{font-size:.85rem;color:var(--muted);margin-top:.9rem}
+.room-cta{margin-top:1.4rem}
+
+/* Matières */
+.materials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+.mat .swatch{aspect-ratio:4/3;margin-bottom:1rem;position:relative;overflow:hidden}
+.mat .frame-noir,.mat .frame-blanc{background:var(--plaster);display:grid;place-items:center}
+.mat .frame-noir i,.mat .frame-blanc i{display:block;width:62%;aspect-ratio:3/2;background:center/cover;box-shadow:0 12px 22px -10px rgba(0,0,0,.5)}
+.mat .frame-noir i{border:10px solid #17181B;box-shadow:0 12px 22px -10px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.08)}
+.mat .frame-blanc i{border:10px solid #F4F2EE;box-shadow:0 12px 22px -10px rgba(0,0,0,.4),0 0 0 1px #D9D5CE}
+.mat .plexi{background:var(--plaster);display:grid;place-items:center}
+.mat .plexi i{position:relative;display:block;width:62%;aspect-ratio:3/2;background:center/cover;box-shadow:0 12px 22px -10px rgba(0,0,0,.5)}
+.mat .plexi i::after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.55) 0 12%,transparent 34%,transparent 75%,rgba(255,255,255,.12))}
+.mat .bois{background:repeating-linear-gradient(97deg,rgba(80,48,20,.18) 0 2px,transparent 2px 9px),repeating-linear-gradient(93deg,rgba(255,240,210,.18) 0 1px,transparent 1px 5px),linear-gradient(135deg,#C49A6C,#9C6F44)}
+.mat p{color:var(--muted);font-size:1rem}
+.tag{display:inline-block;font-size:.82rem;padding:.25rem .7rem;border-radius:999px;border:1px solid var(--line);margin-bottom:.6rem}
+.soon{opacity:.75}
+@media (max-width:800px){.materials{grid-template-columns:1fr}}
+
+/* Coffret */
+.gift{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.box{position:relative;aspect-ratio:1/1;max-width:440px;width:100%;margin:0 auto}
+.box .lid,.box .base{position:absolute;left:10%;right:10%;background:linear-gradient(160deg,#2B2F38,#191C22);box-shadow:0 30px 50px -20px rgba(0,0,0,.45)}
+.box .base{top:34%;bottom:12%}
+.box .lid{top:18%;height:22%;transform:rotate(-4deg);transform-origin:left bottom;background:linear-gradient(160deg,#343944,#1E2128);display:grid;place-items:center;color:#D9C29A}
+.box .lid svg{width:26px;height:30px}
+.box .card{position:absolute;left:18%;right:18%;top:40%;bottom:20%;background:#fff center/cover;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.box .ribbon{position:absolute;left:10%;right:10%;top:63%;height:5px;background:#C9A26A}
+@media (max-width:860px){.gift{grid-template-columns:1fr}}
+
+/* Commande */
+.order{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+@media (max-width:900px){.order{grid-template-columns:1fr}}
+fieldset{border:0;padding:0;margin:0 0 2rem}
+legend{font:400 1.25rem/1.2 var(--serif);margin-bottom:.9rem;padding:0}
+.opts{display:flex;gap:.6rem;flex-wrap:wrap}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt label{display:block;border:1px solid var(--line);padding:.8rem 1.1rem;border-radius:4px;cursor:pointer;font-size:.98rem;background:var(--paper)}
+.opt input:checked+label{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt input:focus-visible+label{outline:2px solid var(--focus);outline-offset:2px}
+.opt input:disabled+label{opacity:.45;cursor:not-allowed}
+.opt label small{color:var(--muted);margin-left:.3rem}
+.field{display:grid;gap:.35rem;margin-bottom:1rem}
+.field label{font-size:.92rem}
+.field input,.field textarea{font:inherit;font-weight:300;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.8rem .9rem;width:100%}
+.field textarea{min-height:6rem;resize:vertical}
+.help{font-size:.85rem;color:var(--muted)}
+.summary{position:sticky;top:90px;background:var(--plaster);padding:1.6rem}
+.preview{position:relative;background:linear-gradient(180deg,var(--wall),var(--wall-2));aspect-ratio:4/3;display:grid;place-items:center;margin-bottom:1.3rem}
+.preview .mini{background:#bbb center/cover;box-shadow:0 14px 24px -10px rgba(0,0,0,.7);transition:width .4s var(--ease),height .4s var(--ease)}
+.preview .mini{box-shadow:0 14px 24px -10px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.35)}
+.preview .mini.noir{border:5px solid #1A1A1C}
+.preview .mini.blanc{border:5px solid #F3F1EC}
+.preview .mini.plexi{background-blend-mode:normal;box-shadow:0 14px 24px -10px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.45)}
+.line{display:flex;justify-content:space-between;font-size:.98rem;padding:.35rem 0;border-bottom:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:1rem 0 1.3rem}
+.total b{font:300 2rem/1 var(--serif)}
+.summary .btn{width:100%}
+.err{color:#B3261E;font-size:.9rem;min-height:1.2em;margin-top:.6rem}
+
+/* FAQ */
+.faq{max-width:46rem}
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;list-style:none;font:400 1.15rem/1.4 var(--serif);display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:1.4rem;line-height:1;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);margin:.8rem 0 0}
+
+footer{background:var(--wall);color:rgba(243,239,232,.75);padding:3rem 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+footer p{max-width:34em;margin:0}
+@media (max-width:600px){.hint{width:52%;font-size:.78rem;line-height:1.45}}
+
+/* Onglets */
+.tabs{display:flex;gap:.3rem;overflow-x:auto;padding:0 0 .7rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{white-space:nowrap;font-size:.88rem;text-decoration:none;padding:.42rem .95rem;border-radius:999px;color:rgba(243,239,232,.72);border:1px solid transparent;transition:color .2s,border-color .2s}
+.tabs a:hover{color:#F3EFE8}
+.tabs a[aria-current="page"]{color:#F3EFE8;border-color:rgba(228,201,149,.65)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 130px)}
+main[hidden]{display:none}
+
+/* Pages pro */
+.evt{position:relative;aspect-ratio:5/4}
+.evt .frame{position:absolute;left:6%;top:10%;width:80%;aspect-ratio:3/2;border:clamp(7px,1.3vw,13px) solid #17181B;background:
+ radial-gradient(circle at 16% 28%,rgba(255,216,150,.85) 0 2.2%,transparent 7%),
+ radial-gradient(circle at 34% 18%,rgba(255,226,180,.6) 0 1.6%,transparent 6%),
+ radial-gradient(circle at 58% 32%,rgba(255,200,130,.75) 0 2.6%,transparent 8%),
+ radial-gradient(circle at 80% 20%,rgba(255,236,200,.55) 0 1.8%,transparent 6%),
+ radial-gradient(circle at 70% 62%,rgba(228,201,149,.5) 0 3%,transparent 10%),
+ radial-gradient(circle at 24% 70%,rgba(255,210,150,.45) 0 2.4%,transparent 8%),
+ radial-gradient(ellipse 70% 55% at 50% 100%,rgba(184,146,90,.45),transparent 70%),
+ linear-gradient(165deg,#3A3226,#1A1C22 70%);
+ box-shadow:0 30px 50px -18px rgba(0,0,0,.65),0 8px 18px rgba(0,0,0,.35)}
+.evt .repere::before,.evt .repere::after{animation:ring 2.2s var(--ease) infinite}
+.evt .repere::after{animation-delay:.7s}
+.evt figcaption{position:absolute;left:6%;top:81%;font-size:.82rem;color:rgba(243,239,232,.6)}
+.uses{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem 3rem;margin-top:2.5rem}
+.uses div{padding-left:1.2rem;border-left:2px solid var(--gold)}
+.uses p{color:var(--muted);margin:0;font-size:1rem}
+@media (max-width:760px){.uses{grid-template-columns:1fr}}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,2.6rem);margin-top:2.5rem}
+.offers.two{grid-template-columns:1fr 1fr}
+.offer{border-top:1px solid var(--ink);padding-top:1.3rem}
+.offer.main{border-top:3px solid var(--gold)}
+.offer .price{font:400 1.05rem/1.3 var(--serif);margin:0 0 .8rem}
+.offer p{color:var(--muted);font-size:1rem}
+.offer ul{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.98rem}
+@media (max-width:860px){.offers,.offers.two{grid-template-columns:1fr}}
+.progress{display:flex;gap:.4rem;margin-bottom:.6rem}
+.progress i{flex:1;height:3px;background:var(--line);transition:background .3s}
+.progress i.on{background:var(--gold)}
+.stepinfo{font-size:.88rem;color:var(--muted);margin-bottom:1.4rem}
+.qstep[hidden]{display:none}
+.qnav{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-top:.5rem}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.field select{font:inherit;font-weight:300;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:.8rem .9rem;width:100%}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+@media (max-width:600px){.two-col{grid-template-columns:1fr}}
+.direct{background:var(--paper)}
+.direct h3{margin-bottom:.4rem}
+@media (max-width:600px){.tabs a span{display:none}.tabs{gap:.1rem}.tabs a{padding:.42rem .62rem;font-size:.84rem}}
+.direct p{color:var(--muted);font-size:.98rem}
+.direct .btn{width:100%;margin-bottom:.7rem}
+.direct .btn.ghost{color:var(--ink)}
+.direct .btn.ghost:hover{background:var(--ink)}
+.direct .btn.ghost:hover span{color:var(--paper)}
+.direct ul{list-style:none;padding:0;margin:1.2rem 0 0;font-size:.95rem}
+.direct li{padding:.45rem 0;border-top:1px solid var(--line)}
+.ok{display:none;border-left:2px solid var(--gold);padding:.4rem 0 .4rem 1rem;margin-top:1rem}
+.ok.show{display:block}
+/* Cartes de remerciement */
+.cards{position:relative;aspect-ratio:5/4}
+.ccard{position:absolute;left:14%;top:14%;width:66%;aspect-ratio:148/105;background:#F6F3EE;border-radius:3px;box-shadow:0 26px 40px -18px rgba(0,0,0,.7),0 6px 14px rgba(0,0,0,.3)}
+.ccard.c3{transform:rotate(-9deg) translate(-6%,4%);background:#E9E4DC}
+.ccard.c2{transform:rotate(-3deg) translate(-2%,1%);background:#EFEBE4}
+.ccard.c1{transform:rotate(4deg) translate(6%,-2%);display:flex;flex-direction:column;padding:4.5%;color:#1A1918}
+.cphoto{position:relative;flex:1;background:
+ radial-gradient(circle at 16% 30%,rgba(255,216,150,.9) 0 3%,transparent 9%),
+ radial-gradient(circle at 40% 22%,rgba(255,226,180,.6) 0 2%,transparent 7%),
+ radial-gradient(circle at 62% 38%,rgba(255,200,130,.8) 0 3.4%,transparent 10%),
+ radial-gradient(circle at 84% 24%,rgba(255,236,200,.55) 0 2.2%,transparent 7%),
+ radial-gradient(circle at 30% 76%,rgba(255,210,150,.45) 0 3%,transparent 9%),
+ radial-gradient(ellipse 70% 55% at 50% 100%,rgba(184,146,90,.45),transparent 70%),
+ linear-gradient(165deg,#3A3226,#1A1C22 70%)}
+.cphoto .repere{width:22px;height:22px;right:4%;bottom:7%}
+.cphoto .repere::before,.cphoto .repere::after{animation:ring 2.2s var(--ease) infinite}
+.cphoto .repere::after{animation-delay:.7s}
+.ctext{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding-top:4%}
+.ctext b{font:300 clamp(.62rem,1.3vw,.95rem)/1.2 var(--serif);text-transform:uppercase;letter-spacing:.18em}
+.ctext svg{width:12px;height:14px;flex:none;color:#B8925A}
+.cards figcaption{position:absolute;left:6%;bottom:2%;font-size:.82rem;color:rgba(243,239,232,.6)}
+/* Calendrier */
+.year{list-style:none;padding:0;margin:2.5rem 0 0}
+.year li{display:grid;grid-template-columns:11rem 1fr 11rem;gap:1.2rem 2rem;align-items:baseline;padding:1.5rem 0;border-top:1px solid var(--line)}
+.year li:last-child{border-bottom:1px solid var(--line)}
+.year .when{font:400 1.05rem/1.3 var(--serif);color:var(--gold)}
+.year p{color:var(--muted);margin:0;font-size:1rem}
+.year .sup{justify-self:end;font-size:.85rem;padding:.25rem .8rem;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+@media (max-width:860px){.year li{grid-template-columns:1fr;gap:.4rem}.year .sup{justify-self:start;margin-top:.4rem}}
+.pack{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem 3rem;margin-top:2.8rem;padding:clamp(1.4rem,3vw,2.2rem);background:var(--paper);border-left:3px solid var(--gold)}
+.pack div{flex:1 1 26rem}
+.pack p{color:var(--muted);margin:0}
+/* Mises en situation animées */
+.year-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.2rem 2rem}
+.sound{display:inline-flex;align-items:center;gap:.6rem;font:inherit;font-size:.92rem;color:var(--ink);background:none;border:1px solid var(--ink);border-radius:999px;padding:.6rem 1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.sound svg{width:20px;height:20px}
+.sound .w{opacity:.35}
+.sound[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sound[aria-pressed="true"] .w{opacity:1}
+.moments{list-style:none;padding:0;margin:2.8rem 0 0;display:grid;gap:clamp(2.5rem,6vw,4.5rem)}
+.moment{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.moment:nth-child(even) .scene{order:2}
+.mtext .when{display:block;font:400 1.05rem/1.3 var(--serif);color:var(--gold);margin-bottom:.3rem}
+.mtext p{color:var(--muted)}
+.mtext .sup{display:inline-block;font-size:.85rem;padding:.25rem .8rem;border-radius:999px;border:1px solid var(--line)}
+@media (max-width:860px){.moment{grid-template-columns:1fr}.moment:nth-child(even) .scene{order:0}}
+.scene{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;isolation:isolate}
+.k-frame{background:radial-gradient(ellipse 80% 60% at 40% 20%,rgba(255,240,215,.16),transparent 70%),#2A3140}
+.k-card,.k-invite{background:radial-gradient(ellipse 90% 70% at 30% 20%,#F7F4EF,transparent 70%),linear-gradient(160deg,#E9E4DC,#D9D2C7)}
+.scene img{display:block;width:100%;height:100%;object-fit:cover}
+.scene .repere{z-index:2;width:clamp(18px,4.2vw,32px);height:clamp(18px,4.2vw,32px)}
+.scene.hit .repere::before,.scene.hit .repere::after{animation:ring 1.6s var(--ease) infinite}
+.scene.hit .repere::after{animation-delay:.5s}
+.sup-frame{position:absolute;left:7%;top:13%;width:66%;aspect-ratio:3/2;border:clamp(6px,1.1vw,11px) solid #17181B;box-shadow:0 26px 40px -18px rgba(0,0,0,.7),0 6px 14px rgba(0,0,0,.35)}
+.sup-frame .repere{right:3.5%;bottom:5%}
+.sup-card{position:absolute;left:7%;top:12%;width:64%;background:#FBF9F6;padding:3.2% 3.2% 0;transform:rotate(-4deg);box-shadow:0 24px 34px -16px rgba(40,30,20,.45),0 4px 10px rgba(40,30,20,.15)}
+.sup-card img{aspect-ratio:3/2;height:auto}
+.sup-card .repere{right:5%;top:auto;bottom:24%}
+.sup-card b{display:block;padding:.7em 0 .8em;font:300 clamp(.6rem,1.15vw,.85rem)/1.2 var(--serif);text-transform:uppercase;letter-spacing:.2em;color:#1A1918}
+.sup-invite{position:absolute;left:12%;top:8%;width:40%;aspect-ratio:105/148;background:#1F2530;color:#F3EFE8;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6%;transform:rotate(-3deg);box-shadow:0 24px 34px -16px rgba(20,20,30,.6)}
+.sup-invite .mono{width:16%;height:auto;aspect-ratio:1;color:#E4C995;margin-bottom:12%}
+.sup-invite small{font-size:clamp(.55rem,1vw,.75rem);letter-spacing:.15em;text-transform:uppercase;color:#E4C995}
+.sup-invite b{font:300 clamp(.75rem,1.6vw,1.15rem)/1.2 var(--serif);text-transform:uppercase;letter-spacing:.16em;margin:.6em 0 .3em}
+.sup-invite em{font-style:normal;font-size:clamp(.55rem,1vw,.75rem);opacity:.75}
+.sup-invite .repere{right:7%;bottom:5%}
+.stamp{position:absolute;left:8%;bottom:6%;font-size:.78rem;padding:.25rem .7rem;border-radius:999px;background:rgba(26,25,24,.85);color:#F3EFE8;transition:background .3s}
+.scene.after .stamp{background:#B8925A}
+.mphone{position:absolute;z-index:3;left:76%;top:70%;width:24%;aspect-ratio:9/18.5;background:#0E0F12;border-radius:14% / 7%;padding:2.4%;box-shadow:0 24px 40px -14px rgba(0,0,0,.65);transform:rotate(10deg);transition:left 1.1s var(--ease),top 1.1s var(--ease),transform 1.1s var(--ease)}
+.k-invite .mphone{left:74%;top:66%}
+.scene.go .mphone{left:56%;top:24%;transform:rotate(-4deg)}
+.k-card.go .mphone{left:52%;top:22%}
+.k-invite.go .mphone{left:47%;top:33%}
+.mscreen{position:relative;width:100%;height:100%;border-radius:11% / 5.5%;overflow:hidden;background:#000}
+.mscreen .sl{position:absolute;inset:0;opacity:0;transition:opacity .7s}
+.mscreen .sl img{transform:scale(1.04)}
+.mscreen video.sl{width:100%;height:100%;object-fit:cover;display:block}
+.mscreen .sl.on{opacity:1}
+.mscreen .sl.on img{animation:kb 3.2s linear forwards}
+@keyframes kb{to{transform:scale(1.2) translateX(-4%)}}
+.mscreen .tz{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4em;background:radial-gradient(circle at 50% 40%,#3A3226,#111 75%);color:#F3EFE8;text-align:center;font:300 clamp(.45rem,1vw,.7rem)/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase}
+.mscreen .tz i{font-style:normal;color:#E4C995}
+.mscreen .play{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.85);transition:opacity .3s}
+.mscreen .play::before{content:"";width:22%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+.scene.play .mscreen .play{opacity:0}
+.mscreen .bar{position:absolute;left:8%;right:8%;bottom:4%;height:2px;background:rgba(255,255,255,.3);z-index:2}
+.mscreen .bar i{display:block;height:100%;width:0;background:#E4C995}
+.scene.play .mscreen .bar i{animation:bar var(--dur,6s) linear forwards}
+@keyframes bar{to{width:100%}}
+.credit{margin:3rem 0 0;font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.mphone{transition:none}}
+.snd{position:absolute;z-index:4;right:3%;top:4%;display:inline-flex;align-items:center;gap:.4rem;font:inherit;font-size:.8rem;color:#F3EFE8;background:rgba(26,25,24,.78);border:1px solid rgba(243,239,232,.35);border-radius:999px;padding:.38rem .8rem .38rem .6rem;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s}
+.snd svg{width:17px;height:17px}
+.snd .w{display:none}
+.snd[aria-pressed="true"]{background:#B8925A;border-color:#B8925A;color:#1A1918}
+.snd[aria-pressed="true"] .w{display:inline}
+.snd[aria-pressed="true"] .x{display:none}
+.mscreen .tzo{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4em;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55));color:#F3EFE8;text-align:center;font:300 clamp(.45rem,1vw,.7rem)/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .5s}
+.mscreen .tzo.on{opacity:1}
+.mscreen .tzo i{font-style:normal;color:#E4C995}
+.ast{font-size:.7em;line-height:0}
+.ast a{color:var(--gold);text-decoration:none;padding:0 .1em}
+.notes{font-size:.95rem;color:var(--muted);margin:.2rem 0 .9rem}
+.notes b{color:var(--gold);font-weight:400}
+/* Vérification de la photo */
+.pmsg:empty{display:none}
+.pmsg{border-left:2px solid var(--gold);padding:.6rem 0 .6rem 1rem;margin:.2rem 0 1rem;font-size:.97rem}
+.pmsg.bad{border-left-color:#A4563B}
+.pmsg p{margin:0 0 .6rem}
+.pmsg .acts{display:flex;flex-wrap:wrap;gap:.5rem}
+.pmsg .acts button,.pmsg .acts a{font:inherit;font-size:.88rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;text-decoration:none}
+.pmsg .acts button:hover,.pmsg .acts a:hover{background:var(--ink);color:var(--paper)}
+/* Petit cadre sur la commode */
+.ps-scene{position:relative;aspect-ratio:5/4;overflow:hidden;border-radius:4px;isolation:isolate}
+.ps-wall{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 35% 25%,#F6F2EC,transparent 70%),linear-gradient(170deg,#E7E1D8,#D6CDBF)}
+.ps-shadow{position:absolute;left:9%;right:19%;bottom:34%;height:10%;background:radial-gradient(ellipse at 50% 100%,rgba(60,45,30,.28),transparent 70%)}
+.ps-commode{position:absolute;left:8%;right:18%;bottom:0;height:37%;background:linear-gradient(180deg,#8F6C4B,#74563A);box-shadow:0 -1px 0 rgba(255,255,255,.15) inset;padding:5% 5% 0;display:flex;flex-direction:column;gap:5%}
+.ps-top{position:absolute;left:-2%;right:-2%;top:-5%;height:9%;background:linear-gradient(180deg,#A98461,#8E6B4A);border-radius:2px;box-shadow:0 6px 10px -4px rgba(40,25,10,.45)}
+.ps-dr{position:relative;flex:1;border:1px solid rgba(40,25,10,.35);border-radius:2px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.06));display:flex;justify-content:space-around;align-items:center;max-height:28%}
+.ps-dr em{width:4%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E4C995,#8F6F3E)}
+.ps-vase{position:absolute;left:13%;bottom:37%;width:9%;height:auto}
+.ps-frame{position:absolute;left:31%;bottom:39%;width:33%;aspect-ratio:3/2.15;background:#17181B;padding:2.2%;box-shadow:6px 10px 18px -6px rgba(40,25,10,.55);transform:perspective(600px) rotateX(3deg)}
+.ps-mat{width:100%;height:100%;background:#FBF9F6;padding:9%}
+.ps-photo{width:100%;height:100%;background-size:cover;background-position:center}
+.ps-frame .repere{width:clamp(14px,2.6vw,22px);height:clamp(14px,2.6vw,22px);right:-1%;bottom:-3%;z-index:2}
+.ps-scene.k-hit .ps-frame .repere::before,.ps-scene.k-hit .ps-frame .repere::after{animation:ring 1.6s var(--ease) infinite}
+.ps-scene.k-hit .ps-frame .repere::after{animation-delay:.5s}
+.ps-phone{position:absolute;z-index:3;left:80%;top:52%;width:21%;aspect-ratio:9/18.5;background:#0E0F12;border-radius:14% / 7%;padding:2%;box-shadow:0 24px 40px -14px rgba(0,0,0,.6);transform:rotate(12deg);transition:left 1.1s var(--ease),top 1.1s var(--ease),transform 1.1s var(--ease)}
+.ps-scene.k-go .ps-phone{left:59%;top:47%;transform:rotate(-8deg)}
+.ps-screen{position:relative;width:100%;height:100%;border-radius:11% / 5.5%;overflow:hidden;background:linear-gradient(170deg,#2A3140,#14171D)}
+.ps-lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:22%;color:#F3EFE8;gap:.3em;font-size:clamp(.42rem,.9vw,.62rem);transition:opacity .4s}
+.ps-lock b{font:300 clamp(1rem,2.6vw,1.8rem)/1 var(--serif)}
+.ps-screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.ps-notif{position:absolute;left:6%;right:6%;top:6%;background:rgba(243,239,232,.94);color:#1A1918;border-radius:10px;padding:6% 7%;font-size:clamp(.38rem,.8vw,.58rem);line-height:1.3;transform:translateY(-140%);transition:transform .45s var(--ease)}
+.ps-notif strong{display:block}
+.ps-scene.k-notif .ps-notif{transform:none}
+.ps-scene.k-play .ps-notif{transform:translateY(-140%)}
+.ps-scene.k-play .ps-screen video{opacity:1}
+.ps-scene.k-play .ps-lock{opacity:0}
+@media (prefers-reduced-motion:reduce){.ps-phone,.ps-notif{transition:none}}
+/* (bon cadeau ci-dessous) */
+/* Bon cadeau */
+.gc{position:relative;aspect-ratio:1.6/1;width:100%;max-width:520px;margin:0 auto;background:radial-gradient(ellipse 70% 80% at 25% 15%,rgba(243,223,184,.16),transparent 70%),linear-gradient(155deg,#2F3748,#1E232D);color:#F3EFE8;padding:6.5% 7%;box-shadow:0 30px 50px -22px rgba(0,0,0,.6),0 6px 14px rgba(0,0,0,.3);display:flex;flex-direction:column;justify-content:space-between;container-type:inline-size;border-radius:6px}
+.gc::before{content:"";position:absolute;inset:3.2%;border:1px solid rgba(228,201,149,.45);border-radius:3px;pointer-events:none}
+.gc .gc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.gc .gc-brand{font:300 3.3cqi/1.15 var(--serif);letter-spacing:.32em;text-transform:uppercase}
+.gc .gc-brand small{display:block;font-size:.62em;letter-spacing:.42em;color:#E4C995;margin-bottom:.25em}
+.gc .gc-kind{font:300 2.5cqi/1.2 var(--serif);letter-spacing:.3em;text-transform:uppercase;color:#E4C995;text-align:right}
+.gc .gc-main{margin:3% 0}
+.gc .gc-title{font:300 6.4cqi/1.15 var(--serif);letter-spacing:.06em;margin:0 0 .25em}
+.gc .gc-fmt{font:300 3.1cqi/1.4 var(--sans);color:rgba(243,239,232,.78);margin:0}
+.gc .gc-msg{font:italic 300 3.2cqi/1.45 var(--sans);color:rgba(243,239,232,.88);margin:.7em 0 0;max-width:34em;min-height:1.45em;overflow-wrap:anywhere}
+.gc .gc-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;font:300 2.5cqi/1.5 var(--sans);color:rgba(243,239,232,.7)}
+.gc .gc-bot b{font-weight:400;color:#F3EFE8;letter-spacing:.08em}
+.gc .gc-mark{width:6cqi;height:6.8cqi;color:#D9C29A;flex:none}
+.gc-hero{transform:rotate(-3deg)}
+@media (prefers-reduced-motion:no-preference){.gc-hero{transition:transform .6s}.gc-hero:hover{transform:rotate(0)}}
+.summary .gc{margin-bottom:1.4rem;max-width:none}
+.gcnote{background:var(--paper);border-left:3px solid var(--gold);padding:1rem 1.2rem;margin-top:1rem;font-size:.92rem}
+.gcnote[hidden]{display:none}
+.field[hidden]{display:none}
+.counter{font-size:.8rem;color:var(--muted);text-align:right}
+.optin{margin-top:1rem}
+.optin input{margin-top:.25rem;accent-color:var(--gold)}
+.privacy{margin-top:.5rem}
+.privacy a{color:inherit}
+
+/* Spécial Noël */
+:root{--noel:#B3261E;--noel-soft:rgba(179,38,30,.08)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--noel:#FF8A80;--noel-soft:rgba(255,138,128,.1)}}
+:root[data-theme="dark"]{--noel:#FF8A80;--noel-soft:rgba(255,138,128,.1)}
+.tabs a.tab-noel{color:#FF7A6E;font-weight:400}
+.tabs a.tab-noel:hover{color:#FF9A90}
+.tabs a.tab-noel[aria-current="page"]{color:#FF9A90;border-color:rgba(255,122,110,.7)}
+#v-noel .product,.noel-red{color:var(--noel)}
+.noel-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2rem}
+.noel-card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.7rem}
+.noel-card h3{margin:0}
+.noel-card .price{font-size:.95rem;color:var(--muted);margin:0}
+.noel-card p{margin:0}
+.noel-card .btn{margin-top:auto;align-self:flex-start}
+.noel-badge{display:inline-block;align-self:flex-start;font-size:.82rem;letter-spacing:.04em;color:var(--noel);background:var(--noel-soft);border:1px solid var(--noel);border-radius:999px;padding:.25rem .8rem}
+.noel-dates{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:0;border-top:1px solid var(--line)}
+.noel-dates li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem 0;border-bottom:1px solid var(--line)}
+.noel-dates b{font-weight:400;color:var(--noel)}
+.gc .gc-kind.red{color:#FF8A80}
+/* CGV */
+.legal{max-width:48rem}
+.legal h1{font-size:clamp(1.6rem,4vw,2.4rem)}
+.legal h2{font-size:clamp(1rem,2.2vw,1.25rem);margin:2.2rem 0 .6rem}
+.legal p{color:var(--ink);font-size:1rem}
+.legal .draft{border-left:2px solid #A4563B;padding:.5rem 0 .5rem 1rem;color:var(--muted)}
+.legal .toc{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.2rem 0 1rem}
+.legal .toc a{font-size:.85rem;padding:.3rem .8rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink)}
+.legal .updated{color:var(--muted);font-size:.9rem;margin-top:2rem}
+.check{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:var(--muted);cursor:pointer;margin-top:.4rem}
+.check input{margin-top:.25rem;accent-color:var(--ink)}
+.pmsg .thumb{float:left;width:64px;height:44px;margin:0 .8rem .4rem 0;background-size:cover;background-position:center;border:1px solid var(--line)}
+.pmsg::after{content:"";display:block;clear:both}
+.pdlg{border:0;padding:0;max-width:min(36rem,92vw);width:100%;background:var(--paper);color:var(--ink);box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.pdlg::backdrop{background:rgba(26,25,24,.55)}
+.pdlg-in{position:relative;display:grid;grid-template-columns:9rem 1fr;gap:1.4rem;padding:clamp(1.4rem,4vw,2.2rem)}
+@media (max-width:560px){.pdlg-in{grid-template-columns:1fr}.pdlg-img{max-width:12rem}}
+.pdlg-img{aspect-ratio:3/2;background-size:cover;background-position:center;border:6px solid #17181B;box-shadow:0 10px 20px -10px rgba(0,0,0,.5)}
+.pdlg h3{margin:0 0 .5rem}
+.pdlg p{color:var(--muted);margin:0 0 1.2rem;font-size:1rem}
+.pdlg-acts{display:flex;flex-direction:column;gap:.6rem;align-items:flex-start}
+.pdlg-acts .btn{width:100%;text-align:center}
+.pdlg-x{position:absolute;right:.6rem;top:.4rem;background:none;border:0;font-size:1.6rem;line-height:1;color:var(--muted);cursor:pointer;padding:.3rem .5rem}
+.quick .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem 2.5rem;padding-top:clamp(2rem,4vw,3rem);padding-bottom:clamp(2rem,4vw,3rem)}
+.quick b{display:block;font:300 clamp(1.05rem,2vw,1.35rem)/1.2 var(--serif);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.4rem}
+.quick span{color:var(--muted)}
+@media (max-width:760px){.quick .wrap{grid-template-columns:1fr}}
+.scene .dec{position:absolute;z-index:1;pointer-events:none}
+.k-venue{background:radial-gradient(ellipse 80% 60% at 40% 15%,rgba(255,248,236,.55),transparent 70%),linear-gradient(170deg,#D8CDBE,#BDAE9B)}
+.dec-console{left:4%;right:22%;bottom:0;height:22%}
+.dec-console b{position:absolute;left:0;right:0;top:0;height:14%;background:linear-gradient(#7C5E42,#5F4632);box-shadow:0 8px 12px -6px rgba(40,25,10,.5)}
+.dec-console i{position:absolute;top:14%;bottom:0;width:4%;background:#5F4632}
+.dec-console i:first-of-type{left:6%}.dec-console i:last-of-type{right:6%}
+.dec-flowers{left:76%;bottom:20%;width:13%;height:auto}
+.k-office{background:radial-gradient(ellipse 80% 60% at 40% 15%,rgba(255,255,255,.6),transparent 70%),linear-gradient(170deg,#E3E6EA,#C9CED5)}
+.dec-desk{left:0;right:0;bottom:0;height:18%}
+.dec-desk b{position:absolute;inset:0;background:linear-gradient(#5B4A3C,#43362B);box-shadow:0 -2px 0 #6E5B4B inset}
+.dec-laptop{left:6%;bottom:16%;width:24%;height:auto}
+.k-shop{background:radial-gradient(ellipse 80% 60% at 40% 15%,rgba(255,250,246,.6),transparent 70%),linear-gradient(170deg,#EEDFD8,#D9C4BA)}
+.dec-rail{right:3%;bottom:0;width:22%;height:auto}
+.k-studio{background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(255,255,255,.18),transparent 70%),linear-gradient(170deg,#3E4248,#26292E)}
+.dec-softbox{right:4%;bottom:0;width:18%;height:auto}
+/* Logo Maison Ravive */
+.mrlogo{display:inline-flex;flex-direction:column;align-items:center;line-height:1;color:inherit}
+.mrlogo small{font:300 .5rem/1 var(--serif);letter-spacing:.62em;margin-right:-.62em;margin-bottom:.35rem}
+.mrlogo b{font:300 1.08rem/1 var(--serif);letter-spacing:.3em;margin-right:-.3em}
+.mri{position:relative;display:inline-block}
+.mri svg{position:absolute;left:50%;bottom:96%;width:1.25em;height:.8em;transform:translateX(-62%);color:#E4C995;overflow:visible}
+.mrby{display:flex;align-items:center;gap:.4em;margin-top:.4rem;font:400 .44rem/1 var(--sans);letter-spacing:.32em;color:#E4C995}
+.mrby svg{width:9px;height:10px;color:#E4C995}
+footer .mrlogo{margin-bottom:1rem}
+/* Partenaires : mises en situation variées */
+.p2list{display:grid;gap:clamp(2.5rem,6vw,4.5rem);margin-top:2.8rem}
+.p2row{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.p2row:nth-child(even) .p2{order:2}
+@media (max-width:860px){.p2row{grid-template-columns:1fr}.p2row:nth-child(even) .p2{order:0}}
+.p2{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;isolation:isolate}
+.p2bg{position:absolute;inset:0}
+.p2 .dec{position:absolute;z-index:1;pointer-events:none}
+.st-inframe .p2bg{background:radial-gradient(ellipse 80% 60% at 40% 15%,rgba(255,248,236,.55),transparent 70%),linear-gradient(170deg,#D8CDBE,#BDAE9B)}
+.st-duo .p2bg{background:radial-gradient(ellipse 80% 60% at 40% 15%,rgba(255,255,255,.6),transparent 70%),linear-gradient(170deg,#E3E6EA,#C9CED5)}
+.st-zoom .p2bg{background:radial-gradient(ellipse 80% 60% at 40% 15%,rgba(255,250,246,.6),transparent 70%),linear-gradient(170deg,#EEDFD8,#D9C4BA)}
+.st-unbox .p2bg{background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(255,255,255,.18),transparent 70%),linear-gradient(170deg,#3E4248,#26292E)}
+.p2 .fr{position:absolute;z-index:1;aspect-ratio:3/2;border:clamp(6px,1.1vw,11px) solid #17181B;background:#111;box-shadow:0 26px 40px -18px rgba(0,0,0,.6),0 6px 14px rgba(0,0,0,.3);overflow:visible}
+.p2 .fr img,.p2 .fr video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.p2 .fr video{opacity:0;transition:opacity .9s}
+.p2 .repere{width:clamp(18px,4vw,30px);height:clamp(18px,4vw,30px);z-index:2}
+.p2.hit .repere::before,.p2.hit .repere::after{animation:ring 1.6s var(--ease) infinite}
+.p2.hit .repere::after{animation-delay:.5s}
+.p2 .ph{position:absolute;z-index:4;width:21%;aspect-ratio:9/18.5;background:#0E0F12;border-radius:14% / 7%;padding:2.1%;box-shadow:0 24px 40px -14px rgba(0,0,0,.6);transition:left 1s var(--ease),top 1s var(--ease),transform 1s var(--ease),opacity .6s}
+.p2 .scr{position:relative;width:100%;height:100%;border-radius:11% / 5.5%;overflow:hidden;background:linear-gradient(170deg,#2A3140,#14171D)}
+.p2 .scr video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.p2 .scr.on video{opacity:1}
+.p2 .msg{position:absolute;left:8%;right:8%;top:42%;text-align:center;color:#E4C995;font:300 clamp(.45rem,1vw,.7rem)/1.3 var(--serif);letter-spacing:.12em;text-transform:uppercase}
+.p2 .chip{position:absolute;z-index:5;left:5%;top:6%;font-size:.8rem;padding:.35rem .8rem;border-radius:999px;background:#B8925A;color:#1A1918;opacity:0;transform:translateY(-8px);transition:opacity .5s,transform .5s}
+.p2.chip-on .chip{opacity:1;transform:none}
+.p2 .snd{z-index:6}
+/* 1. Le tableau s’anime */
+.st-inframe .fr{left:9%;top:10%;width:62%}
+.st-inframe .ph.a{left:58%;top:108%;transform:rotate(-4deg)}
+.st-inframe.s1 .ph.a{top:46%}
+.st-inframe.s2 .ph.a{top:108%;transform:rotate(6deg)}
+.st-inframe.s2 .fr video{opacity:1}
+.st-inframe .sweep{position:absolute;inset:0;z-index:3;background:linear-gradient(100deg,transparent 35%,rgba(255,240,210,.35) 50%,transparent 65%);transform:translateX(-120%);pointer-events:none}
+.st-inframe.s2 .sweep{animation:sweep 1.4s var(--ease) 1}
+@keyframes sweep{to{transform:translateX(120%)}}
+/* 2. Le duo au bureau */
+.st-duo .fr{left:20%;top:8%;width:54%}
+.st-duo .ph.a{left:-28%;top:56%;transform:rotate(14deg)}
+.st-duo .ph.b{left:104%;top:52%;transform:rotate(-14deg)}
+.st-duo.a-in .ph.a{left:55%;top:34%;transform:rotate(-6deg)}
+.st-duo.b-in .ph.b{left:57%;top:32%;transform:rotate(5deg)}
+.st-duo .bub{position:absolute;z-index:5;left:4%;bottom:22%;max-width:44%;background:#FBF9F6;color:#1A1918;font-size:clamp(.62rem,1.3vw,.85rem);line-height:1.35;padding:.6rem .8rem;border-radius:12px 12px 12px 2px;box-shadow:0 10px 24px -10px rgba(0,0,0,.35);opacity:0;transform:scale(.9);transform-origin:bottom left;transition:opacity .4s,transform .4s}
+.st-duo.bub-on .bub{opacity:1;transform:none}
+/* 3. Étincelles et zoom */
+.st-zoom .fr{left:6%;top:10%;width:64%}
+.st-zoom .ph.a{left:96%;top:-62%;transform:rotate(-28deg)}
+.st-zoom.z1 .ph.a{left:57%;top:34%;transform:rotate(-5deg)}
+.st-zoom.z2 .ph.a{left:40%;top:16%;transform:scale(1.45)}
+.sparks{position:absolute;right:calc(3.5% + 9px);bottom:calc(5% + 9px);width:0;height:0;z-index:3}
+.sparks i{position:absolute;width:6px;height:6px;margin:-3px;border-radius:50%;background:#E4C995;box-shadow:0 0 8px #E4C995;opacity:0}
+.st-zoom.spark .sparks i{animation:spark 1s var(--ease) forwards}
+.sparks i:nth-child(1){--x:0;--y:-46px}.sparks i:nth-child(2){--x:33px;--y:-33px}.sparks i:nth-child(3){--x:46px;--y:0}.sparks i:nth-child(4){--x:33px;--y:33px}.sparks i:nth-child(5){--x:0;--y:46px}.sparks i:nth-child(6){--x:-33px;--y:33px}.sparks i:nth-child(7){--x:-46px;--y:0}.sparks i:nth-child(8){--x:-33px;--y:-33px}
+@keyframes spark{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.3)}}
+/* 4. Le coffret qui s’ouvre */
+.st-unbox .fr{left:27%;top:30%;width:40%;transform:translateY(46%);transition:transform 1.2s var(--ease)}
+.st-unbox.u2 .fr{transform:translateY(-38%)}
+.cbox{position:absolute;z-index:2;left:22%;bottom:12%;width:50%;height:26%}
+.cfront{position:absolute;inset:0;background:linear-gradient(180deg,#252B37,#1A1F28);box-shadow:0 18px 28px -14px rgba(0,0,0,.7);display:grid;place-items:center}
+.cfront::before{content:"";position:absolute;left:46%;width:8%;top:0;bottom:0;background:linear-gradient(90deg,#9C7A48,#E4C995,#9C7A48)}
+.cfront svg{position:relative;width:16px;height:18px;color:#E4C995;background:#1F2530;padding:4px 6px;box-sizing:content-box}
+.clid{position:absolute;left:-3%;right:-3%;top:-22%;height:24%;background:linear-gradient(180deg,#2F3644,#222833);box-shadow:0 6px 10px -4px rgba(0,0,0,.6);transition:transform 1s var(--ease),opacity .8s}
+.st-unbox.u1 .clid{transform:translate(-40%,-260%) rotate(-14deg);opacity:0}
+.st-unbox .ph.a{left:104%;top:30%;transform:rotate(-10deg)}
+.st-unbox.u3 .ph.a{left:58%;top:6%;transform:rotate(-4deg)}
+@media (prefers-reduced-motion:reduce){.p2 .ph,.st-unbox .fr,.clid{transition:none}}
+.fopts{display:grid;gap:.5rem}
+.fopt{display:flex;gap:.8rem;align-items:flex-start;padding:.85rem 1rem;border:1px solid var(--line);border-radius:6px;background:var(--paper);cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.fopt input{margin-top:.25rem;accent-color:var(--ink);flex:none}
+.fopt b{display:block;font-weight:400}
+.fopt em{display:block;font-style:normal;font-size:.9rem;color:var(--muted);margin-top:.15rem}
+.fopt:has(input:checked){border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.fdet{display:none;padding:.4rem 0 .6rem 1rem;border-left:2px solid var(--gold);margin:-.1rem 0 .3rem .9rem}
+.fdet.on{display:block}
+.fdet .opt label small{display:block;font-size:.8rem;color:var(--muted);margin-top:.15rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mono" viewBox="0 0 30 34"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M0.8 0V34M4.4 0V34M0 33.2H21.5M4.4 0.8H19A9.35 9.35 0 0 1 19 19.5H4.4"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#particuliers" aria-label="Maison Ravive, Le Tableau Vivant"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><i>Le Tableau Vivant</i></a>
+    <nav aria-label="Sections"><a data-home href="#fonctionnement">Fonctionnement</a><a data-home href="#formats">Formats</a><a data-home href="#questions">Questions</a><a class="btn" id="hdrCta" href="#commande">Créer mon tableau</a></nav>
+  </div>
+  <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Petit cadre</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="titre">
+  <div class="wrap">
+    <div>
+      <p class="product">Le Tableau Vivant</p>
+      <h1 id="titre">Votre photo au mur. Votre film au creux de la main.</h1>
+      <p>Une photo de votre mariage, imprimée sur un tableau d’exception. Approchez votre téléphone du repère : votre film démarre. Sans application, sans QR code.</p>
+      <div class="actions"><a class="btn" href="#commande">Créer mon tableau, dès 99 €</a><a class="btn ghost" href="#fonctionnement"><span>Voir comment ça marche</span></a></div>
+      <small>Avec les photos et le film de votre photographe, quel qu’il soit. Imprimé, assemblé et vérifié à la main près de Lyon, livré dans son coffret.</small>
+    </div>
+    <div class="stage waiting" id="stage" aria-label="Démonstration : un téléphone approché du tableau lance le film de mariage">
+      <div class="print" id="print"><span class="repere" id="repere" aria-hidden="true"><svg><use href="#mono"/></svg></span></div>
+      <div class="phone" id="phone" role="button" tabindex="0" aria-label="Approcher le téléphone du tableau">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="lock"><b id="clock">16:47</b><span>Approchez du tableau</span></div>
+          <video id="film" playsinline muted loop preload="none" poster="assets/p-606235b0.jpg"><source src="assets/v-5d5ccae0.mp4" type="video/mp4"></video>
+          <div class="notif"><strong>maisonravive.fr</strong>Touchez pour ouvrir votre film</div>
+          <button class="sound" id="sound" type="button">Activer le son</button>
+        </div>
+      </div>
+      <p class="hint" id="hint">Glissez le téléphone vers le repère du tableau, ou <button class="replay" id="replay" type="button">lancez la démo</button>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="fonctionnement" aria-labelledby="t-fonc">
+  <div class="wrap">
+    <h2 id="t-fonc">Trois étapes, un seul geste</h2>
+    <p class="lead">Le jour de votre mariage n’a duré que quelques heures. Le tableau le garde au mur, et votre film à portée de main.</p>
+    <ol class="steps">
+      <li><h3>Vous choisissez</h3><p>Votre photo préférée, le format, la finition et le lien de votre film : YouTube, Vimeo, Google Drive, ou le film que j’ai réalisé pour vous.</p></li>
+      <li><h3>Je fabrique</h3><p>J’imprime votre photo sur un support haut de gamme, j’y intègre une technologie sans contact invisible et je l’associe à votre film. Chaque tableau est testé avant l’envoi.</p></li>
+      <li><h3>Vous approchez votre téléphone</h3><p>Une notification apparaît. Un toucher, et votre film commence. Pour vous, pour vos enfants, pour vos invités.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="plaster" aria-labelledby="t-film">
+  <div class="wrap split">
+    <div>
+      <h2 id="t-film">Votre film reste à vous</h2>
+      <p>Le tableau ne contient pas votre vidéo : il l’ouvre. Elle reste là où vous l’avez mise, et vous gardez la main dessus.</p>
+    </div>
+    <div class="facts">
+      <div><h3>Aucune application</h3><p>Les iPhone récents et la plupart des smartphones Android reconnaissent le tableau d’eux-mêmes, écran déverrouillé.</p></div>
+      <div><h3>Un film modifiable</h3><p>Vous souhaitez afficher une autre vidéo plus tard ? Sur simple demande, je la change, sans toucher au tableau.</p></div>
+      <div><h3>Testé avant l’envoi</h3><p>Chaque tableau est essayé avec votre film, sur iPhone et sur Android, avant de partir dans son coffret.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="formats" aria-labelledby="t-formats">
+  <div class="wrap">
+    <h2 id="t-formats">Imaginez-le chez vous</h2>
+    <p>Choisissez le format et la finition : votre tableau prend place au-dessus du canapé. Un geste du téléphone, et votre film démarre.</p>
+    <div class="room" id="room">
+      <img class="room-bg" src="assets/p-137fcf4f.jpg" alt="Dans un salon lumineux, une femme approche son téléphone du tableau : le film du mariage démarre sur l’écran" decoding="async">
+      <div class="art noir" id="art"><div class="pic" id="artPic"></div><span class="mark" aria-hidden="true"><svg><use href="#mono"/></svg></span></div>
+      <div class="screen-ov" aria-hidden="true"><video id="moment" muted loop playsinline preload="none" poster="assets/p-273ecee7.jpg"><source src="assets/v-97f8f5e4.mp4" type="video/mp4"></video><i></i></div>
+    </div>
+    <div class="room-ctrl">
+      <div class="sizes" role="group" aria-label="Format">
+        <button class="chip" type="button" data-size="60x40" aria-pressed="false"><b>60 × 40 cm</b><span>au-dessus d’une commode</span></button>
+        <button class="chip" type="button" data-size="75x50" aria-pressed="true"><b>75 × 50 cm</b><span>le plus polyvalent</span></button>
+        <button class="chip" type="button" data-size="90x60" aria-pressed="false"><b>90 × 60 cm</b><span>pour un grand mur</span></button>
+      </div>
+      <div class="sizes" role="group" aria-label="Finition">
+        <button class="chip" type="button" data-fin="noir" aria-pressed="true"><b>Cadre noir mat</b><span>sobre et élégant</span></button>
+        <button class="chip" type="button" data-fin="blanc" aria-pressed="false"><b>Cadre blanc</b><span>lumineux et doux</span></button>
+        <button class="chip" type="button" data-fin="plexi" aria-pressed="false"><b>Plexiglas</b><span>effet sous verre</span></button>
+      </div>
+    </div>
+    <p class="caption" id="scaleCap">75 × 50 cm, cadre noir mat, au-dessus d’un canapé de 2 m. Rendu indicatif.</p>
+    <p class="room-cta"><a class="btn" href="#commande">Voir les prix et commander</a></p>
+  </div>
+</section>
+
+<section class="plaster" aria-labelledby="t-mat">
+  <div class="wrap">
+    <h2 id="t-mat">Encadré ou sous plexiglas</h2>
+    <p class="lead">Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, tendue sur un châssis en bois, puis encadrée. Pour plus d’éclat, choisissez le plexiglas.</p>
+    <div class="materials">
+      <div class="mat"><div class="swatch frame-noir" aria-hidden="true"><i class="fphoto"></i></div><span class="tag">Inclus</span><h3>Cadre noir mat</h3><p>Sobre et élégant, il donne de la force aux couleurs comme au noir et blanc.</p></div>
+      <div class="mat"><div class="swatch frame-blanc" aria-hidden="true"><i class="fphoto"></i></div><span class="tag">Inclus</span><h3>Cadre blanc</h3><p>Lumineux et doux, parfait pour les intérieurs clairs et les photos pastel.</p></div>
+      <div class="mat"><div class="swatch plexi" aria-hidden="true"><i class="fphoto"></i></div><span class="tag">+ 50 €</span><h3>Plexiglas brillant</h3><p>Des couleurs éclatantes et un effet de profondeur, comme une photo sous verre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-gift">
+  <div class="wrap gift">
+    <div class="box" aria-hidden="true"><div class="base"></div><div class="card" id="giftCard"></div><div class="ribbon"></div><div class="lid"><svg><use href="#mono"/></svg></div></div>
+    <div>
+      <h2 id="t-gift">Un cadeau qui s’ouvre deux fois</h2>
+      <p>Une première fois en défaisant le ruban. Une seconde fois quand le téléphone s’approche et que la musique du mariage repart.</p>
+      <p>Chaque tableau arrive dans son coffret LMOH, avec une carte qui explique le geste. Idéal pour un premier anniversaire de mariage, pour des parents, ou simplement pour vous.</p>
+      <p><strong>Vous vous êtes mariés avec LMOH Photography ?</strong> Votre film est déjà prêt : je l’associe à votre tableau, vous n’avez rien à envoyer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="plaster" id="commande" aria-labelledby="t-cmd">
+  <div class="wrap">
+    <h2 id="t-cmd">Créer mon tableau</h2>
+    <p class="lead">Composez votre tableau. Je vous réponds sous 24 h avec la validation de votre photo et le lien de paiement.</p>
+    <form class="order" id="orderForm" novalidate>
+      <div>
+        <fieldset><legend>Format</legend><div class="opts">
+          <div class="opt"><input type="radio" name="size" id="s1" value="60x40"><label for="s1">60 × 40 cm <small data-p="60x40">99 €</small></label></div>
+          <div class="opt"><input type="radio" name="size" id="s2" value="75x50" checked><label for="s2">75 × 50 cm <small data-p="75x50">149 €</small></label></div>
+          <div class="opt"><input type="radio" name="size" id="s3" value="90x60"><label for="s3">90 × 60 cm <small data-p="90x60">229 €</small></label></div>
+        </div></fieldset>
+        <fieldset><legend>Finition</legend><div class="opts">
+          <div class="opt"><input type="radio" name="finish" id="f1" value="noir" checked><label for="f1">Cadre noir mat <small>inclus</small></label></div>
+          <div class="opt"><input type="radio" name="finish" id="f2" value="blanc"><label for="f2">Cadre blanc <small>inclus</small></label></div>
+          <div class="opt"><input type="radio" name="finish" id="f3" value="plexi"><label for="f3">Plexiglas brillant <small>+ 50 €</small></label></div>
+        </div></fieldset>
+        <fieldset><legend>Orientation</legend><div class="opts">
+          <div class="opt"><input type="radio" name="ori" id="o1" value="paysage" checked><label for="o1">Paysage</label></div>
+          <div class="opt"><input type="radio" name="ori" id="o2" value="portrait"><label for="o2">Portrait</label></div>
+        </div></fieldset>
+        <fieldset><legend>Votre photo</legend>
+          <p class="help">Minimum pour une impression nette : 2 400 × 1 600 pixels en 60 × 40, 3 000 × 2 000 en 75 × 50, 3 600 × 2 400 en 90 × 60.</p>
+          <div class="field"><label for="pcheck">Ajoutez votre photo</label><input id="pcheck" type="file" accept="image/*"><span class="help">Je la vérifie aussitôt. Choisissez l’original dans votre galerie : les photos reçues par messagerie sont souvent réduites.</span></div>
+          <div class="pmsg" id="pmsg" aria-live="polite"></div>
+          <label class="check"><input type="checkbox" id="lmohc"> Mariés LMOH Photography : je choisis la photo avec vous</label>
+        </fieldset>
+        <fieldset class="filmset" data-scope="h"><legend>Votre film</legend>
+          <div class="fopts">
+            <label class="fopt"><input type="radio" name="hfilm" value="lien" checked><span><b>J’ai un lien</b><em>YouTube, Vimeo ou Google Drive.</em></span></label>
+            <div class="fdet" data-for="lien"><div class="field"><label for="video">Lien de la vidéo</label><input id="video" type="url" placeholder="https://youtu.be/…" inputmode="url"></div></div>
+            <label class="fopt"><input type="radio" name="hfilm" value="fichier"><span><b>Ma vidéo est sur mon téléphone ou mon ordinateur</b><em>Je vous envoie un lien pour la déposer, puis je la mets en ligne pour vous.</em></span></label>
+            <label class="fopt"><input type="radio" name="hfilm" value="creer"><span><b>Je n’ai pas de film : créez-le pour moi</b><em>À partir de vos vidéos ou de vos photos.</em></span></label>
+            <div class="fdet" data-for="creer"><div class="opts">
+              <div class="opt"><input type="radio" name="hfilmc" id="hfilmc1" value="montage" checked><label for="hfilmc1">Montage de vos vidéos, 1 à 2 min<small>+ 49 €</small></label></div>
+              <div class="opt"><input type="radio" name="hfilmc" id="hfilmc2" value="diaporama"><label for="hfilmc2">Diaporama animé de vos photos<small>+ 29 €</small></label></div>
+            </div><p class="help">Avec une musique libre de droits, choisie ensemble.</p></div>
+            <label class="fopt"><input type="radio" name="hfilm" value="plus-tard"><span><b>Je l’ajouterai plus tard</b><em>Le tableau part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
+            <label class="fopt"><input type="radio" name="hfilm" value="lmoh"><span><b>Mariés LMOH Photography</b><em>Votre film est déjà prêt, rien à envoyer.</em></span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Vos coordonnées</legend>
+          <div class="field"><label for="name">Prénom et nom</label><input id="name" autocomplete="name" required></div>
+          <div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="phoneNum">Téléphone <span class="help">(facultatif)</span></label><input id="phoneNum" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="msg">Un mot pour moi <span class="help">(facultatif)</span></label><textarea id="msg" placeholder="La photo que vous aimeriez, une date à respecter, un cadeau…"></textarea></div>
+          <label class="check optin"><input type="checkbox" id="optin1"> Je souhaite recevoir les offres Maison Ravive par e-mail. Désinscription en un clic à tout moment.</label>
+          <p class="help privacy">Vos coordonnées servent à traiter votre demande et ne sont jamais cédées. <a href="#cgv" data-go="cg14">Données personnelles</a></p>
+          <p class="help">Après votre demande, vous m’envoyez cette photo en pièce jointe, en réponse à mon e-mail. Je la vérifie encore avant toute impression.</p>
+        </fieldset>
+      </div>
+      <aside class="summary" aria-live="polite">
+        <div class="preview"><div class="mini" id="mini"></div></div>
+        <div class="line"><span>Format</span><span id="sumSize">40 × 60 cm</span></div>
+        <div class="line"><span>Finition</span><span id="sumFinish">Cadre noir mat</span></div>
+        <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
+        <div class="line"><span>Coffret cadeau</span><span>inclus</span></div>
+        <div class="line" id="sumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
+        <div class="line"><span>Livraison en France</span><span>offerte</span></div>
+        <div class="total"><span>Total</span><b id="sumTotal">149 €</b></div>
+        <button class="btn" type="submit">Envoyer ma demande</button>
+        <p class="err" id="err" role="alert"></p>
+        <p class="help">Aucun paiement maintenant. Vous validez tout par e-mail avant la fabrication.</p>
+      </aside>
+    </form>
+  </div>
+</section>
+
+<section id="questions" aria-labelledby="t-faq">
+  <div class="wrap faq">
+    <h2 id="t-faq">Vos questions</h2>
+    <details open><summary>Comment fonctionne le tableau ?</summary><p>Une technologie sans contact est intégrée au tableau, derrière un petit repère discret. Approchez votre téléphone de ce repère : une notification apparaît, un toucher et votre film s’ouvre.</p></details>
+    <details><summary>Mon photographe n’est pas LMOH Photography : est-ce possible ?</summary><p>Oui. Le tableau fonctionne avec les photos et le film de votre photographe, quel qu’il soit. Vous m’envoyez la photo et le lien du film, je m’occupe du reste.</p></details>
+    <details><summary>Faut-il installer une application ?</summary><p>Non. Les téléphones compatibles reconnaissent le tableau tout seuls.</p></details>
+    <details><summary>Quels téléphones sont compatibles ?</summary><p>Les iPhone à partir du XS et la plupart des smartphones Android récents. Le téléphone doit être déverrouillé, et sur Android la fonction sans contact activée (elle l’est souvent par défaut).</p></details>
+    <details><summary>Où est hébergé mon film ?</summary><p>Là où il est déjà : YouTube (en non répertorié), Vimeo ou Google Drive. Si votre mariage a été filmé par LMOH Photography, j’utilise directement votre film.</p></details>
+    <details><summary>Puis-je changer de vidéo plus tard ?</summary><p>Oui. Sur simple demande, j’associe une nouvelle vidéo à votre tableau, sans que vous ayez à le renvoyer.</p></details>
+    <details><summary>Faut-il une connexion Internet ?</summary><p>Oui, le téléphone lit la vidéo en ligne, comme sur YouTube. La 4G ou le Wi-Fi suffisent.</p></details>
+    <details><summary>Quelle photo choisir ?</summary><p>Le fichier original de votre photographe, de préférence. Je vérifie la définition avant l’impression et je vous préviens si elle est trop faible pour le format choisi.</p></details>
+    <details><summary>Comment est fabriqué le tableau ?</summary><p>Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, tendue sur un châssis en bois puis encadrée, en noir mat ou en blanc. En option, elle peut être tirée sous plexiglas pour plus d’éclat.</p></details>
+    <details><summary>Quels sont les délais ?</summary><p>Comptez 2 à 3 semaines entre la validation de votre photo et la livraison. Pour une date précise, comme un anniversaire, dites-le-moi dans votre demande.</p></details>
+    <details><summary>Et si mon tableau ne réagit pas ?</summary><p>Vérifiez que votre téléphone est déverrouillé et approchez-le bien du repère. Chaque tableau est testé avant l’envoi ; en cas de souci, je trouve une solution avec vous.</p></details>
+    <details><summary>Puis-je retourner mon tableau ?</summary><p>Comme tout produit personnalisé, il n’ouvre pas droit à rétractation (article L221-28 du Code de la consommation). Tout défaut de fabrication est bien sûr pris en charge.</p></details>
+  </div>
+</section>
+</main>
+
+<!-- ============ ENTREPRISES ET ÉVÉNEMENTS ============ -->
+<main id="v-entreprises" hidden>
+<section class="hero" aria-labelledby="t-ent">
+  <div class="wrap">
+    <div>
+      <p class="product">Entreprises et événements</p>
+      <h1 id="t-ent">Un souvenir pour chaque collaborateur.</h1>
+      <p>Je filme votre événement. Chaque participant reçoit ensuite une carte de remerciement<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les délais">*</a></sup> : il approche son téléphone du repère, et le film de la journée démarre. Sans application, sans QR code. Un tableau garde le même moment dans vos locaux.</p>
+      <div class="actions"><a class="btn" href="#entreprises" data-go="devisEnt">Parler de mon événement</a><a class="btn ghost" href="tel:+33651287900"><span>Appeler le 06 51 28 79 00</span></a></div>
+      <small>Un échange avec le photographe et vidéaste, pas un formulaire automatique. Réponse sous 24 h ouvrées.</small>
+    </div>
+    <figure class="cards" style="margin:0" aria-hidden="true">
+      <div class="ccard c3"></div>
+      <div class="ccard c2"></div>
+      <div class="ccard c1"><div class="cphoto"><img alt="" src="assets/p-0300b8aa.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span class="repere"><svg><use href="#mono"/></svg></span></div><div class="ctext"><b>Merci pour cette belle année</b><svg><use href="#mono"/></svg></div></div>
+      <figcaption>Carte de remerciement, exemple</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="t-year">
+  <div class="wrap">
+    <div class="year-head">
+      <div>
+        <h2 id="t-year">Les temps forts de votre année</h2>
+        <p class="lead">Un film, plusieurs supports. Le repère discret s’adapte à chaque moment : une carte à remettre, une invitation à envoyer, un tableau à accrocher.</p>
+      </div>
+      <button class="sound" type="button" id="soundBtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter le son de la soirée</span></button>
+    </div>
+    <ol class="moments">
+      <li class="moment"><div class="scene k-card" data-film="v850"><div class="sup-card"><img alt="" src="assets/p-fe58433a.jpg"><span class="repere"><svg><use href="#mono"/></svg></span><b>Meilleurs vœux</b></div><div class="mphone" aria-hidden="true"><div class="mscreen"><span class="play"></span><span class="bar"><i></i></span></div></div></div>
+        <div class="mtext"><span class="when">Janvier</span><h3>Les vœux</h3><p>Une carte de vœux envoyée à vos clients et partenaires. Ils approchent leur téléphone : la vidéo de vœux de votre équipe démarre. On s’en souvient plus que d’un e-mail.</p><span class="sup">Carte de vœux</span></div></li>
+      <li class="moment"><div class="scene k-frame" data-film="v827"><div class="sup-frame"><img alt="" src="assets/p-a1e249a6.jpg"><span class="repere"><svg><use href="#mono"/></svg></span></div><div class="mphone" aria-hidden="true"><div class="mscreen"><span class="play"></span><span class="bar"><i></i></span></div></div></div>
+        <div class="mtext"><span class="when">Printemps, rentrée</span><h3>Séminaire et team building</h3><p>Je filme les deux jours. Chaque participant reçoit ensuite sa carte de remerciement avec le film<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les délais">*</a></sup>, et le tableau rejoint la salle de réunion.</p><span class="sup">Carte et tableau</span></div></li>
+      <li class="moment"><div class="scene k-invite" data-film="v778,v826"><div class="sup-invite"><svg class="mono"><use href="#mono"/></svg><small>Vous êtes invités</small><b>Inauguration</b><em>de nos nouveaux locaux</em><span class="repere"><svg><use href="#mono"/></svg></span></div><span class="stamp" aria-hidden="true">Avant l’événement</span><div class="mphone" aria-hidden="true"><div class="mscreen"><span class="play"></span><span class="bar"><i></i></span></div></div></div>
+        <div class="mtext"><span class="when">Le jour J</span><h3>Inauguration</h3><p>Le carton d’invitation ouvre d’abord une courte vidéo d’annonce. Après l’événement, le même carton ouvre le film de l’inauguration<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les conditions">**</a></sup>. Vos invités gardent l’invitation, elle devient le souvenir.</p><span class="sup">Invitation et tableau</span></div></li>
+      <li class="moment"><div class="scene k-frame" data-film="v825"><div class="sup-frame"><img alt="" src="assets/p-73b0f55b.jpg"><span class="repere"><svg><use href="#mono"/></svg></span></div><div class="mphone" aria-hidden="true"><div class="mscreen"><span class="play"></span><span class="bar"><i></i></span></div></div></div>
+        <div class="mtext"><span class="when">10 ans, 20 ans</span><h3>Anniversaire de l’entreprise</h3><p>Le film de votre histoire, des premiers jours à aujourd’hui. Une carte pour chaque salarié, un tableau à l’accueil pour les visiteurs.</p><span class="sup">Carte et tableau</span></div></li>
+      <li class="moment"><div class="scene k-frame" data-film="v849"><div class="sup-frame"><img alt="" src="assets/p-4afb6c8e.jpg"><span class="repere"><svg><use href="#mono"/></svg></span></div><div class="mphone" aria-hidden="true"><div class="mscreen"><span class="play"></span><span class="bar"><i></i></span></div></div></div>
+        <div class="mtext"><span class="when">Toute l’année</span><h3>Départs, médailles, nouveaux arrivants</h3><p>Pour un départ, un tableau avec le film des messages des collègues. Pour un nouvel arrivant, une carte de bienvenue qui ouvre la vidéo d’accueil de la direction.</p><span class="sup">Tableau ou carte</span></div></li>
+      <li class="moment"><div class="scene k-card" data-film="v918"><div class="sup-card"><img alt="" src="assets/p-ba9445b5.jpg"><span class="repere"><svg><use href="#mono"/></svg></span><b>Merci pour cette belle année</b></div><div class="mphone" aria-hidden="true"><div class="mscreen"><span class="play"></span><span class="bar"><i></i></span></div></div></div>
+        <div class="mtext"><span class="when">Décembre</span><h3>Soirée de fin d’année et cadeaux</h3><p>Une carte de remerciement pour chaque collaborateur avec le film de l’année<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les délais">*</a></sup>. Pour vos clients fidèles, un tableau dans son coffret.</p><span class="sup">Carte et tableau</span></div></li>
+    </ol>
+    <p class="credit">Photos, film et son d’une soirée d’entreprise réalisée par LMOH Photography, publiés avec l’accord du client.</p>
+  </div>
+</section>
+
+
+<section class="plaster" aria-labelledby="t-form">
+  <div class="wrap">
+    <h2 id="t-form">Un film, trois supports</h2>
+    <div class="offers">
+      <div class="offer"><h3>La carte de remerciement</h3><p class="price">Pour chaque participant<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les délais">*</a></sup></p><p>Format carte postale, la photo de l’événement au recto, votre message au verso. Elle se remet en main propre ou se glisse dans une enveloppe.</p></div>
+      <div class="offer"><h3>L’invitation qui devient souvenir</h3><p class="price">Avant, puis après l’événement</p><p>Commandée avant le jour J, elle ouvre d’abord une vidéo d’annonce, puis le film de l’événement une fois monté<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les conditions">**</a></sup>. Le lien change, le carton reste le même.</p></div>
+      <div class="offer"><h3>Le tableau des locaux</h3><p class="price">À partir de 99 €</p><p>La photo du moment dans le hall, la salle de réunion ou le bureau de la direction, fabriquée en 2 à 3 semaines<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les délais">*</a></sup>. Le film peut être mis à jour chaque année.</p></div>
+    </div>
+    <div class="pack">
+      <div><h3>Le pack événement</h3><p>Je filme votre événement, je monte le film<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les conditions">***</a></sup>, chaque participant reçoit sa carte de remerciement et le tableau rejoint vos locaux. Un seul interlocuteur, du tournage à la remise des cartes.</p></div>
+      <a class="btn" href="#entreprises" data-go="devisEnt">Étudier mon projet</a>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-proc">
+  <div class="wrap">
+    <h2 id="t-proc">Plus qu’un devis : un regard de professionnel</h2>
+    <p class="lead">Un devis donne un prix. Avant cela, je veux comprendre votre événement et vous dire comment je le vois en images.</p>
+    <ol class="steps">
+      <li><h3>Vous me racontez votre événement</h3><p>Trois questions, deux minutes : l’occasion, le lieu, le nombre de participants.</p></li>
+      <li><h3>On en parle ensemble</h3><p>Un vrai échange pour comprendre ce que vous voulez transmettre à vos équipes. Je vous partage mon œil de photographe et vidéaste : les moments à ne pas manquer, la lumière du lieu, les plans à prévoir.</p></li>
+      <li><h3>Je vous propose ma vision</h3><p>Les plans photo et vidéo que je vous conseille, les supports adaptés, le calendrier, puis un devis détaillé avec un aperçu de votre carte et de votre tableau.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="plaster" id="devisEnt" aria-labelledby="t-dev">
+  <div class="wrap">
+    <h2 id="t-dev">Parlons de votre événement</h2>
+    <p class="lead">Trois questions pour préparer notre échange. Je vous recontacte sous 24 h ouvrées, par téléphone, WhatsApp ou e-mail, pour comprendre votre projet et vous proposer ma vision des images, avant tout devis.</p>
+    <div class="order">
+      <form class="qform" id="qEnt" novalidate data-subject="Devis entreprise">
+        <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+        <p class="stepinfo" aria-live="polite">Étape 1 sur 3 : votre projet</p>
+        <div class="qstep">
+          <fieldset data-l="Occasion" data-req><legend>Pour quelle occasion ?</legend><div class="opts">
+            <div class="opt"><input type="radio" name="e_occ" id="eo1" value="Vœux"><label for="eo1">Vœux</label></div>
+            <div class="opt"><input type="radio" name="e_occ" id="eo2" value="Séminaire"><label for="eo2">Séminaire</label></div>
+            <div class="opt"><input type="radio" name="e_occ" id="eo3" value="Inauguration"><label for="eo3">Inauguration</label></div>
+            <div class="opt"><input type="radio" name="e_occ" id="eo4" value="Anniversaire d’entreprise"><label for="eo4">Anniversaire d’entreprise</label></div>
+            <div class="opt"><input type="radio" name="e_occ" id="eo5" value="Soirée de fin d’année"><label for="eo5">Soirée de fin d’année</label></div>
+            <div class="opt"><input type="radio" name="e_occ" id="eo6" value="Départ en retraite"><label for="eo6">Départ en retraite</label></div>
+            <div class="opt"><input type="radio" name="e_occ" id="eo7" value="Autre"><label for="eo7">Autre</label></div>
+          </div></fieldset>
+          <fieldset data-l="Supports" data-req><legend>Ce qui vous intéresse <span class="help">(plusieurs choix possibles)</span></legend><div class="opts">
+            <div class="opt"><input type="checkbox" name="e_sup" id="es1" value="Cartes de remerciement"><label for="es1">Cartes de remerciement</label></div>
+            <div class="opt"><input type="checkbox" name="e_sup" id="es2" value="Invitations"><label for="es2">Invitations</label></div>
+            <div class="opt"><input type="checkbox" name="e_sup" id="es3" value="Tableau"><label for="es3">Tableau</label></div>
+            <div class="opt"><input type="checkbox" name="e_sup" id="es4" value="Tournage du film"><label for="es4">Tournage du film</label></div>
+          </div></fieldset>
+        </div>
+        <div class="qstep" hidden>
+          <fieldset data-l="Participants" data-req><legend>Combien de participants ?</legend><div class="opts">
+            <div class="opt"><input type="radio" name="e_qty" id="eq1" value="Moins de 20"><label for="eq1">Moins de 20</label></div>
+            <div class="opt"><input type="radio" name="e_qty" id="eq2" value="20 à 50"><label for="eq2">20 à 50</label></div>
+            <div class="opt"><input type="radio" name="e_qty" id="eq3" value="50 à 150"><label for="eq3">50 à 150</label></div>
+            <div class="opt"><input type="radio" name="e_qty" id="eq4" value="Plus de 150"><label for="eq4">Plus de 150</label></div>
+          </div></fieldset>
+          <div class="two-col">
+            <div class="field"><label for="e_date">Date de l’événement</label><input id="e_date" type="text" data-l="Date" placeholder="Ex. 14 mars, ou pas encore fixée"></div>
+            <div class="field"><label for="e_city">Ville</label><input id="e_city" type="text" data-l="Ville" placeholder="Ex. Lyon 7e" autocomplete="address-level2"></div>
+          </div>
+          <div class="field"><label for="e_msg">Quelques mots sur votre projet <span class="help">(facultatif)</span></label><textarea id="e_msg" data-l="Projet" placeholder="Lieu, déroulé, message à faire passer à l’équipe…"></textarea></div>
+        </div>
+        <div class="qstep" hidden>
+          <div class="two-col">
+            <div class="field"><label for="e_name">Prénom et nom</label><input id="e_name" autocomplete="name" data-l="Nom" required></div>
+            <div class="field"><label for="e_comp">Entreprise</label><input id="e_comp" autocomplete="organization" data-l="Entreprise"></div>
+            <div class="field"><label for="e_mail">E-mail professionnel</label><input id="e_mail" type="email" autocomplete="email" data-l="E-mail" required></div>
+            <div class="field"><label for="e_tel">Téléphone</label><input id="e_tel" type="tel" autocomplete="tel" data-l="Téléphone"></div>
+          </div>
+          <fieldset data-l="Être recontacté par"><legend>Je préfère être recontacté</legend><div class="opts">
+            <div class="opt"><input type="radio" name="e_pref" id="ep1" value="Téléphone" checked><label for="ep1">Par téléphone</label></div>
+            <div class="opt"><input type="radio" name="e_pref" id="ep3" value="WhatsApp"><label for="ep3">Sur WhatsApp</label></div>
+            <div class="opt"><input type="radio" name="e_pref" id="ep2" value="E-mail"><label for="ep2">Par e-mail</label></div>
+          </div></fieldset>
+        </div>
+        <p class="err" role="alert"></p>
+        <div class="qnav"><button class="btn" type="button" data-next>Continuer</button><button class="linkbtn" type="button" data-prev hidden>Retour</button></div>
+        <p class="ok" role="status">Votre message est prêt dans votre messagerie. Envoyez-le : je vous recontacte sous 24 h ouvrées pour en parler ensemble.</p>
+      </form>
+      <aside class="summary direct">
+        <h3>Vous préférez en parler ?</h3>
+        <p>Appelez-moi directement, ou écrivez-moi. Je réponds moi-même.</p>
+        <a class="btn" href="tel:+33651287900">Appeler le 06 51 28 79 00</a>
+        <a class="btn ghost" href="https://wa.me/33651287900?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20Le%20Tableau%20Vivant%20pour%20un%20%C3%A9v%C3%A9nement%20d%E2%80%99entreprise." target="_blank" rel="noopener"><span>Écrire sur WhatsApp</span></a>
+        <a class="btn ghost" href="mailto:contact@maisonravive.fr?subject=Tableau%20Vivant%20%3A%20demande%20entreprise"><span>contact@maisonravive.fr</span></a>
+        <ul>
+          <li>Vous parlez directement au photographe et vidéaste</li>
+          <li>Une proposition de plans photo et vidéo pensée pour votre lieu</li>
+          <li>Devis gratuit et sans engagement</li>
+          <li>Un aperçu de votre carte et de votre tableau avant de décider</li>
+          <li>Tournage autour de Lyon, plus loin sur devis</li>
+          <li>Cartes et tableaux testés sur iPhone et Android</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-faqent">
+  <div class="wrap faq">
+    <h2 id="t-faqent">Questions des entreprises</h2>
+    <details><summary>La carte fonctionne-t-elle comme le tableau ?</summary><p>Oui. Le même repère discret est intégré à la carte : on approche son téléphone, une notification apparaît, un toucher et le film démarre.</p></details>
+    <details><summary>Combien de temps à l’avance faut-il vous contacter ?</summary><p>Pour un tournage, dès que la date est fixée. Tableaux et cartes demandent 2 à 3 semaines de fabrication après validation de la photo<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les délais">*</a></sup>. Pour des cartes de vœux début janvier, contactez-moi dès maintenant.</p></details>
+    <details><summary>Peut-on changer le film plus tard ?</summary><p>Oui. Cartes et tableaux ouvrent un lien que je peux modifier : une invitation peut ouvrir le film de l’événement une fois monté<sup class="ast"><a href="#entreprises" data-go="condEnt" aria-label="Voir les conditions">**</a></sup>, un tableau celui de l’année suivante.</p></details>
+    <details><summary>Pouvez-vous ajouter notre logo et notre message ?</summary><p>Sur les cartes, oui : votre logo et votre message au verso. Sur le tableau, on en parle ensemble, la photo doit rester la vedette.</p></details>
+    <details><summary>Faut-il une application pour vos collaborateurs ?</summary><p>Non. Les iPhone récents et la plupart des smartphones Android reconnaissent la carte et le tableau d’eux-mêmes, écran déverrouillé.</p></details>
+    <details><summary>Où est hébergé le film ?</summary><p>Sur votre chaîne YouTube (en non répertorié), Vimeo ou Google Drive. Le film reste à vous.</p></details>
+  </div>
+</section>
+<section class="plaster" id="condEnt" aria-labelledby="t-cond">
+  <div class="wrap faq">
+    <h2 id="t-cond">Délais et conditions</h2>
+    <p class="notes"><b>*</b> Tableaux et cartes : 2 à 3 semaines de fabrication après validation de la photo et du texte. Les cartes de remerciement qui portent une photo de l’événement sont donc remises après celui-ci.</p>
+    <p class="notes"><b>**</b> Remise le jour J possible : une carte ou une invitation commandée à l’avance, avec un visuel déjà prêt (logo, photo d’équipe, photo du lieu), peut être remise le jour même. Son repère ouvre d’abord une vidéo d’annonce, puis le film de l’événement une fois le montage terminé.</p>
+    <p class="notes"><b>***</b> Le délai de montage du film dépend de la durée de l’événement. Il est indiqué dans ma proposition.</p>
+    <p class="notes">Délais indicatifs, confirmés dans chaque devis. Le détail figure dans nos <a href="#cgv">conditions générales de vente</a>.</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ PROFESSIONNELS PARTENAIRES ============ -->
+<main id="v-partenaires" hidden>
+<section class="hero" aria-labelledby="t-part">
+  <div class="wrap">
+    <div>
+      <p class="product">Partenaires professionnels</p>
+      <h1 id="t-part">Vous le montrez. Je le fabrique. Vous êtes rémunéré.</h1>
+      <p>Un tableau photo qui lance le film du mariage quand on approche son téléphone. Vous le proposez à vos clients, avec les images de leur photographe, quel qu’il soit.</p>
+      <div class="actions"><a class="btn" href="#partenaires" data-go="devisPart">Devenir partenaire</a><a class="btn ghost" href="#partenaires" data-go="t-sit"><span>Voir en situation</span></a></div>
+      <small>Sans stock, sans engagement de volume. Un échange direct avec le photographe et vidéaste qui fabrique chaque tableau.</small>
+    </div>
+    <div class="box" aria-hidden="true"><div class="base"></div><div class="card" id="pCard"></div><div class="ribbon"></div><div class="lid"><svg><use href="#mono"/></svg></div></div>
+  </div>
+</section>
+
+<section class="plaster quick" aria-label="En bref">
+  <div class="wrap">
+    <div><b>Aucun stock</b><span>Chaque tableau est fabriqué à la commande.</span></div>
+    <div><b>Une commission</b><span>Sur chaque vente faite grâce à vous.</span></div>
+    <div><b>Un tableau de démo</b><span>À votre accueil, il se montre tout seul.</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="t-sit">
+  <div class="wrap">
+    <h2 id="t-sit">Chez vous, il se montre tout seul</h2>
+    <p class="lead">Un tableau de démonstration posé chez vous. Vos clients approchent leur téléphone : ils comprennent en trois secondes, et repartent avec l’envie.</p>
+    <div class="p2list">
+      <article class="p2row">
+        <div class="p2 st-inframe" data-k="wed" aria-label="Animation : à l’accueil d’un domaine, un téléphone touche le repère et le tableau lui-même s’anime">
+          <div class="p2bg"></div><div class="dec dec-console"><b></b><i></i><i></i></div>
+          <svg class="dec dec-flowers" viewBox="0 0 80 120" aria-hidden="true"><path d="M40 118V60M40 80C30 70 20 66 10 62M40 74C50 64 60 60 70 58" stroke="#6E5A45" stroke-width="2" fill="none"/><circle cx="10" cy="60" r="7" fill="#EFEDEA"/><circle cx="70" cy="56" r="7" fill="#E4C995"/><circle cx="40" cy="56" r="9" fill="#F6F2EC"/><circle cx="26" cy="46" r="6" fill="#E9D6CC"/><circle cx="56" cy="44" r="6" fill="#EFEDEA"/></svg>
+          <div class="fr"><img alt="" data-src="hero"><video muted playsinline loop preload="none"></video><span class="repere"><svg><use href="#mono"/></svg></span><i class="sweep"></i></div>
+          <div class="ph a"><div class="scr"><span class="msg">Le tableau s’anime…</span></div></div>
+          <span class="chip">Le film démarre dans le tableau</span>
+          
+        </div>
+        <div class="mtext"><span class="when">Domaine, salle de réception</span><h3>À l’accueil, le tableau s’anime</h3><p>Pendant la visite, les futurs mariés touchent le repère. Ce n’est plus une photo au mur : c’est un mariage célébré chez vous qui reprend vie.</p><span class="sup">Tableau 60 × 40 à l’accueil</span></div>
+      </article>
+      <article class="p2row">
+        <div class="p2 st-duo" data-k="v849" aria-label="Animation : dans un bureau, un premier téléphone lance le film, puis le second client demande le même">
+          <div class="p2bg"></div><div class="dec dec-desk"><b></b></div>
+          <svg class="dec dec-laptop" viewBox="0 0 100 60" aria-hidden="true"><rect x="14" y="2" width="72" height="46" rx="3" fill="#2A3140"/><rect x="18" y="6" width="64" height="38" fill="#3D4657"/><path d="M4 50h92l-6 8H10z" fill="#9AA0A8"/></svg>
+          <div class="fr"><img alt="" data-src="ent5"><span class="repere"><svg><use href="#mono"/></svg></span></div>
+          <div class="ph a"><div class="scr"><video muted playsinline loop preload="none"></video></div></div>
+          <div class="ph b"><div class="scr"><video muted playsinline loop preload="none"></video></div></div>
+          <span class="bub">« On peut avoir le même pour nos parents ? »</span>
+          <span class="chip">Ajouté au devis</span>
+          
+        </div>
+        <div class="mtext"><span class="when">Wedding planner, agence événementielle</span><h3>Au rendez-vous, la question vient toute seule</h3><p>Un premier client essaie, le second veut le sien. Vous n’avez rien à vendre : vous ajoutez simplement la ligne au devis.</p><span class="sup">Tableau ou petit cadre</span></div>
+      </article>
+      <article class="p2row">
+        <div class="p2 st-zoom" data-k="wed" aria-label="Animation : en boutique, le téléphone touche le repère, des étincelles dorées apparaissent et le film s’agrandit">
+          <div class="p2bg"></div>
+          <svg class="dec dec-rail" viewBox="0 0 100 140" aria-hidden="true"><path d="M8 10H92M14 10V138M86 10V138" stroke="#B8925A" stroke-width="2.5" fill="none"/><path d="M30 12c-6 10-8 18-4 26l-8 96h28l-6-96c4-8 2-16-4-26z" fill="#FBF9F6" stroke="#E2D8CE"/><path d="M62 12c-6 10-8 18-4 26l-10 96h30l-8-96c4-8 2-16-4-26z" fill="#F3ECE6" stroke="#E2D8CE"/></svg>
+          <div class="fr"><img alt="" data-src="hero"><span class="repere"><svg><use href="#mono"/></svg></span><span class="sparks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="ph a"><div class="scr"><video muted playsinline loop preload="none"></video></div></div>
+          
+        </div>
+        <div class="mtext"><span class="when">Boutique de mariée et de cérémonie</span><h3>En boutique, l’émotion en grand</h3><p>Pendant l’essayage, elle approche son téléphone : quelques étincelles, et le film d’un mariage s’ouvre en grand dans sa main. Votre boutique devient l’endroit où elle l’a découvert.</p><span class="sup">Tableau près des cabines</span></div>
+      </article>
+      <article class="p2row">
+        <div class="p2 st-unbox" data-k="wed" aria-label="Animation : un coffret s’ouvre, le tableau en sort, puis le téléphone lance le film">
+          <div class="p2bg"></div><div class="dec dec-desk"><b></b></div>
+          <svg class="dec dec-softbox" viewBox="0 0 100 160" aria-hidden="true"><path d="M50 70V158M50 158L30 160M50 158L70 160" stroke="#8A8F98" stroke-width="2.5" fill="none"/><path d="M14 10h72l-10 56H24z" fill="#F3F1EE" stroke="#C9CCD1"/><rect x="40" y="64" width="20" height="8" fill="#5A5F68"/></svg>
+          <div class="fr"><img alt="" data-src="hero"><span class="repere"><svg><use href="#mono"/></svg></span></div>
+          <div class="cbox"><i class="cfront"><svg><use href="#mono"/></svg></i><i class="clid"></i></div>
+          <div class="ph a"><div class="scr"><video muted playsinline loop preload="none"></video></div></div>
+          <span class="chip">Livré avec votre reportage</span>
+          
+        </div>
+        <div class="mtext"><span class="when">Photographe, vidéaste</span><h3>À la livraison, un cadeau qui s’ouvre deux fois</h3><p>Vos mariés ouvrent le coffret, découvrent votre photo, puis votre film en touchant le repère. Votre travail, exposé chez eux pour des années, et une vente en plus pour vous.</p><span class="sup">Avec vos images, crédit inclus</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-qui">
+  <div class="wrap">
+    <h2 id="t-qui">Pour qui ?</h2>
+    <p class="lead">Pour tous ceux qui accompagnent un moment important et qui veulent offrir à leurs clients une façon de le revivre.</p>
+    <div class="uses">
+      <div><h3>Photographes et vidéastes</h3><p>Une vente en plus après la livraison des photos et du film, sans rien fabriquer vous-même.</p></div>
+      <div><h3>Wedding planners</h3><p>Le cadeau du premier anniversaire de mariage, à présenter dès la signature du contrat.</p></div>
+      <div><h3>Domaines et salles de réception</h3><p>Un tableau à l’accueil pour montrer vos mariages en vidéo, et une option à glisser dans vos forfaits.</p></div>
+      <div><h3>Boutiques de mariée et de cérémonie</h3><p>Un souvenir à proposer au moment de l’essayage, quand l’émotion est déjà là.</p></div>
+      <div><h3>Agents immobiliers</h3><p>La photo de la maison et sa visite filmée, offertes à la remise des clés.</p></div>
+      <div><h3>Agences événementielles</h3><p>Un souvenir clé en main à intégrer dans vos devis séminaires et soirées.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="plaster" aria-labelledby="t-mod">
+  <div class="wrap">
+    <h2 id="t-mod">Deux façons de travailler ensemble</h2>
+    <div class="offers two">
+      <div class="offer"><h3>Vous recommandez</h3><p class="price">Commission sur chaque vente</p><p>Vous présentez le tableau à vos clients. Je m’occupe de tout le reste : échange, validation de la photo, fabrication et livraison.</p><ul><li>Aucune gestion de votre côté</li><li>Un code ou un lien qui vous identifie</li></ul></div>
+      <div class="offer main"><h3>Vous revendez</h3><p class="price">Tarif professionnel</p><p>Vous achetez au tarif partenaire et vous vendez au prix de votre choix, dans vos propres forfaits.</p><ul><li>Coffret neutre possible</li><li>Expédition chez vous ou directement chez votre client</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-kit">
+  <div class="wrap split">
+    <div>
+      <h2 id="t-kit">Ce que je vous fournis</h2>
+      <p>Un produit se vend mieux quand on peut le mettre entre les mains du client. Vous démarrez avec tout ce qu’il faut pour le montrer.</p>
+    </div>
+    <div class="facts">
+      <div><h3>Un tableau de démonstration</h3><p>Pour votre showroom, votre stand ou vos rendez-vous : vos clients approchent leur téléphone et comprennent tout de suite.</p></div>
+      <div><h3>Des visuels et des textes prêts</h3><p>Photos, courte vidéo et descriptif à reprendre sur votre site, vos réseaux ou vos devis.</p></div>
+      <div><h3>Un seul interlocuteur</h3><p>Une question, une commande urgente : vous m’appelez directement.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-regard">
+  <div class="wrap">
+    <h2 id="t-regard">Plus qu’un fournisseur : un regard de professionnel</h2>
+    <p class="lead">Je ne vous envoie pas un catalogue. Avant de parler conditions, je veux comprendre votre métier et vous dire comment je vois le tableau chez vos clients.</p>
+    <ol class="steps">
+      <li><h3>Vous me présentez votre activité</h3><p>Vos clients, vos lieux, vos moments forts : je veux comprendre comment vous travaillez.</p></li>
+      <li><h3>On en parle ensemble</h3><p>Je vous partage mon œil de photographe et vidéaste : les images qui rendent le mieux en tableau, le format à proposer, la façon de le présenter à vos clients.</p></li>
+      <li><h3>Je vous propose une façon de travailler</h3><p>La formule adaptée, les visuels pour présenter le tableau et les conditions par écrit. Vous décidez ensuite, sans engagement.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="plaster" id="devisPart" aria-labelledby="t-dp">
+  <div class="wrap">
+    <h2 id="t-dp">Parlons de votre activité</h2>
+    <p class="lead">Trois questions pour préparer notre échange. Je vous rappelle sous 24 h ouvrées pour comprendre votre activité et voir ensemble comment le tableau peut enrichir votre offre, avant de parler conditions.</p>
+    <div class="order">
+      <form class="qform" id="qPart" novalidate data-subject="Partenariat">
+        <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+        <p class="stepinfo" aria-live="polite">Étape 1 sur 3 : votre activité</p>
+        <div class="qstep">
+          <fieldset data-l="Métier" data-req><legend>Votre métier</legend><div class="opts">
+            <div class="opt"><input type="radio" name="p_job" id="pj1" value="Photographe ou vidéaste"><label for="pj1">Photographe ou vidéaste</label></div>
+            <div class="opt"><input type="radio" name="p_job" id="pj2" value="Wedding planner"><label for="pj2">Wedding planner</label></div>
+            <div class="opt"><input type="radio" name="p_job" id="pj3" value="Salle ou domaine"><label for="pj3">Salle ou domaine</label></div>
+            <div class="opt"><input type="radio" name="p_job" id="pj4" value="Boutique"><label for="pj4">Boutique</label></div>
+            <div class="opt"><input type="radio" name="p_job" id="pj5" value="Agent immobilier"><label for="pj5">Agent immobilier</label></div>
+            <div class="opt"><input type="radio" name="p_job" id="pj6" value="Agence événementielle"><label for="pj6">Agence événementielle</label></div>
+            <div class="opt"><input type="radio" name="p_job" id="pj7" value="Autre"><label for="pj7">Autre</label></div>
+          </div></fieldset>
+        </div>
+        <div class="qstep" hidden>
+          <fieldset data-l="Formule" data-req><legend>Comment souhaitez-vous travailler ?</legend><div class="opts">
+            <div class="opt"><input type="radio" name="p_mode" id="pm1" value="Recommander"><label for="pm1">Recommander</label></div>
+            <div class="opt"><input type="radio" name="p_mode" id="pm2" value="Revendre"><label for="pm2">Revendre</label></div>
+            <div class="opt"><input type="radio" name="p_mode" id="pm3" value="À voir ensemble"><label for="pm3">À voir ensemble</label></div>
+          </div></fieldset>
+          <fieldset data-l="Clients par an" data-req><legend>Combien de clients accompagnez-vous par an ?</legend><div class="opts">
+            <div class="opt"><input type="radio" name="p_vol" id="pv1" value="Moins de 20"><label for="pv1">Moins de 20</label></div>
+            <div class="opt"><input type="radio" name="p_vol" id="pv2" value="20 à 50"><label for="pv2">20 à 50</label></div>
+            <div class="opt"><input type="radio" name="p_vol" id="pv3" value="Plus de 50"><label for="pv3">Plus de 50</label></div>
+          </div></fieldset>
+        </div>
+        <div class="qstep" hidden>
+          <div class="two-col">
+            <div class="field"><label for="p_name">Prénom et nom</label><input id="p_name" autocomplete="name" data-l="Nom" required></div>
+            <div class="field"><label for="p_comp">Entreprise</label><input id="p_comp" autocomplete="organization" data-l="Entreprise"></div>
+            <div class="field"><label for="p_mail">E-mail</label><input id="p_mail" type="email" autocomplete="email" data-l="E-mail" required></div>
+            <div class="field"><label for="p_tel">Téléphone</label><input id="p_tel" type="tel" autocomplete="tel" data-l="Téléphone"></div>
+          </div>
+          <div class="field"><label for="p_site">Site ou Instagram <span class="help">(facultatif)</span></label><input id="p_site" type="text" data-l="Site" placeholder="Pour découvrir votre travail avant de vous appeler"></div>
+        </div>
+        <p class="err" role="alert"></p>
+        <div class="qnav"><button class="btn" type="button" data-next>Continuer</button><button class="linkbtn" type="button" data-prev hidden>Retour</button></div>
+        <p class="ok" role="status">Votre message est prêt dans votre messagerie. Envoyez-le et je vous rappelle sous 24 h ouvrées.</p>
+      </form>
+      <aside class="summary direct">
+        <h3>Une question avant de vous lancer ?</h3>
+        <p>Un appel de dix minutes suffit souvent pour voir si le tableau a sa place dans votre offre.</p>
+        <a class="btn" href="tel:+33651287900">Appeler le 06 51 28 79 00</a>
+        <a class="btn ghost" href="https://wa.me/33651287900?text=Bonjour%2C%20je%20suis%20professionnel%20et%20j%E2%80%99aimerais%20proposer%20Le%20Tableau%20Vivant%20%C3%A0%20mes%20clients." target="_blank" rel="noopener"><span>Écrire sur WhatsApp</span></a>
+        <a class="btn ghost" href="mailto:contact@maisonravive.fr?subject=Tableau%20Vivant%20%3A%20partenariat"><span>contact@maisonravive.fr</span></a>
+        <ul>
+          <li>Vous échangez avec le photographe qui fabrique chaque tableau</li>
+          <li>Aucun stock à prévoir</li>
+          <li>Aucun engagement de volume</li>
+          <li>Fabriqué et testé près de Lyon</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-faqp">
+  <div class="wrap faq">
+    <h2 id="t-faqp">Questions des partenaires</h2>
+    <details><summary>Je suis photographe : êtes-vous un concurrent ?</summary><p>Non. Le Tableau Vivant se fabrique avec les photos et le film de n’importe quel photographe. Vous gardez vos mariés, vos images et votre crédit ; le tableau devient une vente en plus pour vous.</p></details>
+    <details><summary>Dois-je acheter du stock ?</summary><p>Non. Chaque tableau est fabriqué à la commande, avec la photo et le film de votre client.</p></details>
+    <details><summary>Qui s’occupe du client final ?</summary><p>C’est vous qui choisissez. En recommandation, je gère l’échange de bout en bout. En revente, vous restez son seul contact et je travaille en coulisses.</p></details>
+    <details><summary>Le nom LMOH apparaît-il sur le tableau ?</summary><p>Le repère porte un petit monogramme. En revente, le coffret peut être neutre pour que vous le présentiez sous votre nom.</p></details>
+    <details><summary>Quels sont les délais ?</summary><p>Comptez 2 à 3 semaines de fabrication après validation de la photo<sup class="ast"><a href="#partenaires" data-go="condPart" aria-label="Voir les délais">*</a></sup>. Pour une date précise (mariage, anniversaire, remise de clés), prévenez-moi dès la commande.</p></details>
+    <p class="notes" id="condPart">* Délai indicatif, confirmé à chaque commande. Les conditions de partenariat (commission, tarif professionnel, expédition) vous sont remises par écrit avant toute première commande.</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ LE PETIT CADRE ============ -->
+<main id="v-petit" hidden>
+<section class="hero" aria-labelledby="t-pc">
+  <div class="wrap">
+    <div>
+      <p class="product">Le Petit Tableau Vivant</p>
+      <h1 id="t-pc">Le même souvenir, à poser sur un meuble.</h1>
+      <p>Une photo 10 × 15 cm dans un cadre à poser, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
+      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon petit cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
+      <small>Idéal quand votre photo vient d’un téléphone ou d’une messagerie et n’est pas assez grande pour un grand format.</small>
+    </div>
+    <div class="ps-scene" id="psScene" aria-label="Démonstration : un téléphone approché du petit cadre posé sur une commode lance le film">
+      <div class="ps-wall"></div>
+      <div class="ps-shadow"></div>
+      <svg class="ps-vase" viewBox="0 0 60 120" aria-hidden="true"><path d="M30 70 C28 45 18 30 10 10 M30 70 C33 48 44 32 52 14 M30 70 C30 50 30 30 31 4" fill="none" stroke="#6E5A45" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="10" r="3" fill="#B8925A"/><circle cx="52" cy="14" r="3" fill="#B8925A"/><circle cx="31" cy="5" r="3" fill="#E4C995"/><path d="M18 120 C14 100 16 82 24 72 L36 72 C44 82 46 100 42 120 Z" fill="#EFEDEA" stroke="#CFC6B8"/></svg>
+      <div class="ps-frame"><div class="ps-mat"><div class="ps-photo" id="psPhoto"></div></div><span class="repere" id="psRep"><svg><use href="#mono"/></svg></span><i class="ps-foot"></i></div>
+      <div class="ps-commode"><b class="ps-top"></b><i class="ps-dr"><em></em><em></em></i><i class="ps-dr"><em></em><em></em></i><i class="ps-dr"><em></em><em></em></i></div>
+      <div class="ps-phone" aria-hidden="true"><div class="ps-screen"><div class="ps-lock"><b>16:47</b><span>Approchez du cadre</span></div><video id="psFilm" playsinline muted loop preload="none"></video><div class="ps-notif"><strong>maisonravive.fr</strong>Touchez pour ouvrir votre film</div></div></div>
+      <button class="snd" type="button" id="psSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-pcq">
+  <div class="wrap split">
+    <div>
+      <h2 id="t-pcq">Quand choisir le petit cadre ?</h2>
+      <p>Toutes les photos ne supportent pas un agrandissement en 60 × 40 cm. Plutôt que d’imprimer une image floue, je vous propose un format qui la met en valeur.</p>
+    </div>
+    <div class="facts">
+      <div><h3>Votre photo vient d’un téléphone ou de WhatsApp</h3><p>Une image de 1 200 × 800 pixels suffit. La plupart des photos envoyées par messagerie conviennent.</p></div>
+      <div><h3>Vous voulez un cadeau à poser</h3><p>Sur une table de chevet, un buffet ou un bureau, à hauteur de main : on le prend, on approche son téléphone.</p></div>
+      <div><h3>Vous l’offrez en plusieurs exemplaires</h3><p>Pour les parents et les beaux-parents, le même film dans chaque cadre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="plaster" id="pcOrder" aria-labelledby="t-pco">
+  <div class="wrap">
+    <h2 id="t-pco">Commander mon petit cadre</h2>
+    <p class="lead">Je vérifie votre photo et vous réponds sous 24 h avec un aperçu et le lien de paiement.</p>
+    <form class="order" id="pcForm" novalidate>
+      <div>
+        <fieldset><legend>Finition</legend><div class="opts">
+          <div class="opt"><input type="radio" name="pcfin" id="pcf1" value="Cadre noir" checked><label for="pcf1">Cadre noir</label></div>
+          <div class="opt"><input type="radio" name="pcfin" id="pcf2" value="Cadre blanc"><label for="pcf2">Cadre blanc</label></div>
+        </div></fieldset>
+        <fieldset><legend>Orientation</legend><div class="opts">
+          <div class="opt"><input type="radio" name="pcori" id="pco1" value="paysage" checked><label for="pco1">Paysage</label></div>
+          <div class="opt"><input type="radio" name="pcori" id="pco2" value="portrait"><label for="pco2">Portrait</label></div>
+        </div></fieldset>
+        <fieldset><legend>Votre photo</legend>
+          <p class="help">Minimum : 1 200 × 800 pixels.</p>
+          <div class="field"><label for="pccheck">Ajoutez votre photo</label><input id="pccheck" type="file" accept="image/*"><span class="help">Je la vérifie aussitôt. Choisissez l’original dans votre galerie plutôt qu’une photo reçue par messagerie.</span></div>
+          <div class="pmsg" id="pcmsg" aria-live="polite"></div>
+        </fieldset>
+        <fieldset class="filmset" data-scope="pc"><legend>Votre film</legend>
+          <div class="fopts">
+            <label class="fopt"><input type="radio" name="pcfilm" value="lien" checked><span><b>J’ai un lien</b><em>YouTube, Vimeo ou Google Drive.</em></span></label>
+            <div class="fdet" data-for="lien"><div class="field"><label for="pcvideo">Lien de la vidéo</label><input id="pcvideo" type="url" placeholder="https://youtu.be/…" inputmode="url"></div></div>
+            <label class="fopt"><input type="radio" name="pcfilm" value="fichier"><span><b>Ma vidéo est sur mon téléphone ou mon ordinateur</b><em>Je vous envoie un lien pour la déposer, puis je la mets en ligne pour vous.</em></span></label>
+            <label class="fopt"><input type="radio" name="pcfilm" value="creer"><span><b>Je n’ai pas de film : créez-le pour moi</b><em>À partir de vos vidéos ou de vos photos.</em></span></label>
+            <div class="fdet" data-for="creer"><div class="opts">
+              <div class="opt"><input type="radio" name="pcfilmc" id="pcfilmc1" value="montage" checked><label for="pcfilmc1">Montage de vos vidéos, 1 à 2 min<small>+ 49 €</small></label></div>
+              <div class="opt"><input type="radio" name="pcfilmc" id="pcfilmc2" value="diaporama"><label for="pcfilmc2">Diaporama animé de vos photos<small>+ 29 €</small></label></div>
+            </div><p class="help">Avec une musique libre de droits, choisie ensemble.</p></div>
+            <label class="fopt"><input type="radio" name="pcfilm" value="plus-tard"><span><b>Je l’ajouterai plus tard</b><em>Le tableau part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
+            <label class="fopt"><input type="radio" name="pcfilm" value="lmoh"><span><b>Mariés LMOH Photography</b><em>Votre film est déjà prêt, rien à envoyer.</em></span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Vos coordonnées</legend>
+          <div class="field"><label for="pcname">Prénom et nom</label><input id="pcname" autocomplete="name" required></div>
+          <div class="field"><label for="pcmail">E-mail</label><input id="pcmail" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="pcqty">Nombre de cadres</label><input id="pcqty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
+          <label class="check optin"><input type="checkbox" id="optin2"> Je souhaite recevoir les offres Maison Ravive par e-mail. Désinscription en un clic à tout moment.</label>
+          <p class="help privacy">Vos coordonnées servent à traiter votre demande et ne sont jamais cédées. <a href="#cgv" data-go="cg14">Données personnelles</a></p>
+        </fieldset>
+      </div>
+      <aside class="summary" aria-live="polite">
+        <div class="line"><span>Format</span><span>Photo 10 × 15 cm</span></div>
+        <div class="line"><span>Finition</span><span id="pcSumFin">Cadre noir</span></div>
+        <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
+        <div class="line" id="pcSumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
+        <div class="line"><span>Livraison en France</span><span>offerte</span></div>
+        <div class="total"><span>Total</span><b id="pcTotal">49 €</b></div>
+        <button class="btn" type="submit">Envoyer ma demande</button>
+        <p class="err" id="pcErr" role="alert"></p>
+        <p class="help">Aucun paiement maintenant. Fabrication en 2 à 3 jours ouvrés après validation de la photo<sup class="ast"><a href="#cgv">*</a></sup>.</p>
+      </aside>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ============ CGV ET MENTIONS LÉGALES ============ -->
+<main id="v-noel" hidden>
+<section class="hero" aria-labelledby="t-noel">
+  <div class="wrap">
+    <div>
+      <p class="product">Spécial Noël</p>
+      <h1 id="t-noel">Un cadeau qui s’ouvre deux fois, même au dernier moment.</h1>
+      <p>On ouvre le coffret, puis on approche son téléphone du tableau : le film du plus beau jour démarre. Trois façons de l’offrir, selon le temps qu’il vous reste avant le 24 décembre.</p>
+      <div class="actions"><a class="btn" href="#noel" data-go="noelChoix">Choisir mon cadeau</a><a class="btn ghost" href="#noel" data-go="noelDates"><span>Voir les dates limites</span></a></div>
+      <small class="noel-red">Bon cadeau disponible jusqu’au 24 décembre, envoyé par e-mail.</small>
+    </div>
+    <div aria-hidden="true">
+      <div class="gc gc-hero">
+        <div class="gc-top"><div class="gc-brand"><small>Maison</small>Ravive</div><div class="gc-kind red">Spécial Noël</div></div>
+        <div class="gc-main"><p class="gc-title">Joyeux Noël</p><p class="gc-fmt">Bon cadeau · Petit cadre · Tableau sur toile</p><p class="gc-msg">« Pour revoir ce jour-là chaque fois que vous passerez devant. »</p></div>
+        <div class="gc-bot"><span>Le Tableau Vivant<br>par LMOH Photography</span><svg class="gc-mark"><use href="#mono"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="noelChoix" aria-labelledby="t-noelc">
+  <div class="wrap">
+    <h2 id="t-noelc">Choisissez selon le temps qu’il vous reste</h2>
+    <div class="noel-cards">
+      <article class="noel-card">
+        <span class="noel-badge">Commande avant le 7 décembre</span>
+        <h3>Le tableau sur toile</h3>
+        <p class="price">De 99 à 229 €</p>
+        <p>Le grand format à accrocher au mur, sur toile tendue sur châssis bois.</p>
+        <a class="btn" href="#commande">Créer mon tableau</a>
+      </article>
+      <article class="noel-card">
+        <span class="noel-badge">Commande avant le 18 décembre</span>
+        <h3>Le petit cadre</h3>
+        <p class="price">49 €</p>
+        <p>Une photo 10 × 15 à poser sur un meuble, fabriquée en quelques jours. Idéal pour les grands-parents.</p>
+        <a class="btn" href="#petit-cadre" data-go="pcOrder">Commander</a>
+      </article>
+      <article class="noel-card">
+        <span class="noel-badge">Jusqu’au 24 décembre</span>
+        <h3>Le bon cadeau</h3>
+        <p class="price">De 49 à 229 €</p>
+        <p>Reçu par e-mail après le paiement, à imprimer ou à glisser dans une carte. La personne choisit sa photo et son film après les fêtes.</p>
+        <a class="btn" href="#bon-cadeau" data-go="bcOrder">Offrir un bon cadeau</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="plaster" id="noelDates" aria-labelledby="t-noeld">
+  <div class="wrap split">
+    <div>
+      <h2 id="t-noeld">Dates limites pour Noël</h2>
+      <p>Pour une livraison en France métropolitaine avant le 24 décembre<sup class="ast"><a href="#cgv">*</a></sup>.</p>
+    </div>
+    <ul class="noel-dates">
+      <li><span>Tableau sur toile</span><b>7 décembre</b></li>
+      <li><span>Petit cadre</span><b>18 décembre</b></li>
+      <li><span>Bon cadeau par e-mail</span><b>24 décembre</b></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<main id="v-cadeau" hidden>
+<section class="hero" aria-labelledby="t-bc">
+  <div class="wrap">
+    <div>
+      <p class="product">Bon cadeau</p>
+      <h1 id="t-bc">Offrez le tableau. Ils choisiront le souvenir.</h1>
+      <p>Vous offrez un Tableau Vivant, et la personne qui le reçoit choisit elle-même sa photo et son film, quand elle le souhaite. Le bon arrive par e-mail juste après le paiement, prêt à imprimer ou à transférer.</p>
+      <div class="actions"><a class="btn" href="#bon-cadeau" data-go="bcOrder">Offrir un bon cadeau</a><a class="btn ghost" href="#particuliers"><span>Découvrir le tableau</span></a></div>
+      <small>Idéal quand vous ne savez pas quelle photo choisir, ou quand Noël arrive trop vite.</small>
+    </div>
+    <div aria-hidden="true">
+      <div class="gc gc-hero" id="gcHero"></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-bch">
+  <div class="wrap split">
+    <div>
+      <h2 id="t-bch">Comment ça se passe</h2>
+      <p>Vous n’avez besoin ni de la photo ni du film. Vous choisissez le format, j’envoie le bon, et je m’occupe du reste avec la personne qui le reçoit.</p>
+    </div>
+    <div class="facts">
+      <div><h3>Vous choisissez le format</h3><p>Du petit cadre à poser au grand 90 × 60 cm, avec ou sans plexiglas.</p></div>
+      <div><h3>Vous recevez le bon</h3><p>Un PDF à imprimer ou à glisser dans une carte, avec votre message. Je peux aussi l’envoyer directement à la personne, le jour de votre choix.</p></div>
+      <div><h3>Elle crée son tableau</h3><p>Elle m’envoie sa photo et le lien de son film dans les 12 mois. Je vérifie la photo, je fabrique, je règle le repère et j’expédie le tout dans le coffret.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="plaster" id="bcOrder" aria-labelledby="t-bco">
+  <div class="wrap">
+    <h2 id="t-bco">Offrir un bon cadeau</h2>
+    <p class="lead">Paiement sécurisé par PayPal, avec ou sans compte PayPal.</p>
+    <form class="order" id="bcForm" novalidate>
+      <div>
+        <fieldset><legend>Le tableau offert</legend><div class="opts">
+          <div class="opt"><input type="radio" name="bcfmt" id="bc0" value="petit"><label for="bc0">Petit cadre 10 × 15 <small>49 €</small></label></div>
+          <div class="opt"><input type="radio" name="bcfmt" id="bc1" value="60x40"><label for="bc1">60 × 40 cm <small>99 €</small></label></div>
+          <div class="opt"><input type="radio" name="bcfmt" id="bc2" value="75x50" checked><label for="bc2">75 × 50 cm <small>149 €</small></label></div>
+          <div class="opt"><input type="radio" name="bcfmt" id="bc3" value="90x60"><label for="bc3">90 × 60 cm <small>229 €</small></label></div>
+        </div>
+        <p class="help" style="margin-top:.7rem">Cadre noir mat ou blanc inclus. La personne choisit la couleur et l’orientation, paysage ou portrait, selon sa photo.</p></fieldset>
+        <fieldset><legend>Finition</legend><div class="opts">
+          <div class="opt"><input type="checkbox" id="bcplexi"><label for="bcplexi">Plexiglas brillant <small>+ 50 €</small></label></div>
+        </div></fieldset>
+        <fieldset><legend>Pour qui ?</legend>
+          <div class="field"><label for="bcto">Prénom de la personne <span class="help">(facultatif, figure sur le bon)</span></label><input id="bcto" maxlength="40" autocomplete="off"></div>
+          <div class="field"><label for="bcmsg">Votre message <span class="help">(facultatif)</span></label><textarea id="bcmsg" maxlength="140" placeholder="Pour retrouver ce jour-là chaque fois que vous passerez devant."></textarea><span class="counter" id="bcCount">0 / 140</span></div>
+        </fieldset>
+        <fieldset><legend>Envoi du bon</legend><div class="opts">
+          <div class="opt"><input type="radio" name="bcsend" id="bcs1" value="moi" checked><label for="bcs1">À moi, je l’offre</label></div>
+          <div class="opt"><input type="radio" name="bcsend" id="bcs2" value="direct"><label for="bcs2">Directement à la personne</label></div>
+        </div>
+          <div class="field" id="bcDirect1" hidden style="margin-top:1rem"><label for="bctomail">E-mail de la personne</label><input id="bctomail" type="email" autocomplete="off"></div>
+          <div class="field" id="bcDirect2" hidden><label for="bcdate">Date d’envoi</label><input id="bcdate" type="date"></div>
+        </fieldset>
+        <fieldset><legend>Vos coordonnées</legend>
+          <div class="field"><label for="bcname">Prénom et nom</label><input id="bcname" autocomplete="name" required></div>
+          <div class="field"><label for="bcmail">E-mail</label><input id="bcmail" type="email" autocomplete="email" required></div>
+          <label class="check optin"><input type="checkbox" id="optin3"> Je souhaite recevoir les offres Maison Ravive par e-mail. Désinscription en un clic à tout moment.</label>
+          <p class="help privacy">Vos coordonnées servent à traiter votre demande et ne sont jamais cédées. <a href="#cgv" data-go="cg14">Données personnelles</a></p>
+        </fieldset>
+      </div>
+      <aside class="summary" aria-live="polite">
+        <div class="gc" id="gcLive" aria-label="Aperçu du bon cadeau"></div>
+        <div class="line"><span>Tableau offert</span><span id="bcSumFmt">75 × 50 cm</span></div>
+        <div class="line"><span>Finition</span><span id="bcSumFin">Cadre au choix</span></div>
+        <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
+        <div class="line"><span>Coffret et livraison en France</span><span>offerts</span></div>
+        <div class="line"><span>Valable</span><span>12 mois</span></div>
+        <div class="total"><span>Total</span><b id="bcTotal">149 €</b></div>
+        <button class="btn" type="submit" id="bcPay">Payer avec PayPal</button>
+        <p class="err" id="bcErr" role="alert"></p>
+        <p class="gcnote" id="bcDemo" role="status" hidden>Maquette : sur le site en ligne, ce bouton ouvre le paiement PayPal (compte PayPal ou carte bancaire). Le bon est ensuite envoyé automatiquement par e-mail.</p>
+        <p class="help">Le bon est envoyé par e-mail après le paiement. Le tableau est fabriqué quand la personne envoie sa photo<sup class="ast"><a href="#cgv">*</a></sup>.</p>
+      </aside>
+    </form>
+  </div>
+</section>
+
+<section aria-labelledby="t-bcq">
+  <div class="wrap">
+    <h2 id="t-bcq">Questions sur le bon cadeau</h2>
+    <div class="faq">
+      <details><summary>Combien de temps le bon est-il valable ?</summary><p>12 mois à partir de l’achat. La date limite est écrite sur le bon.</p></details>
+      <details><summary>Je l’offre à Noël : sera-t-il prêt à temps ?</summary><p>Oui. Le bon arrive par e-mail après le paiement, même le 24 décembre. Il n’y a rien à attendre : le tableau, lui, est fabriqué ensuite, quand la personne a choisi sa photo et son film.</p></details>
+      <details><summary>La personne peut-elle choisir un autre format ?</summary><p>Oui. Pour un format plus grand, elle règle simplement la différence.</p></details>
+      <details><summary>Et si sa photo n’est pas assez grande ?</summary><p>Je vérifie chaque photo avant de fabriquer quoi que ce soit. Si elle ne supporte pas l’agrandissement, je préviens la personne et nous choisissons ensemble un format qui la met en valeur, comme le petit cadre.</p></details>
+      <details><summary>Le bon a-t-il un code ?</summary><p>Oui, un code unique, à indiquer au moment de la commande. Si le bon est perdu, je le renvoie sur simple demande.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<main id="v-cgv" hidden>
+<section aria-labelledby="t-cgv">
+  <div class="wrap legal">
+    <h1 id="t-cgv">Conditions générales de vente</h1>
+    <p class="draft">Version de travail, à faire relire avant la mise en ligne. Les mentions entre crochets sont à compléter.</p>
+    <nav class="toc" aria-label="Sommaire"><a href="#cgv" data-go="cg1">Vendeur</a><a href="#cgv" data-go="cg3">Votre photo</a><a href="#cgv" data-go="cg8">Délais</a><a href="#cgv" data-go="cg10">Rétractation</a><a href="#cgv" data-go="cg11">Garanties</a><a href="#cgv" data-go="ml">Mentions légales</a></nav>
+
+    <h2 id="cg1">1. Vendeur</h2>
+    <p>Le Tableau Vivant est une offre de LMOH Photography, [forme juridique et statut], SIRET [à compléter], [adresse], e-mail contact@maisonravive.fr, téléphone 06 51 28 79 00. [TVA non applicable, article 293 B du CGI : à confirmer selon le statut.]</p>
+
+    <h2 id="cg2">2. Objet et champ d’application</h2>
+    <p>Les présentes conditions s’appliquent aux ventes à distance des produits Le Tableau Vivant (tableaux, petits cadres, cartes et invitations munis d’un repère sans contact) et aux prestations de photo et vidéo associées, conclues avec des particuliers comme avec des professionnels. Pour un professionnel, les conditions particulières d’un devis signé priment sur les présentes.</p>
+    <p>Le repère sans contact ouvre une adresse web qui mène à la vidéo choisie. Il fonctionne avec la plupart des smartphones récents, écran déverrouillé, lorsque la lecture sans contact est activée. Certains modèles anciens ou certains réglages peuvent ne pas le permettre. Les couleurs imprimées peuvent légèrement différer de celles affichées à l’écran.</p>
+
+    <h2 id="cg3">3. La photo et la vidéo du client</h2>
+    <p><b>Droits.</b> Le client garantit détenir les droits sur la photo et la vidéo qu’il transmet, y compris l’accord des personnes qui y apparaissent. LMOH Photography refuse tout contenu illicite ou portant atteinte aux droits d’autrui.</p>
+    <p><b>Qualité.</b> Résolutions minimales : 2 400 × 1 600 pixels pour le 60 × 40 cm, 3 000 × 2 000 pour le 75 × 50 cm, 3 600 × 2 400 pour le 90 × 60 cm et 1 200 × 800 pour le petit cadre 10 × 15 cm. Chaque photo est vérifiée avant fabrication. Si sa qualité est insuffisante, LMOH Photography en informe le client et lui propose un format plus petit, le petit cadre 10 × 15 cm ou l’envoi d’une autre photo. Rien n’est fabriqué sans son accord.</p>
+    <p><b>Copies.</b> Les fichiers transmis servent uniquement à la commande et sont supprimés après la livraison, dans un délai de [à définir].</p>
+
+    <h2 id="cg4">4. La vidéo et le lien</h2>
+    <p>La vidéo est hébergée par le client (YouTube en non répertorié, Vimeo, Google Drive ou équivalent), et sa disponibilité dépend alors de cet hébergeur. Si le client n’a pas de lien, il peut confier son fichier à LMOH Photography, qui le met en ligne en non répertorié pendant [durée à définir]. Sur demande, LMOH Photography peut aussi créer le film (montage des vidéos du client ou diaporama de ses photos), avec une musique libre de droits. Le client peut enfin ajouter sa vidéo plus tard : le repère ouvre alors une page d’attente. Le repère pointe vers une adresse de redirection gérée par LMOH Photography, qui peut être modifiée pour ouvrir une autre vidéo sans toucher au produit. Cette redirection est maintenue pendant [durée à définir]. Les conditions d’un changement de vidéo sont les suivantes : [à définir].</p>
+
+    <h2 id="cg5">5. Prix</h2>
+    <p>Les prix sont indiqués en euros, [toutes taxes comprises / TVA non applicable]. La livraison en France métropolitaine est [incluse, à confirmer]. Le prix applicable est celui affiché ou indiqué dans le récapitulatif au moment de la validation de la commande. Un devis est valable 30 jours.</p>
+
+    <h2 id="cg6">6. Commande</h2>
+    <p>La demande se fait par le formulaire du site, par e-mail ou par téléphone. LMOH Photography vérifie la photo et envoie un récapitulatif avec un aperçu. La commande devient ferme lorsque le client valide ce récapitulatif et règle le prix. LMOH Photography peut refuser une commande dont la photo ou la vidéo ne convient pas.</p>
+
+    <h2 id="cg7">7. Paiement</h2>
+    <p>Les produits se règlent à la commande, par un lien de paiement sécurisé [prestataire à préciser]. Pour une prestation de tournage, un acompte de [30 %] est demandé à la signature du devis et le solde à la livraison du film [à valider]. Pour les professionnels, tout retard de paiement entraîne des pénalités au taux de la Banque centrale européenne majoré de 10 points et une indemnité forfaitaire de 40 € pour frais de recouvrement (article L441-10 du Code de commerce).</p>
+
+    <h2 id="cg8">8. Délais</h2>
+    <p>Tableaux, petits cadres et cartes sont fabriqués en 2 à 3 semaines après validation de la photo et du paiement. Ce délai est indicatif et la date prévue est confirmée dans le récapitulatif. Les cartes qui portent une photo de l’événement sont remises après celui-ci. Une carte ou une invitation commandée à l’avance avec un visuel déjà prêt peut être remise le jour de l’événement : son repère ouvre d’abord une vidéo d’annonce, puis le film une fois le montage terminé. Le délai de montage d’un film dépend de la durée de l’événement et figure dans le devis.</p>
+    <p>Pour un consommateur, si le produit n’est pas livré à la date convenue, il peut, après avoir demandé la livraison dans un délai raisonnable, résoudre le contrat dans les conditions des articles L216-6 et suivants du Code de la consommation.</p>
+
+    <h2 id="cg9">9. Livraison et réception</h2>
+    <p>Les produits sont livrés en France métropolitaine [autres destinations sur devis], dans leur coffret, par [transporteur]. Le client vérifie le colis à la réception. En cas de dommage, il émet des réserves précises auprès du transporteur et prévient LMOH Photography sous 48 heures, photos à l’appui. Pour un consommateur, les risques sont transférés au moment où il prend possession du produit (article L216-4 du Code de la consommation).</p>
+
+    <h2 id="cg10">10. Droit de rétractation</h2>
+    <p>Les produits Le Tableau Vivant sont fabriqués à partir de la photo et de la vidéo du client : ils sont nettement personnalisés. Conformément à l’article L221-28, 3° du Code de la consommation, ils ne bénéficient pas du droit de rétractation.</p>
+    <p>Pour une prestation de tournage commandée par un consommateur, le délai de rétractation de 14 jours s’applique. Si le client demande que la prestation commence avant la fin de ce délai, il règle la part déjà réalisée en cas de rétractation (article L221-25). Les professionnels ne bénéficient pas du droit de rétractation.</p>
+
+    <h2 id="cg10b">10 bis. Bons cadeaux</h2>
+    <p>Le bon cadeau donne droit au produit Le Tableau Vivant qu’il indique. Il est valable 12 mois à compter de l’achat, porte un code unique et s’utilise en une seule fois. Il n’est ni remboursable en espèces ni prolongé après sa date de validité [à valider]. Le bénéficiaire peut choisir un format plus cher en réglant la différence [si moins cher : différence remboursée ou conservée en avoir, à valider].</p>
+    <p>Le bon cadeau n’est pas personnalisé au moment de l’achat : l’acheteur consommateur dispose d’un délai de rétractation de 14 jours à compter de l’achat, tant que le bon n’a pas été utilisé. Une fois la photo du bénéficiaire validée, le produit devient personnalisé et l’article 10 s’applique.</p>
+
+    <h2 id="cg11">11. Garanties</h2>
+    <p>Le consommateur bénéficie de la garantie légale de conformité (articles L217-3 et suivants du Code de la consommation), pendant deux ans à compter de la livraison, et de la garantie des vices cachés (articles 1641 et suivants du Code civil).</p>
+    <p class="draft">[Encadré légal obligatoire sur la garantie de conformité à insérer, selon le modèle prévu par le Code de la consommation.]</p>
+    <p>Si le repère ne fonctionne pas à la réception, LMOH Photography le règle de nouveau ou remplace le produit, sans frais pour le client.</p>
+
+    <h2 id="cg12">12. Responsabilité</h2>
+    <p>LMOH Photography ne peut être tenue responsable d’une interruption ou d’une suppression de la vidéo chez son hébergeur, d’un smartphone incompatible ou d’une utilisation non conforme du produit. Une surface métallique placée directement derrière le repère peut gêner la lecture sans contact.</p>
+
+    <h2 id="cg13">13. Prestations photo et vidéo</h2>
+    <p>Les prestations de tournage font l’objet d’un devis. LMOH Photography reste l’auteur des images et cède au client un droit d’utilisation [périmètre à définir, par exemple usage interne et communication de l’entreprise]. Aucune image d’un client n’est publiée par LMOH Photography sans son accord écrit. Le client informe les participants de la présence d’un photographe et vidéaste.</p>
+
+    <h2 id="cg14">14. Données personnelles</h2>
+    <p>Les données transmises (nom, coordonnées, adresse de livraison, photo, lien de la vidéo) servent à traiter la commande, la livraison et la facturation. Elles ne sont ni vendues ni cédées. La photo et le lien de la vidéo sont supprimés après la livraison [délai à préciser]. Les autres données sont conservées le temps de la relation commerciale, puis le temps des obligations légales (pièces comptables : 10 ans).</p>
+    <p><b>Offres par e-mail.</b> LMOH Photography envoie des offres Maison Ravive uniquement aux personnes qui l’ont accepté en cochant la case prévue dans les formulaires. Chaque e-mail contient un lien de désinscription immédiate. Ces données sont conservées 3 ans après le dernier contact, puis supprimées.</p>
+    <p><b>Bon cadeau.</b> L’e-mail du bénéficiaire, quand l’acheteur demande un envoi direct, sert uniquement à lui envoyer le bon et à traiter sa commande. Il ne reçoit aucune offre sans son accord.</p>
+    <p><b>Partenaires.</b> Lorsqu’un client arrive par le lien d’un partenaire, le code de ce partenaire est enregistré avec la commande pour calculer sa commission. Le partenaire ne reçoit aucune coordonnée du client. LMOH Photography n’utilise aucun fichier de clients transmis par un partenaire.</p>
+    <p>Toute personne peut demander l’accès, la rectification ou l’effacement de ses données, ou s’opposer à la prospection, à contact@maisonravive.fr, et saisir la CNIL.</p>
+
+    <h2 id="cg15">15. Médiation et litiges</h2>
+    <p>En cas de litige, le consommateur peut recourir gratuitement au médiateur de la consommation : [nom et coordonnées du médiateur, à compléter]. Les présentes conditions sont soumises au droit français. Pour les professionnels, les tribunaux de [Lyon, à confirmer] sont compétents.</p>
+
+    <h2 id="ml">Mentions légales</h2>
+    <p><b>Éditeur du site :</b> [nom, statut, SIRET, adresse], contact@maisonravive.fr. <b>Directeur de la publication :</b> [à compléter]. <b>Hébergeur :</b> [GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis, à confirmer]. Les photos et vidéos de ce site sont protégées : toute reproduction est interdite sans autorisation.</p>
+    <p class="updated">Dernière mise à jour : [date].</p>
+  </div>
+</section>
+</main>
+
+<dialog class="pdlg" id="pdlg" aria-labelledby="pdlgT">
+  <div class="pdlg-in">
+    <button class="pdlg-x" type="button" aria-label="Fermer">×</button>
+    <div class="pdlg-img" id="pdlgImg"></div>
+    <div>
+      <h3 id="pdlgT"></h3>
+      <p id="pdlgTxt"></p>
+      <div class="pdlg-acts" id="pdlgActs"></div>
+    </div>
+  </div>
+</dialog>
+<footer>
+  <div class="wrap">
+    <div><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><p>Le Tableau Vivant : la photo au mur, le film au creux de la main. Fabriqué près de Lyon.</p></div>
+    <p><a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a><br><a href="tel:+33651287900">06 51 28 79 00</a>, ou <a href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20Le%20Tableau%20Vivant." target="_blank" rel="noopener">sur WhatsApp</a><br><a href="#cgv">Conditions générales de vente et mentions légales</a><br>Site en cours de validation.</p>
+  </div>
+</footer>
+
+<script>
+/* Votre film : lien, fichier, création, plus tard, mariés LMOH */
+(function(){
+var EXTRA={montage:49,diaporama:29},LBL={lien:'lien fourni',fichier:'fichier à déposer (lien de dépôt à envoyer)',creer:'à créer',"plus-tard":'ajouté plus tard (page d’attente)',lmoh:'film LMOH déjà prêt'};
+function set(scope){return document.querySelector('.filmset[data-scope="'+scope+'"]')}
+function mode(scope){var f=set(scope),r=f&&f.querySelector('input[name$="film"]:checked');return r?r.value:'lien'}
+function create(scope){var f=set(scope),r=f&&f.querySelector('input[name$="filmc"]:checked');return r?r.value:'montage'}
+window.mrFilmExtra=function(scope){return mode(scope)==='creer'?EXTRA[create(scope)]:0};
+window.mrFilmLabel=function(scope){var m=mode(scope),f=set(scope);
+  if(m==='lien'){var v=f.querySelector('input[type=url]').value.trim();return v||'lien non indiqué'}
+  if(m==='creer')return create(scope)==='montage'?'à créer : montage des vidéos du client (+ 49 €)':'à créer : diaporama animé des photos (+ 29 €)';
+  return LBL[m]};
+window.mrFilmCheck=function(scope){var f=set(scope);if(mode(scope)!=='lien')return '';var i=f.querySelector('input[type=url]');
+  if(!i.value.trim())return 'Collez le lien de votre vidéo, ou choisissez une autre option ci-dessus.';
+  if(!/^https?:\/\/\S+\.\S+/.test(i.value.trim()))return 'Ce lien ne semble pas complet : il doit commencer par https://';return ''};
+function refresh(scope){var f=set(scope);if(!f)return;var m=mode(scope);
+  f.querySelectorAll('.fdet').forEach(function(d){d.classList.toggle('on',d.dataset.for===m)});
+  var ex=mrFilmExtra(scope),line=document.getElementById(scope==='h'?'sumFilmLine':'pcSumFilmLine');
+  if(line){line.hidden=!ex;line.querySelector('span:last-child').textContent='+ '+ex+' €'}}
+['h','pc'].forEach(function(sc){var f=set(sc);if(!f)return;f.addEventListener('change',function(){refresh(sc);var form=f.closest('form');form.dispatchEvent(new Event('input',{bubbles:true}))});refresh(sc)});
+/* Le grand format recalcule son total au changement */
+var of=document.getElementById('orderForm');
+document.addEventListener('submit',function(e){var sc=e.target.id==='orderForm'?'h':e.target.id==='pcForm'?'pc':null;if(!sc)return;var msg=mrFilmCheck(sc);
+  if(msg){e.preventDefault();e.stopImmediatePropagation();var err=document.getElementById(sc==='h'?'err':'pcErr');err.textContent=msg;var i=set(sc).querySelector('input[type=url]');if(i)i.focus()}},true);
+})();
+</script>
+<script>
+(function(){
+var HERO="assets/p-fa92186c.jpg",PORTRAIT="assets/p-69def764.jpg";
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var stage=document.getElementById('stage'),phone=document.getElementById('phone'),repere=document.getElementById('repere'),film=document.getElementById('film'),sound=document.getElementById('sound');
+document.getElementById('print').style.backgroundImage='url('+HERO+')';
+document.getElementById('giftCard').style.backgroundImage='url('+HERO+')';
+document.querySelectorAll('.fphoto').forEach(function(el){el.style.backgroundImage='url('+HERO+')'});
+var played=false;
+function overlap(){var a=phone.getBoundingClientRect(),b=repere.getBoundingClientRect();return a.left<b.right+10&&a.right>b.left-10&&a.top<b.bottom+10&&a.bottom>b.top-10}
+function trigger(){
+  if(played)return;played=true;stage.classList.remove('waiting');
+  if(navigator.vibrate)navigator.vibrate(30);
+  phone.classList.add('notified');
+  setTimeout(function(){phone.classList.remove('notified');phone.classList.add('playing');film.load();var p=film.play();if(p&&p.catch)p.catch(function(){})},reduce?0:1100);
+}
+function reset(){played=false;phone.classList.remove('playing','notified');film.pause();film.muted=true;sound.textContent='Activer le son';phone.style.transform='';stage.classList.add('waiting')}
+function demo(){
+  reset();
+  var a=phone.getBoundingClientRect(),b=repere.getBoundingClientRect();
+  var dx=(b.left+b.width/2)-(a.left+a.width*.5),dy=(b.top+b.height/2)-(a.top+a.height*.35);
+  phone.style.transform='translate('+dx+'px,'+dy+'px) rotate(-6deg)';
+  setTimeout(trigger,reduce?0:950);
+}
+document.getElementById('replay').addEventListener('click',demo);
+phone.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();demo()}});
+sound.addEventListener('click',function(e){e.stopPropagation();film.muted=!film.muted;sound.textContent=film.muted?'Activer le son':'Couper le son'});
+/* Glisser le téléphone */
+var drag=null;
+phone.addEventListener('pointerdown',function(e){if(e.target===sound)return;drag={x:e.clientX,y:e.clientY,t:phone.style.transform,moved:false};phone.setPointerCapture(e.pointerId);phone.style.transition='none'});
+phone.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)drag.moved=true;phone.style.transform='translate('+dx+'px,'+dy+'px) rotate(-6deg)';if(overlap())trigger()});
+phone.addEventListener('pointerup',function(){if(!drag)return;phone.style.transition='';var moved=drag.moved;drag=null;if(!moved){demo();return}if(!played)phone.style.transform=''});
+/* Démo automatique une fois, quand la scène est visible */
+if(!reduce&&'IntersectionObserver' in window){var once=new IntersectionObserver(function(es){if(es[0].isIntersecting){once.disconnect();setTimeout(function(){if(!played&&!drag)demo()},1400)}},{threshold:.6});once.observe(stage)}
+/* Salon : format et finition (échelle légèrement agrandie pour la lisibilité) */
+var art=document.getElementById('art'),cap=document.getElementById('scaleCap');
+document.getElementById('artPic').style.backgroundImage='url('+HERO+')';
+var mom=document.getElementById('moment');if('IntersectionObserver' in window&&!reduce){new IntersectionObserver(function(es){if(es[0].isIntersecting){var p=mom.play();if(p&&p.catch)p.catch(function(){})}else mom.pause()},{threshold:.3}).observe(document.getElementById('room'))}
+var SIZES={'60x40':[60,40,99],'75x50':[75,50,149],'90x60':[90,60,229]},FIN={noir:['Cadre noir mat',0],blanc:['Cadre blanc',0],plexi:['Plexiglas brillant',50]};
+var cur={size:'75x50',fin:'noir'};
+function scene(){var s=SIZES[cur.size];art.style.width=(s[0]*0.238)+'%';art.className='art '+cur.fin;
+ cap.textContent=cur.size.replace('x',' × ')+' cm, '+FIN[cur.fin][0].toLowerCase()+', au-dessus d’un canapé de 2 m. Rendu indicatif.';
+ document.querySelectorAll('.chip[data-size]').forEach(function(c){c.setAttribute('aria-pressed',c.dataset.size===cur.size)});
+ document.querySelectorAll('.chip[data-fin]').forEach(function(c){c.setAttribute('aria-pressed',c.dataset.fin===cur.fin)});}
+function pick(name,v){var r=document.querySelector('input[name='+name+'][value="'+v+'"]');if(r){r.checked=true;update()}}
+document.querySelectorAll('.chip[data-size]').forEach(function(c){c.addEventListener('click',function(){cur.size=c.dataset.size;pick('size',cur.size)})});
+document.querySelectorAll('.chip[data-fin]').forEach(function(c){c.addEventListener('click',function(){cur.fin=c.dataset.fin;pick('finish',cur.fin)})});
+/* Commande */
+var form=document.getElementById('orderForm'),mini=document.getElementById('mini');
+function val(n){var r=form.querySelector('input[name='+n+']:checked');return r?r.value:''}
+function update(){
+  var size=val('size'),fin=val('finish'),ori=val('ori'),s=SIZES[size],total=s[2]+FIN[fin][1]+(window.mrFilmExtra?mrFilmExtra('h'):0);
+  var big=ori==='paysage'?[s[0],s[1]]:[s[1],s[0]],k=2.1;
+  mini.style.width=(big[0]*k)+'px';mini.style.height=(big[1]*k)+'px';mini.style.backgroundImage='url('+(ori==='paysage'?HERO:PORTRAIT)+')';
+  mini.className='mini '+fin;
+  document.getElementById('sumSize').textContent=size.replace('x',' × ')+' cm, '+ori;
+  document.getElementById('sumFinish').textContent=FIN[fin][0];
+  document.querySelectorAll('small[data-p]').forEach(function(el){el.textContent=(SIZES[el.dataset.p][2]+FIN[fin][1])+' €'});
+  document.getElementById('sumTotal').textContent=total+' €';
+  cur.size=size;cur.fin=fin;scene();
+  return total;
+}
+form.addEventListener('change',update);form.addEventListener('input',update);update();
+form.addEventListener('submit',function(e){
+  e.preventDefault();var err=document.getElementById('err');
+  var name=document.getElementById('name').value.trim(),email=document.getElementById('email').value.trim();
+  if(!name){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('name').focus();return}
+  if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir la confirmation.';document.getElementById('email').focus();return}
+  err.textContent='';
+  var total=update(),body=['Format : '+document.getElementById('sumSize').textContent,'Finition : '+document.getElementById('sumFinish').textContent,'Total : '+total+' €','Photo : '+(document.getElementById('lmohc')&&document.getElementById('lmohc').checked?'à choisir avec LMOH':(window.LMOH_PHOTO||'à envoyer')),'Film : '+(window.mrFilmLabel?mrFilmLabel('h'):document.getElementById('video').value.trim()),'Nom : '+name,'E-mail : '+email,'Téléphone : '+(document.getElementById('phoneNum').value.trim()||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin1').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun'),'',document.getElementById('msg').value.trim()].join('\n');
+  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : demande de '+name)+'&body='+encodeURIComponent(body+mrRef());
+});
+})();
+</script>
+<script>
+(function(){
+/* Onglets : particuliers, entreprises, partenaires */
+var VIEWS={particuliers:'top',noel:'v-noel','bon-cadeau':'v-cadeau','petit-cadre':'v-petit',entreprises:'v-entreprises',partenaires:'v-partenaires',cgv:'v-cgv'};
+var TITLES={particuliers:'Le Tableau Vivant | LMOH Photography',noel:'Spécial Noël | Le Tableau Vivant','bon-cadeau':'Bon cadeau | Le Tableau Vivant','petit-cadre':'Le petit cadre | Le Tableau Vivant',cgv:'Conditions générales de vente | Le Tableau Vivant',entreprises:'Entreprises et événements | Le Tableau Vivant',partenaires:'Partenaires professionnels | Le Tableau Vivant'};
+var CTA={particuliers:['Créer mon tableau','#commande',null],noel:['Choisir mon cadeau','#noel','noelChoix'],'bon-cadeau':['Offrir','#bon-cadeau','bcOrder'],'petit-cadre':['Commander','#petit-cadre','pcOrder'],cgv:['Créer mon tableau','#commande',null],entreprises:['Parlons-en','#entreprises','devisEnt'],partenaires:['Parlons-en','#partenaires','devisPart']};
+var cta=document.getElementById('hdrCta'),current=null;
+function route(){
+  var h=decodeURIComponent(location.hash.slice(1)),view=VIEWS[h]&&h!=='particuliers'?h:'particuliers';
+  Object.keys(VIEWS).forEach(function(k){document.getElementById(VIEWS[k]).hidden=(k!==view)});
+  document.querySelectorAll('.tabs a').forEach(function(a){if(a.dataset.view===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  document.querySelectorAll('.bar nav a[data-home]').forEach(function(a){a.style.display=view==='particuliers'?'':'none'});
+  cta.textContent=CTA[view][0];cta.setAttribute('href',CTA[view][1]);cta.dataset.go=CTA[view][2]||'';
+  document.title=TITLES[view];
+  var changed=current!==view;current=view;
+  var target=view==='particuliers'&&h&&h!=='particuliers'&&h!=='top'?document.getElementById(h):null;
+  if(target)requestAnimationFrame(function(){target.scrollIntoView()});
+  else if(changed)window.scrollTo(0,0);
+}
+addEventListener('hashchange',route);route();
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-go]');if(!a||!a.dataset.go)return;
+  var t=document.getElementById(a.dataset.go);if(!t)return;
+  e.preventDefault();t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+});
+var pc=document.getElementById('pCard'),gc=document.getElementById('giftCard');if(pc&&gc)pc.style.backgroundImage=gc.style.backgroundImage;
+
+/* Formulaires de devis en 3 étapes */
+var NAMES={qEnt:['votre projet','les détails','vos coordonnées'],qPart:['votre activité','votre façon de travailler','vos coordonnées']};
+document.querySelectorAll('.qform').forEach(function(f){
+  var steps=f.querySelectorAll('.qstep'),bars=f.querySelectorAll('.progress i'),info=f.querySelector('.stepinfo'),err=f.querySelector('.err'),next=f.querySelector('[data-next]'),prev=f.querySelector('[data-prev]'),ok=f.querySelector('.ok'),i=0,names=NAMES[f.id];
+  function show(){steps.forEach(function(s,k){s.hidden=k!==i});bars.forEach(function(b,k){b.classList.toggle('on',k<=i)});
+    info.textContent='Étape '+(i+1)+' sur '+steps.length+' : '+names[i];prev.hidden=i===0;next.textContent=i===steps.length-1?'Envoyer ma demande':'Continuer';err.textContent=''}
+  function check(){var s=steps[i],bad=null;
+    s.querySelectorAll('fieldset[data-req]').forEach(function(fs){if(!bad&&!fs.querySelector('input:checked'))bad=[fs.querySelector('input'),'Choisissez une réponse pour « '+fs.querySelector('legend').textContent+' ».']});
+    s.querySelectorAll('input[required]').forEach(function(inp){if(!bad&&!inp.value.trim())bad=[inp,'Indiquez votre '+inp.labels[0].textContent.toLowerCase()+'.']});
+    var m=s.querySelector('input[type=email]');if(!bad&&m&&!/^\S+@\S+\.\S+$/.test(m.value.trim()))bad=[m,'Indiquez une adresse e-mail valide pour recevoir le devis.'];
+    if(bad){err.textContent=bad[1];bad[0].focus();return false}return true}
+  next.addEventListener('click',function(){
+    if(!check())return;
+    if(i<steps.length-1){i++;show();var first=steps[i].querySelector('input,textarea');if(first)first.focus({preventScroll:true});return}
+    var lines=[];f.querySelectorAll('[data-l]').forEach(function(el){var v=el.tagName==='FIELDSET'?Array.prototype.map.call(el.querySelectorAll('input:checked'),function(x){return x.value}).join(', '):el.value.trim();lines.push(el.dataset.l+' : '+(v||'non précisé'))});
+    var who=(f.querySelector('input[autocomplete=organization]').value.trim()||f.querySelector('input[autocomplete=name]').value.trim());
+    location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : '+f.dataset.subject+', '+who)+'&body='+encodeURIComponent(lines.join('\n')+mrRef());
+    ok.classList.add('show');
+  });
+  prev.addEventListener('click',function(){if(i>0){i--;show()}});
+  f.addEventListener('submit',function(e){e.preventDefault()});
+  show();
+});
+})();
+</script>
+<script>
+(function(){var pr=document.getElementById('print'),m=pr&&pr.style.backgroundImage.match(/url\(["']?(.*?)["']?\)$/),hero=m?m[1]:'';
+var e5=document.querySelectorAll('#v-entreprises .moment')[4],ent=e5?e5.querySelector('img').getAttribute('src'):'';
+document.querySelectorAll('img[data-src]').forEach(function(i){i.src=i.dataset.src==='hero'?hero:ent})})();
+</script>
+<script>window.CA_VIDS={"v850":"assets/v-b1b1ea29.mp4","v827":"assets/v-c0126444.mp4","v778":"assets/v-28078745.mp4","v826":"assets/v-b3f54141.mp4","v825":"assets/v-3eecf829.mp4","v849":"assets/v-4bfa6402.mp4","v918":"assets/v-63b80f2a.mp4"};window.CA_VIDS.wed=(document.querySelector('#film source')||{}).src;</script>
+<script>
+(function(){
+/* Un vrai plan vidéo par scène, assorti à la photo du support */
+var URLS={};
+function vurl(k){if(URLS[k])return URLS[k];var d=window.CA_VIDS[k];if(!d)return '';if(d.indexOf('data:')!==0)return URLS[k]=d;var bin=atob(d.split(',')[1]),u8=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)u8[i]=bin.charCodeAt(i);return URLS[k]=URL.createObjectURL(new Blob([u8],{type:'video/mp4'}))}
+var soundOn=false,PLAY=4400,scenes=[];
+var ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+document.querySelectorAll('.scene[data-film]').forEach(function(sc){
+  var spec=sc.dataset.film.split(','),scr=sc.querySelector('.mscreen'),stamp=sc.querySelector('.stamp'),play=scr.querySelector('.play');
+  var vids=spec.map(function(k){var v=document.createElement('video');v.className='sl vid';v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='metadata';v.dataset.k=k;scr.insertBefore(v,play);return v});
+  var teaser=vids.length>1,tz=null;
+  if(teaser){tz=document.createElement('div');tz.className='tzo';tz.innerHTML='Inauguration<i>Bientôt chez vous</i>';scr.insertBefore(tz,play)}
+  var b=document.createElement('button');b.type='button';b.className='snd';b.setAttribute('aria-pressed','false');b.innerHTML=ICON+'<span>Écouter</span>';sc.appendChild(b);
+  b.addEventListener('click',function(e){e.stopPropagation();setSound(!soundOn)});
+  var timers=[],running=false,visible=false,cur=null,total=PLAY*vids.length;
+  sc.style.setProperty('--dur',(total/1000)+'s');
+  function at(ms,fn){timers.push(setTimeout(fn,ms))}
+  function show(v){vids.forEach(function(x){if(x!==v){x.classList.remove('on');x.pause()}});cur=v;if(!v.src)v.src=vurl(v.dataset.k);try{v.currentTime=0}catch(e){}v.muted=!soundOn;v.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  function clear(){timers.forEach(clearTimeout);timers=[];sc.classList.remove('go','hit','play','after');vids.forEach(function(v){v.classList.remove('on');v.pause()});cur=null;if(tz)tz.classList.remove('on');if(stamp)stamp.textContent='Avant l’événement'}
+  function run(){running=true;clear();
+    at(300,function(){sc.classList.add('go')});
+    at(1400,function(){sc.classList.add('hit')});
+    at(1900,function(){sc.classList.add('play');show(vids[0]);if(tz)tz.classList.add('on')});
+    if(teaser)at(1900+PLAY,function(){tz.classList.remove('on');sc.classList.add('after');if(stamp)stamp.textContent='Après l’événement';show(vids[1])});
+    at(1900+total,function(){if(cur)cur.pause();running=false;if(visible)at(1200,run);else clear()});
+  }
+  scenes.push({sc:sc,b:b,mute:function(m){vids.forEach(function(v){v.muted=m})}});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){sc.classList.add('go','play');show(vids[vids.length-1]);return}
+  new IntersectionObserver(function(es){es.forEach(function(e){visible=e.isIntersecting&&!sc.closest('main').hidden;if(visible&&!running)run();if(!visible)vids.forEach(function(v){v.muted=true})})},{threshold:.45}).observe(sc);
+});
+var top=document.getElementById('soundBtn');
+function setSound(on){soundOn=on;
+  scenes.forEach(function(s){s.b.setAttribute('aria-pressed',on);s.b.querySelector('span').textContent=on?'Couper':'Écouter';s.mute(!on)});
+  if(top){top.setAttribute('aria-pressed',on);top.querySelector('span').textContent=on?'Couper le son':'Écouter le son de la soirée'}}
+if(top)top.addEventListener('click',function(){setSound(!soundOn)});
+addEventListener('hashchange',function(){if(location.hash!=='#entreprises')setSound(false)});
+})();
+</script>
+
+
+<script>
+(function(){
+/* Vérification de la résolution de la photo, dès qu’elle est ajoutée */
+var REQ={'60x40':[2400,1600],'75x50':[3000,2000],'90x60':[3600,2400],'10x15':[1200,800]};
+function lbl(k){return k==='10x15'?'10 × 15 cm':k.replace('x',' × ')+' cm'}
+function fits(d,k){var L=Math.max(d[0],d[1]),S=Math.min(d[0],d[1]);return L>=REQ[k][0]&&S>=REQ[k][1]}
+function px(d){return d[0].toLocaleString('fr-FR')+' × '+d[1].toLocaleString('fr-FR')+' pixels'}
+function load(file,cb){var u=URL.createObjectURL(file),im=new Image();im.onload=function(){cb({w:im.naturalWidth,h:im.naturalHeight,url:u,name:file.name,file:file})};im.onerror=function(){URL.revokeObjectURL(u);cb(null)};im.src=u}
+/* Fenêtre de choix */
+var dlg=document.getElementById('pdlg'),dImg=document.getElementById('pdlgImg'),dT=document.getElementById('pdlgT'),dTxt=document.getElementById('pdlgTxt'),dActs=document.getElementById('pdlgActs');
+dlg.querySelector('.pdlg-x').addEventListener('click',function(){dlg.close()});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+function ask(ph,title,txt,acts){dImg.style.backgroundImage='url('+ph.url+')';dT.textContent=title;dTxt.textContent=txt;dActs.innerHTML='';
+  acts.forEach(function(a,i){var b=document.createElement('button');b.type='button';b.className=i===0?'btn':'btn ghost';b.innerHTML=i===0?a[0]:'<span>'+a[0]+'</span>';b.addEventListener('click',function(){dlg.close();a[1]()});dActs.appendChild(b)});
+  if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');var f=dActs.querySelector('button');if(f)f.focus()}
+function repick(inp){inp.value='';setTimeout(function(){inp.click()},150)}
+/* Grand format */
+var of=document.getElementById('orderForm'),pin=document.getElementById('pcheck'),pmsg=document.getElementById('pmsg'),lm=document.getElementById('lmohc'),mini=document.getElementById('mini'),photo=null;
+function curSize(){var r=of.querySelector('input[name=size]:checked');return r?r.value:'75x50'}
+function setSize(k){var r=of.querySelector('input[name=size][value="'+k+'"]');if(r){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}))}}
+function toPetit(ph){
+  var pc=document.getElementById('pccheck');
+  try{var dt=new DataTransfer();dt.items.add(ph.file);pc.files=dt.files;pc.dispatchEvent(new Event('change',{bubbles:true}))}catch(e){}
+  [['name','pcname'],['email','pcmail'],['video','pcvideo']].forEach(function(x){var a=document.getElementById(x[0]),b=document.getElementById(x[1]);if(a&&b&&a.value&&!b.value)b.value=a.value});
+  var o=document.getElementById(ph.w>=ph.h?'pco1':'pco2');if(o)o.checked=true;
+  location.hash='#petit-cadre';setTimeout(function(){var t=document.getElementById('pcOrder');if(t)t.scrollIntoView()},250);
+}
+function okFor(k){return photo&&fits([photo.w,photo.h],k)}
+function render(){
+  pmsg.className='pmsg';
+  if(!photo){pmsg.innerHTML='';return}
+  var k=curSize(),t='<span class="thumb" style="background-image:url('+photo.url+')"></span>';
+  if(okFor(k)){pmsg.innerHTML=t+'<p>Votre photo ('+px([photo.w,photo.h])+') convient au '+lbl(k)+'. Je la vérifie aussi moi-même avant l’impression.</p>';return}
+  pmsg.className='pmsg bad';pmsg.innerHTML=t+'<p>Votre photo ('+px([photo.w,photo.h])+') est trop petite pour le '+lbl(k)+'.</p><div class="acts"><button type="button" data-act="choix">Voir mes options</button></div>';
+}
+function decide(){
+  if(!photo)return;
+  var d=[photo.w,photo.h],k=curSize();
+  if(fits(d,k))return;
+  var smaller=['75x50','60x40'].filter(function(s){return REQ[s][0]<REQ[k][0]&&fits(d,s)});
+  var better=['Envoyer une photo de meilleure qualité',function(){repick(pin)}];
+  if(smaller.length){ask(photo,'Trop petite pour le '+lbl(k),'Votre photo fait '+px(d)+'. Imprimée en '+lbl(k)+', elle serait floue. Elle convient au '+lbl(smaller[0])+'.',[['Passer en '+lbl(smaller[0]),function(){setSize(smaller[0])}],better,['Voir le petit cadre 10 × 15 cm',function(){toPetit(photo)}]]);return}
+  if(fits(d,'10x15')){ask(photo,'Parfaite pour le petit cadre','Votre photo fait '+px(d)+' : c’est trop peu pour un grand format, mais idéal pour le petit cadre 10 × 15 cm à poser sur un meuble, avec le même film.',[['Continuer avec le petit cadre',function(){toPetit(photo)}],better]);return}
+  ask(photo,'Photo trop petite','Votre photo fait '+px(d)+', même le petit cadre demande 1 200 × 800 pixels. Ajoutez l’original depuis votre galerie : les photos reçues par WhatsApp ou Messenger sont réduites.',[better]);
+}
+pin.addEventListener('change',function(){var f=pin.files[0];if(photo&&photo.url)URL.revokeObjectURL(photo.url);photo=null;window.LMOH_PHOTO='';
+  if(!f){render();return}
+  load(f,function(ph){if(!ph){pmsg.className='pmsg bad';pmsg.innerHTML='<p>Je n’arrive pas à lire ce fichier. Essayez une photo JPEG ou PNG, ou envoyez-la-moi par e-mail.</p>';return}
+    photo=ph;window.LMOH_PHOTO=ph.name+', '+ph.w+' × '+ph.h+' px';render();if(mini)mini.style.backgroundImage='url('+ph.url+')';decide()})});
+of.addEventListener('change',function(e){if(e.target===pin||e.target===lm)return;render();if(photo&&mini)mini.style.backgroundImage='url('+photo.url+')'});
+pmsg.addEventListener('click',function(e){if(e.target.closest('[data-act=choix]'))decide()});
+lm.addEventListener('change',function(){pin.closest('.field').style.opacity=lm.checked?.45:1});
+document.addEventListener('submit',function(e){if(e.target!==of||lm.checked)return;var err=document.getElementById('err');
+  if(!photo){e.preventDefault();e.stopImmediatePropagation();err.textContent='Ajoutez votre photo : je vérifie qu’elle est assez nette pour le format choisi.';pin.focus();return}
+  if(!okFor(curSize())){e.preventDefault();e.stopImmediatePropagation();err.textContent='Votre photo est trop petite pour ce format.';decide()}},true);
+
+/* Petit cadre */
+var pf=document.getElementById('pcForm'),pcin=document.getElementById('pccheck'),pcmsg=document.getElementById('pcmsg'),PRICE=49,pcp=null;
+pcin.addEventListener('change',function(){var f=pcin.files[0];if(pcp&&pcp.url)URL.revokeObjectURL(pcp.url);pcp=null;if(!f){pcmsg.innerHTML='';return}
+  load(f,function(ph){if(!ph){pcmsg.className='pmsg bad';pcmsg.innerHTML='<p>Je n’arrive pas à lire ce fichier. Essayez une photo JPEG ou PNG, ou envoyez-la-moi par e-mail.</p>';return}
+    pcp=ph;var d=[ph.w,ph.h],t='<span class="thumb" style="background-image:url('+ph.url+')"></span>';
+    if(fits(d,'10x15')){pcmsg.className='pmsg';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') convient au petit cadre.</p>'}
+    else{pcmsg.className='pmsg bad';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') est trop petite, même pour le petit cadre.</p>';
+      ask(ph,'Photo trop petite','Votre photo fait '+px(d)+', le petit cadre demande au moins 1 200 × 800 pixels. Ajoutez l’original depuis votre galerie : les photos reçues par WhatsApp ou Messenger sont réduites.',[['Envoyer une photo de meilleure qualité',function(){repick(pcin)}]])}})});
+function pcUpdate(){var q=Math.max(1,Math.min(20,parseInt(document.getElementById('pcqty').value,10)||1));document.getElementById('pcSumFin').textContent=pf.querySelector('input[name=pcfin]:checked').value;document.getElementById('pcTotal').textContent=(q*PRICE+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €';return q}
+pf.addEventListener('input',pcUpdate);pf.addEventListener('change',pcUpdate);pcUpdate();
+pf.addEventListener('submit',function(e){e.preventDefault();var err=document.getElementById('pcErr'),n=document.getElementById('pcname').value.trim(),m=document.getElementById('pcmail').value.trim();
+  if(!pcp){err.textContent='Ajoutez votre photo : je vérifie qu’elle est assez nette.';pcin.focus();return}
+  if(!fits([pcp.w,pcp.h],'10x15')){err.textContent='Votre photo est trop petite, même pour le petit cadre.';repick(pcin);return}
+  if(!n){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('pcname').focus();return}
+  if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}
+  err.textContent='';var q=pcUpdate();
+  var body=['Produit : petit cadre 10 × 15 cm','Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Total : '+(q*PRICE+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
+  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Petit cadre : demande de '+n)+'&body='+encodeURIComponent(body+mrRef())});
+
+/* Petit cadre sur la commode : démonstration animée */
+var sc=document.getElementById('psScene'),vid=document.getElementById('psFilm'),snd=document.getElementById('psSnd'),pr=document.getElementById('print'),src=document.querySelector('#film source');
+if(pr)document.getElementById('psPhoto').style.backgroundImage=pr.style.backgroundImage;
+var T=[],running=false,visible=false,on=false;
+function at(ms,fn){T.push(setTimeout(fn,ms))}
+function clear(){T.forEach(clearTimeout);T=[];sc.classList.remove('k-go','k-hit','k-notif','k-play');vid.pause()}
+function run(){running=true;clear();
+  at(300,function(){sc.classList.add('k-go')});
+  at(1400,function(){sc.classList.add('k-hit')});
+  at(1700,function(){sc.classList.add('k-notif')});
+  at(2900,function(){if(!vid.src&&src)vid.src=src.src;vid.muted=!on;sc.classList.add('k-play');try{vid.currentTime=0}catch(e){}var p=vid.play();if(p&&p.catch)p.catch(function(){})});
+  at(10500,function(){running=false;if(visible)at(1500,run);else clear()});
+}
+snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vid.muted=!on});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){sc.classList.add('k-go','k-play');if(src)vid.src=src.src}
+else new IntersectionObserver(function(es){es.forEach(function(e){visible=e.isIntersecting&&!sc.closest('main').hidden;if(visible&&!running)run();if(!visible){vid.muted=true;if(on){on=false;snd.setAttribute('aria-pressed','false');snd.querySelector('span').textContent='Écouter'}}})},{threshold:.4}).observe(sc);
+addEventListener('hashchange',function(){if(location.hash==='#petit-cadre'&&!running){visible=true;setTimeout(run,400)}});
+})();
+</script>
+<script>
+(function(){
+/* Partenaires : quatre mises en situation, quatre histoires différentes */
+var cache={},soundOn=false;
+function vsrc(k){if(cache[k])return cache[k];var d=window.CA_VIDS&&window.CA_VIDS[k];if(!d)return'';if(d.indexOf('data:')!==0)return cache[k]=d;var b=atob(d.split(',')[1]),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return cache[k]=URL.createObjectURL(new Blob([u],{type:'video/mp4'}))}
+var ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+var STORIES={
+ inframe:function(sc,at,P){var v=sc.querySelector('.fr video');
+   at(300,function(){sc.classList.add('s1')});at(1400,function(){sc.classList.add('hit')});
+   at(2000,function(){sc.classList.add('s2');sc.classList.remove('hit');P(v)});at(3200,function(){sc.classList.add('chip-on')});
+   return 9500},
+ duo:function(sc,at,P){var va=sc.querySelector('.ph.a video'),vb=sc.querySelector('.ph.b video');
+   at(300,function(){sc.classList.add('a-in')});at(1400,function(){sc.classList.add('hit')});
+   at(1800,function(){va.parentNode.classList.add('on');P(va)});
+   at(4600,function(){sc.classList.remove('a-in','hit');va.pause();sc.classList.add('bub-on')});
+   at(6200,function(){sc.classList.add('b-in')});at(7200,function(){sc.classList.add('hit');sc.classList.remove('bub-on')});
+   at(7600,function(){vb.parentNode.classList.add('on');try{vb.currentTime=2}catch(e){}P(vb)});
+   at(9200,function(){sc.classList.add('chip-on')});
+   return 11500},
+ zoom:function(sc,at,P){var v=sc.querySelector('.ph video');
+   at(300,function(){sc.classList.add('z1')});at(1400,function(){sc.classList.add('hit','spark')});
+   at(2200,function(){sc.classList.remove('z1');sc.classList.add('z2');v.parentNode.classList.add('on');P(v)});
+   return 8800},
+ unbox:function(sc,at,P){var v=sc.querySelector('.ph video');
+   at(400,function(){sc.classList.add('u1')});at(1500,function(){sc.classList.add('u2')});
+   at(2900,function(){sc.classList.add('u3')});at(3900,function(){sc.classList.add('hit')});
+   at(4300,function(){v.parentNode.classList.add('on');P(v);sc.classList.add('chip-on')});
+   return 10500}
+};
+var all=[];
+document.querySelectorAll('.p2').forEach(function(sc){
+  var story=(sc.className.match(/st-(\w+)/)||[])[1],run=STORIES[story];if(!run)return;
+  var vids=sc.querySelectorAll('video'),k=sc.dataset.k,T=[],running=false,visible=false;
+  var b=document.createElement('button');b.type='button';b.className='snd';b.setAttribute('aria-pressed','false');b.innerHTML=ICON+'<span>Écouter</span>';sc.appendChild(b);
+  b.addEventListener('click',function(){setSound(!soundOn)});
+  function at(ms,fn){T.push(setTimeout(fn,ms))}
+  function P(v){if(!v.src)v.src=vsrc(k);v.muted=!soundOn;var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  function reset(){T.forEach(clearTimeout);T=[];sc.className=sc.className.replace(/\s(s1|s2|hit|chip-on|a-in|b-in|bub-on|z1|z2|spark|u1|u2|u3)\b/g,'');vids.forEach(function(v){v.pause();if(v.parentNode.classList)v.parentNode.classList.remove('on')})}
+  function go(){running=true;reset();var len=run(sc,at,P);at(len,function(){running=false;if(visible)at(900,go);else reset()})}
+  all.push({b:b,vids:vids});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){return}
+  new IntersectionObserver(function(es){es.forEach(function(e){visible=e.isIntersecting&&!sc.closest('main').hidden;if(visible&&!running)go();if(!visible)vids.forEach(function(v){v.muted=true})})},{threshold:.45}).observe(sc);
+});
+function setSound(on){soundOn=on;all.forEach(function(s){s.b.setAttribute('aria-pressed',on);s.b.querySelector('span').textContent=on?'Couper':'Écouter';s.vids.forEach(function(v){v.muted=!on})})}
+addEventListener('hashchange',function(){if(location.hash!=='#partenaires')setSound(false)});
+})();
+</script>
+<script>
+(function(){
+/* Bon cadeau */
+var P={petit:49,'60x40':99,'75x50':149,'90x60':229},L={petit:'Petit cadre 10 × 15 cm','60x40':'Tableau 60 × 40 cm','75x50':'Tableau 75 × 50 cm','90x60':'Tableau 90 × 60 cm'};
+var f=document.getElementById('bcForm');if(!f)return;
+var plexi=document.getElementById('bcplexi'),to=document.getElementById('bcto'),msg=document.getElementById('bcmsg'),cnt=document.getElementById('bcCount');
+var d1=document.getElementById('bcDirect1'),d2=document.getElementById('bcDirect2'),date=document.getElementById('bcdate');
+var exp=new Date();exp.setFullYear(exp.getFullYear()+1);
+var expTxt=exp.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+var t=new Date(),iso=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');date.min=iso;date.value=iso;
+function esc(x){return x.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function card(el,o){el.innerHTML='<div class="gc-top"><div class="gc-brand"><small>Maison</small>Ravive</div><div class="gc-kind">Bon cadeau</div></div>'+
+ '<div class="gc-main"><p class="gc-title">'+(o.to?'Pour '+esc(o.to):'Le Tableau Vivant')+'</p><p class="gc-fmt">'+o.fmt+'</p><p class="gc-msg">'+(o.msg?'« '+esc(o.msg)+' »':'')+'</p></div>'+
+ '<div class="gc-bot"><span>Code <b>'+o.code+'</b><br>Valable jusqu’au '+expTxt+'</span><svg class="gc-mark"><use href="#mono"/></svg></div>'}
+card(document.getElementById('gcHero'),{to:'',fmt:'Tableau 75 × 50 cm · cadre au choix',msg:'Pour retrouver ce jour-là chaque fois que vous passerez devant.',code:'MR-7K2Q-9F'});
+function upd(){
+ var v=f.querySelector('input[name="bcfmt"]:checked').value;
+ plexi.disabled=v==='petit';if(plexi.disabled)plexi.checked=false;
+ var px=plexi.checked,total=P[v]+(px?50:0);
+ document.getElementById('bcSumFmt').textContent=L[v].replace('Tableau ','');
+ document.getElementById('bcSumFin').textContent=v==='petit'?'Cadre noir ou blanc':(px?'Plexiglas brillant':'Cadre au choix');
+ document.getElementById('bcTotal').textContent=total+' €';
+ cnt.textContent=msg.value.length+' / 140';
+ var direct=f.querySelector('input[name="bcsend"]:checked').value==='direct';d1.hidden=!direct;d2.hidden=!direct;
+ card(document.getElementById('gcLive'),{to:to.value.trim(),fmt:L[v]+(px?' · plexiglas':(v==='petit'?'':' · cadre au choix')),msg:msg.value.trim(),code:'attribué au paiement'});
+}
+f.addEventListener('input',upd);f.addEventListener('change',upd);upd();
+f.addEventListener('submit',function(e){e.preventDefault();
+ var err=document.getElementById('bcErr'),n=document.getElementById('bcname').value.trim(),m=document.getElementById('bcmail').value.trim();
+ var re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;err.textContent='';document.getElementById('bcDemo').hidden=true;
+ if(!n){err.textContent='Indiquez votre prénom et votre nom.';return}
+ if(!re.test(m)){err.textContent='Indiquez une adresse e-mail valide.';return}
+ if(!d1.hidden&&!re.test(document.getElementById('bctomail').value.trim())){err.textContent='Indiquez l’e-mail de la personne qui reçoit le bon.';return}
+ document.getElementById('bcDemo').hidden=false;
+});
+})();
+</script>
+<script>
+(function(){
+/* Suivi des partenaires : maisonravive.fr/?ref=code, mémorisé 30 jours dans ce navigateur */
+var ref=null;
+try{
+  var q=new URLSearchParams(location.search).get('ref');
+  if(q&&/^[a-z0-9-]{2,40}$/i.test(q)){ref=q.toLowerCase();try{localStorage.setItem('mr_ref',JSON.stringify({r:ref,t:Date.now()}))}catch(e){}}
+  else{var st=null;try{st=JSON.parse(localStorage.getItem('mr_ref')||'null')}catch(e){}if(st&&st.r&&Date.now()-st.t<30*864e5)ref=st.r}
+}catch(e){}
+window.MR_REF=ref;
+if(ref){document.querySelectorAll('.summary').forEach(function(sm){var tot=sm.querySelector('.total');if(!tot)return;var d=document.createElement('div');d.className='line';d.innerHTML='<span>Recommandé par</span><span></span>';d.lastChild.textContent=ref.replace(/-/g,' ');sm.insertBefore(d,tot)})}
+})();
+</script>
+</body>
+</html>
