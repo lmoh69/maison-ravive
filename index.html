@@ -637,6 +637,32 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .preview .mini::after{content:"";position:absolute;top:0;left:100%;width:7px;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,.45)),var(--artimg,#777);background-size:100% 100%,3000% 100%;background-position:0 0,100% 50%;clip-path:polygon(0 0,100% 6%,100% 94%,0 100%)}
 .preview .mini::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.1),transparent 40%,rgba(0,0,0,.08))}
 .cv-p{color:var(--muted)}
+/* En détail : mise en situation réaliste */
+.det .lead{margin-bottom:2rem}
+.dp-scene{position:relative;aspect-ratio:1800/1344;overflow:hidden;border-radius:6px;container-type:inline-size;background:#EDEAE5}
+.dp-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.dp-cv{position:absolute;left:41%;top:21.5%;width:38%;aspect-ratio:3/2;perspective:120cqw}
+.dp-front{position:absolute;inset:0;background:#bbb center/cover;transform:rotateY(-6deg);transform-origin:right center;box-shadow:0 .25cqw .5cqw rgba(30,20,10,.25),1.2cqw 1.6cqw 2.6cqw -.4cqw rgba(48,36,24,.42)}
+.dp-front::before{content:"";position:absolute;top:0;right:100%;width:1cqw;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.42),rgba(0,0,0,.2)),var(--dpimg,#777);background-size:100% 100%,3800% 100%;background-position:0 0,0 50%;clip-path:polygon(0 4%,100% 0,100% 100%,0 96%)}
+.dp-front::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.12),transparent 35%,transparent 70%,rgba(0,0,0,.08))}
+.dp-mark{position:absolute;right:2.6%;bottom:4%;width:2.2cqw;height:2.2cqw;min-width:12px;min-height:12px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;z-index:2;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.dp-mark svg{width:48%;height:54%;color:#2A3140}
+.dp-scene.hit .dp-mark{animation:dpring 1.4s ease-out infinite}
+@keyframes dpring{0%{box-shadow:0 0 0 0 rgba(228,201,149,.85)}100%{box-shadow:0 0 0 2.4cqw rgba(228,201,149,0)}}
+.dp-phone{position:absolute;z-index:3;left:84%;top:96%;width:15%;aspect-ratio:9/19.5;background:#111214;border-radius:15% / 7%;padding:.7%;box-shadow:inset 0 0 0 1px #6c6f76,0 2cqw 3cqw -1cqw rgba(0,0,0,.55);transform:rotate(14deg);transition:left 1.2s cubic-bezier(.2,.8,.2,1),top 1.2s cubic-bezier(.2,.8,.2,1),transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.dp-scene.go .dp-phone{left:70%;top:46%;transform:rotate(-6deg)}
+.dp-scr{position:relative;width:100%;height:100%;border-radius:12% / 5.6%;overflow:hidden;background:linear-gradient(170deg,#2A3140,#14171D)}
+.dp-scr video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s}
+.dp-scene.play .dp-scr video{opacity:1}
+.dp-cap{position:absolute;left:8%;right:8%;bottom:6%;font-size:max(9px,1.05cqw);color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.6);opacity:0;transition:opacity .6s .4s}
+.dp-scene.play .dp-cap{opacity:1}
+.dp-snd{right:2.5%;top:3.5%}
+.dp-row{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;margin-top:clamp(2rem,4vw,3rem)}
+@media (max-width:860px){.dp-row{grid-template-columns:1fr}}
+.dp-close .cv-scene{perspective:70cqw}
+.dp-close .cv{--w:120cqw;--h:80cqw;--d:11cqw;animation:none;transform:translate(-48cqw,34cqw) rotateY(-32deg) rotateX(12deg)}
+.dp-txt h3{margin-bottom:.4rem}
+@media (prefers-reduced-motion:reduce){.dp-phone{transition:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -755,6 +781,34 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 
   </div>
 </section>
+
+<section class="det" aria-labelledby="t-det">
+  <div class="wrap">
+    <h2 id="t-det">Chez vous, elle prend vie</h2>
+    <p class="lead">Une vraie toile au mur, la photo qui fait le tour du châssis. On approche son téléphone du repère : le film du même jour démarre.</p>
+    <div class="dp-scene" id="dpScene">
+      <img class="dp-bg" src="assets/salon-commode.jpg" alt="Toile Maison Ravive accrochée au-dessus d’une commode dans un salon lumineux" loading="lazy" decoding="async">
+      <div class="dp-cv"><div class="dp-front" id="dpFront"><span class="dp-mark"><svg><use href="#mono"/></svg></span></div></div>
+      <div class="dp-phone" aria-hidden="true"><div class="dp-scr"><video id="dpFilm" muted playsinline loop preload="none"></video><span class="dp-cap">Votre film, au même geste</span></div></div>
+      <button class="snd dp-snd" type="button" id="dpSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
+    </div>
+    <div class="dp-row">
+      <div class="cv-stage dp-close" aria-label="Gros plan sur le coin de la toile : la photo fait le tour du châssis">
+        <div class="cv-scene"><div class="cv" data-edge="plie"><i class="cv-sh"></i><div class="cv-f"></div><div class="cv-s cv-r"><i></i></div><div class="cv-s cv-l"><i></i></div><div class="cv-s cv-t"><i></i></div><div class="cv-s cv-b"><i></i></div></div></div>
+      </div>
+      <div class="dp-txt">
+        <h3>Le détail qui fait la différence</h3>
+        <ul class="cv-facts">
+          <li>La photo continue sur les côtés : pas de bord blanc, pas de cadre</li>
+          <li>Une toile mate, sans reflet, même face à une fenêtre</li>
+          <li>Un châssis en bois, léger et prêt à accrocher</li>
+          <li>Un petit repère discret au coin : le seul secret du tableau</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section aria-labelledby="t-gift">
   <div class="wrap gift">
@@ -1984,6 +2038,24 @@ document.querySelectorAll('.edge').forEach(function(b){b.addEventListener('click
 function link(src,dst){if(!src||!dst)return;function up(){var b=src.style.backgroundImage;if(b)dst.style.setProperty('--artimg',b)}up();new MutationObserver(up).observe(src,{attributes:true,attributeFilter:['style']})}
 link(document.getElementById('artPic'),document.getElementById('art'));
 var m=document.getElementById('mini');link(m,m);
+})();
+</script>
+<script>
+(function(){
+/* En détail : image de la toile, téléphone qui lit le film */
+var sc=document.getElementById('dpScene');if(!sc)return;
+var pr=document.getElementById('print'),bg=pr?pr.style.backgroundImage:'',fr=document.getElementById('dpFront');
+fr.style.backgroundImage=bg;fr.style.setProperty('--dpimg',bg);
+document.querySelectorAll('.dp-close').forEach(function(el){el.style.setProperty('--cvimg',bg)});
+var v=document.getElementById('dpFilm'),src=document.querySelector('#film source'),snd=document.getElementById('dpSnd'),T=[],on=false,vis=false,run=false;
+function at(ms,f){T.push(setTimeout(f,ms))}
+function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('go','hit','play');v.pause()}
+function go(){run=true;reset();at(300,function(){sc.classList.add('go')});at(1500,function(){sc.classList.add('hit')});
+  at(2100,function(){if(!v.src&&src)v.src=src.src;v.muted=!on;sc.classList.add('play');try{v.currentTime=0}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){})});
+  at(11000,function(){run=false;if(vis)at(1200,go);else reset()})}
+snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';v.muted=!on});
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){sc.classList.add('go','play');if(src)v.src=src.src;return}
+new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting&&!sc.closest('main').hidden;if(vis&&!run)go();if(!vis){v.muted=true;if(on)snd.click()}})},{threshold:.35}).observe(sc);
 })();
 </script>
 </body>
