@@ -663,6 +663,13 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .dp-close .cv{--w:120cqw;--h:80cqw;--d:11cqw;animation:none;transform:translate(-48cqw,34cqw) rotateY(-32deg) rotateX(12deg)}
 .dp-txt h3{margin-bottom:.4rem}
 @media (prefers-reduced-motion:reduce){.dp-phone{transition:none}}
+.dp-gal{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,2rem);margin-top:clamp(1.5rem,3vw,2.5rem)}
+.dp-gal figure{margin:0}
+.dp-gal img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+.dp-gal figcaption{margin-top:.7rem;font-size:.95rem;color:var(--muted)}
+@media (max-width:700px){.dp-gal{grid-template-columns:1fr}}
+.mat-img{margin:0}
+.mat-img img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -757,17 +764,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <h2 id="t-mat">Une vraie toile, tendue sur châssis</h2>
     <p class="lead">Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, puis tendue sur un châssis en bois. Sans cadre : l’image va jusqu’au bord, prête à accrocher.</p>
     <div class="mat3d">
-      <div class="cv-stage" aria-label="Aperçu en 3D d’une toile sur châssis, qui tourne lentement pour montrer ses bords">
-        <div class="cv-scene">
-          <div class="cv" id="cv3d" data-edge="plie">
-            <i class="cv-sh"></i>
-            <div class="cv-f"><span class="cv-mark"><svg><use href="#mono"/></svg></span></div>
-            <div class="cv-s cv-r"><i></i></div><div class="cv-s cv-l"><i></i></div>
-            <div class="cv-s cv-t"><i></i></div><div class="cv-s cv-b"><i></i></div>
-          </div>
-        </div>
-        <span class="cv-pill" id="cvPill">Toile sur châssis, bords pliés</span>
-      </div>
+      <figure class="mat-img"><img src="assets/toile-3-4.jpg" alt="Toile Maison Ravive sur châssis, vue de trois quarts, bords pliés" loading="lazy" decoding="async"></figure>
       <div class="cv-side">
         <h3>Bords pliés, comme une toile d’artiste</h3>
         <p class="cv-p">La photo est tendue sur le châssis et fait le tour des côtés. Pas de cadre, pas de vitre : juste votre image, en relief sur le mur.</p>
@@ -787,24 +784,13 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <h2 id="t-det">Chez vous, elle prend vie</h2>
     <p class="lead">Une vraie toile au mur, la photo qui fait le tour du châssis. On approche son téléphone du repère : le film du même jour démarre.</p>
     <div class="dp-scene" id="dpScene">
-      <img class="dp-bg" src="assets/salon-commode.jpg" alt="Toile Maison Ravive accrochée au-dessus d’une commode dans un salon lumineux" loading="lazy" decoding="async">
-      <div class="dp-cv"><div class="dp-front" id="dpFront"><span class="dp-mark"><svg><use href="#mono"/></svg></span></div></div>
+      <img class="dp-bg" src="assets/toile-salon.jpg" alt="Toile Maison Ravive accrochée au-dessus d’une commode dans un salon lumineux" loading="lazy" decoding="async">
       <div class="dp-phone" aria-hidden="true"><div class="dp-scr"><video id="dpFilm" muted playsinline loop preload="none"></video><span class="dp-cap">Votre film, au même geste</span></div></div>
       <button class="snd dp-snd" type="button" id="dpSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
     </div>
-    <div class="dp-row">
-      <div class="cv-stage dp-close" aria-label="Gros plan sur le coin de la toile : la photo fait le tour du châssis">
-        <div class="cv-scene"><div class="cv" data-edge="plie"><i class="cv-sh"></i><div class="cv-f"></div><div class="cv-s cv-r"><i></i></div><div class="cv-s cv-l"><i></i></div><div class="cv-s cv-t"><i></i></div><div class="cv-s cv-b"><i></i></div></div></div>
-      </div>
-      <div class="dp-txt">
-        <h3>Le détail qui fait la différence</h3>
-        <ul class="cv-facts">
-          <li>La photo continue sur les côtés : pas de bord blanc, pas de cadre</li>
-          <li>Une toile mate, sans reflet, même face à une fenêtre</li>
-          <li>Un châssis en bois, léger et prêt à accrocher</li>
-          <li>Un petit repère discret au coin : le seul secret du tableau</li>
-        </ul>
-      </div>
+    <div class="dp-gal">
+      <figure><img src="assets/toile-detail.jpg" alt="Gros plan sur le coin de la toile : la photo fait le tour du châssis" loading="lazy" decoding="async"><figcaption>La photo fait le tour du châssis : pas de bord blanc, pas de cadre.</figcaption></figure>
+      <figure><img src="assets/toile-telephone.jpg" alt="Un téléphone lit le film devant la toile accrochée au mur" loading="lazy" decoding="async"><figcaption>Le film du même jour, au creux de la main.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -2044,9 +2030,6 @@ var m=document.getElementById('mini');link(m,m);
 (function(){
 /* En détail : image de la toile, téléphone qui lit le film */
 var sc=document.getElementById('dpScene');if(!sc)return;
-var pr=document.getElementById('print'),bg=pr?pr.style.backgroundImage:'',fr=document.getElementById('dpFront');
-fr.style.backgroundImage=bg;fr.style.setProperty('--dpimg',bg);
-document.querySelectorAll('.dp-close').forEach(function(el){el.style.setProperty('--cvimg',bg)});
 var v=document.getElementById('dpFilm'),src=document.querySelector('#film source'),snd=document.getElementById('dpSnd'),T=[],on=false,vis=false,run=false;
 function at(ms,f){T.push(setTimeout(f,ms))}
 function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('go','hit','play');v.pause()}
