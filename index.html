@@ -11,8 +11,8 @@ try{var q=clean(new URLSearchParams(location.search).get('p'));if(q){localStorag
 window.mrRef=function(){try{var v=JSON.parse(localStorage.getItem(K)||'null');if(v&&Date.now()-v.t<D)return'\n\nPartenaire : '+v.c}catch(e){}return''};})();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Le Tableau Vivant | LMOH Photography</title>
-<meta name="description" content="Votre plus belle photo de mariage, encadrée. Approchez votre téléphone : votre film démarre. Sans application, sans QR code. Dès 99 €.">
+<title>Maison Ravive | Le Tableau Vivant</title>
+<meta name="description" content="Votre plus belle photo de mariage, imprimée sur toile. Approchez votre téléphone : votre film démarre. Sans application, sans QR code. Dès 99 €.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -508,10 +508,10 @@ main[hidden]{display:none}
 .dec-softbox{right:4%;bottom:0;width:18%;height:auto}
 /* Logo Maison Ravive */
 .mrlogo{display:inline-flex;flex-direction:column;align-items:center;line-height:1;color:inherit}
-.mrlogo small{font:300 .5rem/1 var(--serif);letter-spacing:.62em;margin-right:-.62em;margin-bottom:.35rem}
+.mrlogo small{font:300 .5rem/1 var(--serif);letter-spacing:.62em;margin-right:-.62em;margin-bottom:.62rem}
 .mrlogo b{font:300 1.08rem/1 var(--serif);letter-spacing:.3em;margin-right:-.3em}
 .mri{position:relative;display:inline-block}
-.mri svg{position:absolute;left:50%;bottom:96%;width:1.25em;height:.8em;transform:translateX(-62%);color:#E4C995;overflow:visible}
+.mri svg{position:absolute;left:50%;bottom:104%;width:1em;height:.55em;transform:translateX(-62%);color:#E4C995;overflow:visible}
 .mrby{display:flex;align-items:center;gap:.4em;margin-top:.4rem;font:400 .44rem/1 var(--sans);letter-spacing:.32em;color:#E4C995}
 .mrby svg{width:9px;height:10px;color:#E4C995}
 footer .mrlogo{margin-bottom:1rem}
@@ -671,26 +671,40 @@ footer .mrlogo{margin-bottom:1rem}
         <button class="chip" type="button" data-size="75x50" aria-pressed="true"><b>75 × 50 cm</b><span>le plus polyvalent</span></button>
         <button class="chip" type="button" data-size="90x60" aria-pressed="false"><b>90 × 60 cm</b><span>pour un grand mur</span></button>
       </div>
-      <div class="sizes" role="group" aria-label="Finition">
-        <button class="chip" type="button" data-fin="noir" aria-pressed="true"><b>Cadre noir mat</b><span>sobre et élégant</span></button>
-        <button class="chip" type="button" data-fin="blanc" aria-pressed="false"><b>Cadre blanc</b><span>lumineux et doux</span></button>
-        <button class="chip" type="button" data-fin="plexi" aria-pressed="false"><b>Plexiglas</b><span>effet sous verre</span></button>
-      </div>
+      
     </div>
-    <p class="caption" id="scaleCap">75 × 50 cm, cadre noir mat, au-dessus d’un canapé de 2 m. Rendu indicatif.</p>
+    <p class="caption" id="scaleCap">75 × 50 cm, toile sur châssis, au-dessus d’un canapé de 2 m. Rendu indicatif.</p>
     <p class="room-cta"><a class="btn" href="#commande">Voir les prix et commander</a></p>
   </div>
 </section>
 
 <section class="plaster" aria-labelledby="t-mat">
   <div class="wrap">
-    <h2 id="t-mat">Encadré ou sous plexiglas</h2>
-    <p class="lead">Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, tendue sur un châssis en bois, puis encadrée. Pour plus d’éclat, choisissez le plexiglas.</p>
-    <div class="materials">
-      <div class="mat"><div class="swatch frame-noir" aria-hidden="true"><i class="fphoto"></i></div><span class="tag">Inclus</span><h3>Cadre noir mat</h3><p>Sobre et élégant, il donne de la force aux couleurs comme au noir et blanc.</p></div>
-      <div class="mat"><div class="swatch frame-blanc" aria-hidden="true"><i class="fphoto"></i></div><span class="tag">Inclus</span><h3>Cadre blanc</h3><p>Lumineux et doux, parfait pour les intérieurs clairs et les photos pastel.</p></div>
-      <div class="mat"><div class="swatch plexi" aria-hidden="true"><i class="fphoto"></i></div><span class="tag">+ 50 €</span><h3>Plexiglas brillant</h3><p>Des couleurs éclatantes et un effet de profondeur, comme une photo sous verre.</p></div>
+    <h2 id="t-mat">Une vraie toile, tendue sur châssis</h2>
+    <p class="lead">Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, puis tendue sur un châssis en bois. Sans cadre : l’image va jusqu’au bord, prête à accrocher.</p>
+    <div class="mat3d">
+      <div class="cv-stage" aria-label="Aperçu en 3D d’une toile sur châssis, qui tourne lentement pour montrer ses bords">
+        <div class="cv-scene">
+          <div class="cv" id="cv3d" data-edge="plie">
+            <i class="cv-sh"></i>
+            <div class="cv-f"><span class="cv-mark"><svg><use href="#mono"/></svg></span></div>
+            <div class="cv-s cv-r"><i></i></div><div class="cv-s cv-l"><i></i></div>
+            <div class="cv-s cv-t"><i></i></div><div class="cv-s cv-b"><i></i></div>
+          </div>
+        </div>
+        <span class="cv-pill" id="cvPill">Toile sur châssis, bords pliés</span>
+      </div>
+      <div class="cv-side">
+        <h3>Bords pliés, comme une toile d’artiste</h3>
+        <p class="cv-p">La photo est tendue sur le châssis et fait le tour des côtés. Pas de cadre, pas de vitre : juste votre image, en relief sur le mur.</p>
+        <ul class="cv-facts">
+          <li>Toile professionnelle, encres résistantes aux UV</li>
+          <li>Châssis en bois, prêt à accrocher</li>
+          <li>Repère discret posé au coin, testé avant l’envoi</li>
+        </ul>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -700,7 +714,7 @@ footer .mrlogo{margin-bottom:1rem}
     <div>
       <h2 id="t-gift">Un cadeau qui s’ouvre deux fois</h2>
       <p>Une première fois en défaisant le ruban. Une seconde fois quand le téléphone s’approche et que la musique du mariage repart.</p>
-      <p>Chaque tableau arrive dans son coffret LMOH, avec une carte qui explique le geste. Idéal pour un premier anniversaire de mariage, pour des parents, ou simplement pour vous.</p>
+      <p>Chaque tableau arrive dans son coffret Maison Ravive, avec une carte qui explique le geste. Idéal pour un premier anniversaire de mariage, pour des parents, ou simplement pour vous.</p>
       <p><strong>Vous vous êtes mariés avec LMOH Photography ?</strong> Votre film est déjà prêt : je l’associe à votre tableau, vous n’avez rien à envoyer.</p>
     </div>
   </div>
@@ -717,10 +731,10 @@ footer .mrlogo{margin-bottom:1rem}
           <div class="opt"><input type="radio" name="size" id="s2" value="75x50" checked><label for="s2">75 × 50 cm <small data-p="75x50">149 €</small></label></div>
           <div class="opt"><input type="radio" name="size" id="s3" value="90x60"><label for="s3">90 × 60 cm <small data-p="90x60">229 €</small></label></div>
         </div></fieldset>
-        <fieldset><legend>Finition</legend><div class="opts">
-          <div class="opt"><input type="radio" name="finish" id="f1" value="noir" checked><label for="f1">Cadre noir mat <small>inclus</small></label></div>
-          <div class="opt"><input type="radio" name="finish" id="f2" value="blanc"><label for="f2">Cadre blanc <small>inclus</small></label></div>
-          <div class="opt"><input type="radio" name="finish" id="f3" value="plexi"><label for="f3">Plexiglas brillant <small>+ 50 €</small></label></div>
+        <fieldset hidden><legend>Bords de la toile</legend><div class="opts">
+          <div class="opt"><input type="radio" name="finish" id="f1" value="noir" checked><label for="f1">Bords pliés <small>inclus</small></label></div>
+          <div class="opt"><input type="radio" name="finish" id="f2" value="blanc"><label for="f2">Bords blancs <small>inclus</small></label></div>
+          <div class="opt"><input type="radio" name="finish" id="f3" value="plexi"><label for="f3">Bords miroir <small>inclus</small></label></div>
         </div></fieldset>
         <fieldset><legend>Orientation</legend><div class="opts">
           <div class="opt"><input type="radio" name="ori" id="o1" value="paysage" checked><label for="o1">Paysage</label></div>
@@ -759,7 +773,7 @@ footer .mrlogo{margin-bottom:1rem}
       <aside class="summary" aria-live="polite">
         <div class="preview"><div class="mini" id="mini"></div></div>
         <div class="line"><span>Format</span><span id="sumSize">40 × 60 cm</span></div>
-        <div class="line"><span>Finition</span><span id="sumFinish">Cadre noir mat</span></div>
+        <div class="line"><span>Finition</span><span id="sumFinish">Toile, bords pliés</span></div>
         <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
         <div class="line"><span>Coffret cadeau</span><span>inclus</span></div>
         <div class="line" id="sumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
@@ -784,7 +798,7 @@ footer .mrlogo{margin-bottom:1rem}
     <details><summary>Puis-je changer de vidéo plus tard ?</summary><p>Oui. Sur simple demande, j’associe une nouvelle vidéo à votre tableau, sans que vous ayez à le renvoyer.</p></details>
     <details><summary>Faut-il une connexion Internet ?</summary><p>Oui, le téléphone lit la vidéo en ligne, comme sur YouTube. La 4G ou le Wi-Fi suffisent.</p></details>
     <details><summary>Quelle photo choisir ?</summary><p>Le fichier original de votre photographe, de préférence. Je vérifie la définition avant l’impression et je vous préviens si elle est trop faible pour le format choisi.</p></details>
-    <details><summary>Comment est fabriqué le tableau ?</summary><p>Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, tendue sur un châssis en bois puis encadrée, en noir mat ou en blanc. En option, elle peut être tirée sous plexiglas pour plus d’éclat.</p></details>
+    <details><summary>Comment est fabriqué le tableau ?</summary><p>Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, tendue sur un châssis en bois. Sans cadre, prête à accrocher, avec des bords pliés : la photo fait le tour du châssis.</p></details>
     <details><summary>Quels sont les délais ?</summary><p>Comptez 2 à 3 semaines entre la validation de votre photo et la livraison. Pour une date précise, comme un anniversaire, dites-le-moi dans votre demande.</p></details>
     <details><summary>Et si mon tableau ne réagit pas ?</summary><p>Vérifiez que votre téléphone est déverrouillé et approchez-le bien du repère. Chaque tableau est testé avant l’envoi ; en cas de souci, je trouve une solution avec vous.</p></details>
     <details><summary>Puis-je retourner mon tableau ?</summary><p>Comme tout produit personnalisé, il n’ouvre pas droit à rétractation (article L221-28 du Code de la consommation). Tout défaut de fabrication est bien sûr pris en charge.</p></details>
