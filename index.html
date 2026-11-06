@@ -852,6 +852,13 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 @media (max-width:900px){.dp-gal{grid-template-columns:1fr 1fr}}@media (max-width:600px){.dp-gal{grid-template-columns:1fr}}
 .mat-img{margin:0}
 .mat-img img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+.dp-room{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:6px;container-type:inline-size}
+.dp-room img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;aspect-ratio:auto}
+.dp-cv2{position:absolute;left:27%;top:13%;width:46%;aspect-ratio:3/2}
+.dp-f2{position:absolute;inset:0;background:#bbb center/cover;box-shadow:0 .4cqw .8cqw rgba(30,20,10,.22),-1.4cqw 2cqw 3cqw -.6cqw rgba(48,36,24,.4)}
+.dp-f2::before{content:"";position:absolute;left:0;right:0;top:100%;height:1.1cqw;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),var(--dpimg,#777);background-size:100% 100%,100% 4000%;background-position:0 0,50% 100%;clip-path:polygon(0 0,100% 0,99% 100%,1% 100%)}
+.dp-f2::after{content:"";position:absolute;inset:0;background:linear-gradient(250deg,rgba(255,255,255,.12),transparent 40%,rgba(0,0,0,.06))}
+.dp-f2 .dp-mark{width:3.2cqw;height:3.2cqw}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -981,7 +988,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <button class="snd dp-snd" type="button" id="dpSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
     </div>
     <div class="dp-gal">
-      <figure><img src="assets/toile-detail.jpg" alt="Gros plan sur le coin de la toile : la photo fait le tour du châssis" loading="lazy" decoding="async"><figcaption>La photo fait le tour du châssis : pas de bord blanc, pas de cadre.</figcaption></figure>
+      <figure><div class="dp-room"><img src="assets/chambre.jpg" alt="Toile Maison Ravive au-dessus d’un lit, dans une chambre lumineuse" loading="lazy" decoding="async"><div class="dp-cv2"><div class="dp-f2"><span class="dp-mark"><svg><use href="#mono"/></svg></span></div></div></div><figcaption>Au-dessus du lit, la photo qu’on regarde chaque matin.</figcaption></figure>
       <figure><img src="assets/toile-3-4.jpg" alt="Toile Maison Ravive sur châssis, vue de trois quarts" loading="lazy" decoding="async"><figcaption>Une vraie toile, prête à accrocher.</figcaption></figure>
       <figure><img src="assets/toile-telephone.jpg" alt="Un téléphone lit le film devant la toile accrochée au mur" loading="lazy" decoding="async"><figcaption>Le film du même jour, au creux de la main.</figcaption></figure>
     </div>
@@ -2360,6 +2367,9 @@ var room=document.getElementById('nrRoom'),st=document.getElementById('nrStage')
 function fit(){var w=room.clientWidth;if(w)st.style.transform='scale('+(w/2400)+')'}
 fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(room);else addEventListener('resize',fit);
 })();
+</script>
+<script>
+(function(){var pr=document.getElementById('print'),bg=pr?pr.style.backgroundImage:'';document.querySelectorAll('.dp-f2').forEach(function(f){f.style.backgroundImage=bg;f.style.setProperty('--dpimg',bg)})})();
 </script>
 </body>
 </html>
