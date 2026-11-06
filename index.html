@@ -464,6 +464,145 @@ main[hidden]{display:none}
 .noel-dates li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem 0;border-bottom:1px solid var(--line)}
 .noel-dates b{font-weight:400;color:var(--noel)}
 .gc .gc-kind.red{color:#FF8A80}
+
+/* Petit cadre 3D */
+.pf-stage{--pfimg:none}
+.pf-floor{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(#E4DED4,#D6CEC1);box-shadow:0 -1px 0 rgba(26,25,24,.06)}
+.pf-ground{position:absolute;left:31%;width:42%;top:56cqw;height:5cqw;border-radius:50%;background:rgba(40,30,20,.34);filter:blur(1.6cqw)}
+.pf-scene{position:absolute;inset:0;display:grid;place-items:center;perspective:140cqw}
+.pf3{--h:44cqw;--w:31.7cqw;--d:3cqw;--m:2.3cqw;--fc:#181716;--fc2:#0E0D0C;--board:#3A3029;position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;transform:rotateX(-8deg) rotateY(-24deg) rotateX(6deg);animation:pfturn 14s ease-in-out infinite}
+.pf3[data-col="blanc"]{--fc:#F4F2ED;--fc2:#D9D5CD}
+@keyframes pfturn{
+0%{transform:rotateX(-8deg) rotateY(-24deg) rotateX(6deg)}
+28%{transform:rotateX(-8deg) rotateY(16deg) rotateX(6deg)}
+48%{transform:rotateX(-8deg) rotateY(95deg) rotateX(6deg)}
+66%{transform:rotateX(-8deg) rotateY(158deg) rotateX(6deg)}
+80%{transform:rotateX(-8deg) rotateY(204deg) rotateX(6deg)}
+100%{transform:rotateX(-8deg) rotateY(336deg) rotateX(6deg)}}
+@media (prefers-reduced-motion:reduce){.pf3{animation:none}}
+.pf-front{position:absolute;inset:0;box-sizing:border-box;padding:var(--m);background:var(--fc);transform:translateZ(calc(var(--d) / 2));backface-visibility:hidden;box-shadow:inset .25cqw .25cqw .35cqw rgba(255,255,255,.1),inset -.3cqw -.3cqw .45cqw rgba(0,0,0,.35)}
+.pf-mat{position:relative;width:100%;height:100%;background:#F8F6F1;box-shadow:inset 0 0 .7cqw rgba(0,0,0,.28);display:grid;place-items:center}
+.pf-photo{width:74%;aspect-ratio:2/3;margin-bottom:1.2cqw;background:var(--pfimg) center 30%/cover #C9C2B6;box-shadow:0 0 0 .32cqw #FFFFFF,0 0 0 calc(.32cqw + 1px) rgba(0,0,0,.14)}
+.pf-mark{position:absolute;right:6.5%;bottom:3.6%;width:2.5cqw;height:2.5cqw;border-radius:50%;background:#FFFFFF;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.22)}
+.pf-mark svg{width:46%;height:52%;color:#9A7440}
+.pf-glass{position:absolute;inset:var(--m);pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,0) 28%,rgba(255,255,255,.3) 40%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 68%,rgba(255,255,255,.14) 76%,rgba(255,255,255,0) 84%)}
+.pf-s{position:absolute;background:var(--fc);backface-visibility:hidden}
+.pf-s::after{content:"";position:absolute;inset:0}
+.pf-r{top:0;left:calc(var(--w) - var(--d) / 2);width:var(--d);height:100%;transform:rotateY(90deg)}
+.pf-l{top:0;left:calc(var(--d) / -2);width:var(--d);height:100%;transform:rotateY(-90deg)}
+.pf-t{left:0;top:calc(var(--d) / -2);width:100%;height:var(--d);transform:rotateX(90deg)}
+.pf-b{left:0;top:calc(var(--h) - var(--d) / 2);width:100%;height:var(--d);transform:rotateX(-90deg)}
+.pf-r::after{background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(0,0,0,.34))}
+.pf-l::after{background:linear-gradient(270deg,rgba(0,0,0,.08),rgba(0,0,0,.28))}
+.pf-t::after{background:rgba(255,255,255,.12)}
+.pf-b::after{background:rgba(0,0,0,.4)}
+.pf-back{position:absolute;inset:0;box-sizing:border-box;padding:calc(var(--m) * .55);background:var(--fc);transform:rotateY(180deg) translateZ(calc(var(--d) / 2));backface-visibility:hidden}
+.pf-board{position:relative;width:100%;height:100%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 6px),var(--board);box-shadow:inset 0 0 .6cqw rgba(0,0,0,.45)}
+.pf-clip{position:absolute;width:3.4cqw;height:.9cqw;background:linear-gradient(#B9B6B0,#8E8B85);border-radius:.2cqw}
+.pf-clip.c1{top:-.2cqw;left:calc(50% - 1.7cqw)}.pf-clip.c2{bottom:-.2cqw;left:calc(50% - 1.7cqw)}
+.pf-clip.c3{left:-1.1cqw;top:calc(50% - .45cqw);transform:rotate(90deg)}.pf-clip.c4{right:-1.1cqw;top:calc(50% - .45cqw);transform:rotate(90deg)}
+.pf-easel{position:absolute;left:calc(50% - 4.4cqw);top:30%;width:8.8cqw;height:68%;background:linear-gradient(#CBA57D,#B08961);border-top:.5cqw solid #9C774F;transform-origin:50% 0;transform:translateZ(calc(var(--d) / -2 - 2px)) rotateX(-30deg);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
+.pf-side h3{margin-bottom:1rem}
+.pf-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin-top:1.2rem}
+.pf-col{display:flex;gap:.7rem;align-items:center;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem;cursor:pointer;min-height:44px;transition:border-color .2s,box-shadow .2s;text-align:left}
+.pf-col i{width:1.3rem;height:1.3rem;border-radius:3px;flex:none;box-shadow:inset 0 0 0 .3rem currentColor}
+.pf-col[data-col="noir"] i{color:#181716;background:#F8F6F1}
+.pf-col[data-col="blanc"] i{color:#E9E6DF;background:#F8F6F1;outline:1px solid rgba(26,25,24,.18)}
+.pf-col[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+
+/* Noël : nuit de fête, scène animée, neige */
+#v-noel{--ink:#F3EFE8;--muted:#BDB6AA;--paper:#262D3A;--line:rgba(228,201,149,.22);--plaster:#1A2029;--noel:#FF8A80;--noel-soft:rgba(255,138,128,.12);background:#1F2531;color:var(--ink)}
+#v-noel .lead,#v-noel p{color:inherit}
+#v-noel .noel-card{background:#262D3A;border-color:rgba(228,201,149,.22)}
+#v-noel .noel-card .price{color:#E4C995}
+.nx-hero{background:radial-gradient(ellipse 50% 60% at 75% 35%,rgba(255,190,120,.16),transparent 70%),linear-gradient(180deg,#252C3A,#1F2531)}
+.nx-scene{position:relative;aspect-ratio:4/3;container-type:inline-size;border-radius:6px;overflow:hidden;background:radial-gradient(ellipse 55% 55% at 20% 40%,rgba(255,190,120,.3),transparent 70%),linear-gradient(#2E3647,#232A38 72%);box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.nx-floor{position:absolute;left:0;right:0;bottom:0;height:17%;background:linear-gradient(#3D3128,#271F19)}
+.nx-garland{position:absolute;left:0;top:0;width:100%;height:auto}
+.nx-garland circle{animation:nxtw 2.6s ease-in-out infinite alternate}
+.nx-art{position:absolute;left:41cqw;top:13cqw;width:44cqw;height:29.3cqw;overflow:hidden;box-shadow:0 1.4cqw 2.6cqw rgba(0,0,0,.5),-1.2cqw 0 3cqw rgba(255,190,120,.1)}
+.nx-art .nx-img{position:absolute;inset:0;background:var(--nximg) center/cover #3a4252;animation:nxkb 18s ease-in-out infinite alternate}
+.nx-art::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,200,140,.18),transparent 45%)}
+.nx-rep{position:absolute;z-index:2;right:1.6cqw;bottom:1.6cqw;width:3cqw;height:3cqw;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 .2cqw .5cqw rgba(0,0,0,.3)}
+.nx-rep svg{width:46%;height:52%;color:#2A3140}
+.nx-ring{position:absolute;z-index:2;right:-.6cqw;bottom:-.6cqw;width:7.4cqw;height:7.4cqw;border-radius:50%;border:.25cqw solid #E4C995;opacity:0;animation:nxring 10s ease-out infinite}
+.nx-tree{position:absolute;left:3cqw;bottom:12.5cqw;width:30cqw;height:46cqw}
+.nx-tree i{position:absolute;clip-path:polygon(50% 0,100% 100%,0 100%);background:linear-gradient(100deg,#2F563D,#1A3326 70%)}
+.nx-tree .t3{left:0;width:100%;bottom:6%;height:44%}
+.nx-tree .t2{left:10%;width:80%;bottom:32%;height:38%}
+.nx-tree .t1{left:22%;width:56%;bottom:55%;height:38%}
+.nx-tree b{position:absolute;left:45%;width:10%;bottom:0;height:7%;background:#3A2A1E}
+.nx-star{position:absolute;left:calc(50% - 2cqw);top:-3%;width:4cqw;height:4cqw;background:#F3D99B;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);filter:drop-shadow(0 0 1cqw rgba(243,217,155,.9));animation:nxtw 3s ease-in-out infinite alternate}
+.nx-tree em{position:absolute;width:1.1cqw;height:1.1cqw;border-radius:50%;background:#F3D99B;box-shadow:0 0 1cqw .2cqw rgba(243,217,155,.75);animation:nxtw 2.2s ease-in-out infinite alternate}
+.nx-tree em:nth-child(3n){background:#FFB38A;box-shadow:0 0 1cqw .2cqw rgba(255,179,138,.7);animation-duration:2.8s}
+.nx-tree em:nth-child(4n){background:#E4C995;animation-duration:3.4s}
+.nx-gift{position:absolute;bottom:9cqw}
+.nx-gift .box{position:absolute;inset:0}
+.nx-gift.g1{left:5cqw;width:11cqw;height:8cqw}
+.nx-gift.g1 .box{background:linear-gradient(90deg,transparent 44%,#E4C995 44% 56%,transparent 56%),#8E2A24;box-shadow:inset -1.2cqw 0 1.4cqw rgba(0,0,0,.25)}
+.nx-gift.g2{left:18cqw;width:14cqw;height:7.5cqw}
+.nx-gift.g2 .box{background:linear-gradient(90deg,transparent 46%,#B8925A 46% 54%,transparent 54%),#151413;box-shadow:inset -1.2cqw 0 1.4cqw rgba(0,0,0,.35)}
+.nx-gift .lid{position:absolute;left:-.6cqw;right:-.6cqw;top:-2cqw;height:2.4cqw;background:linear-gradient(90deg,transparent 46%,#B8925A 46% 54%,transparent 54%),#201F1D;transform-origin:0 100%;animation:nxlid 10s ease-in-out infinite;display:grid;place-items:center}
+.nx-gift.g1 .lid{background:linear-gradient(90deg,transparent 44%,#E4C995 44% 56%,transparent 56%),#A3322B;animation:none}
+.nx-gift .lid svg{width:1.4cqw;height:1.6cqw;color:#E4C995;margin-left:-6cqw}
+.nx-gift .card{position:absolute;left:2cqw;right:2cqw;bottom:2cqw;height:5cqw;background:#F3EFE8;opacity:0;animation:nxcard 10s ease-in-out infinite}
+.nx-phone{position:absolute;left:87cqw;top:78cqw;width:10cqw;height:19cqw;border-radius:1.5cqw;background:#121316;box-shadow:0 0 0 .35cqw #2B2C30,0 1.5cqw 3cqw rgba(0,0,0,.5);animation:nxphone 10s cubic-bezier(.45,.05,.25,1) infinite}
+.nx-screen{position:absolute;inset:.5cqw;border-radius:1cqw;overflow:hidden;background:linear-gradient(#1B2230,#0E1219)}
+.nx-lock{position:absolute;left:0;right:0;top:2.4cqw;text-align:center;color:#F3EFE8;font:300 2.6cqw/1 var(--sans)}
+.nx-lock span{display:block;font-size:1cqw;margin-top:.6cqw;opacity:.7}
+.nx-notif{position:absolute;left:.5cqw;right:.5cqw;top:7.4cqw;padding:.6cqw .7cqw;border-radius:.8cqw;background:rgba(243,239,232,.92);color:#1A1918;font:400 .95cqw/1.25 var(--sans);opacity:0;animation:nxnotif 10s ease-in-out infinite}
+.nx-notif strong{display:block;font-weight:500}
+.nx-play{position:absolute;inset:0;background:var(--nximg) 62% center/cover #222;opacity:0;animation:nxplay 10s ease-in-out infinite}
+.nx-play i{position:absolute;left:8%;bottom:6%;height:.35cqw;width:84%;background:rgba(255,255,255,.3);border-radius:1cqw;overflow:hidden}
+.nx-play i::after{content:"";position:absolute;inset:0;background:#E4C995;transform-origin:0 50%;animation:nxbar 10s linear infinite}
+@keyframes nxtw{from{opacity:.35}to{opacity:1}}
+@keyframes nxkb{from{transform:scale(1)}to{transform:scale(1.08) translate(-1.5%,-1%)}}
+@keyframes nxlid{0%,8%{transform:none}16%,30%{transform:translate(-1cqw,-3.2cqw) rotate(-14deg)}38%,100%{transform:none}}
+@keyframes nxcard{0%,12%{opacity:0;transform:none}18%,30%{opacity:1;transform:translateY(-3cqw) rotate(-4deg)}36%,100%{opacity:0;transform:none}}
+@keyframes nxphone{0%,30%{transform:none}42%,86%{transform:translate(-12cqw,-41cqw) rotate(-10deg)}100%{transform:none}}
+@keyframes nxring{0%,41%{opacity:0;transform:scale(.4)}44%{opacity:1;transform:scale(.55)}56%,100%{opacity:0;transform:scale(1.7)}}
+@keyframes nxnotif{0%,42%{opacity:0;transform:translateY(-1cqw)}46%,54%{opacity:1;transform:none}58%,100%{opacity:0}}
+@keyframes nxplay{0%,55%{opacity:0}59%,86%{opacity:1}92%,100%{opacity:0}}
+@keyframes nxbar{0%,57%{transform:scaleX(0)}86%,100%{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.nx-scene *,.nx-scene *::after{animation:none!important}.nx-phone{transform:translate(-12cqw,-41cqw) rotate(-10deg)}.nx-play{opacity:1}}
+.nxv{height:150px;border-radius:6px;display:grid;place-items:center;background:radial-gradient(ellipse 70% 70% at 50% 35%,rgba(255,190,120,.2),transparent 70%),#1B212B;margin-bottom:.3rem;perspective:600px}
+.nxv-toile i{width:62%;aspect-ratio:3/2;background:var(--nximg) center/cover #3a4252;box-shadow:6px 8px 16px rgba(0,0,0,.5);transform:rotateY(-16deg)}
+.nxv-cadre i{width:24%;aspect-ratio:13/18;background:#161514;padding:5px;box-shadow:4px 8px 14px rgba(0,0,0,.5)}
+.nxv-cadre b{display:block;height:100%;box-sizing:border-box;border:6px solid #F8F6F1;background:var(--nxpor) center 30%/cover #ccc}
+.nxv-bon i{width:66%;aspect-ratio:1.6;border-radius:5px;background:linear-gradient(155deg,#2F3748,#1E232D);box-shadow:inset 0 0 0 1px rgba(228,201,149,.45),4px 8px 16px rgba(0,0,0,.5);display:grid;place-items:center;transform:rotate(-4deg);font:300 .8rem/1.3 var(--serif);letter-spacing:.3em;text-transform:uppercase;color:#E4C995;text-align:center}
+.nxv-bon svg{display:block;width:14px;height:16px;margin:0 auto .4rem;color:#E4C995}
+#nxSnow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:15;opacity:0;transition:opacity 1.2s}
+#nxSnow.on{opacity:1}
+
+/* Noël : salon réaliste */
+.nx-hero .wrap{grid-template-columns:1fr 1.4fr}
+@media (max-width:860px){.nx-hero .wrap{grid-template-columns:1fr}}
+.nr-room{position:relative;aspect-ratio:2400/1792;overflow:hidden;border-radius:6px;box-shadow:0 34px 70px -30px rgba(0,0,0,.75);background:#2A3140}
+.nr-stage{position:absolute;left:0;top:0;width:2400px;height:1792px;transform-origin:0 0;background:url(assets/p-73d0fd87.jpg) 0 0/100% 100% no-repeat}
+.nr-win{position:absolute;left:0;top:0;width:128px;height:1130px;overflow:hidden}
+.nr-f{position:absolute;top:-20px;border-radius:50%;background:#fff;animation:nrfall linear infinite}
+@keyframes nrfall{from{transform:translate(0,0)}to{transform:translate(28px,1160px)}}
+.nr-art{position:absolute;left:0;top:0;width:1500px;height:1000px;transform-origin:0 0;transform:matrix3d(0.49236519,-0.05492059,0,-6.086543e-05,0,0.637,0,0,0,0,1,0,1167,335,0,1);overflow:hidden;background:#3a4252}
+.nr-img{position:absolute;inset:-2%;background:var(--nximg) center/cover;animation:nxkb 18s ease-in-out infinite alternate}
+.nr-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,196,130,.16),transparent 38%,transparent 70%,rgba(10,14,22,.18));box-shadow:inset 0 0 60px rgba(0,0,0,.35)}
+.nr-rep{position:absolute;z-index:2;right:44px;bottom:44px;width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+.nr-rep svg{width:46%;height:52%;color:#2A3140}
+.nr-ring{position:absolute;z-index:2;right:4px;bottom:4px;width:158px;height:158px;border-radius:50%;border:6px solid #E4C995;opacity:0;animation:nxring 10s ease-out infinite}
+.nr-light{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:radial-gradient(circle,rgba(255,240,200,.95) 0,rgba(255,210,140,.5) 28%,transparent 68%);mix-blend-mode:screen;opacity:.2;animation:nrtw var(--t) ease-in-out infinite alternate;animation-delay:var(--dl)}
+@keyframes nrtw{from{opacity:.08}to{opacity:.95}}
+.nr-spark{position:absolute;left:822px;top:1508px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,rgba(255,236,190,.9),rgba(228,201,149,.3) 35%,transparent 70%);mix-blend-mode:screen;animation:nrspark 10s ease-in-out infinite}
+@keyframes nrspark{0%,4%{opacity:0;transform:scale(.5)}12%{opacity:1;transform:scale(1.2)}24%,100%{opacity:0;transform:scale(.6)}}
+.nr-phone{position:absolute;left:2150px;top:1830px;width:200px;height:400px;border-radius:32px;background:#121316;box-shadow:0 0 0 7px #2B2C30,0 30px 60px rgba(0,0,0,.55);animation:nrphone 10s cubic-bezier(.45,.05,.25,1) infinite}
+@keyframes nrphone{0%,30%{transform:none}42%,86%{transform:translate(-175px,-1000px) rotate(-10deg)}100%{transform:none}}
+.nr-screen{position:absolute;inset:10px;border-radius:24px;overflow:hidden;background:linear-gradient(#1B2230,#0E1219)}
+.nr-lock{position:absolute;left:0;right:0;top:48px;text-align:center;color:#F3EFE8;font:300 54px/1 var(--sans)}
+.nr-lock span{display:block;font-size:19px;margin-top:12px;opacity:.75}
+.nr-notif{position:absolute;left:10px;right:10px;top:150px;padding:12px 14px;border-radius:16px;background:rgba(243,239,232,.94);color:#1A1918;font:400 17px/1.3 var(--sans);opacity:0;animation:nxnotif 10s ease-in-out infinite}
+.nr-notif strong{display:block;font-weight:500}
+.nr-play{position:absolute;inset:0;background:var(--nximg) 62% center/cover #222;opacity:0;animation:nxplay 10s ease-in-out infinite}
+.nr-play i{position:absolute;left:8%;bottom:6%;height:6px;width:84%;background:rgba(255,255,255,.3);border-radius:6px;overflow:hidden}
+.nr-play i::after{content:"";position:absolute;inset:0;background:#E4C995;transform-origin:0 50%;animation:nxbar 10s linear infinite}
+@media (prefers-reduced-motion:reduce){.nr-stage *,.nr-stage *::after{animation:none!important}.nr-phone{transform:translate(-175px,-1000px) rotate(-10deg)}.nr-play{opacity:1}.nr-light{opacity:.6}}
 /* CGV */
 .legal{max-width:48rem}
 .legal h1{font-size:clamp(1.6rem,4vw,2.4rem)}
@@ -589,9 +728,32 @@ footer .mrlogo{margin-bottom:1rem}
 .fdet{display:none;padding:.4rem 0 .6rem 1rem;border-left:2px solid var(--gold);margin:-.1rem 0 .3rem .9rem}
 .fdet.on{display:block}
 .fdet .opt label small{display:block;font-size:.8rem;color:var(--muted);margin-top:.15rem}
+/* Toile sur châssis, sans cadre */
 .art,.art.noir,.art.blanc,.art.plexi{border:0}
 .art.noir::before,.art.blanc::before{box-shadow:none}
+.art.noir{box-shadow:.5cqw .5cqw 0 #1A1A1C,1.4cqw 1.8cqw 2.4cqw -.6cqw rgba(48,36,24,.45),.3cqw .5cqw .9cqw rgba(48,36,24,.22)}
+.art.blanc{box-shadow:.5cqw .5cqw 0 #F3F1EC,.5cqw .5cqw 0 1px rgba(120,110,100,.3),1.4cqw 1.8cqw 2.4cqw -.6cqw rgba(48,36,24,.4),.3cqw .5cqw .9cqw rgba(48,36,24,.2)}
+.art.plexi{box-shadow:.5cqw .5cqw 0 #5A5148,1.4cqw 1.8cqw 2.4cqw -.6cqw rgba(48,36,24,.45),.3cqw .5cqw .9cqw rgba(48,36,24,.22)}
+.art.plexi .pic::after{background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 40%,rgba(0,0,0,.05))}
+.art .pic::before{content:"";position:absolute;inset:0;z-index:1;opacity:.18;background:repeating-linear-gradient(0deg,rgba(255,255,255,.35) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.25) 0 1px,transparent 1px 3px);pointer-events:none}
+.preview .mini.noir,.preview .mini.blanc,.preview .mini.plexi{border:0}
+.preview .mini.noir{box-shadow:4px 4px 0 #1A1A1C,0 14px 24px -10px rgba(0,0,0,.7)}
+.preview .mini.blanc{box-shadow:4px 4px 0 #F3F1EC,0 14px 24px -10px rgba(0,0,0,.7)}
+.preview .mini.plexi{box-shadow:4px 4px 0 #5A5148,0 14px 24px -10px rgba(0,0,0,.7)}
 .sup-frame,.p2 .fr,.evt .frame{border:0;box-shadow:clamp(4px,.7vw,7px) clamp(4px,.7vw,7px) 0 #1A1A1C,0 26px 40px -18px rgba(0,0,0,.65),0 6px 14px rgba(0,0,0,.3)}
+.mat .sw-weave{background:var(--plaster)}
+.mat .sw-weave i{position:absolute;inset:0;background-size:260%!important;background-position:38% 46%!important}
+.mat .sw-weave i::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 1px,transparent 1px 3px)}
+.mat .sw-edge{background:var(--plaster);display:flex;align-items:center;justify-content:center;gap:9%}
+.mat .sw-edge i{display:block;width:24%;aspect-ratio:2/3;background:center/cover;transform:perspective(320px) rotateY(-28deg)}
+.mat .sw-edge .e-noir{box-shadow:7px 4px 0 #1A1A1C,0 12px 20px -8px rgba(0,0,0,.45)}
+.mat .sw-edge .e-blanc{box-shadow:7px 4px 0 #F6F4F0,7px 4px 0 1px #D9D5CE,0 12px 20px -8px rgba(0,0,0,.4)}
+.mat .sw-edge .e-miroir{box-shadow:7px 4px 0 #6B5E52,0 12px 20px -8px rgba(0,0,0,.45)}
+.mat .sw-back{background:var(--plaster);display:grid;place-items:center}
+.mat .sw-back i{display:block;width:62%;aspect-ratio:3/2;background:#EDE8DF;position:relative;box-shadow:0 12px 22px -10px rgba(0,0,0,.45);border:9px solid transparent;border-image:repeating-linear-gradient(97deg,#B98E5F 0 3px,#A57A4C 3px 7px) 9}
+.mat .sw-back i::before,.mat .sw-back i::after{content:"";position:absolute;background:repeating-linear-gradient(97deg,#B98E5F 0 3px,#A57A4C 3px 7px)}
+.mat .sw-back i::before{left:50%;top:0;bottom:0;width:8px;margin-left:-4px}
+.mat .sw-back i::after{left:0;right:0;top:50%;height:6px;margin-top:-3px;opacity:.0}
 .line[hidden]{display:none}
 .art .pic::before{display:none}
 input[type=file]{font:inherit;font-size:.92rem;color:var(--muted);max-width:100%}
@@ -622,13 +784,33 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .cv-t::after{background:rgba(255,255,255,.12)}
 .cv-b::after{background:rgba(0,0,0,.38)}
 .cv[data-edge="plie"] .cv-r i{background-size:calc(var(--w) * 1.08) var(--h)}
+.cv[data-edge="miroir"] .cv-r i,.cv[data-edge="miroir"] .cv-l i{transform:scaleX(-1)}
+.cv[data-edge="miroir"] .cv-t i,.cv[data-edge="miroir"] .cv-b i{transform:scaleY(-1)}
+.cv[data-edge="miroir"] .cv-r i{background-position:left center}.cv[data-edge="miroir"] .cv-l i{background-position:right center}
+.cv[data-edge="miroir"] .cv-t i{background-position:center bottom}.cv[data-edge="miroir"] .cv-b i{background-position:center top}
+.cv[data-edge="blanc"] .cv-s i{background:#F5F3EF}
 .cv-sh{position:absolute;inset:5% -3% -6% 6%;background:rgba(48,36,24,.38);filter:blur(2.6cqw);transform:translateZ(calc(var(--d) / -2 - 2px));border-radius:2px}
 .cv-pill{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);font-size:.8rem;padding:.3rem .9rem;border-radius:999px;background:#FBF9F6;color:#1A1918;box-shadow:0 0 0 1px rgba(26,25,24,.12)}
 .cv-side h3{margin-bottom:1rem}
+.edge-list{display:grid;gap:.6rem}
+.edge{display:flex;gap:.9rem;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.85rem 1rem;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.edge b{display:block;font-weight:400;margin-bottom:.15rem}
+.edge span{font-size:.92rem;color:var(--muted);line-height:1.45}
+.edge[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.ei{flex:none;width:34px;height:26px;margin-top:.15rem;position:relative;background:var(--cvimg) center/cover;box-shadow:0 2px 6px -2px rgba(0,0,0,.35)}
+.ei::after{content:"";position:absolute;top:0;right:-7px;width:7px;height:100%;transform:skewY(-35deg);transform-origin:left top}
+.ei-plie::after{background:var(--cvimg) right center/34px 26px;filter:brightness(.7)}
+.ei-miroir::after{background:var(--cvimg) left center/34px 26px;filter:brightness(.7);transform:skewY(-35deg) scaleX(-1)}
+.ei-blanc::after{background:#F5F3EF;box-shadow:inset 0 0 0 1px #D9D5CE}
 .cv-facts{list-style:none;padding:0;margin:1.4rem 0 0;font-size:.95rem}
 .cv-facts li{padding:.5rem 0 .5rem 1.4rem;border-top:1px solid var(--line);position:relative}
 .cv-facts li::before{content:"";position:absolute;left:0;top:1.05rem;width:.55rem;height:1px;background:var(--gold)}
 @media (prefers-reduced-motion:reduce){.cv{animation:none}}
+/* bords pliés : tranche couleur image dans le salon et l’aperçu */
+.art.noir{box-shadow:.5cqw .5cqw 0 #4A4038,1.4cqw 1.8cqw 2.4cqw -.6cqw rgba(48,36,24,.45),.3cqw .5cqw .9cqw rgba(48,36,24,.22)}
+.preview .mini.noir{box-shadow:4px 4px 0 #4A4038,0 14px 24px -10px rgba(0,0,0,.7)}
+.art.plexi{box-shadow:.5cqw .5cqw 0 #7A6E62,1.4cqw 1.8cqw 2.4cqw -.6cqw rgba(48,36,24,.45),.3cqw .5cqw .9cqw rgba(48,36,24,.22)}
+.preview .mini.plexi{box-shadow:4px 4px 0 #7A6E62,0 14px 24px -10px rgba(0,0,0,.7)}
 /* Toile réaliste : tranche visible et ombre douce */
 .art,.art.noir,.art.blanc,.art.plexi{box-shadow:0 .2cqw .45cqw rgba(30,20,10,.22),.8cqw 1.3cqw 2.2cqw -.5cqw rgba(48,36,24,.42)}
 .art::after{content:"";position:absolute;top:0;left:100%;width:.6cqw;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.18),rgba(0,0,0,.42)),var(--artimg,#777);background-size:100% 100%,3200% 100%;background-position:0 0,100% 50%;clip-path:polygon(0 0,100% 5%,100% 95%,0 100%)}
@@ -663,11 +845,11 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .dp-close .cv{--w:120cqw;--h:80cqw;--d:11cqw;animation:none;transform:translate(-48cqw,34cqw) rotateY(-32deg) rotateX(12deg)}
 .dp-txt h3{margin-bottom:.4rem}
 @media (prefers-reduced-motion:reduce){.dp-phone{transition:none}}
-.dp-gal{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,2rem);margin-top:clamp(1.5rem,3vw,2.5rem)}
+.dp-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,2rem);margin-top:clamp(1.5rem,3vw,2.5rem)}
 .dp-gal figure{margin:0}
 .dp-gal img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
 .dp-gal figcaption{margin-top:.7rem;font-size:.95rem;color:var(--muted)}
-@media (max-width:700px){.dp-gal{grid-template-columns:1fr}}
+@media (max-width:900px){.dp-gal{grid-template-columns:1fr 1fr}}@media (max-width:600px){.dp-gal{grid-template-columns:1fr}}
 .mat-img{margin:0}
 .mat-img img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
@@ -717,7 +899,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <p class="lead">Le jour de votre mariage n’a duré que quelques heures. Le tableau le garde au mur, et votre film à portée de main.</p>
     <ol class="steps">
       <li><h3>Vous choisissez</h3><p>Votre photo préférée, le format, la finition et le lien de votre film : YouTube, Vimeo, Google Drive, ou le film que j’ai réalisé pour vous.</p></li>
-      <li><h3>Je fabrique</h3><p>J’imprime votre photo sur un support haut de gamme, j’y intègre une technologie sans contact invisible et je l’associe à votre film. Chaque tableau est testé avant l’envoi.</p></li>
+      <li><h3>Je fabrique</h3><p>J’imprime votre photo sur une toile professionnelle, avec un petit monogramme au coin. Je prépare votre repère discret, je l’associe à votre film et je le teste à la main avant de l’envoyer.</p></li>
       <li><h3>Vous approchez votre téléphone</h3><p>Une notification apparaît. Un toucher, et votre film commence. Pour vous, pour vos enfants, pour vos invités.</p></li>
     </ol>
   </div>
@@ -764,14 +946,24 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <h2 id="t-mat">Une vraie toile, tendue sur châssis</h2>
     <p class="lead">Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, puis tendue sur un châssis en bois. Sans cadre : l’image va jusqu’au bord, prête à accrocher.</p>
     <div class="mat3d">
-      <figure class="mat-img"><img src="assets/toile-3-4.jpg" alt="Toile Maison Ravive sur châssis, vue de trois quarts, bords pliés" loading="lazy" decoding="async"></figure>
+      <div class="cv-stage" aria-label="Aperçu en 3D d’une toile sur châssis, qui tourne lentement pour montrer ses bords">
+        <div class="cv-scene">
+          <div class="cv" id="cv3d" data-edge="plie">
+            <i class="cv-sh"></i>
+            <div class="cv-f"><span class="cv-mark"><svg><use href="#mono"/></svg></span></div>
+            <div class="cv-s cv-r"><i></i></div><div class="cv-s cv-l"><i></i></div>
+            <div class="cv-s cv-t"><i></i></div><div class="cv-s cv-b"><i></i></div>
+          </div>
+        </div>
+        <span class="cv-pill" id="cvPill">Toile sur châssis, bords pliés</span>
+      </div>
       <div class="cv-side">
         <h3>Bords pliés, comme une toile d’artiste</h3>
         <p class="cv-p">La photo est tendue sur le châssis et fait le tour des côtés. Pas de cadre, pas de vitre : juste votre image, en relief sur le mur.</p>
         <ul class="cv-facts">
           <li>Toile professionnelle, encres résistantes aux UV</li>
           <li>Châssis en bois, prêt à accrocher</li>
-          <li>Repère discret posé au coin, testé avant l’envoi</li>
+          <li>Monogramme imprimé au coin, repère testé avant l’envoi</li>
         </ul>
       </div>
     </div>
@@ -790,6 +982,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     </div>
     <div class="dp-gal">
       <figure><img src="assets/toile-detail.jpg" alt="Gros plan sur le coin de la toile : la photo fait le tour du châssis" loading="lazy" decoding="async"><figcaption>La photo fait le tour du châssis : pas de bord blanc, pas de cadre.</figcaption></figure>
+      <figure><img src="assets/toile-3-4.jpg" alt="Toile Maison Ravive sur châssis, vue de trois quarts" loading="lazy" decoding="async"><figcaption>Une vraie toile, prête à accrocher.</figcaption></figure>
       <figure><img src="assets/toile-telephone.jpg" alt="Un téléphone lit le film devant la toile accrochée au mur" loading="lazy" decoding="async"><figcaption>Le film du même jour, au creux de la main.</figcaption></figure>
     </div>
   </div>
@@ -802,8 +995,22 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <div>
       <h2 id="t-gift">Un cadeau qui s’ouvre deux fois</h2>
       <p>Une première fois en défaisant le ruban. Une seconde fois quand le téléphone s’approche et que la musique du mariage repart.</p>
-      <p>Chaque tableau arrive dans son coffret Maison Ravive, avec une carte qui explique le geste. Idéal pour un premier anniversaire de mariage, pour des parents, ou simplement pour vous.</p>
+      <p>Votre repère arrive dans son coffret Maison Ravive, avec une carte qui explique le geste. Le tableau suit dans son propre colis. Idéal pour un premier anniversaire de mariage, pour des parents, ou simplement pour vous.</p>
       <p><strong>Vous vous êtes mariés avec LMOH Photography ?</strong> Votre film est déjà prêt : je l’associe à votre tableau, vous n’avez rien à envoyer.</p>
+    </div>
+  </div>
+</section>
+
+<section id="deux-temps" aria-labelledby="t-2t">
+  <div class="wrap split">
+    <div>
+      <h2 id="t-2t">Votre tableau arrive en deux temps</h2>
+      <p>Le repère d’abord, que vous pouvez essayer tout de suite, puis le tableau, directement depuis l’atelier.</p>
+      <p><strong>Deux colis, un seul geste. Et un film qui démarre à chaque fois.</strong></p>
+    </div>
+    <div class="facts">
+      <div><h3>D’abord, le coffret du repère</h3><p>Quelques jours après votre commande, vous recevez un petit coffret avec le repère discret, votre carte et un gabarit. Approchez votre téléphone : votre film s’ouvre déjà.</p></div>
+      <div><h3>Ensuite, le tableau</h3><p>Imprimé sur toile tendue sur châssis bois, il arrive dans son propre colis, directement depuis l’atelier. Le monogramme est déjà imprimé au coin : vous collez le repère au dos, juste derrière. Trente secondes, sans outil.</p></div>
     </div>
   </div>
 </section>
@@ -848,6 +1055,10 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
             <label class="fopt"><input type="radio" name="hfilm" value="lmoh"><span><b>Mariés LMOH Photography</b><em>Votre film est déjà prêt, rien à envoyer.</em></span></label>
           </div>
         </fieldset>
+        <fieldset><legend>Où livrer votre tableau ?</legend><div class="fopts">
+          <label class="fopt"><input type="radio" name="dest" value="chez moi" checked><span><b>Chez moi</b><em>Idéal si vous l’offrez : vous recevez les deux colis et les emballez ensemble.</em></span></label>
+          <label class="fopt"><input type="radio" name="dest" value="directement chez la personne"><span><b>Directement chez la personne</b><em>Elle reçoit le coffret puis le tableau, avec la carte d’installation. Je vous demande son adresse par e-mail.</em></span></label>
+        </div></fieldset>
         <fieldset><legend>Vos coordonnées</legend>
           <div class="field"><label for="name">Prénom et nom</label><input id="name" autocomplete="name" required></div>
           <div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required></div>
@@ -863,12 +1074,13 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <div class="line"><span>Format</span><span id="sumSize">40 × 60 cm</span></div>
         <div class="line"><span>Finition</span><span id="sumFinish">Toile, bords pliés</span></div>
         <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
-        <div class="line"><span>Coffret cadeau</span><span>inclus</span></div>
+        <div class="line"><span>Coffret du repère</span><span>inclus</span></div>
         <div class="line" id="sumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
         <div class="line"><span>Livraison en France</span><span>offerte</span></div>
         <div class="total"><span>Total</span><b id="sumTotal">149 €</b></div>
         <button class="btn" type="submit">Envoyer ma demande</button>
         <p class="err" id="err" role="alert"></p>
+        <p class="help">Livré en deux colis : le repère d’abord, le tableau ensuite. Installation en 30 secondes, sans outil.</p>
         <p class="help">Aucun paiement maintenant. Vous validez tout par e-mail avant la fabrication.</p>
       </aside>
     </form>
@@ -888,7 +1100,12 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <details><summary>Quelle photo choisir ?</summary><p>Le fichier original de votre photographe, de préférence. Je vérifie la définition avant l’impression et je vous préviens si elle est trop faible pour le format choisi.</p></details>
     <details><summary>Comment est fabriqué le tableau ?</summary><p>Votre photo est imprimée sur une toile professionnelle avec des encres résistantes aux UV, tendue sur un châssis en bois. Sans cadre, prête à accrocher, avec des bords pliés : la photo fait le tour du châssis.</p></details>
     <details><summary>Quels sont les délais ?</summary><p>Comptez 2 à 3 semaines entre la validation de votre photo et la livraison. Pour une date précise, comme un anniversaire, dites-le-moi dans votre demande.</p></details>
-    <details><summary>Et si mon tableau ne réagit pas ?</summary><p>Vérifiez que votre téléphone est déverrouillé et approchez-le bien du repère. Chaque tableau est testé avant l’envoi ; en cas de souci, je trouve une solution avec vous.</p></details>
+    <details><summary>Pourquoi deux colis ?</summary><p>Le tableau part directement de l’atelier d’impression, sans détour : vous le recevez plus vite. Le repère, lui, est préparé et testé par mes soins avant de partir.</p></details>
+    <details><summary>Je reçois le repère avant le tableau, c’est normal ?</summary><p>Oui, c’est voulu. Vous pouvez déjà essayer votre film en approchant votre téléphone du repère, encore sur son support.</p></details>
+    <details><summary>Est-ce difficile à installer ?</summary><p>Non. Un gabarit vous montre l’emplacement au dos du tableau. Vous nettoyez, vous collez, vous appuyez dix secondes. Une courte vidéo vous guide.</p></details>
+    <details><summary>Le repère fonctionne-t-il à travers la toile ?</summary><p>Oui. Il se colle au dos, juste derrière le monogramme imprimé. On approche son téléphone du coin du tableau, et le film démarre.</p></details>
+    <details><summary>C’est un cadeau : comment faire ?</summary><p>Choisissez la livraison chez vous : vous recevez le coffret et le tableau, à offrir ensemble. Ou faites livrer directement : la carte explique tout à la personne.</p></details>
+    <details><summary>Et si mon tableau ne réagit pas ?</summary><p>Vérifiez que votre téléphone est déverrouillé et approchez-le bien du coin du tableau. Chaque repère est testé avant l’envoi ; en cas de souci, écrivez-moi et je vous envoie un nouveau repère.</p></details>
     <details><summary>Puis-je retourner mon tableau ?</summary><p>Comme tout produit personnalisé, il n’ouvre pas droit à rétractation (article L221-28 du Code de la consommation). Tout défaut de fabrication est bien sûr pris en charge.</p></details>
   </div>
 </section>
@@ -1291,6 +1508,42 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
   </div>
 </section>
 
+<section class="plaster" aria-labelledby="t-pf3">
+  <div class="wrap">
+    <h2 id="t-pf3">Un vrai cadre à poser, avec son chevalet</h2>
+    <p class="lead">Votre photo 10 × 15 cm est entourée d’un passe-partout blanc, derrière une protection transparente. Au dos, un chevalet le tient droit sur un meuble.</p>
+    <div class="mat3d">
+      <div class="cv-stage pf-stage" id="pfStage" aria-label="Aperçu en 3D du petit cadre à poser, qui tourne pour montrer le chevalet au dos">
+        <div class="pf-floor"></div>
+        <div class="pf-ground"></div>
+        <div class="pf-scene">
+          <div class="pf3" id="pf3" data-col="noir">
+            <div class="pf-front"><div class="pf-mat"><div class="pf-photo"></div><span class="pf-mark"><svg><use href="#mono"/></svg></span></div><i class="pf-glass"></i></div>
+            <div class="pf-s pf-r"></div><div class="pf-s pf-l"></div><div class="pf-s pf-t"></div><div class="pf-s pf-b"></div>
+            <div class="pf-back"><div class="pf-board"><i class="pf-clip c1"></i><i class="pf-clip c2"></i><i class="pf-clip c3"></i><i class="pf-clip c4"></i></div></div>
+            <div class="pf-easel"></div>
+          </div>
+        </div>
+        <span class="cv-pill" id="pfPill">Cadre noir à poser, photo 10 × 15</span>
+      </div>
+      <div class="cv-side pf-side">
+        <h3>Noir ou blanc, à vous de choisir</h3>
+        <p class="cv-p">L’aperçu tourne pour vous montrer le cadre sous tous les angles, chevalet compris.</p>
+        <div class="pf-cols" role="group" aria-label="Couleur du cadre">
+          <button class="pf-col" type="button" data-col="noir" aria-pressed="true"><i></i>Cadre noir</button>
+          <button class="pf-col" type="button" data-col="blanc" aria-pressed="false"><i></i>Cadre blanc</button>
+        </div>
+        <ul class="cv-facts">
+          <li>Tirage photo professionnel 10 × 15 cm</li>
+          <li>Passe-partout blanc et protection transparente</li>
+          <li>Chevalet au dos, pour une table de chevet, un bureau ou une commode</li>
+          <li>Repère discret au coin, testé avant l’envoi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section aria-labelledby="t-pcq">
   <div class="wrap split">
     <div>
@@ -1364,45 +1617,62 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 
 <!-- ============ CGV ET MENTIONS LÉGALES ============ -->
 <main id="v-noel" hidden>
-<section class="hero" aria-labelledby="t-noel">
+<section class="hero nx-hero" aria-labelledby="t-noel">
   <div class="wrap">
     <div>
-      <p class="product">Spécial Noël</p>
-      <h1 id="t-noel">Un cadeau qui s’ouvre deux fois, même au dernier moment.</h1>
-      <p>On ouvre le coffret, puis on approche son téléphone du tableau : le film du plus beau jour démarre. Trois façons de l’offrir, selon le temps qu’il vous reste avant le 24 décembre.</p>
-      <div class="actions"><a class="btn" href="#noel" data-go="noelChoix">Choisir mon cadeau</a><a class="btn ghost" href="#noel" data-go="noelDates"><span>Voir les dates limites</span></a></div>
-      <small class="noel-red">Bon cadeau disponible jusqu’au 24 décembre, envoyé par e-mail.</small>
+      <p class="product">Spécial Noël · <span id="nxCount">Noël approche</span></p>
+      <h1 id="t-noel">Sous le sapin, un tableau qui rejoue leur mariage.</h1>
+      <p>Ils défont le ruban, approchent leur téléphone du tableau, et la musique du mariage repart dans le salon. Trois façons de l’offrir, selon le temps qu’il vous reste.</p>
+      <div class="actions"><a class="btn" href="#noel" data-go="noelChoix">Choisir mon cadeau</a><a class="btn ghost" href="#noel" data-go="noelDates"><span>Dates limites</span></a></div>
+      <small>Bon cadeau envoyé par e-mail jusqu’au 24 décembre.</small>
     </div>
-    <div aria-hidden="true">
-      <div class="gc gc-hero">
-        <div class="gc-top"><div class="gc-brand"><small>Maison</small>Ravive</div><div class="gc-kind red">Spécial Noël</div></div>
-        <div class="gc-main"><p class="gc-title">Joyeux Noël</p><p class="gc-fmt">Bon cadeau · Petit cadre · Tableau sur toile</p><p class="gc-msg">« Pour revoir ce jour-là chaque fois que vous passerez devant. »</p></div>
-        <div class="gc-bot"><span>Le Tableau Vivant<br>Maison Ravive</span><svg class="gc-mark"><use href="#mono"/></svg></div>
+    <div class="nr-room" id="nrRoom" role="img" aria-label="Un salon le soir de Noël : sapin illuminé, cadeaux au pied du sapin et le tableau du mariage au mur. Un téléphone approché du tableau lance le film.">
+      <div class="nr-stage" id="nrStage">
+        <div class="nr-win" aria-hidden="true"><i class="nr-f" style="left:63%;width:7px;height:7px;opacity:0.49;animation-duration:9.1s;animation-delay:-7.1s"></i><i class="nr-f" style="left:17%;width:9px;height:9px;opacity:0.86;animation-duration:12.0s;animation-delay:-3.6s"></i><i class="nr-f" style="left:53%;width:9px;height:9px;opacity:0.94;animation-duration:10.8s;animation-delay:-4.9s"></i><i class="nr-f" style="left:29%;width:4px;height:4px;opacity:0.53;animation-duration:7.2s;animation-delay:-3.0s"></i><i class="nr-f" style="left:29%;width:4px;height:4px;opacity:0.46;animation-duration:11.8s;animation-delay:-2.4s"></i><i class="nr-f" style="left:36%;width:9px;height:9px;opacity:0.45;animation-duration:8.9s;animation-delay:-4.8s"></i><i class="nr-f" style="left:72%;width:9px;height:9px;opacity:0.61;animation-duration:6.9s;animation-delay:-11.2s"></i><i class="nr-f" style="left:79%;width:6px;height:6px;opacity:0.78;animation-duration:11.2s;animation-delay:-5.9s"></i><i class="nr-f" style="left:99%;width:9px;height:9px;opacity:0.93;animation-duration:10.8s;animation-delay:-7.3s"></i><i class="nr-f" style="left:50%;width:8px;height:8px;opacity:0.65;animation-duration:6.7s;animation-delay:-8.2s"></i><i class="nr-f" style="left:7%;width:9px;height:9px;opacity:0.55;animation-duration:12.9s;animation-delay:-5.7s"></i><i class="nr-f" style="left:14%;width:10px;height:10px;opacity:0.62;animation-duration:6.4s;animation-delay:-0.0s"></i><i class="nr-f" style="left:19%;width:7px;height:7px;opacity:0.72;animation-duration:12.6s;animation-delay:-8.0s"></i><i class="nr-f" style="left:9%;width:6px;height:6px;opacity:0.89;animation-duration:10.3s;animation-delay:-1.9s"></i><i class="nr-f" style="left:32%;width:9px;height:9px;opacity:0.93;animation-duration:10.2s;animation-delay:-6.2s"></i><i class="nr-f" style="left:14%;width:7px;height:7px;opacity:0.87;animation-duration:13.0s;animation-delay:-6.1s"></i><i class="nr-f" style="left:61%;width:9px;height:9px;opacity:0.61;animation-duration:7.0s;animation-delay:-9.7s"></i><i class="nr-f" style="left:94%;width:6px;height:6px;opacity:0.58;animation-duration:11.8s;animation-delay:-2.1s"></i><i class="nr-f" style="left:2%;width:4px;height:4px;opacity:0.55;animation-duration:12.7s;animation-delay:-4.7s"></i><i class="nr-f" style="left:88%;width:7px;height:7px;opacity:0.72;animation-duration:6.2s;animation-delay:-6.9s"></i><i class="nr-f" style="left:82%;width:6px;height:6px;opacity:0.88;animation-duration:10.9s;animation-delay:-3.4s"></i><i class="nr-f" style="left:46%;width:5px;height:5px;opacity:0.90;animation-duration:8.5s;animation-delay:-2.9s"></i><i class="nr-f" style="left:69%;width:8px;height:8px;opacity:0.84;animation-duration:8.3s;animation-delay:-2.9s"></i><i class="nr-f" style="left:100%;width:4px;height:4px;opacity:0.94;animation-duration:12.0s;animation-delay:-10.5s"></i><i class="nr-f" style="left:51%;width:7px;height:7px;opacity:0.82;animation-duration:7.6s;animation-delay:-6.7s"></i><i class="nr-f" style="left:45%;width:4px;height:4px;opacity:0.82;animation-duration:12.9s;animation-delay:-10.3s"></i><i class="nr-f" style="left:60%;width:5px;height:5px;opacity:0.58;animation-duration:10.8s;animation-delay:-12.4s"></i><i class="nr-f" style="left:57%;width:10px;height:10px;opacity:0.85;animation-duration:11.1s;animation-delay:-4.5s"></i><i class="nr-f" style="left:46%;width:6px;height:6px;opacity:0.49;animation-duration:6.7s;animation-delay:-6.1s"></i><i class="nr-f" style="left:43%;width:5px;height:5px;opacity:0.55;animation-duration:10.4s;animation-delay:-11.7s"></i><i class="nr-f" style="left:0%;width:9px;height:9px;opacity:0.69;animation-duration:10.6s;animation-delay:-10.4s"></i><i class="nr-f" style="left:10%;width:5px;height:5px;opacity:0.87;animation-duration:6.8s;animation-delay:-5.1s"></i><i class="nr-f" style="left:91%;width:7px;height:7px;opacity:0.83;animation-duration:9.3s;animation-delay:-2.3s"></i><i class="nr-f" style="left:81%;width:7px;height:7px;opacity:0.62;animation-duration:11.6s;animation-delay:-12.6s"></i></div>
+        <div class="nr-art" aria-hidden="true"><div class="nr-img"></div><span class="nr-rep"><svg><use href="#mono"/></svg></span><i class="nr-ring"></i></div>
+        <i class="nr-light" style="left:369px;top:949px;--t:2.2s;--dl:-0.5s"></i><i class="nr-light" style="left:637px;top:553px;--t:2.9s;--dl:-0.2s"></i><i class="nr-light" style="left:771px;top:663px;--t:2.7s;--dl:-1.1s"></i><i class="nr-light" style="left:607px;top:1431px;--t:1.7s;--dl:-1.5s"></i><i class="nr-light" style="left:534px;top:772px;--t:1.7s;--dl:-1.3s"></i><i class="nr-light" style="left:412px;top:1049px;--t:1.7s;--dl:-0.3s"></i><i class="nr-light" style="left:873px;top:1086px;--t:2.4s;--dl:-2.5s"></i><i class="nr-light" style="left:398px;top:1312px;--t:1.8s;--dl:-0.7s"></i><i class="nr-light" style="left:681px;top:1343px;--t:2.9s;--dl:-2.8s"></i><i class="nr-light" style="left:437px;top:1369px;--t:2.8s;--dl:-1.2s"></i><i class="nr-light" style="left:513px;top:1379px;--t:3.6s;--dl:-0.1s"></i><i class="nr-light" style="left:593px;top:869px;--t:3.3s;--dl:-0.9s"></i><i class="nr-light" style="left:736px;top:990px;--t:1.9s;--dl:-0.4s"></i><i class="nr-light" style="left:517px;top:1051px;--t:2.2s;--dl:-2.4s"></i><i class="nr-light" style="left:541px;top:1128px;--t:2.0s;--dl:-1.7s"></i><i class="nr-light" style="left:477px;top:1146px;--t:2.9s;--dl:-1.1s"></i><i class="nr-light" style="left:895px;top:1217px;--t:2.7s;--dl:-0.2s"></i><i class="nr-light" style="left:712px;top:1257px;--t:1.7s;--dl:-0.6s"></i><i class="nr-light" style="left:999px;top:1312px;--t:3.0s;--dl:-1.3s"></i><i class="nr-light" style="left:773px;top:1341px;--t:2.2s;--dl:-1.8s"></i><i class="nr-light" style="left:659px;top:489px;--t:2.5s;--dl:-0.9s"></i><i class="nr-light" style="left:560px;top:717px;--t:3.2s;--dl:-2.1s"></i><i class="nr-light" style="left:774px;top:788px;--t:2.1s;--dl:-1.7s"></i><i class="nr-light" style="left:929px;top:1042px;--t:2.7s;--dl:-2.6s"></i><i class="nr-light" style="left:651px;top:1079px;--t:3.1s;--dl:-0.9s"></i><i class="nr-light" style="left:602px;top:1117px;--t:3.6s;--dl:-0.4s"></i><i class="nr-light" style="left:621px;top:1203px;--t:2.4s;--dl:-2.3s"></i><i class="nr-light" style="left:989px;top:1235px;--t:1.9s;--dl:-1.5s"></i><i class="nr-light" style="left:449px;top:1252px;--t:1.7s;--dl:-2.0s"></i><i class="nr-light" style="left:583px;top:1369px;--t:3.1s;--dl:-1.7s"></i><i class="nr-light" style="left:591px;top:612px;--t:3.4s;--dl:-0.9s"></i><i class="nr-light" style="left:631px;top:758px;--t:3.0s;--dl:-1.8s"></i><i class="nr-light" style="left:501px;top:903px;--t:2.8s;--dl:-1.4s"></i><i class="nr-light" style="left:925px;top:946px;--t:3.3s;--dl:-2.8s"></i>
+        <i class="nr-spark" aria-hidden="true"></i>
+        <div class="nr-phone" aria-hidden="true"><div class="nr-screen"><div class="nr-lock"><b>20:14</b><span>mercredi 24 décembre</span></div><div class="nr-notif"><strong>maisonravive.fr</strong>Touchez pour ouvrir votre film</div><div class="nr-play"><i></i></div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="noelChoix" aria-labelledby="t-noelc">
+<section aria-labelledby="t-nxs">
+  <div class="wrap">
+    <h2 id="t-nxs">Le 25 au matin</h2>
+    <p class="lead">Le moment que vous allez offrir, en trois gestes.</p>
+    <ol class="steps">
+      <li><h3>On défait le ruban</h3><p>Le coffret Maison Ravive s’ouvre sur une carte qui explique le geste. Tout le monde se demande ce que c’est.</p></li>
+      <li><h3>On approche le téléphone</h3><p>Une notification apparaît au coin du tableau. Un toucher, et c’est parti.</p></li>
+      <li><h3>La musique repart</h3><p>Les vœux, la première danse, les rires des invités. Dans le salon, au milieu des papiers cadeaux.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="plaster" id="noelChoix" aria-labelledby="t-noelc">
   <div class="wrap">
     <h2 id="t-noelc">Choisissez selon le temps qu’il vous reste</h2>
     <div class="noel-cards">
       <article class="noel-card">
-        <span class="noel-badge">Commande avant le 7 décembre</span>
+        <div class="nxv nxv-toile" aria-hidden="true"><i></i></div>
+        <span class="noel-badge" data-until="2026-12-07" data-label="avant le 7 décembre">Commande avant le 7 décembre</span>
         <h3>Le tableau sur toile</h3>
         <p class="price">De 99 à 229 €</p>
         <p>Le grand format à accrocher au mur, sur toile tendue sur châssis bois.</p>
         <a class="btn" href="#commande">Créer mon tableau</a>
       </article>
       <article class="noel-card">
-        <span class="noel-badge">Commande avant le 18 décembre</span>
+        <div class="nxv nxv-cadre" aria-hidden="true"><i><b></b></i></div>
+        <span class="noel-badge" data-until="2026-12-18" data-label="avant le 18 décembre">Commande avant le 18 décembre</span>
         <h3>Le petit cadre</h3>
         <p class="price">49 €</p>
         <p>Une photo 10 × 15 à poser sur un meuble, fabriquée en quelques jours. Idéal pour les grands-parents.</p>
         <a class="btn" href="#petit-cadre" data-go="pcOrder">Commander</a>
       </article>
       <article class="noel-card">
-        <span class="noel-badge">Jusqu’au 24 décembre</span>
+        <div class="nxv nxv-bon" aria-hidden="true"><i><span><svg><use href="#mono"/></svg>Bon cadeau</span></i></div>
+        <span class="noel-badge" data-until="2026-12-24" data-label="jusqu’au 24 décembre">Jusqu’au 24 décembre</span>
         <h3>Le bon cadeau</h3>
         <p class="price">De 49 à 229 €</p>
         <p>Reçu par e-mail après le paiement, à imprimer ou à glisser dans une carte. La personne choisit sa photo et son film après les fêtes.</p>
@@ -1412,7 +1682,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
   </div>
 </section>
 
-<section class="plaster" id="noelDates" aria-labelledby="t-noeld">
+<section id="noelDates" aria-labelledby="t-noeld">
   <div class="wrap split">
     <div>
       <h2 id="t-noeld">Dates limites pour Noël</h2>
@@ -1452,7 +1722,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <div class="facts">
       <div><h3>Vous choisissez le format</h3><p>Du petit cadre à poser à la grande toile 90 × 60 cm, prête à accrocher.</p></div>
       <div><h3>Vous recevez le bon</h3><p>Un PDF à imprimer ou à glisser dans une carte, avec votre message. Je peux aussi l’envoyer directement à la personne, le jour de votre choix.</p></div>
-      <div><h3>Elle crée son tableau</h3><p>Elle m’envoie sa photo et le lien de son film dans les 12 mois. Je vérifie la photo, je fabrique, je règle le repère et j’expédie le tout dans le coffret.</p></div>
+      <div><h3>Elle crée son tableau</h3><p>Elle m’envoie sa photo et le lien de son film dans les 12 mois. Je vérifie la photo et je prépare son repère. Elle reçoit d’abord le coffret du repère, puis le tableau.</p></div>
     </div>
   </div>
 </section>
@@ -1555,6 +1825,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 
     <h2 id="cg8">8. Délais</h2>
     <p>Tableaux, petits cadres et cartes sont fabriqués en 2 à 3 semaines après validation de la photo et du paiement. Ce délai est indicatif et la date prévue est confirmée dans le récapitulatif. Les cartes qui portent une photo de l’événement sont remises après celui-ci. Une carte ou une invitation commandée à l’avance avec un visuel déjà prêt peut être remise le jour de l’événement : son repère ouvre d’abord une vidéo d’annonce, puis le film une fois le montage terminé. Le délai de montage d’un film dépend de la durée de l’événement et figure dans le devis.</p>
+    <p>Les tableaux sur toile sont livrés en deux envois : d’abord le coffret du repère, envoyé par LMOH Photography, puis le tableau, expédié directement par l’atelier d’impression. Le client colle le repère au dos de la toile en suivant la notice fournie.</p>
     <p>Pour un consommateur, si le produit n’est pas livré à la date convenue, il peut, après avoir demandé la livraison dans un délai raisonnable, résoudre le contrat dans les conditions des articles L216-6 et suivants du Code de la consommation.</p>
 
     <h2 id="cg9">9. Livraison et réception</h2>
@@ -1571,7 +1842,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <h2 id="cg11">11. Garanties</h2>
     <p>Le consommateur bénéficie de la garantie légale de conformité (articles L217-3 et suivants du Code de la consommation), pendant deux ans à compter de la livraison, et de la garantie des vices cachés (articles 1641 et suivants du Code civil).</p>
     <p class="draft">[Encadré légal obligatoire sur la garantie de conformité à insérer, selon le modèle prévu par le Code de la consommation.]</p>
-    <p>Si le repère ne fonctionne pas à la réception, LMOH Photography le règle de nouveau ou remplace le produit, sans frais pour le client.</p>
+    <p>Si le repère ne fonctionne pas à la réception, LMOH Photography envoie un nouveau repère ou remplace le produit, sans frais pour le client.</p>
 
     <h2 id="cg12">12. Responsabilité</h2>
     <p>LMOH Photography ne peut être tenue responsable d’une interruption ou d’une suppression de la vidéo chez son hébergeur, d’un smartphone incompatible ou d’une utilisation non conforme du produit. Une surface métallique placée directement derrière le repère peut gêner la lecture sans contact.</p>
@@ -1642,7 +1913,7 @@ document.addEventListener('submit',function(e){var sc=e.target.id==='orderForm'?
 </script>
 <script>
 (function(){
-var HERO="assets/p-fa92186c.jpg",PORTRAIT="assets/p-69def764.jpg";
+var HERO="assets/p-fa92186c.jpg",PORTRAIT="assets/p-69def764.jpg";window.MR_IMG={hero:HERO,portrait:PORTRAIT};
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var stage=document.getElementById('stage'),phone=document.getElementById('phone'),repere=document.getElementById('repere'),film=document.getElementById('film'),sound=document.getElementById('sound');
 document.getElementById('print').style.backgroundImage='url('+HERO+')';
@@ -1709,7 +1980,7 @@ form.addEventListener('submit',function(e){
   if(!name){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('name').focus();return}
   if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir la confirmation.';document.getElementById('email').focus();return}
   err.textContent='';
-  var total=update(),body=['Format : '+document.getElementById('sumSize').textContent,'Finition : '+document.getElementById('sumFinish').textContent,'Total : '+total+' €','Photo : '+(document.getElementById('lmohc')&&document.getElementById('lmohc').checked?'à choisir avec LMOH':(window.LMOH_PHOTO||'à envoyer')),'Film : '+(window.mrFilmLabel?mrFilmLabel('h'):document.getElementById('video').value.trim()),'Nom : '+name,'E-mail : '+email,'Téléphone : '+(document.getElementById('phoneNum').value.trim()||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin1').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun'),'',document.getElementById('msg').value.trim()].join('\n');
+  var total=update(),body=['Format : '+document.getElementById('sumSize').textContent,'Finition : '+document.getElementById('sumFinish').textContent,'Livraison : '+((document.querySelector('input[name=dest]:checked')||{}).value||'chez moi'),'Total : '+total+' €','Photo : '+(document.getElementById('lmohc')&&document.getElementById('lmohc').checked?'à choisir avec LMOH':(window.LMOH_PHOTO||'à envoyer')),'Film : '+(window.mrFilmLabel?mrFilmLabel('h'):document.getElementById('video').value.trim()),'Nom : '+name,'E-mail : '+email,'Téléphone : '+(document.getElementById('phoneNum').value.trim()||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin1').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun'),'',document.getElementById('msg').value.trim()].join('\n');
   location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : demande de '+name)+'&body='+encodeURIComponent(body+mrRef());
 });
 })();
@@ -2028,6 +2299,47 @@ var m=document.getElementById('mini');link(m,m);
 </script>
 <script>
 (function(){
+/* Petit cadre 3D : photo portrait, couleur synchronisée avec la commande */
+var pf=document.getElementById('pf3'),st=document.getElementById('pfStage');if(!pf||!st)return;
+if(window.MR_IMG&&MR_IMG.portrait)st.style.setProperty('--pfimg','url('+MR_IMG.portrait+')');
+var pill=document.getElementById('pfPill'),btns=document.querySelectorAll('.pf-col');
+function set(c){pf.dataset.col=c;pill.textContent=(c==='blanc'?'Cadre blanc':'Cadre noir')+' à poser, photo 10 × 15';
+  btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.col===c)})}
+btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.col);
+  var r=document.getElementById(b.dataset.col==='blanc'?'pcf2':'pcf1');if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}))}})});
+document.querySelectorAll('input[name=pcfin]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)set(/blanc/i.test(r.value)?'blanc':'noir')})});
+})();
+</script>
+<script>
+(function(){
+/* Noël : images, compte à rebours réel, neige fine quand la page Noël est ouverte */
+var main=document.getElementById('v-noel');if(!main)return;
+if(window.MR_IMG){main.style.setProperty('--nximg','url('+MR_IMG.hero+')');main.style.setProperty('--nxpor','url('+MR_IMG.portrait+')')}
+function days(iso){var t=new Date();t.setHours(0,0,0,0);var d=new Date(iso+'T00:00:00');return Math.round((d-t)/864e5)}
+var n=days('2026-12-25'),c=document.getElementById('nxCount');
+if(c)c.textContent=n>1?'Noël dans '+n+' jours':(n===1?'Noël demain':'Joyeux Noël');
+main.querySelectorAll('.noel-badge[data-until]').forEach(function(b){var d=days(b.dataset.until);
+  b.textContent=d>1?'Encore '+d+' jours · '+b.dataset.label:(d>=0?'Dernier jour · '+b.dataset.label:'Fermé pour Noël')});
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var cv=document.createElement('canvas');cv.id='nxSnow';cv.setAttribute('aria-hidden','true');document.body.appendChild(cv);
+var ctx=cv.getContext('2d'),fl=[],raf=0,W=0,H=0,dpr=1,off=0;
+function size(){dpr=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  var N=Math.round(Math.min(120,W/11));while(fl.length<N)fl.push(mk(true));fl.length=N}
+function mk(any){var r=Math.random()*1.7+.5;return{x:Math.random()*W,y:any?Math.random()*H:-5,r:r,s:.25+r*.28,p:Math.random()*6.3,a:.35+Math.random()*.5}}
+function draw(t){ctx.clearRect(0,0,W,H);for(var i=0;i<fl.length;i++){var f=fl[i];f.y+=f.s;f.x+=Math.sin(t/1600+f.p)*.35;
+  if(f.y>H+5){fl[i]=mk(false);continue}if(f.x>W+5)f.x=-5;if(f.x<-5)f.x=W+5;
+  ctx.globalAlpha=f.a;ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,6.283);ctx.fillStyle='#FFFFFF';ctx.fill()}
+  raf=requestAnimationFrame(draw)}
+function start(){clearTimeout(off);if(raf){cv.classList.add('on');return}size();raf=requestAnimationFrame(draw);requestAnimationFrame(function(){cv.classList.add('on')})}
+function stop(){cv.classList.remove('on');clearTimeout(off);off=setTimeout(function(){cancelAnimationFrame(raf);raf=0;ctx.clearRect(0,0,W,H)},1300)}
+function sync(){if(main.hidden||document.hidden)stop();else start()}
+new MutationObserver(sync).observe(main,{attributes:true,attributeFilter:['hidden']});
+document.addEventListener('visibilitychange',sync);addEventListener('resize',function(){if(raf)size()});
+sync();
+})();
+</script>
+<script>
+(function(){
 /* En détail : image de la toile, téléphone qui lit le film */
 var sc=document.getElementById('dpScene');if(!sc)return;
 var v=document.getElementById('dpFilm'),src=document.querySelector('#film source'),snd=document.getElementById('dpSnd'),T=[],on=false,vis=false,run=false;
@@ -2039,6 +2351,14 @@ function go(){run=true;reset();at(300,function(){sc.classList.add('go')});at(150
 snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';v.muted=!on});
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){sc.classList.add('go','play');if(src)v.src=src.src;return}
 new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting&&!sc.closest('main').hidden;if(vis&&!run)go();if(!vis){v.muted=true;if(on)snd.click()}})},{threshold:.35}).observe(sc);
+})();
+</script>
+<script>
+(function(){
+/* Salon de Noël : mise à l’échelle de la scène */
+var room=document.getElementById('nrRoom'),st=document.getElementById('nrStage');if(!room||!st)return;
+function fit(){var w=room.clientWidth;if(w)st.style.transform='scale('+(w/2400)+')'}
+fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(room);else addEventListener('resize',fit);
 })();
 </script>
 </body>
