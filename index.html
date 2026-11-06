@@ -2220,7 +2220,7 @@ document.querySelectorAll('.p2').forEach(function(sc){
   var b=document.createElement('button');b.type='button';b.className='snd';b.setAttribute('aria-pressed','false');b.innerHTML=ICON+'<span>Écouter</span>';sc.appendChild(b);
   b.addEventListener('click',function(){setSound(!soundOn)});
   function at(ms,fn){T.push(setTimeout(fn,ms))}
-  function P(v){if(!v.src)v.src=vsrc(k);v.muted=!soundOn;var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  function P(v){if(!v.src){v.src=vsrc(k);if(k==='wed')v.addEventListener('timeupdate',function(){if(v.currentTime<9.5)v.currentTime=9.6})}if(k==='wed'){try{v.currentTime=9.6}catch(e){}}v.muted=!soundOn;var p=v.play();if(p&&p.catch)p.catch(function(){})}
   function reset(){T.forEach(clearTimeout);T=[];sc.className=sc.className.replace(/\s(s1|s2|hit|chip-on|a-in|b-in|bub-on|z1|z2|spark|u1|u2|u3)\b/g,'');vids.forEach(function(v){v.pause();if(v.parentNode.classList)v.parentNode.classList.remove('on')})}
   function go(){running=true;reset();var len=run(sc,at,P);at(len,function(){running=false;if(visible)at(900,go);else reset()})}
   all.push({b:b,vids:vids});
@@ -2353,7 +2353,7 @@ var v=document.getElementById('dpFilm'),src=document.querySelector('#film source
 function at(ms,f){T.push(setTimeout(f,ms))}
 function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('go','hit','play');v.pause()}
 function go(){run=true;reset();at(300,function(){sc.classList.add('go')});at(1500,function(){sc.classList.add('hit')});
-  at(2100,function(){if(!v.src&&src)v.src=src.src;v.muted=!on;sc.classList.add('play');try{v.currentTime=0}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){})});
+  at(2100,function(){if(!v.src&&src){v.src=src.src;v.addEventListener('timeupdate',function(){if(v.currentTime<9.5)v.currentTime=9.6})}v.muted=!on;sc.classList.add('play');try{v.currentTime=9.6}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){})});
   at(11000,function(){run=false;if(vis)at(1200,go);else reset()})}
 snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';v.muted=!on});
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){sc.classList.add('go','play');if(src)v.src=src.src;return}
