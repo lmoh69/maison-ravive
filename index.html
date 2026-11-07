@@ -7,7 +7,7 @@
 /* Lien partenaire : maisonravive.fr/?p=CODE ou maisonravive.fr/p/CODE, mémorisé 90 jours */
 (function(){var K='mr_ref',D=90*864e5;function clean(c){return(c||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,20)}
 try{var q=clean(new URLSearchParams(location.search).get('p'));if(q){localStorage.setItem(K,JSON.stringify({c:q,t:Date.now()}));history.replaceState(null,'',location.pathname+location.hash)}}catch(e){}
-window.mrRef=function(){try{var v=JSON.parse(localStorage.getItem(K)||'null');if(v&&Date.now()-v.t<D)return'\n\nPartenaire : '+v.c}catch(e){}return''};})();
+window.mrRef=function(){try{var v=JSON.parse(localStorage.getItem(K)||'null');if(window.MR_REF)return'\n\nPartenaire : '+window.MR_REF;if(v&&Date.now()-v.t<D)return'\n\nPartenaire : '+v.c}catch(e){}return''};})();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Maison Ravive | Le Tableau Vivant</title>
@@ -1857,9 +1857,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <div class="line"><span>Coffret et livraison en France</span><span>offerts</span></div>
         <div class="line"><span>Valable</span><span>12 mois</span></div>
         <div class="total"><span>Total</span><b id="bcTotal">149 €</b></div>
-        <button class="btn" type="submit" id="bcPay">Payer avec PayPal</button>
+        <button class="btn" type="submit" id="bcPay">Commander le bon cadeau</button>
         <p class="err" id="bcErr" role="alert"></p>
-        <p class="gcnote" id="bcDemo" role="status" hidden>Maquette : sur le site en ligne, ce bouton ouvre le paiement PayPal (compte PayPal ou carte bancaire). Le bon est ensuite envoyé automatiquement par e-mail.</p>
+        <p class="gcnote" id="bcDemo" role="status" hidden>Votre demande est prête dans votre messagerie : envoyez-la. Je vous réponds sous 24 h avec le lien de paiement PayPal (compte PayPal ou carte bancaire), puis le bon par e-mail.</p>
         <p class="help">Le bon est envoyé par e-mail après le paiement. Le tableau est fabriqué quand la personne envoie sa photo<sup class="ast"><a href="#cgv">*</a></sup>.</p>
       </aside>
     </form>
@@ -2094,7 +2094,7 @@ form.addEventListener('submit',function(e){
   if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir la confirmation.';document.getElementById('email').focus();return}
   err.textContent='';
   var total=update(),body=['Format : '+document.getElementById('sumSize').textContent,'Finition : '+document.getElementById('sumFinish').textContent,'Livraison : '+((document.querySelector('input[name=dest]:checked')||{}).value||'chez moi'),'Total : '+total+' €','Photo : '+(document.getElementById('lmohc')&&document.getElementById('lmohc').checked?'à choisir avec LMOH':(window.LMOH_PHOTO||'à envoyer')),'Film : '+(window.mrFilmLabel?mrFilmLabel('h'):document.getElementById('video').value.trim()),'Petits cadres parents : '+(window.mrAddonLabel?mrAddonLabel():'non'),'Nom : '+name,'E-mail : '+email,'Téléphone : '+(document.getElementById('phoneNum').value.trim()||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin1').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun'),'',document.getElementById('msg').value.trim()].join('\n');
-  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : demande de '+name)+'&body='+encodeURIComponent(body+mrRef());
+  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : demande de '+name)+'&body='+encodeURIComponent(body);
 });
 })();
 </script>
@@ -2269,7 +2269,7 @@ pf.addEventListener('submit',function(e){e.preventDefault();var err=document.get
   if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}
   err.textContent='';var q=pcUpdate();
   var body=['Produit : petit cadre 10 × 15 cm','Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
-  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Petit cadre : demande de '+n)+'&body='+encodeURIComponent(body+mrRef())});
+  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Petit cadre : demande de '+n)+'&body='+encodeURIComponent(body)});
 
 /* Petit cadre sur la commode : démonstration animée */
 var sc=document.getElementById('psScene'),vid=document.getElementById('psFilm'),snd=document.getElementById('psSnd'),pr=document.getElementById('print'),src=document.querySelector('#film source');
@@ -2370,7 +2370,7 @@ f.addEventListener('submit',function(e){e.preventDefault();
  if(!n){err.textContent='Indiquez votre prénom et votre nom.';return}
  if(!re.test(m)){err.textContent='Indiquez une adresse e-mail valide.';return}
  if(!d1.hidden&&!re.test(document.getElementById('bctomail').value.trim())){err.textContent='Indiquez l’e-mail de la personne qui reçoit le bon.';return}
- document.getElementById('bcDemo').hidden=false;
+ var v=f.querySelector('input[name="bcfmt"]:checked').value,bv=function(id){var e=document.getElementById(id);return e?e.value.trim():''};var lines=['Bon cadeau : '+L[v],'Total : '+document.getElementById('bcTotal').textContent,'Pour : '+(to.value.trim()||'non indiqué'),'Message : '+(msg.value.trim()||'aucun'),'Envoi : '+(d1.hidden?'à moi':'directement à '+bv('bctomail')+(bv('bcdate')?' le '+bv('bcdate'):'')),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin3')&&document.getElementById('optin3').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')];location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Bon cadeau : demande de '+n)+'&body='+encodeURIComponent(lines.join('\n'));document.getElementById('bcDemo').hidden=false;
 });
 })();
 </script>
@@ -2381,7 +2381,7 @@ var ref=null;
 try{
   var q=new URLSearchParams(location.search).get('ref');
   if(q&&/^[a-z0-9-]{2,40}$/i.test(q)){ref=q.toLowerCase();try{localStorage.setItem('mr_ref',JSON.stringify({r:ref,t:Date.now()}))}catch(e){}}
-  else{var st=null;try{st=JSON.parse(localStorage.getItem('mr_ref')||'null')}catch(e){}if(st&&st.r&&Date.now()-st.t<30*864e5)ref=st.r}
+  else{var st=null;try{st=JSON.parse(localStorage.getItem('mr_ref')||'null')}catch(e){}var sr=st&&(st.r||st.c);if(sr&&Date.now()-st.t<90*864e5)ref=String(sr).toLowerCase()}
 }catch(e){}
 window.MR_REF=ref;
 if(ref){document.querySelectorAll('.summary').forEach(function(sm){var tot=sm.querySelector('.total');if(!tot)return;var d=document.createElement('div');d.className='line';d.innerHTML='<span>Recommandé par</span><span></span>';d.lastChild.textContent=ref.replace(/-/g,' ');sm.insertBefore(d,tot)})}
