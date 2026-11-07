@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script>
 /* Lien partenaire : maisonravive.fr/?p=CODE ou maisonravive.fr/p/CODE, mémorisé 90 jours */
@@ -859,6 +858,37 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .dp-f2::before{content:"";position:absolute;left:0;right:0;top:100%;height:1.1cqw;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),var(--dpimg,#777);background-size:100% 100%,100% 4000%;background-position:0 0,50% 100%;clip-path:polygon(0 0,100% 0,99% 100%,1% 100%)}
 .dp-f2::after{content:"";position:absolute;inset:0;background:linear-gradient(250deg,rgba(255,255,255,.12),transparent 40%,rgba(0,0,0,.06))}
 .dp-f2 .dp-mark{width:3.2cqw;height:3.2cqw}
+/* Offre de lancement */
+.promo-bar{background:linear-gradient(90deg,#1F2530,#2A3140 40%,#1F2530);color:#F3EFE8;font-size:.86rem;border-bottom:1px solid rgba(228,201,149,.35)}
+.promo-bar .wrap{display:flex;align-items:center;gap:.8rem;padding-top:.55rem;padding-bottom:.55rem;flex-wrap:wrap}
+.pb-tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;background:linear-gradient(135deg,#E4C995,#B8925A);color:#1A1918;font-weight:500}
+.pb-txt{flex:1;min-width:12rem}
+.pb-txt b{color:#E4C995;font-weight:500}
+.promo-bar a{color:#E4C995;text-underline-offset:3px}
+@media (max-width:700px){.pb-more{display:none}}
+.promo3d{padding-top:clamp(2rem,5vw,3.5rem);padding-bottom:clamp(2rem,5vw,3.5rem)}
+.pcard{position:relative;display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.2rem,4vw,3rem);align-items:center;padding:clamp(1.4rem,4vw,3rem);border-radius:14px;color:#F3EFE8;background:radial-gradient(ellipse 80% 70% at 85% 20%,rgba(228,201,149,.18),transparent 60%),linear-gradient(150deg,#2E3646,#1C212B);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 0 0 1px rgba(228,201,149,.35),0 30px 60px -25px rgba(20,16,10,.55),0 12px 24px -12px rgba(20,16,10,.35);transform:perspective(1200px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease;overflow:hidden}
+.pcard::after{content:"";position:absolute;inset:-40% -60%;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.10) 50%,transparent 58%);transform:translateX(-60%);animation:pcshine 6s ease-in-out infinite;pointer-events:none}
+@keyframes pcshine{0%,60%{transform:translateX(-60%)}100%{transform:translateX(60%)}}
+.pc-k{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#E4C995;margin:0 0 .6rem}
+.pcard h2{color:#F3EFE8;margin:0 0 1.1rem}
+.pc-list{list-style:none;padding:0;margin:0 0 1rem}
+.pc-list li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-top:1px solid rgba(228,201,149,.22)}
+.pc-list b{font-weight:400}
+.pc-list span{color:#E4C995;text-align:right}
+.pc-code{font-size:.92rem;color:#C9C2B6;margin:0 0 1.2rem}
+.pc-code b{color:#1A1918;background:#E4C995;padding:.1rem .5rem;border-radius:4px;letter-spacing:.08em;font-weight:500}
+.pc-act{display:flex;flex-wrap:wrap;gap:.7rem}
+.pcard .btn:not(.ghost){background:#E4C995;color:#1A1918;border-color:#E4C995}
+.pcard .btn.ghost{color:#F3EFE8;border-color:rgba(243,239,232,.6)}
+.pc-art{position:relative;aspect-ratio:5/4}
+.pc-art i{position:absolute;background:#555 center/cover;box-shadow:0 18px 30px -12px rgba(0,0,0,.7)}
+.pa-big{left:4%;top:8%;width:74%;aspect-ratio:3/2;box-shadow:.5rem .5rem 0 -1px #3E352D,0 22px 36px -14px rgba(0,0,0,.75)!important}
+.pa-s1,.pa-s2{width:30%;aspect-ratio:3/2;border:6px solid #F6F3EE;outline:3px solid #141518}
+.pa-s1{left:52%;top:58%;transform:rotate(-5deg)}
+.pa-s2{left:70%;top:66%;transform:rotate(6deg)}
+@media (max-width:860px){.pcard{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.pcard::after{animation:none}.pcard{transition:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1694,7 +1724,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <div class="noel-cards">
       <article class="noel-card">
         <div class="nxv nxv-toile" aria-hidden="true"><i></i></div>
-        <span class="noel-badge" data-until="2026-12-07" data-label="avant le 7 décembre">Commande avant le 7 décembre</span>
+        <span class="noel-badge" data-until="2026-12-14" data-label="avant le 14 décembre">Commande avant le 14 décembre</span>
         <h3>Le tableau sur toile</h3>
         <p class="price">De 99 à 229 €</p>
         <p>Le grand format à accrocher au mur, sur toile tendue sur châssis bois.</p>
@@ -1704,7 +1734,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <div class="nxv nxv-cadre" aria-hidden="true"><i><b></b></i></div>
         <span class="noel-badge" data-until="2026-12-18" data-label="avant le 18 décembre">Commande avant le 18 décembre</span>
         <h3>Le petit cadre</h3>
-        <p class="price">49 €</p>
+        <p class="price">39 € l’un, 59 € les deux · code PARENTS</p>
         <p>Une photo 10 × 15 à poser sur un meuble, fabriquée en quelques jours. Idéal pour les grands-parents.</p>
         <a class="btn" href="#petit-cadre" data-go="pcOrder">Commander</a>
       </article>
@@ -1727,7 +1757,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <p>Pour une livraison en France métropolitaine avant le 24 décembre<sup class="ast"><a href="#cgv">*</a></sup>.</p>
     </div>
     <ul class="noel-dates">
-      <li><span>Tableau sur toile</span><b>7 décembre</b></li>
+      <li><span>Tableau sur toile</span><b>14 décembre</b></li>
       <li><span>Petit cadre</span><b>18 décembre</b></li>
       <li><span>Bon cadeau par e-mail</span><b>24 décembre</b></li>
     </ul>
@@ -2210,7 +2240,7 @@ pcin.addEventListener('change',function(){var f=pcin.files[0];if(pcp&&pcp.url)UR
     if(fits(d,'10x15')){pcmsg.className='pmsg';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') convient au petit cadre.</p>'}
     else{pcmsg.className='pmsg bad';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') est trop petite, même pour le petit cadre.</p>';
       ask(ph,'Photo trop petite','Votre photo fait '+px(d)+', le petit cadre demande au moins 1 200 × 800 pixels. Ajoutez l’original depuis votre galerie : les photos reçues par WhatsApp ou Messenger sont réduites.',[['Envoyer une photo de meilleure qualité',function(){repick(pcin)}]])}})});
-function pcUpdate(){var q=Math.max(1,Math.min(20,parseInt(document.getElementById('pcqty').value,10)||1));document.getElementById('pcSumFin').textContent=pf.querySelector('input[name=pcfin]:checked').value;document.getElementById('pcTotal').textContent=(q*PRICE+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €';return q}
+function pcUpdate(){var q=Math.max(1,Math.min(20,parseInt(document.getElementById('pcqty').value,10)||1));document.getElementById('pcSumFin').textContent=pf.querySelector('input[name=pcfin]:checked').value;document.getElementById('pcTotal').textContent=((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €';return q}
 pf.addEventListener('input',pcUpdate);pf.addEventListener('change',pcUpdate);pcUpdate();
 pf.addEventListener('submit',function(e){e.preventDefault();var err=document.getElementById('pcErr'),n=document.getElementById('pcname').value.trim(),m=document.getElementById('pcmail').value.trim();
   if(!pcp){err.textContent='Ajoutez votre photo : je vérifie qu’elle est assez nette.';pcin.focus();return}
@@ -2218,7 +2248,7 @@ pf.addEventListener('submit',function(e){e.preventDefault();var err=document.get
   if(!n){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('pcname').focus();return}
   if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}
   err.textContent='';var q=pcUpdate();
-  var body=['Produit : petit cadre 10 × 15 cm','Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Total : '+(q*PRICE+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
+  var body=['Produit : petit cadre 10 × 15 cm','Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
   location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Petit cadre : demande de '+n)+'&body='+encodeURIComponent(body+mrRef())});
 
 /* Petit cadre sur la commode : démonstration animée */
@@ -2426,6 +2456,28 @@ fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(room);else addEve
 </script>
 <script>
 (function(){var pr=document.getElementById('print'),bg=pr?pr.style.backgroundImage:'';document.querySelectorAll('.dp-f2').forEach(function(f){f.style.backgroundImage=bg;f.style.setProperty('--dpimg',bg)})})();
+</script>
+<script>
+(function(){
+/* Offre de lancement : visuels, relief au survol, code PARENTS */
+var END=new Date('2026-12-18T23:59:59');
+var pr=document.getElementById('print'),bg=pr?pr.style.backgroundImage:'';
+document.querySelectorAll('.pc-art i').forEach(function(i){i.style.backgroundImage=bg});
+var card=document.getElementById('pcard');
+if(card&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&matchMedia('(hover:hover)').matches){
+  card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.setProperty('--ry',(x*6)+'deg');card.style.setProperty('--rx',(-y*5)+'deg')});
+  card.addEventListener('mouseleave',function(){card.style.setProperty('--ry','0deg');card.style.setProperty('--rx','0deg')})}
+function ok(id){var e=document.getElementById(id);return !!(e&&e.value.trim().toUpperCase()==='PARENTS'&&new Date()<=END)}
+window.mrPcPrice=function(q){var p=ok('pccode'),l=document.getElementById('pcPromoLine');if(l)l.hidden=!p;return p?Math.floor(q/2)*59+(q%2)*39:q*49};
+window.mrAddon=function(){var c=document.getElementById('addparents'),on=c&&c.checked,v=on?(ok('hcode')?49:98):0,l=document.getElementById('sumAddonLine');
+  if(l){l.hidden=!on;document.getElementById('sumAddon').textContent=v+' €'}
+  var m=document.getElementById('hcodeMsg');if(m){var e=document.getElementById('hcode').value.trim();m.textContent=!e?'':(ok('hcode')?'Code PARENTS appliqué.':'Ce code n’est pas reconnu ou n’est plus valable.')}
+  return v};
+window.mrAddonLabel=function(){var c=document.getElementById('addparents'),code=(document.getElementById('hcode')||{}).value||'';
+  return (c&&c.checked?'oui, 2 petits cadres 10 × 15 ('+(ok('hcode')?'49 € avec PARENTS':'98 €')+')':'non')+(code.trim()?' / code : '+code.trim().toUpperCase():'')};
+var of=document.getElementById('orderForm');if(of)of.dispatchEvent(new Event('change',{bubbles:true}));
+var pf=document.getElementById('pcForm');if(pf)pf.dispatchEvent(new Event('input',{bubbles:true}));
+})();
 </script>
 </body>
 </html>
