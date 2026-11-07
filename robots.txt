@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /f/
+Disallow: /p/
+Sitemap: https://maisonravive.fr/sitemap.xml
