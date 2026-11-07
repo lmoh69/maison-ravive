@@ -873,6 +873,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
   </div>
   <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Petit cadre</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
 </header>
+<div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Toiles dès 99 €<span class="pb-more"> · 2 petits cadres pour vos parents à 59 € avec le code <b>PARENTS</b></span> · commandez avant le 14 décembre</span><a href="#noel">Voir l’offre</a></div></div>
 
 <main id="top">
 <section class="hero" aria-labelledby="titre">
@@ -896,6 +897,25 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         </div>
       </div>
       <p class="hint" id="hint">Glissez le téléphone vers le repère du tableau, ou <button class="replay" id="replay" type="button">lancez la démo</button>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="promo3d" aria-labelledby="t-promo">
+  <div class="wrap">
+    <div class="pcard" id="pcard">
+      <div class="pc-in">
+        <p class="pc-k">Offre de lancement · Noël</p>
+        <h2 id="t-promo">Un pour vous, un pour vos parents</h2>
+        <ul class="pc-list">
+          <li><b>Toile sur châssis</b><span>dès 99 € en 60 × 40, 229 € en 90 × 60</span></li>
+          <li><b>Petits cadres 10 × 15</b><span>39 € l’un, 59 € les deux</span></li>
+          <li><b>Avec une grande toile</b><span>les deux petits cadres à 49 €</span></li>
+        </ul>
+        <p class="pc-code">Code <b>PARENTS</b> jusqu’au 18 décembre. Toiles commandées avant le 14 décembre, livrées pour Noël.</p>
+        <div class="pc-act"><a class="btn" href="#commande">Créer ma toile</a><a class="btn ghost" href="#petit-cadre"><span>Les petits cadres</span></a></div>
+      </div>
+      <div class="pc-art" aria-hidden="true"><i class="pa-big"></i><i class="pa-s1"></i><i class="pa-s2"></i></div>
     </div>
   </div>
 </section>
@@ -1066,7 +1086,12 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
           <label class="fopt"><input type="radio" name="dest" value="chez moi" checked><span><b>Chez moi</b><em>Idéal si vous l’offrez : vous recevez les deux colis et les emballez ensemble.</em></span></label>
           <label class="fopt"><input type="radio" name="dest" value="directement chez la personne"><span><b>Directement chez la personne</b><em>Elle reçoit le coffret puis le tableau, avec la carte d’installation. Je vous demande son adresse par e-mail.</em></span></label>
         </div></fieldset>
-        <fieldset><legend>Vos coordonnées</legend>
+        <fieldset><legend>Offre de Noël</legend>
+          <label class="check"><input type="checkbox" id="addparents"> Ajouter 2 petits cadres 10 × 15 pour vos parents, avec la même photo et le même film : 49 € avec le code PARENTS</label>
+          <div class="field" style="margin-top:.8rem"><label for="hcode">Code promo <span class="help">(facultatif)</span></label><input id="hcode" type="text" autocomplete="off" placeholder="PARENTS"><span class="help" id="hcodeMsg"></span></div>
+        </fieldset>
+        
+<fieldset><legend>Vos coordonnées</legend>
           <div class="field"><label for="name">Prénom et nom</label><input id="name" autocomplete="name" required></div>
           <div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="phoneNum">Téléphone <span class="help">(facultatif)</span></label><input id="phoneNum" type="tel" autocomplete="tel"></div>
@@ -1082,6 +1107,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <div class="line"><span>Finition</span><span id="sumFinish">Toile, bords pliés</span></div>
         <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
         <div class="line"><span>Coffret du repère</span><span>inclus</span></div>
+        <div class="line" id="sumAddonLine" hidden><span>2 petits cadres parents</span><span id="sumAddon">49 €</span></div>
         <div class="line" id="sumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
         <div class="line"><span>Livraison en France</span><span>offerte</span></div>
         <div class="total"><span>Total</span><b id="sumTotal">149 €</b></div>
@@ -1598,7 +1624,11 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
             <label class="fopt"><input type="radio" name="pcfilm" value="lmoh"><span><b>Mariés LMOH Photography</b><em>Votre film est déjà prêt, rien à envoyer.</em></span></label>
           </div>
         </fieldset>
-        <fieldset><legend>Vos coordonnées</legend>
+        <fieldset><legend>Code promo</legend>
+          <div class="field"><label for="pccode">Votre code <span class="help">(facultatif)</span></label><input id="pccode" type="text" autocomplete="off" placeholder="PARENTS"><span class="help">Avec PARENTS jusqu’au 18 décembre : 39 € le petit cadre, 59 € les deux.</span></div>
+        </fieldset>
+        
+<fieldset><legend>Vos coordonnées</legend>
           <div class="field"><label for="pcname">Prénom et nom</label><input id="pcname" autocomplete="name" required></div>
           <div class="field"><label for="pcmail">E-mail</label><input id="pcmail" type="email" autocomplete="email" required></div>
           <div class="field"><label for="pcqty">Nombre de cadres</label><input id="pcqty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
@@ -1610,6 +1640,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <div class="line"><span>Format</span><span>Photo 10 × 15 cm</span></div>
         <div class="line"><span>Finition</span><span id="pcSumFin">Cadre noir</span></div>
         <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
+        <div class="line" id="pcPromoLine" hidden><span>Offre PARENTS</span><span>appliquée</span></div>
         <div class="line" id="pcSumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
         <div class="line"><span>Livraison en France</span><span>offerte</span></div>
         <div class="total"><span>Total</span><b id="pcTotal">49 €</b></div>
@@ -1994,7 +2025,7 @@ document.querySelectorAll('.chip[data-fin]').forEach(function(c){c.addEventListe
 var form=document.getElementById('orderForm'),mini=document.getElementById('mini');
 function val(n){var r=form.querySelector('input[name='+n+']:checked');return r?r.value:''}
 function update(){
-  var size=val('size'),fin=val('finish'),ori=val('ori'),s=SIZES[size],total=s[2]+FIN[fin][1]+(window.mrFilmExtra?mrFilmExtra('h'):0);
+  var size=val('size'),fin=val('finish'),ori=val('ori'),s=SIZES[size],total=s[2]+FIN[fin][1]+(window.mrFilmExtra?mrFilmExtra('h'):0)+(window.mrAddon?mrAddon():0);
   var big=ori==='paysage'?[s[0],s[1]]:[s[1],s[0]],k=2.1;
   mini.style.width=(big[0]*k)+'px';mini.style.height=(big[1]*k)+'px';mini.style.backgroundImage='url('+(ori==='paysage'?HERO:PORTRAIT)+')';
   mini.className='mini '+fin;
@@ -2012,7 +2043,7 @@ form.addEventListener('submit',function(e){
   if(!name){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('name').focus();return}
   if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir la confirmation.';document.getElementById('email').focus();return}
   err.textContent='';
-  var total=update(),body=['Format : '+document.getElementById('sumSize').textContent,'Finition : '+document.getElementById('sumFinish').textContent,'Livraison : '+((document.querySelector('input[name=dest]:checked')||{}).value||'chez moi'),'Total : '+total+' €','Photo : '+(document.getElementById('lmohc')&&document.getElementById('lmohc').checked?'à choisir avec LMOH':(window.LMOH_PHOTO||'à envoyer')),'Film : '+(window.mrFilmLabel?mrFilmLabel('h'):document.getElementById('video').value.trim()),'Nom : '+name,'E-mail : '+email,'Téléphone : '+(document.getElementById('phoneNum').value.trim()||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin1').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun'),'',document.getElementById('msg').value.trim()].join('\n');
+  var total=update(),body=['Format : '+document.getElementById('sumSize').textContent,'Finition : '+document.getElementById('sumFinish').textContent,'Livraison : '+((document.querySelector('input[name=dest]:checked')||{}).value||'chez moi'),'Total : '+total+' €','Photo : '+(document.getElementById('lmohc')&&document.getElementById('lmohc').checked?'à choisir avec LMOH':(window.LMOH_PHOTO||'à envoyer')),'Film : '+(window.mrFilmLabel?mrFilmLabel('h'):document.getElementById('video').value.trim()),'Petits cadres parents : '+(window.mrAddonLabel?mrAddonLabel():'non'),'Nom : '+name,'E-mail : '+email,'Téléphone : '+(document.getElementById('phoneNum').value.trim()||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin1').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun'),'',document.getElementById('msg').value.trim()].join('\n');
   location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : demande de '+name)+'&body='+encodeURIComponent(body+mrRef());
 });
 })();
