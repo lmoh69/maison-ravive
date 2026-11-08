@@ -898,6 +898,12 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .nxv-bon .mri svg{display:block;width:1em;height:.55em;margin:0;color:#E4C995}
 .pa-s1{width:19%;aspect-ratio:2/3;left:52%;top:46%;transform:rotate(-5deg)}
 .pa-s2{width:30%;aspect-ratio:1400/902;left:66%;top:62%;transform:rotate(5deg)}
+.st-inframe.s1 .ph.a{left:73%;top:36%;transform:rotate(-3deg)}
+.st-inframe.s2 .ph.a{left:72%;top:30%;transform:rotate(-2deg) scale(1.04)}
+.p2 .nfcw{position:absolute;z-index:3;right:7%;bottom:15%;width:clamp(24px,6vw,44px);height:clamp(24px,6vw,44px);color:#E4C995;opacity:0;transition:opacity .3s;filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
+.p2.hit .nfcw{opacity:1;animation:nfcp 1s ease-in-out infinite}
+@keyframes nfcp{0%,100%{transform:scale(.85);opacity:.55}50%{transform:scale(1.12);opacity:1}}
+.p2 .scr .msg{transition:opacity .4s}.p2 .scr.on .msg{opacity:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1383,12 +1389,12 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <p class="lead">Un tableau de démonstration posé chez vous. Vos clients approchent leur téléphone : ils comprennent en trois secondes, et repartent avec l’envie.</p>
     <div class="p2list">
       <article class="p2row">
-        <div class="p2 st-inframe" data-k="wed" aria-label="Animation : à l’accueil d’un domaine, un téléphone touche le repère et le tableau lui-même s’anime">
+        <div class="p2 st-inframe" data-k="wed" aria-label="Animation : à l’accueil d’un domaine, un téléphone touche le repère du tableau et le film démarre sur le téléphone">
           <div class="p2bg"></div><div class="dec dec-console"><b></b><i></i><i></i></div>
           <svg class="dec dec-flowers" viewBox="0 0 80 120" aria-hidden="true"><path d="M40 118V60M40 80C30 70 20 66 10 62M40 74C50 64 60 60 70 58" stroke="#6E5A45" stroke-width="2" fill="none"/><circle cx="10" cy="60" r="7" fill="#EFEDEA"/><circle cx="70" cy="56" r="7" fill="#E4C995"/><circle cx="40" cy="56" r="9" fill="#F6F2EC"/><circle cx="26" cy="46" r="6" fill="#E9D6CC"/><circle cx="56" cy="44" r="6" fill="#EFEDEA"/></svg>
-          <div class="fr"><img alt="" data-src="hero"><video muted playsinline loop preload="none"></video><span class="repere"><svg><use href="#mono"/></svg></span><i class="sweep"></i></div>
-          <div class="ph a"><div class="scr"><span class="msg">Le tableau s’anime…</span></div></div>
-          <span class="chip">Le film démarre dans le tableau</span>
+          <div class="fr"><img alt="" data-src="hero"><span class="repere"><svg><use href="#mono"/></svg></span><span class="nfcw" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8.5a5 5 0 010 7M11 5.5a9.5 9.5 0 010 13M15 2.5a14 14 0 010 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div>
+          <div class="ph a"><div class="scr"><video muted playsinline loop preload="none"></video><span class="msg">Connexion…</span></div></div>
+          <span class="chip">Le film démarre sur le téléphone</span>
           
         </div>
         <div class="mtext"><span class="when">Domaine, salle de réception</span><h3>À l’accueil, le tableau s’anime</h3><p>Pendant la visite, les futurs mariés touchent le repère. Ce n’est plus une photo au mur : c’est un mariage célébré chez vous qui reprend vie.</p><span class="sup">Tableau 60 × 40 à l’accueil</span></div>
@@ -2312,9 +2318,9 @@ var cache={},soundOn=false;
 function vsrc(k){if(cache[k])return cache[k];var d=window.CA_VIDS&&window.CA_VIDS[k];if(!d)return'';if(d.indexOf('data:')!==0)return cache[k]=d;var b=atob(d.split(',')[1]),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return cache[k]=URL.createObjectURL(new Blob([u],{type:'video/mp4'}))}
 var ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
 var STORIES={
- inframe:function(sc,at,P){var v=sc.querySelector('.fr video');
-   at(300,function(){sc.classList.add('s1')});at(1400,function(){sc.classList.add('hit')});
-   at(2000,function(){sc.classList.add('s2');sc.classList.remove('hit');P(v)});at(3200,function(){sc.classList.add('chip-on')});
+ inframe:function(sc,at,P){var v=sc.querySelector('.scr video');
+   at(300,function(){v.parentNode.classList.remove('on');sc.classList.add('s1')});at(1400,function(){sc.classList.add('hit')});
+   at(2300,function(){sc.classList.add('s2');v.parentNode.classList.add('on');P(v)});at(3400,function(){sc.classList.remove('hit');sc.classList.add('chip-on')});
    return 9500},
  duo:function(sc,at,P){var va=sc.querySelector('.ph.a video'),vb=sc.querySelector('.ph.b video');
    at(300,function(){sc.classList.add('a-in')});at(1400,function(){sc.classList.add('hit')});
