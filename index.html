@@ -889,6 +889,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .pa-s2{left:70%;top:66%;transform:rotate(6deg)}
 @media (max-width:860px){.pcard{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.pcard::after{animation:none}.pcard{transition:none}}
+.paybox{margin-top:1rem;padding:1rem;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.paybox[hidden]{display:none}
+.pay-t{margin:0 0 .8rem;font-size:.95rem}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1674,9 +1677,10 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <div class="line" id="pcSumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
         <div class="line"><span>Livraison en France</span><span>offerte</span></div>
         <div class="total"><span>Total</span><b id="pcTotal">49 €</b></div>
-        <button class="btn" type="submit">Envoyer ma demande</button>
+        <button class="btn" type="submit">Commander et payer</button>
+        <div class="paybox" id="pcPay" hidden></div>
         <p class="err" id="pcErr" role="alert"></p>
-        <p class="help">Aucun paiement maintenant. Fabrication en 2 à 3 jours ouvrés après validation de la photo<sup class="ast"><a href="#cgv">*</a></sup>.</p>
+        <p class="help">Paiement sécurisé par PayPal ou carte bancaire. Fabrication en 2 à 3 jours ouvrés après validation de la photo<sup class="ast"><a href="#cgv">*</a></sup>.</p>
       </aside>
     </form>
   </div>
@@ -1857,7 +1861,8 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <div class="line"><span>Coffret et livraison en France</span><span>offerts</span></div>
         <div class="line"><span>Valable</span><span>12 mois</span></div>
         <div class="total"><span>Total</span><b id="bcTotal">149 €</b></div>
-        <button class="btn" type="submit" id="bcPay">Commander le bon cadeau</button>
+        <button class="btn" type="submit" id="bcPay">Payer le bon cadeau</button>
+        <div class="paybox" id="bcPayBox" hidden></div>
         <p class="err" id="bcErr" role="alert"></p>
         <p class="gcnote" id="bcDemo" role="status" hidden>Votre demande est prête dans votre messagerie : envoyez-la. Je vous réponds sous 24 h avec le lien de paiement PayPal (compte PayPal ou carte bancaire), puis le bon par e-mail.</p>
         <p class="help">Le bon est envoyé par e-mail après le paiement. Le tableau est fabriqué quand la personne envoie sa photo<sup class="ast"><a href="#cgv">*</a></sup>.</p>
@@ -2269,7 +2274,7 @@ pf.addEventListener('submit',function(e){e.preventDefault();var err=document.get
   if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}
   err.textContent='';var q=pcUpdate();
   var body=['Produit : petit cadre 10 × 15 cm','Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
-  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Petit cadre : demande de '+n)+'&body='+encodeURIComponent(body)});
+  mrPay({box:'pcPay',amount:(window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0),desc:'Petit cadre Maison Ravive x'+q,subject:'Petit cadre : commande de '+n,body:body})});
 
 /* Petit cadre sur la commode : démonstration animée */
 var sc=document.getElementById('psScene'),vid=document.getElementById('psFilm'),snd=document.getElementById('psSnd'),pr=document.getElementById('print'),src=document.querySelector('#film source');
@@ -2370,7 +2375,7 @@ f.addEventListener('submit',function(e){e.preventDefault();
  if(!n){err.textContent='Indiquez votre prénom et votre nom.';return}
  if(!re.test(m)){err.textContent='Indiquez une adresse e-mail valide.';return}
  if(!d1.hidden&&!re.test(document.getElementById('bctomail').value.trim())){err.textContent='Indiquez l’e-mail de la personne qui reçoit le bon.';return}
- var v=f.querySelector('input[name="bcfmt"]:checked').value,bv=function(id){var e=document.getElementById(id);return e?e.value.trim():''};var lines=['Bon cadeau : '+L[v],'Total : '+document.getElementById('bcTotal').textContent,'Pour : '+(to.value.trim()||'non indiqué'),'Message : '+(msg.value.trim()||'aucun'),'Envoi : '+(d1.hidden?'à moi':'directement à '+bv('bctomail')+(bv('bcdate')?' le '+bv('bcdate'):'')),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin3')&&document.getElementById('optin3').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')];location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Bon cadeau : demande de '+n)+'&body='+encodeURIComponent(lines.join('\n'));document.getElementById('bcDemo').hidden=false;
+ var v=f.querySelector('input[name="bcfmt"]:checked').value,bv=function(id){var e=document.getElementById(id);return e?e.value.trim():''};var lines=['Bon cadeau : '+L[v],'Total : '+document.getElementById('bcTotal').textContent,'Pour : '+(to.value.trim()||'non indiqué'),'Message : '+(msg.value.trim()||'aucun'),'Envoi : '+(d1.hidden?'à moi':'directement à '+bv('bctomail')+(bv('bcdate')?' le '+bv('bcdate'):'')),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin3')&&document.getElementById('optin3').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')];mrPay({box:'bcPayBox',amount:parseInt(document.getElementById('bcTotal').textContent,10),desc:'Bon cadeau Maison Ravive',subject:'Bon cadeau : commande de '+n,body:lines.join('\n')});
 });
 })();
 </script>
@@ -2497,6 +2502,29 @@ window.mrAddonLabel=function(){var c=document.getElementById('addparents'),code=
   return (c&&c.checked?'oui, 2 petits cadres 10 × 15 ('+(ok('hcode')?'49 € avec PARENTS':'98 €')+')':'non')+(code.trim()?' / code : '+code.trim().toUpperCase():'')};
 var of=document.getElementById('orderForm');if(of)of.dispatchEvent(new Event('change',{bubbles:true}));
 var pf=document.getElementById('pcForm');if(pf)pf.dispatchEvent(new Event('input',{bubbles:true}));
+})();
+</script>
+<script>
+(function(){
+/* Paiement PayPal (bon cadeau et petit cadre) */
+var CID='BAAdZGUv2NR3mSHAHXrI8juq9txwIkhRxkaQQVv1twIjmCGPGP_94TFbb_DOa9EppHlF8QqgOarXfccRTQ',st=0,q=[];
+function load(cb){if(window.paypal&&window.paypal.Buttons)return cb(true);q.push(cb);if(st)return;st=1;
+  var s=document.createElement('script'),done=false;s.src='https://www.paypal.com/sdk/js?client-id='+CID+'&currency=EUR&locale=fr_FR&components=buttons';
+  function fin(ok){if(done)return;done=true;var c=q;q=[];st=ok?2:0;c.forEach(function(f){f(ok)})}
+  s.onload=function(){fin(!!(window.paypal&&window.paypal.Buttons))};s.onerror=function(){fin(false)};setTimeout(function(){fin(!!(window.paypal&&window.paypal.Buttons))},10000);document.head.appendChild(s)}
+window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
+  function mail(extra){location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent(o.subject)+'&body='+encodeURIComponent(o.body+(extra||''))}
+  box.hidden=false;box.innerHTML='<p class="pay-t">Total à régler : <b>'+o.amount+' €</b>. Payez en toute sécurité par PayPal ou carte bancaire :</p><div class="pp"></div><p class="help">Un souci de paiement ? Écrivez-moi : contact@maisonravive.fr</p>';
+  load(function(ok){
+    if(!ok){box.innerHTML='<p class="err">Le paiement en ligne ne répond pas. Votre demande s’ouvre dans votre messagerie : envoyez-la, je vous renvoie un lien de paiement.</p>';mail('\n\nPAIEMENT : à faire (lien à envoyer)');return}
+    paypal.Buttons({style:{layout:'vertical',shape:'pill',label:'pay',height:45},
+      createOrder:function(d,a){return a.order.create({purchase_units:[{amount:{currency_code:'EUR',value:String(o.amount)},description:o.desc}]})},
+      onApprove:function(d,a){return a.order.capture().then(function(det){var id=(det&&det.id)||d.orderID;
+        box.innerHTML='<p class="ok show">Paiement reçu, merci ! Votre messagerie s’ouvre : envoyez le message pour que je lance la fabrication.</p>';
+        mail('\n\nPAIEMENT PAYPAL REÇU : '+o.amount+' € (transaction '+id+')');if(o.done)o.done()})},
+      onError:function(){var e=document.createElement('p');e.className='err';e.textContent='Le paiement n’a pas abouti. Réessayez, ou écrivez-moi : contact@maisonravive.fr';box.appendChild(e)}
+    }).render(box.querySelector('.pp'));
+    box.scrollIntoView({behavior:'smooth',block:'center'})})};
 })();
 </script>
 </body>
