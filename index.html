@@ -2099,7 +2099,7 @@ form.addEventListener('submit',function(e){
   if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir la confirmation.';document.getElementById('email').focus();return}
   err.textContent='';
   var total=update(),body=['Format : '+document.getElementById('sumSize').textContent,'Finition : '+document.getElementById('sumFinish').textContent,'Livraison : '+((document.querySelector('input[name=dest]:checked')||{}).value||'chez moi'),'Total : '+total+' €','Photo : '+(document.getElementById('lmohc')&&document.getElementById('lmohc').checked?'à choisir avec LMOH':(window.LMOH_PHOTO||'à envoyer')),'Film : '+(window.mrFilmLabel?mrFilmLabel('h'):document.getElementById('video').value.trim()),'Petits cadres parents : '+(window.mrAddonLabel?mrAddonLabel():'non'),'Nom : '+name,'E-mail : '+email,'Téléphone : '+(document.getElementById('phoneNum').value.trim()||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin1').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun'),'',document.getElementById('msg').value.trim()].join('\n');
-  location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : demande de '+name)+'&body='+encodeURIComponent(body);
+  mrSend('Tableau Vivant : demande de '+name,body,'Toile');
 });
 })();
 </script>
@@ -2146,7 +2146,7 @@ document.querySelectorAll('.qform').forEach(function(f){
     if(i<steps.length-1){i++;show();var first=steps[i].querySelector('input,textarea');if(first)first.focus({preventScroll:true});return}
     var lines=[];f.querySelectorAll('[data-l]').forEach(function(el){var v=el.tagName==='FIELDSET'?Array.prototype.map.call(el.querySelectorAll('input:checked'),function(x){return x.value}).join(', '):el.value.trim();lines.push(el.dataset.l+' : '+(v||'non précisé'))});
     var who=(f.querySelector('input[autocomplete=organization]').value.trim()||f.querySelector('input[autocomplete=name]').value.trim());
-    location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent('Tableau Vivant : '+f.dataset.subject+', '+who)+'&body='+encodeURIComponent(lines.join('\n')+mrRef());
+    mrSend('Tableau Vivant : '+f.dataset.subject+', '+who,lines.join('\n')+mrRef(),f.dataset.subject);
     ok.classList.add('show');
   });
   prev.addEventListener('click',function(){if(i>0){i--;show()}});
@@ -2505,6 +2505,15 @@ var pf=document.getElementById('pcForm');if(pf)pf.dispatchEvent(new Event('input
 })();
 </script>
 <script>
+/* Chaque commande part aussi directement vers Make (commandes@maisonravive.fr), même sans messagerie */
+window.mrSend=function(subject,body,type,paid){
+  try{var f=new URLSearchParams();f.append('type',type||'');f.append('subject',subject||'Commande maisonravive.fr');f.append('body',body||'');f.append('paiement',paid||'non');
+    f.append('email',((body||'').match(/E-mail : (\S+@\S+)/)||[])[1]||'');f.append('page',location.href);f.append('envoye_le',new Date().toLocaleString('fr-FR'));
+    var ok=false;try{ok=navigator.sendBeacon&&navigator.sendBeacon('https://hook.eu1.make.com/d9ug6o0cuon1qkmfes44kdv287l1kysh',f)}catch(e){}
+    if(!ok){fetch('https://hook.eu1.make.com/d9ug6o0cuon1qkmfes44kdv287l1kysh',{method:'POST',body:f,mode:'no-cors',keepalive:true}).catch(function(){})}}catch(e){}
+  setTimeout(function(){location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)},350)};
+</script>
+<script>
 (function(){
 /* Paiement PayPal (bon cadeau et petit cadre) */
 var CID='BAAdZGUv2NR3mSHAHXrI8juq9txwIkhRxkaQQVv1twIjmCGPGP_94TFbb_DOa9EppHlF8QqgOarXfccRTQ',st=0,q=[];
@@ -2513,7 +2522,7 @@ function load(cb){if(window.paypal&&window.paypal.Buttons)return cb(true);q.push
   function fin(ok){if(done)return;done=true;var c=q;q=[];st=ok?2:0;c.forEach(function(f){f(ok)})}
   s.onload=function(){fin(!!(window.paypal&&window.paypal.Buttons))};s.onerror=function(){fin(false)};setTimeout(function(){fin(!!(window.paypal&&window.paypal.Buttons))},10000);document.head.appendChild(s)}
 window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
-  function mail(extra){location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent(o.subject)+'&body='+encodeURIComponent(o.body+(extra||''))}
+  function mail(extra){mrSend(o.subject,o.body+(extra||''),o.desc,/PAYPAL REÇU/.test(extra||'')?'PayPal reçu':(extra?'à faire':'non'))}
   box.hidden=false;box.innerHTML='<p class="pay-t">Total à régler : <b>'+o.amount+' €</b>. Payez en toute sécurité par PayPal ou carte bancaire :</p><div class="pp"></div><p class="help">Un souci de paiement ? Écrivez-moi : contact@maisonravive.fr</p>';
   load(function(ok){
     if(!ok){box.innerHTML='<p class="err">Le paiement en ligne ne répond pas. Votre demande s’ouvre dans votre messagerie : envoyez-la, je vous renvoie un lien de paiement.</p>';mail('\n\nPAIEMENT : à faire (lien à envoyer)');return}
