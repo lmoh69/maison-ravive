@@ -893,6 +893,11 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .paybox[hidden]{display:none}
 .pay-t{margin:0 0 .8rem;font-size:.95rem}
 .cgv-box{border:1px solid var(--line);border-radius:8px;padding:1rem 1.2rem;font-size:.92rem;background:var(--paper)}
+.nxv-bon i>span{display:flex;flex-direction:column;align-items:center}
+.gc-mr{color:#F3EFE8;margin:0 auto .7rem}.gc-mr small{font-size:.42rem;margin-bottom:.5rem}.gc-mr b{font-size:.95rem}
+.nxv-bon .mri svg{display:block;width:1em;height:.55em;margin:0;color:#E4C995}
+.pa-s1{width:19%;aspect-ratio:2/3;left:52%;top:46%;transform:rotate(-5deg)}
+.pa-s2{width:30%;aspect-ratio:1400/902;left:66%;top:62%;transform:rotate(5deg)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1764,7 +1769,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <a class="btn" href="#petit-cadre" data-go="pcOrder">Commander</a>
       </article>
       <article class="noel-card">
-        <div class="nxv nxv-bon" aria-hidden="true"><i><span><svg><use href="#mono"/></svg>Bon cadeau</span></i></div>
+        <div class="nxv nxv-bon" aria-hidden="true"><i><span><span class="mrlogo gc-mr"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span>Bon cadeau</span></i></div>
         <span class="noel-badge" data-until="2026-12-24" data-label="jusqu’au 24 décembre">Jusqu’au 24 décembre</span>
         <h3>Le bon cadeau</h3>
         <p class="price">De 49 à 229 €</p>
@@ -2488,7 +2493,7 @@ fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(room);else addEve
 /* Offre de lancement : visuels, relief au survol, code PARENTS */
 var END=new Date('2026-12-18T23:59:59');
 var pr=document.getElementById('print'),bg=pr?pr.style.backgroundImage:'';
-document.querySelectorAll('.pc-art i').forEach(function(i){i.style.backgroundImage=bg});
+document.querySelectorAll('.pc-art i').forEach(function(i){i.style.backgroundImage=bg});document.querySelectorAll('.pa-s1').forEach(function(i){i.style.backgroundImage="url(assets/p-69def764.jpg)"});
 var card=document.getElementById('pcard');
 if(card&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&matchMedia('(hover:hover)').matches){
   card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.setProperty('--ry',(x*6)+'deg');card.style.setProperty('--rx',(-y*5)+'deg')});
