@@ -937,6 +937,12 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .iv-cta{position:absolute;right:4%;bottom:7%;padding:.7rem 1.3rem;border-radius:999px;background:#E4C995;color:#1A1918;text-decoration:none;font-size:max(.85rem,1.3cqw);opacity:0;transition:opacity .6s}
 .introv.p3 .iv-cta{opacity:1}
 @media (max-width:600px){.iv-cap{max-width:75%;bottom:5%}.iv-cta{bottom:auto;top:4%;left:4%;right:auto}}
+/* Bannière vidéo (montage unique) */
+.introb{position:relative;width:100%;aspect-ratio:1280/548;max-height:70vh;overflow:hidden;background:#1E232E}
+.introb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ib-snd{right:2.5%;top:6%}
+.ib-cta{position:absolute;right:3%;bottom:8%;padding:.6rem 1.2rem;border-radius:999px;background:#E4C995;color:#1A1918;text-decoration:none;font-size:.9rem;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+@media (max-width:600px){.ib-cta{padding:.4rem .8rem;font-size:.75rem;bottom:6%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -954,16 +960,10 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Toiles dès 99 €<span class="pb-more"> · 2 petits cadres pour vos parents à 59 € avec le code <b>PARENTS</b></span> · commandez avant le 14 décembre</span><a href="#noel">Voir l’offre</a></div></div>
 
 <main id="top">
-<section class="introv" id="introv" aria-label="Vidéo : on approche son téléphone du repère du tableau et le film du mariage démarre">
-  <video class="iv1" muted autoplay playsinline preload="auto" poster="assets/toile-salon.jpg" src="assets/intro-action-1.mp4"></video>
-  <canvas class="iv-freeze" aria-hidden="true"></canvas>
-  <button class="iv-play" type="button" id="ivPlay" aria-label="Lancer la vidéo"><span>▶</span> Voir la vidéo</button>
-  <span class="iv-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8.5a5 5 0 010 7M11 5.5a9.5 9.5 0 010 13M15 2.5a14 14 0 010 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-  <div class="iv2" aria-hidden="true"><div class="iv-ph"><div class="iv-scr"><video class="iv-film" muted playsinline loop preload="auto" src="assets/v-5d5ccae0.mp4#t=9.6"></video></div></div></div>
-  <div class="iv-end" aria-hidden="true"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span><span class="iv-slo">Une photo. Un geste. Votre film.</span><em>Approchez. Revivez.</em></div>
-  <p class="iv-cap" id="ivCap"></p>
-  <button class="snd iv-snd" type="button" id="ivSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
-  <a class="iv-cta" href="#commande">Créer mon tableau</a>
+<section class="introb" id="introb" aria-label="Vidéo : un geste du téléphone près du repère, et le film du moment démarre">
+  <video id="ibv" muted autoplay loop playsinline preload="auto" poster="assets/toile-salon.jpg" src="assets/maison-ravive-banniere-21x9.mp4"></video>
+  <button class="snd ib-snd" type="button" id="ibSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
+  <a class="ib-cta" href="#commande">Créer mon tableau</a>
 </section>
 <section class="hero" aria-labelledby="titre">
   <div class="wrap">
@@ -2642,6 +2642,13 @@ document.getElementById('ivPlay').addEventListener('click',function(){sc.classLi
 snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vf.muted=!on;if(on){startMusic();if(sc.classList.contains('p2'))pl(vf)}else stopMusic()});
 if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');vis=e.isIntersecting&&!(m&&m.hidden);if(vis&&!run)go();if(!vis){run=false;reset();v1.pause();if(on)snd.click()}})},{threshold:.3}).observe(sc)}else go();
 })();
+</script>
+<script>
+(function(){var sc=document.getElementById('introb');if(!sc)return;var v=document.getElementById('ibv'),b=document.getElementById('ibSnd');
+function pl(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+b.addEventListener('click',function(e){e.stopPropagation();var on=v.muted;v.muted=!on;b.setAttribute('aria-pressed',on);b.querySelector('span').textContent=on?'Couper':'Écouter';pl()});
+sc.addEventListener('click',function(e){if(e.target.closest('a,button'))return;pl()});
+if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');if(e.isIntersecting&&!(m&&m.hidden))pl();else v.pause()})},{threshold:.25}).observe(sc)}})();
 </script>
 </body>
 </html>
