@@ -956,7 +956,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
   <button class="iv-play" type="button" id="ivPlay" aria-label="Lancer la vidéo"><span>▶</span> Voir la vidéo</button>
   <span class="iv-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8.5a5 5 0 010 7M11 5.5a9.5 9.5 0 010 13M15 2.5a14 14 0 010 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
   <div class="iv2" aria-hidden="true"><div class="iv-ph"><div class="iv-scr"><video class="iv-film" muted playsinline loop preload="auto" src="assets/v-5d5ccae0.mp4#t=9.6"></video></div></div></div>
-  <div class="iv-end" aria-hidden="true"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span><em>Le Tableau Vivant</em><span class="iv-slo">Votre photo au mur. Votre film au creux de la main.</span></div>
+  <div class="iv-end" aria-hidden="true"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span><em>Le Tableau Vivant</em><span class="iv-slo">Vos plus beaux moments reprennent vie, d’un simple geste du téléphone.</span></div>
   <p class="iv-cap" id="ivCap"></p>
   <button class="snd iv-snd" type="button" id="ivSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
   <a class="iv-cta" href="#commande">Créer mon tableau</a>
@@ -2598,8 +2598,10 @@ window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
 var sc=document.getElementById('introv');if(!sc)return;
 var S=[
  {v:'assets/intro-action-1.mp4',x:73.2,y:51.5,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Mariage, naissance, anniversaire… vos plus beaux moments, au mur.',b:'Un simple geste du téléphone, sans application.',c:'Et le film de ce jour-là reprend vie.'},
- {v:'assets/intro-chambre.mp4',x:56.5,y:44,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Pour votre anniversaire de mariage, au-dessus du lit.',b:'Approchez votre téléphone…',c:'Et le film de ce jour-là reprend vie.'},
+ {v:'assets/intro-bebe.mp4',x:58,y:66,r:3000,f:'assets/film-bebe.mp4',t:0,a:'Sa naissance, dans un petit cadre sur la commode.',b:'Mamie approche son téléphone…',c:'…et revoit ses premiers instants.'},
+ {v:'assets/intro-chien.mp4',x:62,y:40,r:3400,f:'assets/film-chien.mp4',t:0,a:'Votre compagnon, sur toile, dans l’entrée.',b:'Un geste en rentrant à la maison…',c:'…et il court à nouveau vers vous.'},
  {v:'assets/intro-parents.mp4',x:68.5,y:46,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Pour vos parents, le souvenir du plus beau jour.',b:'Un geste, et ils le revivent.',c:'Et le film de ce jour-là reprend vie.'},
+ {v:'assets/intro-pausecafe2.mp4',x:75,y:57,r:1600,f:'assets/v-63b80f2a.mp4',t:0,a:'À la pause café, la soirée de l’entreprise au mur.',b:'Chacun approche son téléphone…',c:'…et la soirée reprend vie.'},
  {v:'assets/intro-entreprise2.mp4',x:63.5,y:80,r:1400,top:1,f:'assets/v-63b80f2a.mp4',t:0,a:'Votre soirée d’entreprise ne s’arrête plus à la dernière photo.',b:'Chaque invité approche son téléphone de la carte…',c:'…et la soirée reprend vie.'}];
 var v1=sc.querySelector('.iv1'),vf=sc.querySelector('.iv-film'),cap=document.getElementById('ivCap'),snd=document.getElementById('ivSnd'),ring=sc.querySelector('.iv-ring'),T=[],on=false,vis=true,run=false,k=-1;
 if(v1.getAttribute('src')&&v1.getAttribute('src').indexOf('data:')===0){S=[Object.assign(S[0],{v:v1.getAttribute('src')})]}
