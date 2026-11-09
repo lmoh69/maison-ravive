@@ -2600,10 +2600,10 @@ function say(t){cap.classList.remove('on');setTimeout(function(){cap.textContent
 function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('ring','p2','p3');vf.pause();say('')}
 function go(){run=true;reset();try{v1.currentTime=0}catch(e){}var p1=v1.play();if(p1&&p1.catch)p1.catch(function(){});
   at(1500,function(){if(v1.paused&&v1.currentTime<.2)sc.classList.add('needtap')});
-  at(400,function(){say('Une photo de votre mariage, au mur.')});
-  at(2600,function(){say('Un geste. Sans application, sans QR code.')});
+  at(400,function(){say('Mariage, naissance, anniversaire… vos plus beaux moments, au mur.')});
+  at(2600,function(){say('Un simple geste du téléphone, sans application.')});
   at(4000,function(){sc.classList.add('ring')});
-  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');if(!vf.src&&src)vf.src=src.src+'#t=9.6';try{if(vf.readyState>0)vf.currentTime=9.6}catch(e){}vf.muted=!on;var p2=vf.play();if(p2&&p2.catch)p2.catch(function(){});say('Le film du même jour démarre sur le téléphone.')});
+  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');if(!vf.src&&src)vf.src=src.src+'#t=9.6';try{if(vf.readyState>0)vf.currentTime=9.6}catch(e){}vf.muted=!on;var p2=vf.play();if(p2&&p2.catch)p2.catch(function(){});say('Et le film de ce jour-là reprend vie.')});
   at(11500,function(){sc.classList.add('p3');vf.pause();say('')});
   at(15000,function(){run=false;go()})}
 document.getElementById('ivPlay').addEventListener('click',function(){sc.classList.remove('needtap');v1.muted=true;vf.muted=true;var a=vf.play();if(a&&a.then)a.then(function(){vf.pause()}).catch(function(){});run=false;go()});
