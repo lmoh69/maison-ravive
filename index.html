@@ -904,6 +904,29 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .p2.hit .nfcw{opacity:1;animation:nfcp 1s ease-in-out infinite}
 @keyframes nfcp{0%,100%{transform:scale(.85);opacity:.55}50%{transform:scale(1.12);opacity:1}}
 .p2 .scr .msg{transition:opacity .4s}.p2 .scr.on .msg{opacity:0}
+/* Bannière vidéo d’introduction */
+.introv{position:relative;aspect-ratio:16/9;max-height:78vh;width:100%;overflow:hidden;background:#EDE9E3;container-type:inline-size}
+.introv .iv1{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter 1s}
+.introv.p2 .iv1,.introv.p3 .iv1{filter:blur(6px) brightness(.72)}
+.iv-ring{position:absolute;left:73.2%;top:51.5%;width:6cqw;height:6cqw;max-width:56px;max-height:56px;color:#E4C995;opacity:0;transition:opacity .4s;filter:drop-shadow(0 1px 3px rgba(0,0,0,.6));pointer-events:none}
+.introv.ring .iv-ring{opacity:1;animation:nfcp 1s ease-in-out infinite}
+.iv2{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .8s;pointer-events:none}
+.introv.p2 .iv2{opacity:1}
+.introv.p3 .iv2{opacity:0}
+.iv-ph{height:80%;aspect-ratio:9/19.5;background:#0E0F12;border-radius:13% / 6%;padding:1.1%;box-shadow:inset 0 0 0 1px #5d6068,0 3cqw 5cqw -1cqw rgba(0,0,0,.6);transform:translateY(8%) rotate(-3deg);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.introv.p2 .iv-ph{transform:none}
+.iv-scr{position:relative;width:100%;height:100%;border-radius:11% / 5%;overflow:hidden;background:#14171D}
+.iv-scr video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.iv-end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4cqw;background:rgba(30,35,46,.82);color:#F3EFE8;opacity:0;transition:opacity .8s;pointer-events:none}
+.introv.p3 .iv-end{opacity:1}
+.iv-end .mrlogo small{font-size:max(.55rem,1.1cqw)}.iv-end .mrlogo b{font-size:max(1.4rem,4.4cqw)}
+.iv-end em{font:300 max(.8rem,1.6cqw)/1 "Josefin Sans",sans-serif;letter-spacing:.3em;text-transform:uppercase;font-style:normal;color:#E4C995}
+.iv-cap{position:absolute;left:4%;bottom:7%;margin:0;max-width:60%;color:#fff;font:300 max(1rem,3cqw)/1.25 "Josefin Sans",sans-serif;letter-spacing:.03em;text-shadow:0 2px 12px rgba(0,0,0,.55);opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s}
+.iv-cap.on{opacity:1;transform:none}
+.iv-snd{right:2.5%;top:4%}
+.iv-cta{position:absolute;right:4%;bottom:7%;padding:.7rem 1.3rem;border-radius:999px;background:#E4C995;color:#1A1918;text-decoration:none;font-size:max(.85rem,1.3cqw);opacity:0;transition:opacity .6s}
+.introv.p3 .iv-cta{opacity:1}
+@media (max-width:600px){.iv-cap{max-width:75%;bottom:5%}.iv-cta{bottom:auto;top:4%;left:4%;right:auto}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -921,6 +944,15 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Toiles dès 99 €<span class="pb-more"> · 2 petits cadres pour vos parents à 59 € avec le code <b>PARENTS</b></span> · commandez avant le 14 décembre</span><a href="#noel">Voir l’offre</a></div></div>
 
 <main id="top">
+<section class="introv" id="introv" aria-label="Vidéo : on approche son téléphone du repère du tableau et le film du mariage démarre">
+  <video class="iv1" muted playsinline preload="auto" poster="assets/toile-salon.jpg" src="assets/intro-action-1.mp4"></video>
+  <span class="iv-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8.5a5 5 0 010 7M11 5.5a9.5 9.5 0 010 13M15 2.5a14 14 0 010 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+  <div class="iv2" aria-hidden="true"><div class="iv-ph"><div class="iv-scr"><video class="iv-film" muted playsinline loop preload="none"></video></div></div></div>
+  <div class="iv-end" aria-hidden="true"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span><em>Le Tableau Vivant</em></div>
+  <p class="iv-cap" id="ivCap"></p>
+  <button class="snd iv-snd" type="button" id="ivSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
+  <a class="iv-cta" href="#commande">Créer mon tableau</a>
+</section>
 <section class="hero" aria-labelledby="titre">
   <div class="wrap">
     <div>
@@ -2550,6 +2582,25 @@ window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
       onError:function(){var e=document.createElement('p');e.className='err';e.textContent='Le paiement n’a pas abouti. Réessayez, ou écrivez-moi : contact@maisonravive.fr';box.appendChild(e)}
     }).render(box.querySelector('.pp'));
     box.scrollIntoView({behavior:'smooth',block:'center'})})};
+})();
+</script>
+<script>
+(function(){
+/* Bannière vidéo : geste réel, ondes sur le repère, film sur le téléphone, logo */
+var sc=document.getElementById('introv');if(!sc)return;
+var v1=sc.querySelector('.iv1'),vf=sc.querySelector('.iv-film'),cap=document.getElementById('ivCap'),snd=document.getElementById('ivSnd'),src=document.querySelector('#film source'),T=[],on=false,vis=true,run=false;
+function at(ms,f){T.push(setTimeout(function(){if(vis)f()},ms))}
+function say(t){cap.classList.remove('on');setTimeout(function(){cap.textContent=t;if(t)cap.classList.add('on')},250)}
+function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('ring','p2','p3');vf.pause();say('')}
+function go(){run=true;reset();try{v1.currentTime=0}catch(e){}var p1=v1.play();if(p1&&p1.catch)p1.catch(function(){});
+  at(400,function(){say('Une photo de votre mariage, au mur.')});
+  at(2600,function(){say('Un geste. Sans application, sans QR code.')});
+  at(4000,function(){sc.classList.add('ring')});
+  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');if(!vf.src&&src)vf.src=src.src+'#t=9.6';try{if(vf.readyState>0)vf.currentTime=9.6}catch(e){}vf.muted=!on;var p2=vf.play();if(p2&&p2.catch)p2.catch(function(){});say('Le film du même jour démarre sur le téléphone.')});
+  at(11500,function(){sc.classList.add('p3');vf.pause();say('')});
+  at(15000,function(){run=false;go()})}
+snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vf.muted=!on;if(on&&sc.classList.contains('p2'))vf.play()});
+if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');vis=e.isIntersecting&&!(m&&m.hidden);if(vis&&!run)go();if(!vis){run=false;reset();v1.pause()}})},{threshold:.3}).observe(sc)}else go();
 })();
 </script>
 </body>
