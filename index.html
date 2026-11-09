@@ -924,6 +924,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .iv-cap{position:absolute;left:4%;bottom:7%;margin:0;max-width:60%;color:#fff;font:300 max(1rem,3cqw)/1.25 "Josefin Sans",sans-serif;letter-spacing:.03em;text-shadow:0 2px 12px rgba(0,0,0,.55);opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s}
 .iv-cap.on{opacity:1;transform:none}
 .iv-snd{right:2.5%;top:4%}
+.iv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:6;display:none;align-items:center;gap:.6rem;padding:.8rem 1.4rem;border:0;border-radius:999px;background:rgba(26,25,24,.78);color:#fff;font:inherit;font-size:1rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.iv-play span{color:#E4C995}
+.introv.needtap .iv-play{display:inline-flex}
 .iv-cta{position:absolute;right:4%;bottom:7%;padding:.7rem 1.3rem;border-radius:999px;background:#E4C995;color:#1A1918;text-decoration:none;font-size:max(.85rem,1.3cqw);opacity:0;transition:opacity .6s}
 .introv.p3 .iv-cta{opacity:1}
 @media (max-width:600px){.iv-cap{max-width:75%;bottom:5%}.iv-cta{bottom:auto;top:4%;left:4%;right:auto}}
@@ -945,9 +948,10 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 
 <main id="top">
 <section class="introv" id="introv" aria-label="Vidéo : on approche son téléphone du repère du tableau et le film du mariage démarre">
-  <video class="iv1" muted playsinline preload="auto" poster="assets/toile-salon.jpg" src="assets/intro-action-1.mp4"></video>
+  <video class="iv1" muted autoplay playsinline preload="auto" poster="assets/toile-salon.jpg" src="assets/intro-action-1.mp4"></video>
+  <button class="iv-play" type="button" id="ivPlay" aria-label="Lancer la vidéo"><span>▶</span> Voir la vidéo</button>
   <span class="iv-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8.5a5 5 0 010 7M11 5.5a9.5 9.5 0 010 13M15 2.5a14 14 0 010 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-  <div class="iv2" aria-hidden="true"><div class="iv-ph"><div class="iv-scr"><video class="iv-film" muted playsinline loop preload="none"></video></div></div></div>
+  <div class="iv2" aria-hidden="true"><div class="iv-ph"><div class="iv-scr"><video class="iv-film" muted playsinline loop preload="auto" src="assets/v-5d5ccae0.mp4#t=9.6"></video></div></div></div>
   <div class="iv-end" aria-hidden="true"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span><em>Le Tableau Vivant</em></div>
   <p class="iv-cap" id="ivCap"></p>
   <button class="snd iv-snd" type="button" id="ivSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
@@ -2593,12 +2597,14 @@ function at(ms,f){T.push(setTimeout(function(){if(vis)f()},ms))}
 function say(t){cap.classList.remove('on');setTimeout(function(){cap.textContent=t;if(t)cap.classList.add('on')},250)}
 function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('ring','p2','p3');vf.pause();say('')}
 function go(){run=true;reset();try{v1.currentTime=0}catch(e){}var p1=v1.play();if(p1&&p1.catch)p1.catch(function(){});
+  at(1500,function(){if(v1.paused&&v1.currentTime<.2)sc.classList.add('needtap')});
   at(400,function(){say('Une photo de votre mariage, au mur.')});
   at(2600,function(){say('Un geste. Sans application, sans QR code.')});
   at(4000,function(){sc.classList.add('ring')});
   at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');if(!vf.src&&src)vf.src=src.src+'#t=9.6';try{if(vf.readyState>0)vf.currentTime=9.6}catch(e){}vf.muted=!on;var p2=vf.play();if(p2&&p2.catch)p2.catch(function(){});say('Le film du même jour démarre sur le téléphone.')});
   at(11500,function(){sc.classList.add('p3');vf.pause();say('')});
   at(15000,function(){run=false;go()})}
+document.getElementById('ivPlay').addEventListener('click',function(){sc.classList.remove('needtap');v1.muted=true;vf.muted=true;var a=vf.play();if(a&&a.then)a.then(function(){vf.pause()}).catch(function(){});run=false;go()});
 snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vf.muted=!on;if(on&&sc.classList.contains('p2'))vf.play()});
 if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');vis=e.isIntersecting&&!(m&&m.hidden);if(vis&&!run)go();if(!vis){run=false;reset();v1.pause()}})},{threshold:.3}).observe(sc)}else go();
 })();
