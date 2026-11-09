@@ -2030,7 +2030,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <footer>
   <div class="wrap">
     <div><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><p>Le Tableau Vivant : la photo au mur, le film au creux de la main. Fabriqué près de Lyon.</p></div>
-    <p><a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a><br><a href="tel:+33651287900">06 51 28 79 00</a>, ou <a href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20Le%20Tableau%20Vivant." target="_blank" rel="noopener">sur WhatsApp</a><br><a href="/blog/">Le journal</a> · <a href="#cgv">Conditions générales de vente et mentions légales</a><br>Site en cours de validation.</p>
+    <p><a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a><br><a href="tel:+33651287900">06 51 28 79 00</a>, ou <a href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20Le%20Tableau%20Vivant." target="_blank" rel="noopener">sur WhatsApp</a><br><a href="/blog/">Le journal</a> · <a href="#cgv">Conditions générales de vente et mentions légales</a><br><small style="opacity:.7">Musique : « Heartwarming », Kevin MacLeod (incompetech.com), licence CC BY 4.0.</small><br>Site en cours de validation.</p>
   </div>
 </footer>
 
@@ -2627,22 +2627,17 @@ function go(){run=true;reset();k=(k+1+S.length)%S.length;var s=S[k];
   at(400,function(){say(s.a)});
   at(2600,function(){say(s.b)});
   at(s.r||4000,function(){sc.classList.add('ring')});
-  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');vf.volume=.55;if(on&&master&&AC)master.gain.setTargetAtTime(.035,AC.currentTime,.4);try{if(vf.readyState>0)vf.currentTime=s.t}catch(e){}vf.muted=!on;pl(vf);say(s.c)});
-  at(11500,function(){sc.classList.add('p3');if(on&&master&&AC)master.gain.setTargetAtTime(.09,AC.currentTime,.6);vf.pause();say('')});
+  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');if(on&&mg&&AC)mg.gain.setTargetAtTime(DUCK,AC.currentTime,.4);try{if(vf.readyState>0)vf.currentTime=s.t}catch(e){}vf.muted=!on;pl(vf);say(s.c)});
+  at(11500,function(){sc.classList.add('p3');if(on&&mg&&AC)mg.gain.setTargetAtTime(MUS,AC.currentTime,.6);vf.pause();say('')});
   at(14500,function(){run=false;go()})}
-/* Musique d’ambiance douce, jouée par le navigateur (piano et nappe) */
-var AC=null,master=null,mus=null;
-function startMusic(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
-  master=AC.createGain();master.gain.setValueAtTime(0,AC.currentTime);master.gain.linearRampToValueAtTime(.09,AC.currentTime+2);
-  var dl=AC.createDelay(1.5);dl.delayTime.value=.42;var fb=AC.createGain();fb.gain.value=.35;var lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2200;
-  master.connect(AC.destination);master.connect(dl);dl.connect(lp);lp.connect(fb);fb.connect(dl);lp.connect(AC.destination);
-  var CH=[[48,55,64,71],[45,52,60,67],[41,48,57,64],[43,50,59,64]],i=0;
-  function f(m){return 440*Math.pow(2,(m-69)/12)}
-  function tone(m,t0,d,v,type){var o=AC.createOscillator(),g=AC.createGain();o.type=type||'sine';o.frequency.value=f(m);g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(v,t0+.02);g.gain.exponentialRampToValueAtTime(.0005,t0+d);o.connect(g);g.connect(master);o.start(t0);o.stop(t0+d+.1)}
-  function padc(ch,t0){ch.forEach(function(m){var o=AC.createOscillator(),g=AC.createGain();o.type='triangle';o.frequency.value=f(m);g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(.03,t0+1.2);g.gain.linearRampToValueAtTime(0,t0+4.6);o.connect(g);g.connect(master);o.start(t0);o.stop(t0+4.8)})}
-  function bar(){if(!on)return;var t0=AC.currentTime+.05,ch=CH[i++%4];padc(ch,t0);tone(ch[0]-12,t0,3.5,.12);[ch[1]+12,ch[2]+12,ch[3]+12,ch[2]+12].forEach(function(m,k){tone(m,t0+k,2.6,.07)})}
-  bar();mus=setInterval(bar,4000)}catch(e){}}
-function stopMusic(){clearInterval(mus);mus=null;if(master&&AC){var g=master;g.gain.cancelScheduledValues(AC.currentTime);g.gain.setValueAtTime(g.gain.value,AC.currentTime);g.gain.linearRampToValueAtTime(0,AC.currentTime+.8)}}
+/* Musique d’ambiance : « Heartwarming », Kevin MacLeod (incompetech.com), CC BY 4.0. Volumes réglés par Web Audio (fonctionne aussi sur iPhone) */
+var AC=null,mg=null,fg=null,mel=null,MUS=.14,DUCK=.05,FILM=.45;
+function audioInit(){if(AC)return;AC=new (window.AudioContext||window.webkitAudioContext)();
+  mel=new Audio('assets/music/heartwarming.mp3');mel.loop=true;mel.preload='auto';
+  var ms=AC.createMediaElementSource(mel);mg=AC.createGain();mg.gain.value=0;ms.connect(mg);mg.connect(AC.destination);
+  try{var fs=AC.createMediaElementSource(vf);fg=AC.createGain();fg.gain.value=FILM;fs.connect(fg);fg.connect(AC.destination)}catch(e){}}
+function startMusic(){try{audioInit();if(AC.state==='suspended')AC.resume();pl(mel);mg.gain.cancelScheduledValues(AC.currentTime);mg.gain.setValueAtTime(mg.gain.value,AC.currentTime);mg.gain.linearRampToValueAtTime(sc.classList.contains('p2')?DUCK:MUS,AC.currentTime+1.5)}catch(e){}}
+function stopMusic(){if(!AC||!mg)return;mg.gain.cancelScheduledValues(AC.currentTime);mg.gain.setValueAtTime(mg.gain.value,AC.currentTime);mg.gain.linearRampToValueAtTime(0,AC.currentTime+.8);setTimeout(function(){if(!on&&mel)mel.pause()},900)}
 document.getElementById('ivPlay').addEventListener('click',function(){sc.classList.remove('needtap');v1.muted=true;vf.muted=true;var a=vf.play();if(a&&a.then)a.then(function(){vf.pause()}).catch(function(){});run=false;k=(k-1+S.length)%S.length;go()});
 snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vf.muted=!on;if(on){startMusic();if(sc.classList.contains('p2'))pl(vf)}else stopMusic()});
 if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');vis=e.isIntersecting&&!(m&&m.hidden);if(vis&&!run)go();if(!vis){run=false;reset();v1.pause();if(on)snd.click()}})},{threshold:.3}).observe(sc)}else go();
