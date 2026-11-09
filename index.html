@@ -2592,21 +2592,31 @@ window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
 </script>
 <script>
 (function(){
-/* Bannière vidéo : geste réel, ondes sur le repère, film sur le téléphone, logo */
+/* Bannière vidéo : 4 lieux, geste réel, ondes sur le repère, film sur le téléphone, logo */
 var sc=document.getElementById('introv');if(!sc)return;
-var v1=sc.querySelector('.iv1'),vf=sc.querySelector('.iv-film'),cap=document.getElementById('ivCap'),snd=document.getElementById('ivSnd'),src=document.querySelector('#film source'),T=[],on=false,vis=true,run=false;
+var S=[
+ {v:'assets/intro-action-1.mp4',x:73.2,y:51.5,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Mariage, naissance, anniversaire… vos plus beaux moments, au mur.',b:'Un simple geste du téléphone, sans application.',c:'Et le film de ce jour-là reprend vie.'},
+ {v:'assets/intro-chambre.mp4',x:56.5,y:44,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Pour votre anniversaire de mariage, au-dessus du lit.',b:'Approchez votre téléphone…',c:'Et le film de ce jour-là reprend vie.'},
+ {v:'assets/intro-parents.mp4',x:68.5,y:46,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Pour vos parents, le souvenir du plus beau jour.',b:'Un geste, et ils le revivent.',c:'Et le film de ce jour-là reprend vie.'},
+ {v:'assets/intro-entreprise.mp4',x:65.5,y:52,f:'assets/v-63b80f2a.mp4',t:0,a:'Votre soirée d’entreprise, au mur de l’accueil.',b:'Vos visiteurs approchent leur téléphone…',c:'Et la soirée reprend vie.'}];
+var v1=sc.querySelector('.iv1'),vf=sc.querySelector('.iv-film'),cap=document.getElementById('ivCap'),snd=document.getElementById('ivSnd'),ring=sc.querySelector('.iv-ring'),T=[],on=false,vis=true,run=false,k=-1;
+if(v1.getAttribute('src')&&v1.getAttribute('src').indexOf('data:')===0){S=[Object.assign(S[0],{v:v1.getAttribute('src')})]}
 function at(ms,f){T.push(setTimeout(function(){if(vis)f()},ms))}
 function say(t){cap.classList.remove('on');setTimeout(function(){cap.textContent=t;if(t)cap.classList.add('on')},250)}
+function pl(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}
 function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('ring','p2','p3');vf.pause();say('')}
-function go(){run=true;reset();try{v1.currentTime=0}catch(e){}var p1=v1.play();if(p1&&p1.catch)p1.catch(function(){});
+function go(){run=true;reset();k=(k+1+S.length)%S.length;var s=S[k];
+  if(v1.getAttribute('src')!==s.v){v1.setAttribute('src',s.v);v1.load()}try{v1.currentTime=0}catch(e){}pl(v1);
+  ring.style.left=s.x+'%';ring.style.top=s.y+'%';
+  var fs=s.f+(s.t?'#t='+s.t:'');if(vf.getAttribute('src')!==fs){vf.setAttribute('src',fs);vf.load()}
   at(1500,function(){if(v1.paused&&v1.currentTime<.2)sc.classList.add('needtap')});
-  at(400,function(){say('Mariage, naissance, anniversaire… vos plus beaux moments, au mur.')});
-  at(2600,function(){say('Un simple geste du téléphone, sans application.')});
+  at(400,function(){say(s.a)});
+  at(2600,function(){say(s.b)});
   at(4000,function(){sc.classList.add('ring')});
-  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');if(!vf.src&&src)vf.src=src.src+'#t=9.6';try{if(vf.readyState>0)vf.currentTime=9.6}catch(e){}vf.muted=!on;var p2=vf.play();if(p2&&p2.catch)p2.catch(function(){});say('Et le film de ce jour-là reprend vie.')});
+  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');try{if(vf.readyState>0)vf.currentTime=s.t}catch(e){}vf.muted=!on;pl(vf);say(s.c)});
   at(11500,function(){sc.classList.add('p3');vf.pause();say('')});
-  at(15000,function(){run=false;go()})}
-document.getElementById('ivPlay').addEventListener('click',function(){sc.classList.remove('needtap');v1.muted=true;vf.muted=true;var a=vf.play();if(a&&a.then)a.then(function(){vf.pause()}).catch(function(){});run=false;go()});
+  at(14500,function(){run=false;go()})}
+document.getElementById('ivPlay').addEventListener('click',function(){sc.classList.remove('needtap');v1.muted=true;vf.muted=true;var a=vf.play();if(a&&a.then)a.then(function(){vf.pause()}).catch(function(){});run=false;k=(k-1+S.length)%S.length;go()});
 snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vf.muted=!on;if(on&&sc.classList.contains('p2'))vf.play()});
 if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');vis=e.isIntersecting&&!(m&&m.hidden);if(vis&&!run)go();if(!vis){run=false;reset();v1.pause()}})},{threshold:.3}).observe(sc)}else go();
 })();
