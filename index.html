@@ -929,6 +929,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .iv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:6;display:none;align-items:center;gap:.6rem;padding:.8rem 1.4rem;border:0;border-radius:999px;background:rgba(26,25,24,.78);color:#fff;font:inherit;font-size:1rem;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .iv-play span{color:#E4C995}
 .iv-cap.top{top:6%;bottom:auto}
+.iv-freeze{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;pointer-events:none}
+.introv.frz .iv-freeze{display:block}
+.introv.p2 .iv-freeze,.introv.p3 .iv-freeze{filter:blur(6px) brightness(.72)}
 .iv-slo{font:300 max(.85rem,1.9cqw)/1.3 "Josefin Sans",sans-serif;color:#F3EFE8;text-align:center;padding:0 6%;margin-top:.6cqw}
 .introv.needtap .iv-play{display:inline-flex}
 .iv-cta{position:absolute;right:4%;bottom:7%;padding:.7rem 1.3rem;border-radius:999px;background:#E4C995;color:#1A1918;text-decoration:none;font-size:max(.85rem,1.3cqw);opacity:0;transition:opacity .6s}
@@ -953,10 +956,11 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <main id="top">
 <section class="introv" id="introv" aria-label="Vidéo : on approche son téléphone du repère du tableau et le film du mariage démarre">
   <video class="iv1" muted autoplay playsinline preload="auto" poster="assets/toile-salon.jpg" src="assets/intro-action-1.mp4"></video>
+  <canvas class="iv-freeze" aria-hidden="true"></canvas>
   <button class="iv-play" type="button" id="ivPlay" aria-label="Lancer la vidéo"><span>▶</span> Voir la vidéo</button>
   <span class="iv-ring" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8.5a5 5 0 010 7M11 5.5a9.5 9.5 0 010 13M15 2.5a14 14 0 010 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
   <div class="iv2" aria-hidden="true"><div class="iv-ph"><div class="iv-scr"><video class="iv-film" muted playsinline loop preload="auto" src="assets/v-5d5ccae0.mp4#t=9.6"></video></div></div></div>
-  <div class="iv-end" aria-hidden="true"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span><em>Le Tableau Vivant</em><span class="iv-slo">Vos plus beaux moments reprennent vie, d’un simple geste du téléphone.</span></div>
+  <div class="iv-end" aria-hidden="true"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b></span><span class="iv-slo">Une photo. Un geste. Votre film.</span><em>Approchez. Revivez.</em></div>
   <p class="iv-cap" id="ivCap"></p>
   <button class="snd iv-snd" type="button" id="ivSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
   <a class="iv-cta" href="#commande">Créer mon tableau</a>
@@ -2594,25 +2598,31 @@ window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
 </script>
 <script>
 (function(){
-/* Bannière vidéo : 4 lieux, geste réel, ondes sur le repère, film sur le téléphone, logo */
+/* Bannière vidéo : 6 moments, geste réel, ondes sur le repère, film sur le téléphone, musique d’ambiance */
 var sc=document.getElementById('introv');if(!sc)return;
+var FZ='polygon(37.3% 11.5%,62.7% 11.5%,62.7% 33.3%,56.3% 33.3%,56.3% 41.8%,37.3% 41.8%)';
 var S=[
- {v:'assets/intro-action-1.mp4',x:73.2,y:51.5,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Mariage, naissance, anniversaire… vos plus beaux moments, au mur.',b:'Un simple geste du téléphone, sans application.',c:'Et le film de ce jour-là reprend vie.'},
- {v:'assets/intro-bebe.mp4',x:58,y:66,r:3000,f:'assets/film-bebe.mp4',t:0,a:'Sa naissance, dans un petit cadre sur la commode.',b:'Mamie approche son téléphone…',c:'…et revoit ses premiers instants.'},
- {v:'assets/intro-chien.mp4',x:62,y:40,r:3400,f:'assets/film-chien.mp4',t:0,a:'Votre compagnon, sur toile, dans l’entrée.',b:'Un geste en rentrant à la maison…',c:'…et il court à nouveau vers vous.'},
- {v:'assets/intro-parents.mp4',x:68.5,y:46,f:'assets/v-5d5ccae0.mp4',t:9.6,a:'Pour vos parents, le souvenir du plus beau jour.',b:'Un geste, et ils le revivent.',c:'Et le film de ce jour-là reprend vie.'},
- {v:'assets/intro-pausecafe2.mp4',x:75,y:57,r:1600,f:'assets/v-63b80f2a.mp4',t:0,a:'À la pause café, la soirée de l’entreprise au mur.',b:'Chacun approche son téléphone…',c:'…et la soirée reprend vie.'},
- {v:'assets/intro-entreprise2.mp4',x:63.5,y:80,r:1400,top:1,f:'assets/v-63b80f2a.mp4',t:0,a:'Votre soirée d’entreprise ne s’arrête plus à la dernière photo.',b:'Chaque invité approche son téléphone de la carte…',c:'…et la soirée reprend vie.'}];
-var v1=sc.querySelector('.iv1'),vf=sc.querySelector('.iv-film'),cap=document.getElementById('ivCap'),snd=document.getElementById('ivSnd'),ring=sc.querySelector('.iv-ring'),T=[],on=false,vis=true,run=false,k=-1;
+ {v:'assets/intro-action-1.mp4',x:73.2,y:51.5,f:['assets/v-5d5ccae0.mp4'],t:9.6,a:'Mariage, naissance, anniversaire… vos plus beaux moments, au mur.',b:'Un geste, et le moment revit.',c:'Et le film de ce jour-là reprend vie.'},
+ {v:'assets/intro-bebe.mp4',x:58,y:66,r:3000,f:['assets/film-bebe-main.mp4','assets/film-bebe.mp4','assets/film-bebe-pieds.mp4'],t:0,a:'Sa naissance, dans un petit cadre sur la commode.',b:'Mamie approche son téléphone…',c:'…et revoit ses premiers instants.'},
+ {v:'assets/intro-chien.mp4',x:62,y:40,r:3400,fz:FZ,f:['assets/film-chien.mp4','assets/film-chien-balle.mp4','assets/film-chien-tete.mp4'],t:0,a:'Votre compagnon, sur toile, dans l’entrée.',b:'Un geste en rentrant à la maison…',c:'…et il court à nouveau vers vous.'},
+ {v:'assets/intro-parents.mp4',x:68.5,y:46,f:['assets/v-5d5ccae0.mp4'],t:9.6,a:'Pour vos parents, le souvenir du plus beau jour.',b:'Un geste, et ils le revivent.',c:'Et le film de ce jour-là reprend vie.'},
+ {v:'assets/intro-pausecafe2.mp4',x:75,y:57,r:1600,f:['assets/v-63b80f2a.mp4'],t:0,a:'À la pause café, la soirée de l’entreprise au mur.',b:'Chacun approche son téléphone…',c:'…et la soirée reprend vie.'},
+ {v:'assets/intro-entreprise2.mp4',x:63.5,y:80,r:1400,top:1,f:['assets/v-63b80f2a.mp4'],t:0,a:'Votre soirée d’entreprise ne s’arrête plus à la dernière photo.',b:'Chaque invité approche son téléphone de la carte…',c:'…et la soirée reprend vie.'}];
+var v1=sc.querySelector('.iv1'),vf=sc.querySelector('.iv-film'),cap=document.getElementById('ivCap'),snd=document.getElementById('ivSnd'),ring=sc.querySelector('.iv-ring'),fzc=sc.querySelector('.iv-freeze'),T=[],on=false,vis=true,run=false,k=-1,list=[],li=0;
 if(v1.getAttribute('src')&&v1.getAttribute('src').indexOf('data:')===0){S=[Object.assign(S[0],{v:v1.getAttribute('src')})]}
 function at(ms,f){T.push(setTimeout(function(){if(vis)f()},ms))}
 function say(t){cap.classList.remove('on');setTimeout(function(){cap.textContent=t;if(t)cap.classList.add('on')},250)}
 function pl(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}
-function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('ring','p2','p3');vf.pause();say('')}
+function reset(){T.forEach(clearTimeout);T=[];sc.classList.remove('ring','p2','p3','frz');vf.pause();say('')}
+function setFilm(i,t){li=i;var fs=list[i]+(t?'#t='+t:'');if(vf.getAttribute('src')!==fs){vf.setAttribute('src',fs);vf.load()}vf.loop=list.length===1}
+vf.addEventListener('ended',function(){if(list.length>1&&sc.classList.contains('p2')){setFilm((li+1)%list.length,0);vf.muted=!on;pl(vf)}});
+function freeze(s){if(!s.fz||!fzc){sc.classList.remove('frz');return}
+  function grab(){try{fzc.width=v1.videoWidth;fzc.height=v1.videoHeight;fzc.getContext('2d').drawImage(v1,0,0);fzc.style.clipPath=s.fz;sc.classList.add('frz')}catch(e){}}
+  if(v1.readyState>=2&&v1.currentTime<.15)grab();else v1.addEventListener('loadeddata',grab,{once:true})}
 function go(){run=true;reset();k=(k+1+S.length)%S.length;var s=S[k];
-  if(v1.getAttribute('src')!==s.v){v1.setAttribute('src',s.v);v1.load()}try{v1.currentTime=0}catch(e){}pl(v1);
+  if(v1.getAttribute('src')!==s.v){v1.setAttribute('src',s.v);v1.load()}try{v1.currentTime=0}catch(e){}pl(v1);freeze(s);
   ring.style.left=s.x+'%';ring.style.top=s.y+'%';cap.classList.toggle('top',!!s.top);
-  var fs=s.f+(s.t?'#t='+s.t:'');if(vf.getAttribute('src')!==fs){vf.setAttribute('src',fs);vf.load()}
+  list=s.f;setFilm(0,s.t);
   at(1500,function(){if(v1.paused&&v1.currentTime<.2)sc.classList.add('needtap')});
   at(400,function(){say(s.a)});
   at(2600,function(){say(s.b)});
@@ -2620,9 +2630,22 @@ function go(){run=true;reset();k=(k+1+S.length)%S.length;var s=S[k];
   at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');try{if(vf.readyState>0)vf.currentTime=s.t}catch(e){}vf.muted=!on;pl(vf);say(s.c)});
   at(11500,function(){sc.classList.add('p3');vf.pause();say('')});
   at(14500,function(){run=false;go()})}
+/* Musique d’ambiance douce, jouée par le navigateur (piano et nappe) */
+var AC=null,master=null,mus=null;
+function startMusic(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+  master=AC.createGain();master.gain.setValueAtTime(0,AC.currentTime);master.gain.linearRampToValueAtTime(.22,AC.currentTime+2);
+  var dl=AC.createDelay(1.5);dl.delayTime.value=.42;var fb=AC.createGain();fb.gain.value=.35;var lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2200;
+  master.connect(AC.destination);master.connect(dl);dl.connect(lp);lp.connect(fb);fb.connect(dl);lp.connect(AC.destination);
+  var CH=[[48,55,64,71],[45,52,60,67],[41,48,57,64],[43,50,59,64]],i=0;
+  function f(m){return 440*Math.pow(2,(m-69)/12)}
+  function tone(m,t0,d,v,type){var o=AC.createOscillator(),g=AC.createGain();o.type=type||'sine';o.frequency.value=f(m);g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(v,t0+.02);g.gain.exponentialRampToValueAtTime(.0005,t0+d);o.connect(g);g.connect(master);o.start(t0);o.stop(t0+d+.1)}
+  function padc(ch,t0){ch.forEach(function(m){var o=AC.createOscillator(),g=AC.createGain();o.type='triangle';o.frequency.value=f(m);g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(.03,t0+1.2);g.gain.linearRampToValueAtTime(0,t0+4.6);o.connect(g);g.connect(master);o.start(t0);o.stop(t0+4.8)})}
+  function bar(){if(!on)return;var t0=AC.currentTime+.05,ch=CH[i++%4];padc(ch,t0);tone(ch[0]-12,t0,3.5,.12);[ch[1]+12,ch[2]+12,ch[3]+12,ch[2]+12].forEach(function(m,k){tone(m,t0+k,2.6,.07)})}
+  bar();mus=setInterval(bar,4000)}catch(e){}}
+function stopMusic(){clearInterval(mus);mus=null;if(master&&AC){var g=master;g.gain.cancelScheduledValues(AC.currentTime);g.gain.setValueAtTime(g.gain.value,AC.currentTime);g.gain.linearRampToValueAtTime(0,AC.currentTime+.8)}}
 document.getElementById('ivPlay').addEventListener('click',function(){sc.classList.remove('needtap');v1.muted=true;vf.muted=true;var a=vf.play();if(a&&a.then)a.then(function(){vf.pause()}).catch(function(){});run=false;k=(k-1+S.length)%S.length;go()});
-snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vf.muted=!on;if(on&&sc.classList.contains('p2'))vf.play()});
-if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');vis=e.isIntersecting&&!(m&&m.hidden);if(vis&&!run)go();if(!vis){run=false;reset();v1.pause()}})},{threshold:.3}).observe(sc)}else go();
+snd.addEventListener('click',function(){on=!on;snd.setAttribute('aria-pressed',on);snd.querySelector('span').textContent=on?'Couper':'Écouter';vf.muted=!on;if(on){startMusic();if(sc.classList.contains('p2'))pl(vf)}else stopMusic()});
+if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(es){es.forEach(function(e){var m=sc.closest('main');vis=e.isIntersecting&&!(m&&m.hidden);if(vis&&!run)go();if(!vis){run=false;reset();v1.pause();if(on)snd.click()}})},{threshold:.3}).observe(sc)}else go();
 })();
 </script>
 </body>
