@@ -2627,13 +2627,13 @@ function go(){run=true;reset();k=(k+1+S.length)%S.length;var s=S[k];
   at(400,function(){say(s.a)});
   at(2600,function(){say(s.b)});
   at(s.r||4000,function(){sc.classList.add('ring')});
-  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');try{if(vf.readyState>0)vf.currentTime=s.t}catch(e){}vf.muted=!on;pl(vf);say(s.c)});
-  at(11500,function(){sc.classList.add('p3');vf.pause();say('')});
+  at(5200,function(){sc.classList.remove('ring');sc.classList.add('p2');vf.volume=.55;if(on&&master&&AC)master.gain.setTargetAtTime(.035,AC.currentTime,.4);try{if(vf.readyState>0)vf.currentTime=s.t}catch(e){}vf.muted=!on;pl(vf);say(s.c)});
+  at(11500,function(){sc.classList.add('p3');if(on&&master&&AC)master.gain.setTargetAtTime(.09,AC.currentTime,.6);vf.pause();say('')});
   at(14500,function(){run=false;go()})}
 /* Musique d’ambiance douce, jouée par le navigateur (piano et nappe) */
 var AC=null,master=null,mus=null;
 function startMusic(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
-  master=AC.createGain();master.gain.setValueAtTime(0,AC.currentTime);master.gain.linearRampToValueAtTime(.22,AC.currentTime+2);
+  master=AC.createGain();master.gain.setValueAtTime(0,AC.currentTime);master.gain.linearRampToValueAtTime(.09,AC.currentTime+2);
   var dl=AC.createDelay(1.5);dl.delayTime.value=.42;var fb=AC.createGain();fb.gain.value=.35;var lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2200;
   master.connect(AC.destination);master.connect(dl);dl.connect(lp);lp.connect(fb);fb.connect(dl);lp.connect(AC.destination);
   var CH=[[48,55,64,71],[45,52,60,67],[41,48,57,64],[43,50,59,64]],i=0;
