@@ -1813,9 +1813,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <article class="noel-card">
         <div class="nxv nxv-cadre" aria-hidden="true"><i><b></b></i></div>
         <span class="noel-badge" data-until="2026-12-18" data-label="avant le 18 décembre">Commande avant le 18 décembre</span>
-        <h3>Le petit cadre</h3>
-        <p class="price">39 € l’un, 59 € les deux · code PARENTS</p>
-        <p>Une photo 10 × 15 à poser sur un meuble, fabriquée en quelques jours. Idéal pour les grands-parents.</p>
+        <h3>Les cadres photo</h3>
+        <p class="price">Petit : 39 € l’un, 59 € les deux avec le code PARENTS · Moyen : 69 €</p>
+        <p>Une photo 10 × 15 à poser sur un meuble ou un cadre 30 × 40 à accrocher, fabriqués en quelques jours. Idéal pour les grands-parents.</p>
         <a class="btn" href="#petit-cadre" data-go="pcOrder">Commander</a>
       </article>
       <article class="noel-card">
@@ -1957,7 +1957,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 
     <h2 id="cg3">3. La photo et la vidéo du client</h2>
     <p><b>Droits.</b> Le client garantit détenir les droits sur la photo et la vidéo qu’il transmet, y compris l’accord des personnes qui y apparaissent. LMOH Photography refuse tout contenu illicite ou portant atteinte aux droits d’autrui.</p>
-    <p><b>Qualité.</b> Résolutions minimales : 2 400 × 1 600 pixels pour le 60 × 40 cm, 3 000 × 2 000 pour le 75 × 50 cm, 3 600 × 2 400 pour le 90 × 60 cm et 1 200 × 800 pour le petit cadre 10 × 15 cm. Chaque photo est vérifiée avant fabrication. Si sa qualité est insuffisante, LMOH Photography en informe le client et lui propose un format plus petit, le petit cadre 10 × 15 cm ou l’envoi d’une autre photo. Rien n’est fabriqué sans son accord.</p>
+    <p><b>Qualité.</b> Résolutions minimales : 2 400 × 1 600 pixels pour le 60 × 40 cm, 3 000 × 2 000 pour le 75 × 50 cm, 3 600 × 2 400 pour le 90 × 60 cm 1 200 × 800 pour le petit cadre 10 × 15 cm et 1 800 × 1 200 pour le cadre moyen 30 × 40 cm. Chaque photo est vérifiée avant fabrication. Si sa qualité est insuffisante, LMOH Photography en informe le client et lui propose un format plus petit, le petit cadre 10 × 15 cm ou l’envoi d’une autre photo. Rien n’est fabriqué sans son accord.</p>
     <p><b>Copies.</b> Les fichiers transmis servent uniquement à la commande et sont supprimés au plus tard 3 mois après la livraison.</p>
 
     <h2 id="cg4">4. La vidéo et le lien</h2>
@@ -1973,7 +1973,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <p>Les produits se règlent à la commande, par un paiement sécurisé PayPal (compte PayPal ou carte bancaire), sur le site ou par un lien de paiement. Pour une prestation de tournage, un acompte de 30 % est demandé à la signature du devis et le solde à la livraison du film. Pour les professionnels, tout retard de paiement entraîne des pénalités au taux de la Banque centrale européenne majoré de 10 points et une indemnité forfaitaire de 40 € pour frais de recouvrement (article L441-10 du Code de commerce).</p>
 
     <h2 id="cg8">8. Délais</h2>
-    <p>Tableaux, petits cadres et cartes sont fabriqués en 2 à 3 semaines après validation de la photo et du paiement. Ce délai est indicatif et la date prévue est confirmée dans le récapitulatif. Les cartes qui portent une photo de l’événement sont remises après celui-ci. Une carte ou une invitation commandée à l’avance avec un visuel déjà prêt peut être remise le jour de l’événement : son repère ouvre d’abord une vidéo d’annonce, puis le film une fois le montage terminé. Le délai de montage d’un film dépend de la durée de l’événement et figure dans le devis.</p>
+    <p>Tableaux sur toile et cartes sont fabriqués en 2 à 3 semaines après validation de la photo et du paiement, les cadres photo (10 × 15 et 30 × 40 cm) en 2 à 3 jours ouvrés. Ce délai est indicatif et la date prévue est confirmée dans le récapitulatif. Les cartes qui portent une photo de l’événement sont remises après celui-ci. Une carte ou une invitation commandée à l’avance avec un visuel déjà prêt peut être remise le jour de l’événement : son repère ouvre d’abord une vidéo d’annonce, puis le film une fois le montage terminé. Le délai de montage d’un film dépend de la durée de l’événement et figure dans le devis.</p>
     <p>Les tableaux sur toile sont livrés en deux envois : d’abord le coffret du repère, envoyé par LMOH Photography, puis le tableau, expédié directement par l’atelier d’impression. Le client colle le repère au dos de la toile en suivant la notice fournie.</p>
     <p>Pour un consommateur, si le produit n’est pas livré à la date convenue, il peut, après avoir demandé la livraison dans un délai raisonnable, résoudre le contrat dans les conditions des articles L216-6 et suivants du Code de la consommation.</p>
 
@@ -2553,7 +2553,7 @@ if(card&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&matchMedia('(h
   card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.setProperty('--ry',(x*6)+'deg');card.style.setProperty('--rx',(-y*5)+'deg')});
   card.addEventListener('mouseleave',function(){card.style.setProperty('--ry','0deg');card.style.setProperty('--rx','0deg')})}
 function ok(id){var e=document.getElementById(id);return !!(e&&e.value.trim().toUpperCase()==='PARENTS'&&new Date()<=END)}
-window.mrPcPrice=function(q){var p=ok('pccode'),l=document.getElementById('pcPromoLine');if(l)l.hidden=!p;return p?Math.floor(q/2)*59+(q%2)*39:q*49};
+window.mrPcPrice=function(q){var p=ok('pccode'),l=document.getElementById('pcPromoLine');var md=document.getElementById('pcm2');if(md&&md.checked){if(l)l.hidden=true;return q*69}if(l)l.hidden=!p;return p?Math.floor(q/2)*59+(q%2)*39:q*49};
 window.mrAddon=function(){var c=document.getElementById('addparents'),on=c&&c.checked,v=on?(ok('hcode')?49:98):0,l=document.getElementById('sumAddonLine');
   if(l){l.hidden=!on;document.getElementById('sumAddon').textContent=v+' €'}
   var m=document.getElementById('hcodeMsg');if(m){var e=document.getElementById('hcode').value.trim();m.textContent=!e?'':(ok('hcode')?'Code PARENTS appliqué.':'Ce code n’est pas reconnu ou n’est plus valable.')}
