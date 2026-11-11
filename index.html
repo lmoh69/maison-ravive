@@ -948,6 +948,13 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .late-note{background:#FFF4E5;color:#5A3B12;border:1px solid #E4C995;border-radius:10px;padding:.8rem 1rem;margin:0 0 1rem;font-size:.95rem;line-height:1.5}.late-note a{color:inherit;text-decoration:underline}
 .late-ok{display:flex;gap:.5rem;align-items:flex-start;margin:.8rem 0;font-size:.92rem}.late-ok.need{color:#B3261E;font-weight:500}
 .mcta{display:none}@media (max-width:700px){.mcta{display:block;position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:60;padding:.85rem 1.6rem;border-radius:999px;background:#E4C995;color:#1A1918;text-decoration:none;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:transform .35s}.mcta.show{transform:translate(-50%,0)}}
+.pf-sizes{margin-top:1.2rem}.pf-sizes+.pf-cols{margin-top:.6rem}
+.pf-sz{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem;cursor:pointer;min-height:44px;text-align:left;transition:border-color .2s,box-shadow .2s}
+.pf-sz[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.pf-col:disabled{opacity:.4;cursor:not-allowed}
+.pf3[data-size="moyen"]{--h:50cqw;--w:35.4cqw;--m:1.3cqw}
+.pf3[data-size="moyen"] .pf-mat{background:#111;box-shadow:none}
+.pf3[data-size="moyen"] .pf-photo{width:100%;height:100%;aspect-ratio:auto;margin:0;box-shadow:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -1621,7 +1628,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <p class="product">Petit cadre et cadre moyen</p>
       <h1 id="t-pc">Le même souvenir, à poser sur un meuble.</h1>
       <p>Une photo 10 × 15 cm dans un cadre à poser, ou 20 × 30 cm dans un cadre moyen noir, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
-      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon petit cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
+      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
       <small>Idéal quand votre photo vient d’un téléphone ou d’une messagerie et n’est pas assez grande pour un grand format.</small>
     </div>
     <div class="ps-scene" id="psScene" aria-label="Démonstration : un téléphone approché du petit cadre posé sur une commode lance le film">
@@ -1639,7 +1646,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <section class="plaster" aria-labelledby="t-pf3">
   <div class="wrap">
     <h2 id="t-pf3">Un vrai cadre à poser, avec son chevalet</h2>
-    <p class="lead">Votre photo 10 × 15 cm est entourée d’un passe-partout blanc, derrière une protection transparente. Au dos, un chevalet le tient droit sur un meuble.</p>
+    <p class="lead">Deux formats : le petit cadre, une photo 10 × 15 cm entourée d’un passe-partout blanc, et le cadre moyen, une photo 20 × 30 cm dans un cadre noir 21 × 30. Derrière une protection transparente, prêts à poser sur un meuble.</p>
     <div class="mat3d">
       <div class="cv-stage pf-stage" id="pfStage" aria-label="Aperçu en 3D du petit cadre à poser, qui tourne pour montrer le chevalet au dos">
         <div class="pf-floor"></div>
@@ -1655,15 +1662,16 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         <span class="cv-pill" id="pfPill">Cadre noir à poser, photo 10 × 15</span>
       </div>
       <div class="cv-side pf-side">
-        <h3>Noir ou blanc, à vous de choisir</h3>
+        <h3>Deux formats, noir ou blanc</h3>
         <p class="cv-p">L’aperçu tourne pour vous montrer le cadre sous tous les angles, chevalet compris.</p>
+        <div class="pf-cols pf-sizes" role="group" aria-label="Format du cadre"><button class="pf-sz" type="button" data-size="petit" aria-pressed="true">Petit 10 × 15</button><button class="pf-sz" type="button" data-size="moyen" aria-pressed="false">Moyen 21 × 30</button></div>
         <div class="pf-cols" role="group" aria-label="Couleur du cadre">
           <button class="pf-col" type="button" data-col="noir" aria-pressed="true"><i></i>Cadre noir</button>
           <button class="pf-col" type="button" data-col="blanc" aria-pressed="false"><i></i>Cadre blanc</button>
         </div>
         <ul class="cv-facts">
-          <li>Tirage photo professionnel 10 × 15 cm</li>
-          <li>Passe-partout blanc et protection transparente</li>
+          <li id="pfF1">Tirage photo professionnel 10 × 15 cm</li>
+          <li id="pfF2">Passe-partout blanc et protection transparente</li>
           <li>Chevalet au dos, pour une table de chevet, un bureau ou une commode</li>
           <li>Repère discret au coin, testé avant l’envoi</li>
         </ul>
@@ -1824,9 +1832,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <article class="noel-card">
         <div class="nxv nxv-cadre" aria-hidden="true"><i><b></b></i></div>
         <span class="noel-badge" data-until="2026-12-18" data-label="avant le 18 décembre">Commande avant le 18 décembre</span>
-        <h3>Le petit cadre</h3>
+        <h3>Les cadres à poser</h3>
         <p class="price">Petit cadre 39 €, cadre moyen 59 € · code PARENTS</p>
-        <p>Une photo 10 × 15 à poser sur un meuble, fabriquée en quelques jours. Idéal pour les grands-parents.</p>
+        <p>Petit cadre 10 × 15 ou cadre moyen 21 × 30 noir, à poser sur un meuble, fabriqués en quelques jours. Idéal pour les grands-parents.</p>
         <a class="btn" href="#petit-cadre" data-go="pcOrder">Commander</a>
       </article>
       <article class="noel-card">
@@ -2701,6 +2709,29 @@ var pin=document.getElementById('pccheck');
 pin.addEventListener('change',function(){dims=null;var f=pin.files[0];if(!f)return;var u=URL.createObjectURL(f),i=new Image();i.onload=function(){dims=[i.naturalWidth,i.naturalHeight];URL.revokeObjectURL(u)};i.src=u});
 document.addEventListener('submit',function(e){if(e.target!==pf||size()!=='moyen'||!dims)return;var a=Math.max(dims[0],dims[1]),b=Math.min(dims[0],dims[1]);
   if(a<1800||b<1200){e.preventDefault();e.stopImmediatePropagation();var err=document.getElementById('pcErr');err.textContent='Votre photo ('+dims[0]+' × '+dims[1]+' px) est trop petite pour le cadre moyen : il faut au moins 1 800 × 1 200 pixels. Choisissez le petit cadre, ou une photo d’origine.'}},true);
+})();
+</script>
+<script>
+(function(){
+/* Aperçu 3D : petit cadre ou cadre moyen (noir uniquement), synchronisé avec la commande */
+var pf=document.getElementById('pf3');if(!pf)return;
+var pill=document.getElementById('pfPill'),sz=document.querySelectorAll('.pf-sz'),bl=document.querySelector('.pf-col[data-col=blanc]'),f1=document.getElementById('pfF1'),f2=document.getElementById('pfF2');
+function size(){return pf.dataset.size||'petit'}
+function txt(){var m=size()==='moyen',c=pf.dataset.col==='blanc'?'blanc':'noir';
+  pill.textContent=(m?'Cadre moyen ':'Petit cadre ')+c+(m?', photo 20 × 30':' à poser, photo 10 × 15');
+  if(f1)f1.textContent='Tirage photo professionnel '+(m?'20 × 30 cm':'10 × 15 cm');
+  if(f2)f2.textContent=m?'Cadre noir 21 × 30 et protection transparente':'Passe-partout blanc et protection transparente'}
+function setSize(s,fromForm){pf.dataset.size=s;sz.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.size===s)});
+  var m=s==='moyen';if(bl){bl.disabled=m;bl.title=m?'Le cadre moyen existe en noir uniquement':''}
+  if(m&&pf.dataset.col==='blanc'){var n=document.querySelector('.pf-col[data-col=noir]');if(n)n.click()}
+  if(!fromForm){var r=document.getElementById(m?'pcs2':'pcs1');if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}))}}
+  txt()}
+sz.forEach(function(b){b.addEventListener('click',function(){setSize(b.dataset.size)})});
+document.querySelectorAll('input[name=pcsize]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)setSize(r.value,true)})});
+document.querySelectorAll('.pf-col').forEach(function(b){b.addEventListener('click',function(){setTimeout(txt,0)})});
+document.querySelectorAll('input[name=pcfin]').forEach(function(r){r.addEventListener('change',function(){setTimeout(txt,0)})});
+document.querySelectorAll('a[href="#petit-cadre"] span').forEach(function(s){if(s.textContent.trim()==='Les petits cadres')s.textContent='Les cadres'});
+txt();
 })();
 </script>
 </body>
