@@ -64,7 +64,10 @@ n.value=q.get('n')||'';e.value=q.get('e')||'';
 function size(b){return b>1e9?(b/1e9).toFixed(1)+' Go':b>1e6?Math.round(b/1e6)+' Mo':Math.max(1,Math.round(b/1e3))+' Ko'}
 var seen=-1;function show(){var c=f.files?f.files.length:0;if(c===seen)return;seen=c;list.innerHTML='';[].forEach.call(f.files||[],function(x){var li=document.createElement('li');li.innerHTML='<span></span><span>'+size(x.size)+'</span>';li.firstChild.textContent=x.name||'vidéo';list.appendChild(li)});msg.textContent='';msg.className='msg'}
 f.addEventListener('change',show);f.addEventListener('input',show);setInterval(show,700);
-function session(file,who){return fetch(HOOK,{method:'POST',body:new URLSearchParams({name:file.name,type:file.type||'application/octet-stream',client:who})}).then(function(r){return r.json()}).then(function(j){if(!j.url)throw 0;return j.url})}
+var model=(q.get('p')||'Cadre').trim();
+function fname(file,i,count){var ext=((file.name||'').match(/\.[a-z0-9]{2,5}$/i)||[''])[0].toLowerCase()||(/image/.test(file.type)?'.jpg':'.mp4'),d=new Date(),dd=('0'+d.getDate()).slice(-2)+'-'+('0'+(d.getMonth()+1)).slice(-2);
+  return [model,n.value.trim()||'Client',e.value.trim()||'sans e-mail',dd].join(' – ')+(count>1?' ('+(i+1)+')':'')+ext}
+function session(file,who,i,count){return fetch(HOOK,{method:'POST',body:new URLSearchParams({name:fname(file,i,count),type:file.type||'application/octet-stream',client:who})}).then(function(r){return r.json()}).then(function(j){if(!j.url)throw 0;return j.url})}
 function put(url,file,done,total){return new Promise(function(ok,ko){var x=new XMLHttpRequest();x.open('PUT',url);x.setRequestHeader('Content-Type',file.type||'application/octet-stream');
   x.upload.onprogress=function(ev){if(ev.lengthComputable)fill.style.width=Math.round((done+ev.loaded)/total*100)+'%'};
   x.onload=function(){x.status<300?ok():ko()};x.onerror=ko;x.send(file)})}
@@ -84,10 +87,10 @@ go.addEventListener('click',function(){
   if(!n.value.trim()){msg.className='msg err';msg.textContent='Indiquez votre prénom et nom, pour que je retrouve votre commande.';n.focus();return}
   var files=[].slice.call(f.files),total=files.reduce(function(a,b){return a+b.size},0),done=0;
   go.disabled=true;go.textContent='Envoi en cours… gardez la page ouverte';bar.style.display='block';msg.className='msg';msg.textContent='';
-  files.reduce(function(p,file){return p.then(function(){return session(file,who).then(function(u){return put(u,file,done,total)}).then(function(){done+=file.size})})},Promise.resolve())
+  files.reduce(function(p,file,i){return p.then(function(){return session(file,who,i,files.length).then(function(u){return put(u,file,done,total)}).then(function(){done+=file.size})})},Promise.resolve())
   .then(function(){fill.style.width='100%';
     try{var b=new URLSearchParams({type:'Vidéo déposée',subject:'Vidéo reçue de '+n.value.trim(),paiement:'-',email:'',page:location.href,envoye_le:new Date().toLocaleString('fr-FR'),
-      body:'Nom : '+n.value.trim()+'\nE-mail : '+(e.value.trim()||'non indiqué')+'\nFichiers : '+files.map(function(x){return x.name+' ('+size(x.size)+')'}).join(', ')+'\nDossier : Google Drive › Video client Cadre'});
+      body:'Modèle : '+model+'\nNom : '+n.value.trim()+'\nE-mail : '+(e.value.trim()||'non indiqué')+'\nFichiers : '+files.map(function(x){return x.name+' ('+size(x.size)+')'}).join(', ')+'\nDossier : Google Drive › Video client Cadre'});
       navigator.sendBeacon?navigator.sendBeacon(ORDER,b):fetch(ORDER,{method:'POST',body:b,mode:'no-cors'})}catch(x){}
     document.getElementById('form').style.display='none';document.getElementById('ok').style.display='block'})
   .catch(function(){go.disabled=false;go.textContent='Réessayer';msg.className='msg err';msg.textContent='L’envoi n’a pas abouti. Vérifiez votre connexion (le Wi-Fi est préférable pour une vidéo) et réessayez.'})});
