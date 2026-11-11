@@ -11,7 +11,9 @@ window.mrRef=function(){try{var v=JSON.parse(localStorage.getItem(K)||'null');if
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Maison Ravive | Le Tableau Vivant</title>
-<meta name="description" content="Votre plus belle photo de mariage, imprimée sur toile. Approchez votre téléphone : votre film démarre. Sans application, sans QR code. Dès 99 €.">
+<meta name="description" content="Mariage, naissance, famille : votre photo dans un cadre ou sur toile. Approchez votre téléphone du repère, le film du moment démarre. Sans application, sans QR code.">
+<link rel="canonical" href="https://maisonravive.fr/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Maison Ravive"><meta property="og:title" content="Maison Ravive : un geste, et le moment revit"><meta property="og:description" content="Votre photo au mur ou sur la commode. Approchez votre téléphone : le film du moment démarre. Sans application, sans QR code."><meta property="og:image" content="https://maisonravive.fr/assets/toile-salon.jpg"><meta property="og:url" content="https://maisonravive.fr/"><meta property="og:locale" content="fr_FR"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -1159,7 +1161,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         </fieldset>
         <fieldset class="filmset" data-scope="h"><legend>Votre film</legend>
           <div class="fopts">
-            <label class="fopt"><input type="radio" name="hfilm" value="lien" checked><span><b>J’ai un lien</b><em>YouTube, Vimeo ou Google Drive.</em></span></label>
+            <label class="fopt"><input type="radio" name="hfilm" value="lien"><span><b>J’ai un lien</b><em>YouTube, Vimeo ou Google Drive.</em></span></label>
             <div class="fdet" data-for="lien"><div class="field"><label for="video">Lien de la vidéo</label><input id="video" type="url" placeholder="https://youtu.be/…" inputmode="url"></div></div>
             <label class="fopt"><input type="radio" name="hfilm" value="fichier"><span><b>Ma vidéo est sur mon téléphone ou mon ordinateur</b><em>Je vous envoie un lien pour la déposer, puis je la mets en ligne pour vous.</em></span></label>
             <label class="fopt"><input type="radio" name="hfilm" value="creer"><span><b>Je n’ai pas de film : créez-le pour moi</b><em>À partir de vos vidéos ou de vos photos.</em></span></label>
@@ -1167,7 +1169,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
               <div class="opt"><input type="radio" name="hfilmc" id="hfilmc1" value="montage" checked><label for="hfilmc1">Montage de vos vidéos, 1 à 2 min<small>+ 49 €</small></label></div>
               <div class="opt"><input type="radio" name="hfilmc" id="hfilmc2" value="diaporama"><label for="hfilmc2">Diaporama animé de vos photos<small>+ 29 €</small></label></div>
             </div><p class="help">Avec une musique libre de droits, choisie ensemble.</p></div>
-            <label class="fopt"><input type="radio" name="hfilm" value="plus-tard"><span><b>Je l’ajouterai plus tard</b><em>Le tableau part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
+            <label class="fopt"><input type="radio" name="hfilm" value="plus-tard" checked><span><b>Je l’ajouterai plus tard</b><em>Le tableau part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
             <label class="fopt"><input type="radio" name="hfilm" value="lmoh"><span><b>Mariés LMOH Photography</b><em>Votre film est déjà prêt, rien à envoyer.</em></span></label>
           </div>
         </fieldset>
@@ -1683,7 +1685,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <section class="plaster" id="pcOrder" aria-labelledby="t-pco">
   <div class="wrap">
     <h2 id="t-pco">Commander mon petit cadre</h2>
-    <p class="lead">Je vérifie votre photo et vous réponds sous 24 h avec un aperçu et le lien de paiement.</p>
+    <p class="lead">Après le paiement, je vérifie votre photo et vous envoie un aperçu sous 24 h, avant la fabrication.</p>
     <form class="order" id="pcForm" novalidate>
       <div>
         <fieldset><legend>Finition</legend><div class="opts">
@@ -1701,7 +1703,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         </fieldset>
         <fieldset class="filmset" data-scope="pc"><legend>Votre film</legend>
           <div class="fopts">
-            <label class="fopt"><input type="radio" name="pcfilm" value="lien" checked><span><b>J’ai un lien</b><em>YouTube, Vimeo ou Google Drive.</em></span></label>
+            <label class="fopt"><input type="radio" name="pcfilm" value="lien"><span><b>J’ai un lien</b><em>YouTube, Vimeo ou Google Drive.</em></span></label>
             <div class="fdet" data-for="lien"><div class="field"><label for="pcvideo">Lien de la vidéo</label><input id="pcvideo" type="url" placeholder="https://youtu.be/…" inputmode="url"></div></div>
             <label class="fopt"><input type="radio" name="pcfilm" value="fichier"><span><b>Ma vidéo est sur mon téléphone ou mon ordinateur</b><em>Je vous envoie un lien pour la déposer, puis je la mets en ligne pour vous.</em></span></label>
             <label class="fopt"><input type="radio" name="pcfilm" value="creer"><span><b>Je n’ai pas de film : créez-le pour moi</b><em>À partir de vos vidéos ou de vos photos.</em></span></label>
@@ -1709,7 +1711,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
               <div class="opt"><input type="radio" name="pcfilmc" id="pcfilmc1" value="montage" checked><label for="pcfilmc1">Montage de vos vidéos, 1 à 2 min<small>+ 49 €</small></label></div>
               <div class="opt"><input type="radio" name="pcfilmc" id="pcfilmc2" value="diaporama"><label for="pcfilmc2">Diaporama animé de vos photos<small>+ 29 €</small></label></div>
             </div><p class="help">Avec une musique libre de droits, choisie ensemble.</p></div>
-            <label class="fopt"><input type="radio" name="pcfilm" value="plus-tard"><span><b>Je l’ajouterai plus tard</b><em>Le tableau part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
+            <label class="fopt"><input type="radio" name="pcfilm" value="plus-tard" checked><span><b>Je l’ajouterai plus tard</b><em>Le tableau part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
             <label class="fopt"><input type="radio" name="pcfilm" value="lmoh"><span><b>Mariés LMOH Photography</b><em>Votre film est déjà prêt, rien à envoyer.</em></span></label>
           </div>
         </fieldset>
@@ -1851,7 +1853,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <div>
       <p class="product">Bon cadeau</p>
       <h1 id="t-bc">Offrez le tableau. Ils choisiront le souvenir.</h1>
-      <p>Vous offrez un Tableau Vivant, et la personne qui le reçoit choisit elle-même sa photo et son film, quand elle le souhaite. Le bon arrive par e-mail juste après le paiement, prêt à imprimer ou à transférer.</p>
+      <p>Vous offrez un Tableau Vivant, et la personne qui le reçoit choisit elle-même sa photo et son film, quand elle le souhaite. Le bon arrive par e-mail sous 24 h après le paiement, prêt à imprimer ou à transférer.</p>
       <div class="actions"><a class="btn" href="#bon-cadeau" data-go="bcOrder">Offrir un bon cadeau</a><a class="btn ghost" href="#particuliers"><span>Découvrir le tableau</span></a></div>
       <small>Idéal quand vous ne savez pas quelle photo choisir, ou quand Noël arrive trop vite.</small>
     </div>
