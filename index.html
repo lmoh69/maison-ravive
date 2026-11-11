@@ -2612,7 +2612,7 @@ window.mrSend=function(subject,body,type,paid){
 /* Paiement PayPal (bon cadeau et petit cadre) */
 var CID='BAAdZGUv2NR3mSHAHXrI8juq9txwIkhRxkaQQVv1twIjmCGPGP_94TFbb_DOa9EppHlF8QqgOarXfccRTQ',st=0,q=[];
 function load(cb){if(window.paypal&&window.paypal.Buttons)return cb(true);q.push(cb);if(st)return;st=1;
-  var s=document.createElement('script'),done=false;s.src='https://www.paypal.com/sdk/js?client-id='+CID+'&currency=EUR&locale=fr_FR&components=buttons';
+  var s=document.createElement('script'),done=false;s.src='https://www.paypal.com/sdk/js?client-id='+CID+'&currency=EUR&locale=fr_FR&components=buttons&disable-funding=card,credit,paylater';
   function fin(ok){if(done)return;done=true;var c=q;q=[];st=ok?2:0;c.forEach(function(f){f(ok)})}
   s.onload=function(){fin(!!(window.paypal&&window.paypal.Buttons))};s.onerror=function(){fin(false)};setTimeout(function(){fin(!!(window.paypal&&window.paypal.Buttons))},10000);document.head.appendChild(s)}
 window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
