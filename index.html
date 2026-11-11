@@ -2717,7 +2717,7 @@ var END=new Date('2026-12-18T23:59:59'),dims=null;
 function size(){var r=pf.querySelector('input[name=pcsize]:checked');return r?r.value:'petit'}
 function codeOk(){var e=document.getElementById('pccode');return !!(e&&e.value.trim().toUpperCase()==='PARENTS'&&new Date()<=END)}
 var orig=window.mrPcPrice;
-window.mrPcPrice=function(q){var tc=document.getElementById('pccode');if(tc&&tc.value.trim().toUpperCase()==='TESTRAVIVE')return 1;if(size()!=='moyen')return orig?orig(q):q*49;var p=codeOk(),l=document.getElementById('pcPromoLine');if(l)l.hidden=!p;return p?Math.floor(q/2)*109+(q%2)*59:q*69};
+window.mrPcPrice=function(q){if(size()!=='moyen')return orig?orig(q):q*49;var p=codeOk(),l=document.getElementById('pcPromoLine');if(l)l.hidden=!p;return p?Math.floor(q/2)*109+(q%2)*59:q*69};
 window.mrPcSizeLabel=function(){return size()==='moyen'?'cadre moyen 21 × 30 cm (photo 20 × 30)':'petit cadre 10 × 15 cm'};
 function sync(){var m=size()==='moyen',b=document.getElementById('pcf2'),n=document.getElementById('pcf1');
   if(b){b.disabled=m;if(m&&b.checked){n.checked=true}}
