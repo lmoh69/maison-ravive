@@ -2099,7 +2099,7 @@ window.IntersectionObserver.prototype=Native.prototype;
 <script>
 /* Votre film : lien, fichier, création, plus tard, mariés LMOH */
 (function(){
-var EXTRA={montage:49,diaporama:29},LBL={lien:'lien fourni',fichier:'fichier à déposer (lien de dépôt à envoyer)',creer:'à créer',"plus-tard":'ajouté plus tard (page d’attente)',lmoh:'film LMOH déjà prêt'};
+var EXTRA={montage:49,diaporama:29},LBL={lien:'lien fourni',fichier:'fichier à déposer (lien de dépôt envoyé automatiquement par e-mail)',creer:'à créer',"plus-tard":'ajouté plus tard (page d’attente)',lmoh:'film LMOH déjà prêt'};
 function set(scope){return document.querySelector('.filmset[data-scope="'+scope+'"]')}
 function mode(scope){var f=set(scope),r=f&&f.querySelector('input[name$="film"]:checked');return r?r.value:'lien'}
 function create(scope){var f=set(scope),r=f&&f.querySelector('input[name$="filmc"]:checked');return r?r.value:'montage'}
