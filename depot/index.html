@@ -33,6 +33,7 @@ input[type=text],input[type=email]{width:100%;font:inherit;padding:.75rem .9rem;
 .btn:disabled{opacity:.45;cursor:default}
 .msg{margin-top:1rem;font-size:.95rem}.msg.err{color:#B3261E}
 .ok{display:none;text-align:center;padding:1.2rem .5rem}.ok b{display:block;font:300 1.5rem "Josefin Sans",sans-serif;margin-bottom:.4rem}
+.alt{margin-top:1rem;padding:1rem;border-radius:12px;background:#FBF3E6;border:1px solid var(--gold);font-size:.95rem;text-align:center}.alt .btn{margin:.8rem 0 .6rem}.alt span{font-size:.88rem;color:var(--muted)}.alt a{color:inherit}
 .help{font-size:.85rem;color:var(--muted);text-align:center;margin-top:1.2rem}.help a{color:inherit}
 </style>
 </head>
@@ -50,6 +51,7 @@ input[type=text],input[type=email]{width:100%;font:inherit;padding:.75rem .9rem;
     <div class="bar" id="bar"><i></i></div>
     <button class="btn" id="go" type="button">Envoyer</button>
     <p class="msg" id="msg" role="status"></p>
+    <div class="alt" id="alt" hidden><b>Votre navigateur n’a pas transmis la vidéo.</b><br>Ouvrez cette page dans Chrome, c’est immédiat :<a class="btn" id="chrome" href="#">Ouvrir dans Chrome</a><span>ou envoyez-la simplement sur <a href="https://wa.me/33651287900?text=Bonjour%2C%20voici%20ma%20vid%C3%A9o%20pour%20mon%20cadre%20Maison%20Ravive">WhatsApp</a>.</span></div>
   </div>
   <div class="card ok" id="ok"><b>C’est envoyé, merci !</b>Je reçois votre vidéo et je l’associe à votre cadre. Vous pouvez fermer cette page.</div>
   <p class="help">Un souci ? Écrivez-moi sur <a href="https://wa.me/33651287900">WhatsApp</a> ou à <a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a>.</p>
@@ -66,8 +68,14 @@ function session(file,who){return fetch(HOOK,{method:'POST',body:new URLSearchPa
 function put(url,file,done,total){return new Promise(function(ok,ko){var x=new XMLHttpRequest();x.open('PUT',url);x.setRequestHeader('Content-Type',file.type||'application/octet-stream');
   x.upload.onprogress=function(ev){if(ev.lengthComputable)fill.style.width=Math.round((done+ev.loaded)/total*100)+'%'};
   x.onload=function(){x.status<300?ok():ko()};x.onerror=ko;x.send(file)})}
+var picked=false,alt=document.getElementById('alt');
+document.getElementById('chrome').href='intent://'+location.host+location.pathname+location.search+'#Intent;scheme=https;package=com.android.chrome;end';
+if(!/Android/i.test(navigator.userAgent))document.getElementById('chrome').style.display='none';
+document.querySelector('.pick').addEventListener('click',function(){picked=true});
+function check(){setTimeout(function(){show();if(picked&&(!f.files||!f.files.length))alt.hidden=false;else if(f.files&&f.files.length)alt.hidden=true},1500)}
+window.addEventListener('focus',check);document.addEventListener('visibilitychange',function(){if(!document.hidden)check()});
 go.addEventListener('click',function(){
-  show();if(!f.files||!f.files.length){f.click();return}
+  show();if(!f.files||!f.files.length){if(picked){alt.hidden=false;msg.className='msg err';msg.textContent='Aucune vidéo reçue.';return}picked=true;f.click();return}
   var who=(n.value.trim()||'Client')+(e.value.trim()?' ('+e.value.trim()+')':'');
   if(!n.value.trim()){msg.className='msg err';msg.textContent='Indiquez votre prénom et nom, pour que je retrouve votre commande.';n.focus();return}
   var files=[].slice.call(f.files),total=files.reduce(function(a,b){return a+b.size},0),done=0;
