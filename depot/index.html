@@ -71,12 +71,13 @@ function put(url,file,done,total){return new Promise(function(ok,ko){var x=new X
 var picked=false,alt=document.getElementById('alt');
 document.getElementById('chrome').href='intent://'+location.host+location.pathname+location.search+'#Intent;scheme=https;package=com.android.chrome;end';
 if(!/Android/i.test(navigator.userAgent))document.getElementById('chrome').style.display='none';
-if(/Android/i.test(navigator.userAgent)&&!/Chrome\/[\d.]+ Mobile Safari\/[\d.]+$/.test(navigator.userAgent)||/MiuiBrowser|XiaoMi|wv\)/i.test(navigator.userAgent)){alt.hidden=false;alt.querySelector('b').textContent='Sur ce téléphone, la vidéo peut ne pas partir depuis ce navigateur.'}
+if(/Android/i.test(navigator.userAgent)){alt.hidden=false;alt.querySelector('b').textContent='Sur Android, si la vidéo ne part pas :'}
+window.addEventListener('error',function(){alt.hidden=false;msg.className='msg err';msg.textContent='Ce navigateur bloque l’envoi. Utilisez Chrome ou WhatsApp ci-dessous.'});
 document.querySelector('.pick').addEventListener('click',function(){picked=true});
 function check(){setTimeout(function(){show();if(picked&&(!f.files||!f.files.length))alt.hidden=false;else if(f.files&&f.files.length)alt.hidden=true},1500)}
 window.addEventListener('focus',check);document.addEventListener('visibilitychange',function(){if(!document.hidden)check()});
 go.addEventListener('click',function(){
-  show();if(!f.files||!f.files.length){if(picked){alt.hidden=false;msg.className='msg err';msg.textContent='Aucune vidéo reçue.';return}picked=true;f.click();return}
+  show();if(!f.files||!f.files.length){if(picked){alt.hidden=false;msg.className='msg err';msg.textContent='Aucune vidéo reçue : ce navigateur ne la transmet pas. Utilisez Chrome ou WhatsApp ci-dessous.';return}picked=true;f.click();return}
   var who=(n.value.trim()||'Client')+(e.value.trim()?' ('+e.value.trim()+')':'');
   if(!n.value.trim()){msg.className='msg err';msg.textContent='Indiquez votre prénom et nom, pour que je retrouve votre commande.';n.focus();return}
   var files=[].slice.call(f.files),total=files.reduce(function(a,b){return a+b.size},0),done=0;
