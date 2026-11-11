@@ -87,7 +87,7 @@ go.addEventListener('click',function(){
   files.reduce(function(p,file){return p.then(function(){return session(file,who).then(function(u){return put(u,file,done,total)}).then(function(){done+=file.size})})},Promise.resolve())
   .then(function(){fill.style.width='100%';
     try{var b=new URLSearchParams({type:'Vidéo déposée',subject:'Vidéo reçue de '+n.value.trim(),paiement:'-',email:'',page:location.href,envoye_le:new Date().toLocaleString('fr-FR'),
-      body:'Nom : '+n.value.trim()+'\nE-mail : '+(e.value.trim()||'non indiqué')+'\nFichiers : '+files.map(function(x){return x.name+' ('+size(x.size)+')'}).join(', ')+'\nDossier : Google Drive › Maison Ravive – Vidéos clients'});
+      body:'Nom : '+n.value.trim()+'\nE-mail : '+(e.value.trim()||'non indiqué')+'\nFichiers : '+files.map(function(x){return x.name+' ('+size(x.size)+')'}).join(', ')+'\nDossier : Google Drive › Video client Cadre'});
       navigator.sendBeacon?navigator.sendBeacon(ORDER,b):fetch(ORDER,{method:'POST',body:b,mode:'no-cors'})}catch(x){}
     document.getElementById('form').style.display='none';document.getElementById('ok').style.display='block'})
   .catch(function(){go.disabled=false;go.textContent='Réessayer';msg.className='msg err';msg.textContent='L’envoi n’a pas abouti. Vérifiez votre connexion (le Wi-Fi est préférable pour une vidéo) et réessayez.'})});
