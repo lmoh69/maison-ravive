@@ -1823,7 +1823,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <div class="noel-cards">
       <article class="noel-card">
         <div class="nxv nxv-toile" aria-hidden="true"><i></i></div>
-        <span class="noel-badge" data-until="2026-12-14" data-label="avant le 14 décembre">Commande avant le 14 décembre</span>
+        <span class="noel-badge">Précommande · livrée en janvier</span>
         <h3>Le tableau sur toile</h3>
         <p class="price">De 99 à 229 €</p>
         <p>Le grand format à accrocher au mur, sur toile tendue sur châssis bois.</p>
@@ -1856,7 +1856,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <p>Pour une livraison en France métropolitaine avant le 24 décembre<sup class="ast"><a href="#cgv">*</a></sup>.</p>
     </div>
     <ul class="noel-dates">
-      <li><span>Tableau sur toile</span><b>14 décembre</b></li>
+      <li><span>Tableau sur toile</span><b>Précommande, livré en janvier</b></li>
       <li><span>Petit cadre et cadre moyen</span><b>18 décembre</b></li>
       <li><span>Bon cadeau par e-mail</span><b>24 décembre</b></li>
     </ul>
@@ -2672,16 +2672,18 @@ if('IntersectionObserver' in window){new (window.IntersectionObserver)(function(
 </script>
 <script>
 (function(){
-/* Toiles : après le 8 décembre, délai de Noël dépassé (commande possible, livraison après les fêtes) + bouton Commander flottant sur mobile */
-var late=/[?&]late=1/.test(location.search)||Date.now()>=new Date('2026-12-08T00:00:00+01:00').getTime();
-var NOTE='<strong>Délai de production dépassé pour Noël.</strong> Les toiles commandées maintenant sont livrées après les fêtes, début janvier. Pour un cadeau sous le sapin, choisissez le <a href="#petit-cadre">petit cadre</a> ou le <a href="#bon-cadeau">bon cadeau</a>.';
+/* Toiles en précommande, livrées en janvier (cadres mis en avant pour Noël) + bouton Commander flottant sur mobile */
+var late=true;
+var NOTE='<strong>Toiles : précommandes ouvertes.</strong> Réservez maintenant, offrez le bon sous le sapin, et la toile arrive en janvier. Les toiles Maison Ravive sont fabriquées à la commande, une par une. Pour un cadeau à poser dès Noël, voyez <a href="#petit-cadre">nos cadres, prêts en quelques jours</a>.',NOTE2='<strong>Pour Noël : nos cadres, prêts en quelques jours.</strong> Les toiles se réservent dès maintenant pour janvier : offrez la surprise à Noël avec un <a href="#bon-cadeau">bon cadeau</a> élégant sous le sapin, puis le tableau livré chez eux début janvier.';
 if(late){
   var f=document.getElementById('orderForm');
   if(f){var n=document.createElement('p');n.className='late-note';n.innerHTML=NOTE;f.parentNode.insertBefore(n,f);
-    var l=document.createElement('label');l.className='late-ok';l.innerHTML='<input type="checkbox" id="lateOk"> <span>J’ai bien compris : ma toile sera livrée après Noël.</span>';
+    var l=document.createElement('label');l.className='late-ok';l.innerHTML='<input type="checkbox" id="lateOk"> <span>Je précommande : ma toile sera livrée en janvier.</span>';
     var btn=f.querySelector('button[type=submit]');if(btn)btn.parentNode.insertBefore(l,btn)}
-  var nv=document.getElementById('v-noel');if(nv){var n2=document.createElement('div');n2.className='wrap';n2.innerHTML='<p class="late-note" style="margin-top:1rem">'+NOTE+'</p>';nv.insertBefore(n2,nv.firstChild)}
-  var pb=document.querySelector('.pb-txt');if(pb)pb.innerHTML='2 petits cadres pour vos parents à 59 € avec le code <b>PARENTS</b> · commandez avant le 18 décembre';
+  var nv=document.getElementById('v-noel');if(nv){var n2=document.createElement('div');n2.className='wrap';n2.innerHTML='<p class="late-note" style="margin-top:1rem">'+NOTE2+'</p>';nv.insertBefore(n2,nv.firstChild)}
+  var pb=document.querySelector('.pb-txt');if(pb)pb.innerHTML='Pour Noël : nos cadres, prêts en quelques jours<span class="pb-more"> · 59 € les deux petits cadres avec le code <b>PARENTS</b> · les toiles se réservent dès maintenant pour janvier</span>';
+  document.querySelectorAll('.pc-code').forEach(function(p){p.innerHTML=p.innerHTML.replace('Toiles commandées avant le 14 décembre, livrées pour Noël.','Toiles en précommande, livrées en janvier.')});
+  var bh=document.querySelector('#v-cadeau .hero small');if(bh)bh.innerHTML='<b>Offrez la surprise à Noël, la toile en janvier.</b> Le bon se glisse sous le sapin, le tableau arrive chez eux début janvier.';
   document.addEventListener('submit',function(e){var c=document.getElementById('lateOk');if(e.target&&e.target.id==='orderForm'&&c&&!c.checked){e.preventDefault();e.stopImmediatePropagation();c.closest('label').classList.add('need');c.focus()}},true);
 }
 var m=document.createElement('a');m.className='mcta';m.href=late?'#petit-cadre':'#commande';m.textContent=late?'Choisir mon cadeau':'Créer mon tableau';document.body.appendChild(m);
