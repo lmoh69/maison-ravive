@@ -1726,7 +1726,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         </fieldset>
       </div>
       <aside class="summary" aria-live="polite">
-        <div class="line"><span>Format</span><span>Photo 10 × 15 cm</span></div>
+        <div class="line"><span>Format</span><span id="pcSumFmt">Photo 10 × 15 cm</span></div>
         <div class="line"><span>Finition</span><span id="pcSumFin">Cadre noir</span></div>
         <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
         <div class="line" id="pcPromoLine" hidden><span>Offre PARENTS</span><span>appliquée</span></div>
@@ -2264,7 +2264,7 @@ addEventListener('hashchange',function(){if(location.hash!=='#entreprises')setSo
 <script>
 (function(){
 /* Vérification de la résolution de la photo, dès qu’elle est ajoutée */
-var REQ={'60x40':[2400,1600],'75x50':[3000,2000],'90x60':[3600,2400],'10x15':[1200,800]};
+var REQ={'60x40':[2400,1600],'75x50':[3000,2000],'90x60':[3600,2400],'10x15':[1200,800],'20x30':[1800,1200]};
 function lbl(k){return k==='10x15'?'10 × 15 cm':k.replace('x',' × ')+' cm'}
 function fits(d,k){var L=Math.max(d[0],d[1]),S=Math.min(d[0],d[1]);return L>=REQ[k][0]&&S>=REQ[k][1]}
 function px(d){return d[0].toLocaleString('fr-FR')+' × '+d[1].toLocaleString('fr-FR')+' pixels'}
@@ -2318,22 +2318,22 @@ document.addEventListener('submit',function(e){if(e.target!==of||lm.checked)retu
   if(!okFor(curSize())){e.preventDefault();e.stopImmediatePropagation();err.textContent='Votre photo est trop petite pour ce format.';decide()}},true);
 
 /* Petit cadre */
-var pf=document.getElementById('pcForm'),pcin=document.getElementById('pccheck'),pcmsg=document.getElementById('pcmsg'),PRICE=49,pcp=null;
+var pf=document.getElementById('pcForm'),pcin=document.getElementById('pccheck'),pcmsg=document.getElementById('pcmsg'),PRICE=49,pcp=null;function pcK(){var r=pf.querySelector('input[name=pcfmt]:checked');return r?r.value:'10x15'}pf.querySelectorAll('input[name=pcfmt]').forEach(function(r){r.addEventListener('change',function(){if(pcin.files[0])pcin.dispatchEvent(new Event('change'))})});
 pcin.addEventListener('change',function(){var f=pcin.files[0];if(pcp&&pcp.url)URL.revokeObjectURL(pcp.url);pcp=null;if(!f){pcmsg.innerHTML='';return}
   load(f,function(ph){if(!ph){pcmsg.className='pmsg bad';pcmsg.innerHTML='<p>Je n’arrive pas à lire ce fichier. Essayez une photo JPEG ou PNG, ou envoyez-la-moi par e-mail.</p>';return}
     pcp=ph;var d=[ph.w,ph.h],t='<span class="thumb" style="background-image:url('+ph.url+')"></span>';
-    if(fits(d,'10x15')){pcmsg.className='pmsg';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') convient au petit cadre.</p>'}
-    else{pcmsg.className='pmsg bad';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') est trop petite, même pour le petit cadre.</p>';
-      ask(ph,'Photo trop petite','Votre photo fait '+px(d)+', le petit cadre demande au moins 1 200 × 800 pixels. Ajoutez l’original depuis votre galerie : les photos reçues par WhatsApp ou Messenger sont réduites.',[['Envoyer une photo de meilleure qualité',function(){repick(pcin)}]])}})});
-function pcUpdate(){var q=Math.max(1,Math.min(20,parseInt(document.getElementById('pcqty').value,10)||1));document.getElementById('pcSumFin').textContent=pf.querySelector('input[name=pcfin]:checked').value;document.getElementById('pcTotal').textContent=((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €';return q}
+    if(fits(d,pcK())){pcmsg.className='pmsg';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') convient à ce format.</p>'}
+    else{pcmsg.className='pmsg bad';pcmsg.innerHTML=t+'<p>Votre photo ('+px(d)+') est trop petite pour ce format.</p>';
+      ask(ph,'Photo trop petite','Votre photo fait '+px(d)+', ce format demande au moins '+REQ[pcK()][0]+' × '+REQ[pcK()][1]+' pixels. Ajoutez l’original depuis votre galerie : les photos reçues par WhatsApp ou Messenger sont réduites.',[['Envoyer une photo de meilleure qualité',function(){repick(pcin)}]])}})});
+function pcUpdate(){document.getElementById('pcSumFmt').textContent=pcK()==='20x30'?'Cadre 30 × 40 cm, photo 20 × 30':'Photo 10 × 15 cm';var q=Math.max(1,Math.min(20,parseInt(document.getElementById('pcqty').value,10)||1));document.getElementById('pcSumFin').textContent=pf.querySelector('input[name=pcfin]:checked').value;document.getElementById('pcTotal').textContent=((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €';return q}
 pf.addEventListener('input',pcUpdate);pf.addEventListener('change',pcUpdate);pcUpdate();
 pf.addEventListener('submit',function(e){e.preventDefault();var err=document.getElementById('pcErr'),n=document.getElementById('pcname').value.trim(),m=document.getElementById('pcmail').value.trim();
   if(!pcp){err.textContent='Ajoutez votre photo : je vérifie qu’elle est assez nette.';pcin.focus();return}
-  if(!fits([pcp.w,pcp.h],'10x15')){err.textContent='Votre photo est trop petite, même pour le petit cadre.';repick(pcin);return}
+  if(!fits([pcp.w,pcp.h],pcK())){err.textContent='Votre photo est trop petite pour ce format.';repick(pcin);return}
   if(!n){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('pcname').focus();return}
-  if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}
+  if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}var ad=document.getElementById('pcaddr').value.trim().replace(/\s+/g,' ');if(ad.length<10){err.textContent='Indiquez l’adresse de livraison.';document.getElementById('pcaddr').focus();return}
   err.textContent='';var q=pcUpdate();
-  var body=['Produit : petit cadre 10 × 15 cm','Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
+  var body=['Produit : '+(pcK()==='20x30'?'cadre moyen 30 × 40 cm (photo 20 × 30)':'petit cadre 10 × 15 cm'),'Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Adresse : '+ad,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
   mrPay({box:'pcPay',amount:(window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0),desc:'Petit cadre Maison Ravive x'+q,subject:'Petit cadre : commande de '+n,body:body})});
 
 /* Petit cadre sur la commode : démonstration animée */
