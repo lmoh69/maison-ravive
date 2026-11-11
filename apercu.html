@@ -10,7 +10,7 @@ try{var q=clean(new URLSearchParams(location.search).get('p'));if(q){localStorag
 window.mrRef=function(){try{var v=JSON.parse(localStorage.getItem(K)||'null');if(window.MR_REF)return'\n\nPartenaire : '+window.MR_REF;if(v&&Date.now()-v.t<D)return'\n\nPartenaire : '+v.c}catch(e){}return''};})();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Maison Ravive | Le Tableau Vivant</title>
+<title>Maison Ravive | Aperçu</title><meta name="robots" content="noindex">
 <meta name="description" content="Votre plus belle photo de mariage, imprimée sur toile. Approchez votre téléphone : votre film démarre. Sans application, sans QR code. Dès 99 €.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -955,9 +955,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <a class="brand" href="#particuliers" aria-label="Maison Ravive, Le Tableau Vivant"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><i>Le Tableau Vivant</i></a>
     <nav aria-label="Sections"><a data-home href="#fonctionnement">Fonctionnement</a><a data-home href="#formats">Formats</a><a data-home href="#questions">Questions</a><a class="btn" id="hdrCta" href="#commande">Créer mon tableau</a></nav>
   </div>
-  <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Petit cadre</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
+  <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Cadres photo</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
 </header>
-<div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Toiles dès 99 €<span class="pb-more"> · 2 petits cadres pour vos parents à 59 € avec le code <b>PARENTS</b></span> · commandez avant le 14 décembre</span><a href="#noel">Voir l’offre</a></div></div>
+<div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Petits cadres : 39 € l’un, 59 € les deux avec le code <b>PARENTS</b><span class="pb-more"> · cadre moyen 30 × 40 à 69 €</span> · commandez avant le 18 décembre</span><a href="#noel">Voir l’offre</a></div></div>
 
 <main id="top">
 <section class="introb" id="introb" aria-label="Vidéo : un geste du téléphone près du repère, et le film du moment démarre">
@@ -1612,10 +1612,10 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <section class="hero" aria-labelledby="t-pc">
   <div class="wrap">
     <div>
-      <p class="product">Le Petit Tableau Vivant</p>
+      <p class="product">Les cadres photo</p>
       <h1 id="t-pc">Le même souvenir, à poser sur un meuble.</h1>
-      <p>Une photo 10 × 15 cm dans un cadre à poser, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
-      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon petit cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
+      <p>Votre photo dans un cadre noir ou blanc, en 10 × 15 cm à poser ou en 30 × 40 cm à accrocher, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
+      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
       <small>Idéal quand votre photo vient d’un téléphone ou d’une messagerie et n’est pas assez grande pour un grand format.</small>
     </div>
     <div class="ps-scene" id="psScene" aria-label="Démonstration : un téléphone approché du petit cadre posé sur une commode lance le film">
@@ -1682,12 +1682,12 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 
 <section class="plaster" id="pcOrder" aria-labelledby="t-pco">
   <div class="wrap">
-    <h2 id="t-pco">Commander mon petit cadre</h2>
-    <p class="lead">Je vérifie votre photo et vous réponds sous 24 h avec un aperçu et le lien de paiement.</p>
+    <h2 id="t-pco">Commander mon cadre</h2>
+    <p class="lead">Vous réglez en ligne. Je vérifie votre photo et vous envoie un aperçu avant de fabriquer.</p>
     <form class="order" id="pcForm" novalidate>
       <div>
         <fieldset><legend>Finition</legend><div class="opts">
-          <div class="opt"><input type="radio" name="pcfin" id="pcf1" value="Cadre noir" checked><label for="pcf1">Cadre noir</label></div>
+          <div class="opt"><input type="radio" name="pcfmt" id="pcm1" value="10x15" checked><label for="pcm1">Petit, photo 10 × 15 cm <small>49 €</small></label></div><div class="opt"><input type="radio" name="pcfmt" id="pcm2" value="20x30"><label for="pcm2">Moyen, cadre 30 × 40 cm <small>69 €</small></label></div></div></fieldset><fieldset><legend>Couleur du cadre</legend><div class="opts"><div class="opt"><input type="radio" name="pcfin" id="pcf1" value="Cadre noir" checked><label for="pcf1">Cadre noir</label></div>
           <div class="opt"><input type="radio" name="pcfin" id="pcf2" value="Cadre blanc"><label for="pcf2">Cadre blanc</label></div>
         </div></fieldset>
         <fieldset><legend>Orientation</legend><div class="opts">
@@ -1695,7 +1695,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
           <div class="opt"><input type="radio" name="pcori" id="pco2" value="portrait"><label for="pco2">Portrait</label></div>
         </div></fieldset>
         <fieldset><legend>Votre photo</legend>
-          <p class="help">Minimum : 1 200 × 800 pixels.</p>
+          <p class="help">Minimum : 1 200 × 800 pixels pour le petit cadre, 1 800 × 1 200 pour le cadre moyen (photo 20 × 30 cm avec passe-partout).</p>
           <div class="field"><label for="pccheck">Ajoutez votre photo</label><input id="pccheck" type="file" accept="image/*"><span class="help">Je la vérifie aussitôt. Choisissez l’original dans votre galerie plutôt qu’une photo reçue par messagerie.</span></div>
           <div class="pmsg" id="pcmsg" aria-live="polite"></div>
         </fieldset>
@@ -1720,7 +1720,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <fieldset><legend>Vos coordonnées</legend>
           <div class="field"><label for="pcname">Prénom et nom</label><input id="pcname" autocomplete="name" required></div>
           <div class="field"><label for="pcmail">E-mail</label><input id="pcmail" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="pcqty">Nombre de cadres</label><input id="pcqty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
+          <div class="field"><label for="pcaddr">Adresse de livraison</label><textarea id="pcaddr" rows="2" autocomplete="street-address" required></textarea></div><div class="field"><label for="pcqty">Nombre de cadres</label><input id="pcqty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
           <label class="check optin"><input type="checkbox" id="optin2"> Je souhaite recevoir les offres Maison Ravive par e-mail. Désinscription en un clic à tout moment.</label>
           <p class="help privacy">Vos coordonnées servent à traiter votre demande et ne sont jamais cédées. <a href="#cgv" data-go="cg14">Données personnelles</a></p>
         </fieldset>
@@ -2171,7 +2171,7 @@ var TITLES={particuliers:'Maison Ravive | Le Tableau Vivant',noel:'Spécial Noë
 var CTA={particuliers:['Créer mon tableau','#commande',null],noel:['Choisir mon cadeau','#noel','noelChoix'],'bon-cadeau':['Offrir','#bon-cadeau','bcOrder'],'petit-cadre':['Commander','#petit-cadre','pcOrder'],cgv:['Créer mon tableau','#commande',null],entreprises:['Parlons-en','#entreprises','devisEnt'],partenaires:['Parlons-en','#partenaires','devisPart']};
 var cta=document.getElementById('hdrCta'),current=null;
 function route(){
-  var h=decodeURIComponent(location.hash.slice(1)),view=VIEWS[h]&&h!=='particuliers'?h:'particuliers';
+  var h=decodeURIComponent(location.hash.slice(1))||'petit-cadre',view=VIEWS[h]&&h!=='particuliers'?h:'particuliers';
   Object.keys(VIEWS).forEach(function(k){document.getElementById(VIEWS[k]).hidden=(k!==view)});
   document.querySelectorAll('.tabs a').forEach(function(a){if(a.dataset.view===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   document.querySelectorAll('.bar nav a[data-home]').forEach(function(a){a.style.display=view==='particuliers'?'':'none'});
