@@ -71,7 +71,9 @@ function put(url,file,done,total){return new Promise(function(ok,ko){var x=new X
 var picked=false,alt=document.getElementById('alt');
 document.getElementById('chrome').href='intent://'+location.host+location.pathname+location.search+'#Intent;scheme=https;package=com.android.chrome;end';
 if(!/Android/i.test(navigator.userAgent))document.getElementById('chrome').style.display='none';
-if(/Android/i.test(navigator.userAgent)){alt.hidden=false;alt.querySelector('b').textContent='Sur Android, si la vidéo ne part pas :'}
+var ua=navigator.userAgent,andr=/Android/i.test(ua);
+if(andr){f.removeAttribute('multiple');f.setAttribute('accept','video/*')}
+if(andr&&/MiuiBrowser|XiaoMi|Mint Browser|wv\)/i.test(ua)&&!sessionStorage.getItem('mrChrome')){try{sessionStorage.setItem('mrChrome','1')}catch(x){}location.href='intent://'+location.host+location.pathname+location.search+'#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url='+encodeURIComponent(location.href)+';end'}
 window.addEventListener('error',function(){alt.hidden=false;msg.className='msg err';msg.textContent='Ce navigateur bloque l’envoi. Utilisez Chrome ou WhatsApp ci-dessous.'});
 document.querySelector('.pick').addEventListener('click',function(){picked=true});
 function check(){setTimeout(function(){show();if(picked&&(!f.files||!f.files.length))alt.hidden=false;else if(f.files&&f.files.length)alt.hidden=true},1500)}
