@@ -1188,6 +1188,15 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
           <label class="fopt"><input type="radio" name="dest" value="chez moi" checked><span><b>Chez moi</b><em>Idéal si vous l’offrez : vous recevez les deux colis et les emballez ensemble.</em></span></label>
           <label class="fopt"><input type="radio" name="dest" value="directement chez la personne"><span><b>Directement chez la personne</b><em>Elle reçoit le coffret puis le tableau, avec la carte d’installation. Je vous demande son adresse par e-mail.</em></span></label>
         </div></fieldset>
+        <fieldset><legend>C’est un cadeau ?</legend>
+          <label class="check"><input type="checkbox" id="gift"> Oui : je reçois par e-mail un bon déjà rempli, à glisser sous le sapin</label>
+          <div id="giftF" hidden style="margin-top:.8rem">
+            <div class="field"><label for="giftTo">Pour <span class="help">(facultatif)</span></label><input id="giftTo" maxlength="40" autocomplete="off" placeholder="Maman et Papa"></div>
+            <div class="field"><label for="giftFrom">De la part de <span class="help">(facultatif)</span></label><input id="giftFrom" maxlength="40" autocomplete="off" placeholder="Sophie et Karim"></div>
+            <div class="field"><label for="giftMsg">Message <span class="help">(facultatif)</span></label><textarea id="giftMsg" maxlength="140" placeholder="Pour retrouver ce jour-là chaque fois que vous passerez devant."></textarea></div>
+            <p class="help">Laissez vide si vous préférez l’écrire à la main : vous recevrez le bon vierge.</p>
+          </div>
+        </fieldset>
         <fieldset><legend>Offre de Noël</legend>
           <label class="check"><input type="checkbox" id="addparents"> Ajouter 2 petits cadres 10 × 15 pour vos parents, avec la même photo et le même film : 49 € avec le code PARENTS</label>
           <div class="field" style="margin-top:.8rem"><label for="hcode">Code promo <span class="help">(facultatif)</span></label><input id="hcode" type="text" autocomplete="off" placeholder="PARENTS"><span class="help" id="hcodeMsg"></span></div>
@@ -2588,6 +2597,7 @@ var pf=document.getElementById('pcForm');if(pf)pf.dispatchEvent(new Event('input
 /* Chaque commande part aussi directement vers Make (commandes@maisonravive.fr), même sans messagerie */
 window.mrSend=function(subject,body,type,paid){
   try{var f=new URLSearchParams();f.append('type',type||'');f.append('subject',subject||'Commande maisonravive.fr');f.append('body',body||'');f.append('paiement',paid||'non');
+    if(type==='Toile'&&window.mrGift){var g=mrGift();if(g){body=(body||'')+g.txt;f.set('body',body);for(var k in g.f)f.append(k,g.f[k])}}
     f.append('email',((body||'').match(/E-mail : (\S+@\S+)/)||[])[1]||'');f.append('page',location.href);f.append('envoye_le',new Date().toLocaleString('fr-FR'));
     var ok=false;try{ok=navigator.sendBeacon&&navigator.sendBeacon('https://hook.eu1.make.com/d9ug6o0cuon1qkmfes44kdv287l1kysh',f)}catch(e){}
     if(!ok){fetch('https://hook.eu1.make.com/d9ug6o0cuon1qkmfes44kdv287l1kysh',{method:'POST',body:f,mode:'no-cors',keepalive:true}).catch(function(){})}}catch(e){}
@@ -2699,7 +2709,7 @@ var END=new Date('2026-12-18T23:59:59'),dims=null;
 function size(){var r=pf.querySelector('input[name=pcsize]:checked');return r?r.value:'petit'}
 function codeOk(){var e=document.getElementById('pccode');return !!(e&&e.value.trim().toUpperCase()==='PARENTS'&&new Date()<=END)}
 var orig=window.mrPcPrice;
-window.mrPcPrice=function(q){if(size()!=='moyen')return orig?orig(q):q*49;var p=codeOk(),l=document.getElementById('pcPromoLine');if(l)l.hidden=!p;return p?Math.floor(q/2)*109+(q%2)*59:q*69};
+window.mrPcPrice=function(q){var tc=document.getElementById('pccode');if(tc&&tc.value.trim().toUpperCase()==='TESTRAVIVE')return 1;if(size()!=='moyen')return orig?orig(q):q*49;var p=codeOk(),l=document.getElementById('pcPromoLine');if(l)l.hidden=!p;return p?Math.floor(q/2)*109+(q%2)*59:q*69};
 window.mrPcSizeLabel=function(){return size()==='moyen'?'cadre moyen 21 × 30 cm (photo 20 × 30)':'petit cadre 10 × 15 cm'};
 function sync(){var m=size()==='moyen',b=document.getElementById('pcf2'),n=document.getElementById('pcf1');
   if(b){b.disabled=m;if(m&&b.checked){n.checked=true}}
@@ -2734,6 +2744,16 @@ document.querySelectorAll('.pf-col').forEach(function(b){b.addEventListener('cli
 document.querySelectorAll('input[name=pcfin]').forEach(function(r){r.addEventListener('change',function(){setTimeout(txt,0)})});
 document.querySelectorAll('a[href="#petit-cadre"] span').forEach(function(s){if(s.textContent.trim()==='Les petits cadres')s.textContent='Les cadres'});
 txt();
+})();
+</script>
+<script>
+(function(){
+/* Toile en précommande : bon cadeau pré-rempli (facultatif) */
+var c=document.getElementById('gift'),box=document.getElementById('giftF');if(!c||!box)return;
+c.addEventListener('change',function(){box.hidden=!c.checked;if(c.checked)document.getElementById('giftTo').focus()});
+window.mrGift=function(){if(!c.checked)return null;var v=function(id){return (document.getElementById(id).value||'').trim()};
+  var to=v('giftTo'),fr=v('giftFrom'),ms=v('giftMsg');
+  return {txt:'\n\nBON CADEAU À ENVOYER : oui\nPour : '+(to||'(à écrire à la main)')+'\nDe la part de : '+(fr||'(à écrire à la main)')+'\nMessage : '+(ms||'aucun'),f:{gift:'oui',gift_to:to,gift_from:fr,gift_msg:ms}}};
 })();
 </script>
 </body>
