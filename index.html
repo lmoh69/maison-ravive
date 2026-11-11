@@ -979,7 +979,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <main id="top">
 <section class="introb" id="introb" aria-label="Vidéo : un geste du téléphone près du repère, et le film du moment démarre">
   <video id="ibv" muted autoplay loop playsinline preload="auto" poster="assets/toile-salon.jpg" src="assets/maison-ravive-banniere-fullhd.mp4"></video>
-  <script>(function(){var v=document.getElementById('ibv');if(window.matchMedia&&matchMedia('(max-width:700px)').matches)v.src='assets/maison-ravive-banniere-21x9-v2.mp4'})();</script>
+  <script>(function(){var v=document.getElementById('ibv');if(!window.matchMedia)return;var mq=matchMedia('(max-width:700px)'),D='assets/maison-ravive-banniere-fullhd.mp4',M='assets/maison-ravive-banniere-21x9-v2.mp4';
+function set(){var s=mq.matches?M:D;if(v.getAttribute('src')!==s){v.setAttribute('src',s);v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}}
+set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addListener)mq.addListener(set)})();</script>
   <button class="snd ib-snd" type="button" id="ibSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
   <a class="ib-cta" href="#commande">Créer mon tableau</a>
 </section>
