@@ -24,7 +24,8 @@ label{display:block;font-size:.9rem;color:var(--muted);margin:.8rem 0 .3rem}
 input[type=text],input[type=email]{width:100%;font:inherit;padding:.75rem .9rem;border:1px solid #D9D5CE;border-radius:10px;background:#fff}
 .pick{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;border:2px dashed var(--gold);border-radius:14px;padding:1.6rem 1rem;text-align:center;cursor:pointer;margin-top:1rem;background:#FBF8F2}
 .pick b{font-weight:500}.pick span{font-size:.9rem;color:var(--muted)}
-.pick input{display:none}
+.pick input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.pick{position:relative}
 .files{list-style:none;padding:0;margin:.8rem 0 0;font-size:.92rem}
 .files li{display:flex;justify-content:space-between;gap:.8rem;padding:.45rem 0;border-bottom:1px solid #EEE}
 .bar{height:8px;border-radius:99px;background:#EEE;overflow:hidden;margin-top:1rem;display:none}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .2s}
@@ -47,7 +48,7 @@ input[type=text],input[type=email]{width:100%;font:inherit;padding:.75rem .9rem;
     <label class="pick" for="f"><b>Choisir ma vidéo</b><span>Vidéos et photos, plusieurs fichiers possibles</span><input type="file" id="f" accept="video/*,image/*" multiple></label>
     <ul class="files" id="list"></ul>
     <div class="bar" id="bar"><i></i></div>
-    <button class="btn" id="go" disabled>Envoyer</button>
+    <button class="btn" id="go" type="button">Envoyer</button>
     <p class="msg" id="msg" role="status"></p>
   </div>
   <div class="card ok" id="ok"><b>C’est envoyé, merci !</b>Je reçois votre vidéo et je l’associe à votre cadre. Vous pouvez fermer cette page.</div>
@@ -59,12 +60,14 @@ var HOOK='https://hook.eu1.make.com/58uu9jtfl5f53ui7g7fk7fy7ssarglbk',ORDER='htt
 var q=new URLSearchParams(location.search),n=document.getElementById('n'),e=document.getElementById('e'),f=document.getElementById('f'),list=document.getElementById('list'),go=document.getElementById('go'),msg=document.getElementById('msg'),bar=document.getElementById('bar'),fill=bar.querySelector('i');
 n.value=q.get('n')||'';e.value=q.get('e')||'';
 function size(b){return b>1e9?(b/1e9).toFixed(1)+' Go':b>1e6?Math.round(b/1e6)+' Mo':Math.max(1,Math.round(b/1e3))+' Ko'}
-f.addEventListener('change',function(){list.innerHTML='';[].forEach.call(f.files,function(x){var li=document.createElement('li');li.innerHTML='<span></span><span>'+size(x.size)+'</span>';li.firstChild.textContent=x.name;list.appendChild(li)});go.disabled=!f.files.length;msg.textContent='';msg.className='msg'});
+var seen=-1;function show(){var c=f.files?f.files.length:0;if(c===seen)return;seen=c;list.innerHTML='';[].forEach.call(f.files||[],function(x){var li=document.createElement('li');li.innerHTML='<span></span><span>'+size(x.size)+'</span>';li.firstChild.textContent=x.name||'vidéo';list.appendChild(li)});msg.textContent='';msg.className='msg'}
+f.addEventListener('change',show);f.addEventListener('input',show);setInterval(show,700);
 function session(file,who){return fetch(HOOK,{method:'POST',body:new URLSearchParams({name:file.name,type:file.type||'application/octet-stream',client:who})}).then(function(r){return r.json()}).then(function(j){if(!j.url)throw 0;return j.url})}
 function put(url,file,done,total){return new Promise(function(ok,ko){var x=new XMLHttpRequest();x.open('PUT',url);x.setRequestHeader('Content-Type',file.type||'application/octet-stream');
   x.upload.onprogress=function(ev){if(ev.lengthComputable)fill.style.width=Math.round((done+ev.loaded)/total*100)+'%'};
   x.onload=function(){x.status<300?ok():ko()};x.onerror=ko;x.send(file)})}
 go.addEventListener('click',function(){
+  show();if(!f.files||!f.files.length){f.click();return}
   var who=(n.value.trim()||'Client')+(e.value.trim()?' ('+e.value.trim()+')':'');
   if(!n.value.trim()){msg.className='msg err';msg.textContent='Indiquez votre prénom et nom, pour que je retrouve votre commande.';n.focus();return}
   var files=[].slice.call(f.files),total=files.reduce(function(a,b){return a+b.size},0),done=0;
