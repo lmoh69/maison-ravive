@@ -960,7 +960,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <a class="brand" href="#particuliers" aria-label="Maison Ravive, accueil"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><i>Approchez. Revivez.</i></a>
     <nav aria-label="Sections"><a data-home href="#fonctionnement">Fonctionnement</a><a data-home href="#formats">Formats</a><a data-home href="#questions">Questions</a><a class="btn" id="hdrCta" href="#commande">Créer mon tableau</a></nav>
   </div>
-  <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Petit cadre</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
+  <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Les cadres</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
 </header>
 <div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Toiles dès 99 €<span class="pb-more"> · 2 petits cadres pour vos parents à 59 € avec le code <b>PARENTS</b></span> · commandez avant le 14 décembre</span><a href="#noel">Voir l’offre</a></div></div>
 
@@ -1617,9 +1617,9 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <section class="hero" aria-labelledby="t-pc">
   <div class="wrap">
     <div>
-      <p class="product">Le petit cadre</p>
+      <p class="product">Petit cadre et cadre moyen</p>
       <h1 id="t-pc">Le même souvenir, à poser sur un meuble.</h1>
-      <p>Une photo 10 × 15 cm dans un cadre à poser, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
+      <p>Une photo 10 × 15 cm dans un cadre à poser, ou 20 × 30 cm dans un cadre moyen noir, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
       <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon petit cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
       <small>Idéal quand votre photo vient d’un téléphone ou d’une messagerie et n’est pas assez grande pour un grand format.</small>
     </div>
@@ -1687,14 +1687,18 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 
 <section class="plaster" id="pcOrder" aria-labelledby="t-pco">
   <div class="wrap">
-    <h2 id="t-pco">Commander mon petit cadre</h2>
+    <h2 id="t-pco">Commander mon cadre</h2>
     <p class="lead">Après le paiement, je vérifie votre photo et vous envoie un aperçu sous 24 h, avant la fabrication.</p>
     <form class="order" id="pcForm" novalidate>
       <div>
+        <fieldset><legend>Format</legend><div class="opts">
+          <div class="opt"><input type="radio" name="pcsize" id="pcs1" value="petit" checked><label for="pcs1">Petit cadre 10 × 15<small>49 € · 39 € avec PARENTS</small></label></div>
+          <div class="opt"><input type="radio" name="pcsize" id="pcs2" value="moyen"><label for="pcs2">Cadre moyen 21 × 30<small>69 € · 59 € avec PARENTS</small></label></div>
+        </div></fieldset>
         <fieldset><legend>Finition</legend><div class="opts">
           <div class="opt"><input type="radio" name="pcfin" id="pcf1" value="Cadre noir" checked><label for="pcf1">Cadre noir</label></div>
           <div class="opt"><input type="radio" name="pcfin" id="pcf2" value="Cadre blanc"><label for="pcf2">Cadre blanc</label></div>
-        </div></fieldset>
+        </div><p class="help" id="pcFinHelp" hidden>Le cadre moyen existe en noir uniquement.</p></fieldset>
         <fieldset><legend>Orientation</legend><div class="opts">
           <div class="opt"><input type="radio" name="pcori" id="pco1" value="paysage" checked><label for="pco1">Paysage</label></div>
           <div class="opt"><input type="radio" name="pcori" id="pco2" value="portrait"><label for="pco2">Portrait</label></div>
@@ -1719,7 +1723,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
           </div>
         </fieldset>
         <fieldset><legend>Code promo</legend>
-          <div class="field"><label for="pccode">Votre code <span class="help">(facultatif)</span></label><input id="pccode" type="text" autocomplete="off" placeholder="PARENTS"><span class="help">Avec PARENTS jusqu’au 18 décembre : 39 € le petit cadre, 59 € les deux.</span></div>
+          <div class="field"><label for="pccode">Votre code <span class="help">(facultatif)</span></label><input id="pccode" type="text" autocomplete="off" placeholder="PARENTS"><span class="help">Avec PARENTS jusqu’au 18 décembre : petit cadre 39 € (59 € les deux), cadre moyen 59 € (109 € les deux).</span></div>
         </fieldset>
         
 <fieldset><legend>Vos coordonnées</legend>
@@ -1731,7 +1735,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
         </fieldset>
       </div>
       <aside class="summary" aria-live="polite">
-        <div class="line"><span>Format</span><span>Photo 10 × 15 cm</span></div>
+        <div class="line"><span>Format</span><span id="pcSumFmt">Photo 10 × 15 cm</span></div>
         <div class="line"><span>Finition</span><span id="pcSumFin">Cadre noir</span></div>
         <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
         <div class="line" id="pcPromoLine" hidden><span>Offre PARENTS</span><span>appliquée</span></div>
@@ -1888,6 +1892,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <div>
         <fieldset><legend>Le tableau offert</legend><div class="opts">
           <div class="opt"><input type="radio" name="bcfmt" id="bc0" value="petit"><label for="bc0">Petit cadre 10 × 15 <small>49 €</small></label></div>
+          <div class="opt"><input type="radio" name="bcfmt" id="bc4" value="moyen"><label for="bc4">Cadre moyen 21 × 30 <small>69 €</small></label></div>
           <div class="opt"><input type="radio" name="bcfmt" id="bc1" value="60x40"><label for="bc1">60 × 40 cm <small>99 €</small></label></div>
           <div class="opt"><input type="radio" name="bcfmt" id="bc2" value="75x50" checked><label for="bc2">75 × 50 cm <small>149 €</small></label></div>
           <div class="opt"><input type="radio" name="bcfmt" id="bc3" value="90x60"><label for="bc3">90 × 60 cm <small>229 €</small></label></div>
@@ -2338,8 +2343,8 @@ pf.addEventListener('submit',function(e){e.preventDefault();var err=document.get
   if(!n){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('pcname').focus();return}
   if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}
   err.textContent='';var q=pcUpdate();
-  var body=['Produit : petit cadre 10 × 15 cm','Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
-  mrPay({box:'pcPay',amount:(window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0),desc:'Petit cadre Maison Ravive x'+q,subject:'Petit cadre : commande de '+n,body:body})});
+  var body=['Produit : '+(window.mrPcSizeLabel?mrPcSizeLabel():'petit cadre 10 × 15 cm'),'Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
+  mrPay({box:'pcPay',amount:(window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0),desc:(window.mrPcSizeLabel&&/moyen/.test(mrPcSizeLabel())?'Cadre moyen':'Petit cadre')+' Maison Ravive x'+q,subject:(window.mrPcSizeLabel&&/moyen/.test(mrPcSizeLabel())?'Cadre moyen':'Petit cadre')+' : commande de '+n,body:body})});
 
 /* Petit cadre sur la commode : démonstration animée */
 var sc=document.getElementById('psScene'),vid=document.getElementById('psFilm'),snd=document.getElementById('psSnd'),pr=document.getElementById('print'),src=document.querySelector('#film source');
@@ -2410,7 +2415,7 @@ addEventListener('hashchange',function(){if(location.hash!=='#partenaires')setSo
 <script>
 (function(){
 /* Bon cadeau */
-var P={petit:49,'60x40':99,'75x50':149,'90x60':229},L={petit:'Petit cadre 10 × 15 cm','60x40':'Tableau 60 × 40 cm','75x50':'Tableau 75 × 50 cm','90x60':'Tableau 90 × 60 cm'};
+var P={petit:49,moyen:69,'60x40':99,'75x50':149,'90x60':229},L={petit:'Petit cadre 10 × 15 cm',moyen:'Cadre moyen 21 × 30 cm','60x40':'Tableau 60 × 40 cm','75x50':'Tableau 75 × 50 cm','90x60':'Tableau 90 × 60 cm'};
 var f=document.getElementById('bcForm');if(!f)return;
 var plexi=document.getElementById('bcplexi'),to=document.getElementById('bcto'),msg=document.getElementById('bcmsg'),cnt=document.getElementById('bcCount');
 var d1=document.getElementById('bcDirect1'),d2=document.getElementById('bcDirect2'),date=document.getElementById('bcdate');
