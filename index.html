@@ -955,6 +955,10 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 .pf3[data-size="moyen"]{--h:50cqw;--w:35.4cqw;--m:1.3cqw}
 .pf3[data-size="moyen"] .pf-mat{background:#111;box-shadow:none}
 .pf3[data-size="moyen"] .pf-photo{width:100%;height:100%;aspect-ratio:auto;margin:0;box-shadow:none}
+.stripe-btn{display:block;width:100%;text-align:center;background:#1A1918;color:#fff;border-color:#1A1918;padding:.9rem 1rem;margin:.6rem 0 0}
+.pay-or{text-align:center;color:var(--muted);font-size:.85rem;margin:.5rem 0}
+.pay-toast{position:fixed;left:50%;top:1rem;z-index:80;transform:translate(-50%,-150%);display:flex;gap:1rem;align-items:center;max-width:min(92vw,34rem);padding:.9rem 1.1rem;border-radius:12px;background:#2A3140;color:#F3EFE8;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:transform .4s}
+.pay-toast.ok{background:#1F4D3A}.pay-toast.on{transform:translate(-50%,0)}.pay-toast button{background:none;border:0;color:inherit;font-size:1.4rem;cursor:pointer}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -2601,7 +2605,7 @@ window.mrSend=function(subject,body,type,paid){
     f.append('email',((body||'').match(/E-mail : (\S+@\S+)/)||[])[1]||'');f.append('page',location.href);f.append('envoye_le',new Date().toLocaleString('fr-FR'));
     var ok=false;try{ok=navigator.sendBeacon&&navigator.sendBeacon('https://hook.eu1.make.com/d9ug6o0cuon1qkmfes44kdv287l1kysh',f)}catch(e){}
     if(!ok){fetch('https://hook.eu1.make.com/d9ug6o0cuon1qkmfes44kdv287l1kysh',{method:'POST',body:f,mode:'no-cors',keepalive:true}).catch(function(){})}}catch(e){}
-  setTimeout(function(){location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)},350)};
+  setTimeout(function(){if(window.MR_NOMAIL)return;location.href='mailto:contact@maisonravive.fr?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)},350)};
 </script>
 <script>
 (function(){
@@ -2613,9 +2617,13 @@ function load(cb){if(window.paypal&&window.paypal.Buttons)return cb(true);q.push
   s.onload=function(){fin(!!(window.paypal&&window.paypal.Buttons))};s.onerror=function(){fin(false)};setTimeout(function(){fin(!!(window.paypal&&window.paypal.Buttons))},10000);document.head.appendChild(s)}
 window.mrPay=function(o){var box=document.getElementById(o.box);if(!box)return;
   function mail(extra){mrSend(o.subject,o.body+(extra||''),o.desc,/PAYPAL REÇU/.test(extra||'')?'PayPal reçu':(extra?'à faire':'non'))}
-  box.hidden=false;box.innerHTML='<p class="pay-t">Total à régler : <b>'+o.amount+' €</b>. Payez en toute sécurité par PayPal ou carte bancaire :</p><div class="pp"></div><p class="help">Un souci de paiement ? Écrivez-moi : contact@maisonravive.fr</p>';
+  box.hidden=false;box.innerHTML='<p class="pay-t">Total à régler : <b>'+o.amount+' €</b>. Payez en toute sécurité :</p><a class="btn stripe-btn" href="#">Payer par carte, Apple Pay ou Google Pay</a><p class="pay-or">ou</p><div class="pp"></div><p class="help">Un souci de paiement ? Écrivez-moi : contact@maisonravive.fr</p>';
+  box.querySelector('.stripe-btn').addEventListener('click',function(e){e.preventDefault();var b=this;b.textContent='Ouverture du paiement sécurisé…';b.style.pointerEvents='none';
+    window.MR_NOMAIL=true;mrSend(o.subject,o.body+'\n\nPAIEMENT : carte bancaire en cours (Stripe), à confirmer dans Stripe',o.desc,'carte en cours');
+    var em=((o.body||'').match(/E-mail : (\S+@\S+)/)||[])[1]||'';
+    setTimeout(function(){location.href='https://hook.eu1.make.com/tv7hv84m6sljpbcxc849i38jsk75akus?amount='+encodeURIComponent(o.amount)+'&desc='+encodeURIComponent(o.desc)+'&email='+encodeURIComponent(em)+'&back='+encodeURIComponent(location.hash||'')},400)});
   load(function(ok){
-    if(!ok){box.innerHTML='<p class="err">Le paiement en ligne ne répond pas. Votre demande s’ouvre dans votre messagerie : envoyez-la, je vous renvoie un lien de paiement.</p>';mail('\n\nPAIEMENT : à faire (lien à envoyer)');return}
+    if(!ok){box.querySelector('.pp').innerHTML='<p class="help">PayPal ne répond pas pour le moment : utilisez le paiement par carte ci-dessus.</p>';return}
     paypal.Buttons({style:{layout:'vertical',shape:'pill',label:'pay',height:45},
       createOrder:function(d,a){return a.order.create({purchase_units:[{amount:{currency_code:'EUR',value:String(o.amount)},description:o.desc}]})},
       onApprove:function(d,a){return a.order.capture().then(function(det){var id=(det&&det.id)||d.orderID;
@@ -2754,6 +2762,16 @@ c.addEventListener('change',function(){box.hidden=!c.checked;if(c.checked)docume
 window.mrGift=function(){if(!c.checked)return null;var v=function(id){return (document.getElementById(id).value||'').trim()};
   var to=v('giftTo'),fr=v('giftFrom'),ms=v('giftMsg');
   return {txt:'\n\nBON CADEAU À ENVOYER : oui\nPour : '+(to||'(à écrire à la main)')+'\nDe la part de : '+(fr||'(à écrire à la main)')+'\nMessage : '+(ms||'aucun'),f:{gift:'oui',gift_to:to,gift_from:fr,gift_msg:ms}}};
+})();
+</script>
+<script>
+(function(){
+/* Retour du paiement par carte (Stripe) */
+var q=location.search;if(!/[?&](paye|stripe)=/.test(q))return;
+var ok=/paye=carte/.test(q),t=ok?'Paiement par carte reçu, merci ! Je vérifie votre photo et vous envoie un aperçu sous 24 h.':(/stripe=annule/.test(q)?'Paiement annulé : rien n’a été débité. Vous pouvez reprendre votre commande quand vous voulez.':'Le paiement par carte n’a pas pu démarrer. Réessayez, ou payez avec PayPal.');
+var d=document.createElement('div');d.className='pay-toast'+(ok?' ok':'');d.setAttribute('role','status');d.innerHTML='<span>'+t+'</span><button type="button" aria-label="Fermer">×</button>';
+document.body.appendChild(d);d.querySelector('button').onclick=function(){d.remove()};setTimeout(function(){d.classList.add('on')},300);
+try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
 })();
 </script>
 </body>
