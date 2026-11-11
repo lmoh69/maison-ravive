@@ -1,1 +1,82 @@
-X
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Envoyer votre vidéo | Maison Ravive</title>
+<link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--wall:#2A3140;--plaster:#EFEDEA;--ink:#1A1918;--muted:#5E5A55;--gold:#B8925A;--gold2:#E4C995}
+*{box-sizing:border-box}body{margin:0;background:var(--plaster);color:var(--ink);font:300 1.05rem/1.6 Jost,system-ui,sans-serif;min-height:100vh}
+header{background:var(--wall);color:#F3EFE8;text-align:center;padding:calc(1.4rem + env(safe-area-inset-top,0px)) 1rem 1.3rem}
+.brand{display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit;line-height:1}
+.brand small{font:300 .55rem/1 "Josefin Sans",sans-serif;letter-spacing:.6em;margin-right:-.6em;margin-bottom:.45rem}
+.brand b{font:300 1.4rem/1 "Josefin Sans",sans-serif;letter-spacing:.32em;margin-right:-.32em}
+.brand i{font:300 .6rem/1 "Josefin Sans",sans-serif;letter-spacing:.3em;margin-top:.55rem;color:var(--gold2);font-style:normal}
+main{max-width:34rem;margin:0 auto;padding:1.6rem 1.2rem calc(2rem + env(safe-area-inset-bottom,0px))}
+h1{font:300 1.6rem/1.25 "Josefin Sans",sans-serif;margin:.4rem 0 .6rem}
+.card{background:#fff;border-radius:14px;padding:1.3rem;box-shadow:0 10px 30px -18px rgba(0,0,0,.35);margin-top:1rem}
+ol{padding-left:1.2rem;margin:.4rem 0 0}li{margin:.25rem 0}
+label{display:block;font-size:.9rem;color:var(--muted);margin:.8rem 0 .3rem}
+input[type=text],input[type=email]{width:100%;font:inherit;padding:.75rem .9rem;border:1px solid #D9D5CE;border-radius:10px;background:#fff}
+.pick{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;border:2px dashed var(--gold);border-radius:14px;padding:1.6rem 1rem;text-align:center;cursor:pointer;margin-top:1rem;background:#FBF8F2}
+.pick b{font-weight:500}.pick span{font-size:.9rem;color:var(--muted)}
+.pick input{display:none}
+.files{list-style:none;padding:0;margin:.8rem 0 0;font-size:.92rem}
+.files li{display:flex;justify-content:space-between;gap:.8rem;padding:.45rem 0;border-bottom:1px solid #EEE}
+.bar{height:8px;border-radius:99px;background:#EEE;overflow:hidden;margin-top:1rem;display:none}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .2s}
+.btn{display:block;width:100%;margin-top:1.1rem;padding:.95rem 1rem;border:0;border-radius:999px;background:var(--ink);color:#fff;font:500 1rem Jost,sans-serif;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:default}
+.msg{margin-top:1rem;font-size:.95rem}.msg.err{color:#B3261E}
+.ok{display:none;text-align:center;padding:1.2rem .5rem}.ok b{display:block;font:300 1.5rem "Josefin Sans",sans-serif;margin-bottom:.4rem}
+.help{font-size:.85rem;color:var(--muted);text-align:center;margin-top:1.2rem}.help a{color:inherit}
+</style>
+</head>
+<body>
+<header><a class="brand" href="/"><small>MAISON</small><b>RAVIVE</b><i>UN GESTE, ET LE MOMENT REVIT</i></a></header>
+<main>
+  <h1>Envoyez-moi votre vidéo</h1>
+  <p>Directement depuis votre téléphone, en 3 gestes :</p>
+  <ol><li>Touchez <b>Choisir ma vidéo</b></li><li>Sélectionnez-la dans votre galerie (photos aussi possibles)</li><li>Touchez <b>Envoyer</b>, et gardez la page ouverte jusqu’au message de confirmation</li></ol>
+  <div class="card" id="form">
+    <label for="n">Votre prénom et nom</label><input type="text" id="n" autocomplete="name">
+    <label for="e">Votre e-mail (celui de la commande)</label><input type="email" id="e" autocomplete="email">
+    <label class="pick" for="f"><b>Choisir ma vidéo</b><span>Vidéos et photos, plusieurs fichiers possibles</span><input type="file" id="f" accept="video/*,image/*" multiple></label>
+    <ul class="files" id="list"></ul>
+    <div class="bar" id="bar"><i></i></div>
+    <button class="btn" id="go" disabled>Envoyer</button>
+    <p class="msg" id="msg" role="status"></p>
+  </div>
+  <div class="card ok" id="ok"><b>C’est envoyé, merci !</b>Je reçois votre vidéo et je l’associe à votre cadre. Vous pouvez fermer cette page.</div>
+  <p class="help">Un souci ? Écrivez-moi sur <a href="https://wa.me/33651287900">WhatsApp</a> ou à <a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a>.</p>
+</main>
+<script>
+(function(){
+var HOOK='https://hook.eu1.make.com/58uu9jtfl5f53ui7g7fk7fy7ssarglbk',ORDER='https://hook.eu1.make.com/d9ug6o0cuon1qkmfes44kdv287l1kysh';
+var q=new URLSearchParams(location.search),n=document.getElementById('n'),e=document.getElementById('e'),f=document.getElementById('f'),list=document.getElementById('list'),go=document.getElementById('go'),msg=document.getElementById('msg'),bar=document.getElementById('bar'),fill=bar.querySelector('i');
+n.value=q.get('n')||'';e.value=q.get('e')||'';
+function size(b){return b>1e9?(b/1e9).toFixed(1)+' Go':b>1e6?Math.round(b/1e6)+' Mo':Math.max(1,Math.round(b/1e3))+' Ko'}
+f.addEventListener('change',function(){list.innerHTML='';[].forEach.call(f.files,function(x){var li=document.createElement('li');li.innerHTML='<span></span><span>'+size(x.size)+'</span>';li.firstChild.textContent=x.name;list.appendChild(li)});go.disabled=!f.files.length;msg.textContent='';msg.className='msg'});
+function session(file,who){return fetch(HOOK,{method:'POST',body:new URLSearchParams({name:file.name,type:file.type||'application/octet-stream',client:who})}).then(function(r){return r.json()}).then(function(j){if(!j.url)throw 0;return j.url})}
+function put(url,file,done,total){return new Promise(function(ok,ko){var x=new XMLHttpRequest();x.open('PUT',url);x.setRequestHeader('Content-Type',file.type||'application/octet-stream');
+  x.upload.onprogress=function(ev){if(ev.lengthComputable)fill.style.width=Math.round((done+ev.loaded)/total*100)+'%'};
+  x.onload=function(){x.status<300?ok():ko()};x.onerror=ko;x.send(file)})}
+go.addEventListener('click',function(){
+  var who=(n.value.trim()||'Client')+(e.value.trim()?' ('+e.value.trim()+')':'');
+  if(!n.value.trim()){msg.className='msg err';msg.textContent='Indiquez votre prénom et nom, pour que je retrouve votre commande.';n.focus();return}
+  var files=[].slice.call(f.files),total=files.reduce(function(a,b){return a+b.size},0),done=0;
+  go.disabled=true;go.textContent='Envoi en cours… gardez la page ouverte';bar.style.display='block';msg.className='msg';msg.textContent='';
+  files.reduce(function(p,file){return p.then(function(){return session(file,who).then(function(u){return put(u,file,done,total)}).then(function(){done+=file.size})})},Promise.resolve())
+  .then(function(){fill.style.width='100%';
+    try{var b=new URLSearchParams({type:'Vidéo déposée',subject:'Vidéo reçue de '+n.value.trim(),paiement:'-',email:'',page:location.href,envoye_le:new Date().toLocaleString('fr-FR'),
+      body:'Nom : '+n.value.trim()+'\nE-mail : '+(e.value.trim()||'non indiqué')+'\nFichiers : '+files.map(function(x){return x.name+' ('+size(x.size)+')'}).join(', ')+'\nDossier : Google Drive › Maison Ravive – Vidéos clients'});
+      navigator.sendBeacon?navigator.sendBeacon(ORDER,b):fetch(ORDER,{method:'POST',body:b,mode:'no-cors'})}catch(x){}
+    document.getElementById('form').style.display='none';document.getElementById('ok').style.display='block'})
+  .catch(function(){go.disabled=false;go.textContent='Réessayer';msg.className='msg err';msg.textContent='L’envoi n’a pas abouti. Vérifiez votre connexion (le Wi-Fi est préférable pour une vidéo) et réessayez.'})});
+})();
+</script>
+</body>
+</html>
