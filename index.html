@@ -1004,7 +1004,7 @@ a.shop-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(0
 <header>
   <div class="wrap bar">
     <a class="brand" href="#particuliers" aria-label="Maison Ravive, accueil"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><i>Approchez. Revivez.</i></a>
-    <nav aria-label="Sections"><a data-home href="#fonctionnement">Fonctionnement</a><a data-home href="#formats">Formats</a><a data-home href="#questions">Questions</a><a class="btn" id="hdrCta" href="#commande">Créer mon tableau</a></nav>
+    <nav aria-label="Sections"><a data-home href="#fonctionnement">Fonctionnement</a><a data-home href="#formats">Formats</a><a data-home href="#questions">Questions</a><a class="btn" id="hdrCta" href="#petit-cadre">Commander mon cadre</a></nav>
   </div>
   <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Les cadres</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
 </header>
@@ -2259,7 +2259,7 @@ form.addEventListener('submit',function(e){
 /* Onglets : particuliers, entreprises, partenaires */
 var VIEWS={particuliers:'top',noel:'v-noel','bon-cadeau':'v-cadeau','petit-cadre':'v-petit',entreprises:'v-entreprises',partenaires:'v-partenaires',cgv:'v-cgv'};
 var TITLES={particuliers:'Maison Ravive | Un geste, et le moment revit',noel:'Spécial Noël | Maison Ravive','bon-cadeau':'Bon cadeau | Maison Ravive','petit-cadre':'Les cadres | Maison Ravive',cgv:'Conditions générales de vente | Maison Ravive',entreprises:'Entreprises et événements | Maison Ravive',partenaires:'Partenaires professionnels | Maison Ravive'};
-var CTA={particuliers:['Créer mon tableau','#commande',null],noel:['Choisir mon cadeau','#noel','noelChoix'],'bon-cadeau':['Offrir','#bon-cadeau','bcOrder'],'petit-cadre':['Commander','#petit-cadre','pcOrder'],cgv:['Créer mon tableau','#commande',null],entreprises:['Parlons-en','#entreprises','devisEnt'],partenaires:['Parlons-en','#partenaires','devisPart']};
+var CTA={particuliers:['Commander mon cadre','#petit-cadre','pcOrder'],noel:['Choisir mon cadeau','#noel','noelChoix'],'bon-cadeau':['Offrir','#bon-cadeau','bcOrder'],'petit-cadre':['Commander','#petit-cadre','pcOrder'],cgv:['Commander mon cadre','#petit-cadre','pcOrder'],entreprises:['Parlons-en','#entreprises','devisEnt'],partenaires:['Parlons-en','#partenaires','devisPart']};
 var cta=document.getElementById('hdrCta'),current=null;
 function route(){
   var h=decodeURIComponent(location.hash.slice(1)),view=VIEWS[h]&&h!=='particuliers'?h:'particuliers';
@@ -2277,6 +2277,7 @@ addEventListener('hashchange',route);route();
 document.addEventListener('click',function(e){
   var a=e.target.closest('[data-go]');if(!a||!a.dataset.go)return;
   var t=document.getElementById(a.dataset.go);if(!t)return;
+  if(t.closest('main[hidden]')){setTimeout(function(){t.scrollIntoView()},150);return}
   e.preventDefault();t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
 });
 var pc=document.getElementById('pCard'),gc=document.getElementById('giftCard');if(pc&&gc)pc.style.backgroundImage=gc.style.backgroundImage;
@@ -2830,6 +2831,13 @@ var ok=/paye=carte/.test(q),t=ok?'Paiement par carte reçu, merci ! Je vérifie 
 var d=document.createElement('div');d.className='pay-toast'+(ok?' ok':'');d.setAttribute('role','status');d.innerHTML='<span>'+t+'</span><button type="button" aria-label="Fermer">×</button>';
 document.body.appendChild(d);d.querySelector('button').onclick=function(){d.remove()};setTimeout(function(){d.classList.add('on')},300);
 try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
+})();
+</script>
+<script>
+(function(){
+/* Offre lisible + choix du format depuis les cartes de l’accueil */
+document.querySelectorAll('.pc-list span').forEach(function(x){if(x.textContent.trim()==='39 € l’un, 59 € les deux')x.textContent='39 € l’un, le 2e à 20 €'});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-pcsize]');if(!a)return;var v=a.getAttribute('data-pcsize');setTimeout(function(){var r=document.getElementById(v==='moyen'?'pcs2':'pcs1');if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}))}},350)});
 })();
 </script>
 </body>
