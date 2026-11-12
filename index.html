@@ -967,6 +967,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mono" viewBox="0 0 30 34"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M0.8 0V34M4.4 0V34M0 33.2H21.5M4.4 0.8H19A9.35 9.35 0 0 1 19 19.5H4.4"/></symbol>
 </svg>
 
+<a class="wa-bar" href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20les%20cadres%20Maison%20Ravive.">Une question avant de commander ? <b>WhatsApp : 06 51 28 79 00</b></a>
 <header>
   <div class="wrap bar">
     <a class="brand" href="#particuliers" aria-label="Maison Ravive, accueil"><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><i>Approchez. Revivez.</i></a>
@@ -983,16 +984,16 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
 function set(){var s=mq.matches?M:D;if(v.getAttribute('src')!==s){v.setAttribute('src',s);v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}}
 set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addListener)mq.addListener(set)})();</script>
   <button class="snd ib-snd" type="button" id="ibSnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16 9.5a3.5 3.5 0 010 5M18.5 7a7 7 0 010 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Écouter</span></button>
-  <a class="ib-cta" href="#commande">Créer mon tableau</a>
+  <a class="ib-cta" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a>
 </section>
 <section class="hero" aria-labelledby="titre">
   <div class="wrap">
     <div>
       <p class="product">Un geste, et le moment revit</p>
-      <h1 id="titre">Votre photo au mur. Votre film au creux de la main.</h1>
-      <p>Une photo de votre mariage, imprimée sur un tableau d’exception. Approchez votre téléphone du repère : votre film démarre. Sans application, sans QR code.</p>
-      <div class="actions"><a class="btn" href="#commande">Créer mon tableau, dès 99 €</a><a class="btn ghost" href="#fonctionnement"><span>Voir comment ça marche</span></a></div>
-      <small>Avec les photos et le film de votre photographe, quel qu’il soit. Imprimé, assemblé et vérifié à la main près de Lyon, livré dans son coffret.</small>
+      <h1 id="titre">Votre plus beau souvenir. Son film, d’un simple geste.</h1>
+      <p>Votre photo dans un beau cadre. Approchez votre téléphone du repère : le film du moment démarre. Sans application, sans QR code. Prêt pour Noël.</p>
+      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon cadre, dès 49 €</a><a class="btn ghost" href="#fonctionnement"><span>Voir comment ça marche</span></a></div>
+      <small>Créé par un photographe vidéaste professionnel, à l’expérience internationale. Chaque cadre est assemblé et testé à la main près de Lyon.</small>
     </div>
     <div class="stage waiting" id="stage" aria-label="Démonstration : un téléphone approché du tableau lance le film de mariage">
       <div class="print" id="print"><span class="repere" id="repere" aria-hidden="true"><svg><use href="#mono"/></svg></span></div>
@@ -1009,6 +1010,25 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
     </div>
   </div>
 </section>
+
+<section class="trust" aria-label="Nos engagements"><div class="wrap"><ul><li><b>Prêt pour Noël</b><span>Fabriqué en 2 à 3 jours ouvrés. Commandez avant le 18 décembre.</span></li><li><b>Livraison offerte</b><span>En France métropolitaine, avec suivi.</span></li><li><b>Paiement sécurisé</b><span>Carte, Apple Pay, Google Pay ou PayPal.</span></li><li><b>Votre vidéo depuis votre téléphone</b><span>Rien à mettre en ligne : vous l’envoyez depuis votre galerie.</span></li><li><b>Film modifiable · garantie 2 ans</b><span>Changez de vidéo 2 fois par an, gratuitement.</span></li></ul></div></section>
+<section class="plaster shop" aria-labelledby="t-shop"><div class="wrap">
+  <p class="kicker">Disponibles maintenant</p>
+  <h2 id="t-shop">Prêts pour Noël</h2>
+  <div class="shop-grid">
+    <a class="shop-card" href="#petit-cadre" data-go="pcOrder" data-pcsize="petit"><div class="sc-vis"><div class="sc-frame sm"><i></i></div></div><div class="sc-txt"><h3>Petit cadre 10 × 15</h3><p>À poser sur un meuble. Noir ou blanc, avec passe-partout.</p><p class="sc-price"><b>49 €</b><span>39 € avec le code PARENTS</span></p><span class="btn">Commander</span></div></a>
+    <a class="shop-card" href="#petit-cadre" data-go="pcOrder" data-pcsize="moyen"><div class="sc-vis"><div class="sc-frame md"><i></i></div></div><div class="sc-txt"><h3>Cadre moyen 21 × 30</h3><p>Plus de présence, à poser ou à accrocher. Cadre noir.</p><p class="sc-price"><b>69 €</b><span>59 € avec le code PARENTS</span></p><span class="btn">Commander</span></div></a>
+    <div class="shop-card soon"><div class="sc-txt"><p class="kicker">Carnet de janvier ouvert</p><h3>Toile sur châssis</h3><p>Chaque toile est fabriquée à la commande. Réservez la vôtre dès maintenant, elle est livrée en janvier. Pour Noël, glissez le bon cadeau sous le sapin.</p><p class="sc-links"><a href="#commande">Réserver ma toile</a><a href="#bon-cadeau">Offrir un bon cadeau</a></p></div></div>
+  </div>
+  <p class="shop-promo">Avec le code <b>PARENTS</b> : un cadre pour vous à 39 €, <b>le 2e pour vos parents à 20 €</b>. Jusqu’au 18 décembre.</p>
+</div></section>
+<section class="maker" aria-labelledby="t-maker"><div class="wrap">
+  <div><p class="kicker">Derrière chaque cadre</p>
+  <h2 id="t-maker">Un photographe vidéaste crée le vôtre</h2>
+  <p class="mk-lead">Je suis Lmoh, photographe et vidéaste professionnel près de Lyon. Mariages, événements, tournages en France et à l’étranger : c’est ce regard que je mets dans votre cadre.</p></div>
+  <ul class="mk-list"><li><b>Votre photo, vérifiée par un professionnel</b>Je la contrôle avant de fabriquer, et je vous préviens si elle ne rendra pas bien.</li><li><b>Pas de film ? Je le crée</b>Montage de vos vidéos, ou diaporama animé de vos photos.</li><li><b>Assemblé et testé à la main</b>Chaque cadre est essayé sur iPhone et Android avant de partir.</li></ul>
+  <p class="mk-cta"><a class="btn ghost" href="https://lmohphotography.com" target="_blank" rel="noopener"><span>Voir mon travail de photographe</span></a></p>
+</div></section>
 
 <section class="promo3d" aria-labelledby="t-promo">
   <div class="wrap">
@@ -1646,7 +1666,7 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
       <h1 id="t-pc">Le même souvenir, à poser sur un meuble.</h1>
       <p>Une photo 10 × 15 cm dans un cadre à poser, ou 20 × 30 cm dans un cadre moyen noir, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
       <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
-      <small>Idéal quand votre photo vient d’un téléphone ou d’une messagerie et n’est pas assez grande pour un grand format.</small>
+      <small>Créé par un photographe vidéaste professionnel. Une photo de téléphone suffit : je la vérifie avant de fabriquer.</small>
     </div>
     <div class="ps-scene" id="psScene" aria-label="Démonstration : un téléphone approché du petit cadre posé sur une commode lance le film">
       <div class="ps-wall"></div>
@@ -1660,6 +1680,7 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
   </div>
 </section>
 
+<section class="trust" aria-label="Nos engagements"><div class="wrap"><ul><li><b>Prêt pour Noël</b><span>Fabriqué en 2 à 3 jours ouvrés. Commandez avant le 18 décembre.</span></li><li><b>Livraison offerte</b><span>En France métropolitaine, avec suivi.</span></li><li><b>Paiement sécurisé</b><span>Carte, Apple Pay, Google Pay ou PayPal.</span></li><li><b>Votre vidéo depuis votre téléphone</b><span>Rien à mettre en ligne : vous l’envoyez depuis votre galerie.</span></li><li><b>Film modifiable · garantie 2 ans</b><span>Changez de vidéo 2 fois par an, gratuitement.</span></li></ul></div></section>
 <section class="plaster" aria-labelledby="t-pf3">
   <div class="wrap">
     <h2 id="t-pf3">Un vrai cadre à poser, avec son chevalet</h2>
