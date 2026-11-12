@@ -1852,7 +1852,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <p class="product">Bon cadeau</p>
       <h1 id="t-bc">Offrez le tableau. Ils choisiront le souvenir.</h1>
       <p>Vous offrez un Tableau Vivant, et la personne qui le reçoit choisit elle-même sa photo et son film, quand elle le souhaite. Le bon arrive par e-mail juste après le paiement, prêt à imprimer ou à transférer.</p>
-      <div class="actions"><a class="btn" href="#bon-cadeau" data-go="bcOrder">Offrir un bon cadeau</a><a class="btn ghost" href="#particuliers"><span>Découvrir le tableau</span></a></div>
+      <div class="actions"><a class="btn" href="#bon-cadeau" data-go="bcOrder">Offrir un bon cadeau</a><a class="btn ghost" href="#petit-cadre"><span>Découvrir les cadres</span></a></div>
       <small>Idéal quand vous ne savez pas quelle photo choisir, ou quand Noël arrive trop vite.</small>
     </div>
     <div aria-hidden="true">
@@ -1868,7 +1868,7 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
       <p>Vous n’avez besoin ni de la photo ni du film. Vous choisissez le format, j’envoie le bon, et je m’occupe du reste avec la personne qui le reçoit.</p>
     </div>
     <div class="facts">
-      <div><h3>Vous choisissez le format</h3><p>Du petit cadre à poser à la grande toile 90 × 60 cm, prête à accrocher.</p></div>
+      <div><h3>Vous choisissez le format</h3><p>Petit cadre 10 × 15 à poser, ou cadre moyen 30 × 40 à accrocher.</p></div>
       <div><h3>Vous recevez le bon</h3><p>Un PDF à imprimer ou à glisser dans une carte, avec votre message. Je peux aussi l’envoyer directement à la personne, le jour de votre choix.</p></div>
       <div><h3>Elle crée son tableau</h3><p>Elle m’envoie sa photo et le lien de son film dans les 12 mois. Je vérifie la photo et je prépare son repère. Elle reçoit d’abord le coffret du repère, puis le tableau.</p></div>
     </div>
@@ -1882,12 +1882,12 @@ input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--p
     <form class="order" id="bcForm" novalidate>
       <div>
         <fieldset><legend>Le tableau offert</legend><div class="opts">
-          <div class="opt"><input type="radio" name="bcfmt" id="bc0" value="petit"><label for="bc0">Petit cadre 10 × 15 <small>49 €</small></label></div>
-          <div class="opt"><input type="radio" name="bcfmt" id="bc1" value="60x40"><label for="bc1">60 × 40 cm <small>99 €</small></label></div>
-          <div class="opt"><input type="radio" name="bcfmt" id="bc2" value="75x50" checked><label for="bc2">75 × 50 cm <small>149 €</small></label></div>
-          <div class="opt"><input type="radio" name="bcfmt" id="bc3" value="90x60"><label for="bc3">90 × 60 cm <small>229 €</small></label></div>
+          <div class="opt"><input type="radio" name="bcfmt" id="bc0" value="petit" checked><label for="bc0">Petit cadre 10 × 15 <small>49 €</small></label></div>
+          <div class="opt"><input type="radio" name="bcfmt" id="bc1" value="moyen"><label for="bc1">Cadre moyen 30 × 40 <small>69 €</small></label></div>
+          <div class="opt" style="display:none"><input type="radio" name="bcfmt" id="bc2" value="75x50" disabled><label for="bc2">75 × 50 cm <small>149 €</small></label></div>
+          <div class="opt" style="display:none"><input type="radio" name="bcfmt" id="bc3" value="90x60" disabled><label for="bc3">90 × 60 cm <small>229 €</small></label></div>
         </div>
-        <p class="help" style="margin-top:.7rem">Toile sur châssis, prête à accrocher. La personne choisit l’orientation, paysage ou portrait, selon sa photo.</p></fieldset>
+        <p class="help" style="margin-top:.7rem">Cadre noir ou blanc, au choix de la personne qui reçoit le bon.</p></fieldset>
         <fieldset hidden><legend>Finition</legend><div class="opts">
           <div class="opt"><input type="checkbox" id="bcplexi"><label for="bcplexi">Plexiglas brillant <small>+ 50 €</small></label></div>
         </div></fieldset>
@@ -2405,7 +2405,7 @@ addEventListener('hashchange',function(){if(location.hash!=='#partenaires')setSo
 <script>
 (function(){
 /* Bon cadeau */
-var P={petit:49,'60x40':99,'75x50':149,'90x60':229},L={petit:'Petit cadre 10 × 15 cm','60x40':'Tableau 60 × 40 cm','75x50':'Tableau 75 × 50 cm','90x60':'Tableau 90 × 60 cm'};
+var P={petit:49,moyen:69,'60x40':99,'75x50':149,'90x60':229},L={petit:'Petit cadre 10 × 15 cm',moyen:'Cadre moyen 30 × 40 cm','60x40':'Tableau 60 × 40 cm','75x50':'Tableau 75 × 50 cm','90x60':'Tableau 90 × 60 cm'};
 var f=document.getElementById('bcForm');if(!f)return;
 var plexi=document.getElementById('bcplexi'),to=document.getElementById('bcto'),msg=document.getElementById('bcmsg'),cnt=document.getElementById('bcCount');
 var d1=document.getElementById('bcDirect1'),d2=document.getElementById('bcDirect2'),date=document.getElementById('bcdate');
@@ -2416,13 +2416,13 @@ function esc(x){return x.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&
 function card(el,o){el.innerHTML='<div class="gc-top"><div class="gc-brand"><small>Maison</small>Ravive</div><div class="gc-kind">Bon cadeau</div></div>'+
  '<div class="gc-main"><p class="gc-title">'+(o.to?'Pour '+esc(o.to):'Le Tableau Vivant')+'</p><p class="gc-fmt">'+o.fmt+'</p><p class="gc-msg">'+(o.msg?'« '+esc(o.msg)+' »':'')+'</p></div>'+
  '<div class="gc-bot"><span>Code <b>'+o.code+'</b><br>Valable jusqu’au '+expTxt+'</span><svg class="gc-mark"><use href="#mono"/></svg></div>'}
-card(document.getElementById('gcHero'),{to:'',fmt:'Tableau 75 × 50 cm · toile sur châssis',msg:'Pour retrouver ce jour-là chaque fois que vous passerez devant.',code:'MR-7K2Q-9F'});
+card(document.getElementById('gcHero'),{to:'',fmt:'Cadre photo 30 × 40 cm',msg:'Pour retrouver ce jour-là chaque fois que vous passerez devant.',code:'MR-7K2Q-9F'});
 function upd(){
  var v=f.querySelector('input[name="bcfmt"]:checked').value;
- plexi.disabled=v==='petit';if(plexi.disabled)plexi.checked=false;
+ plexi.disabled=v==='petit'||v==='moyen';if(plexi.disabled)plexi.checked=false;
  var px=plexi.checked,total=P[v]+(px?50:0);
  document.getElementById('bcSumFmt').textContent=L[v].replace('Tableau ','');
- document.getElementById('bcSumFin').textContent=v==='petit'?'Cadre noir ou blanc':(px?'Plexiglas brillant':'Toile, bords pliés');
+ document.getElementById('bcSumFin').textContent=(v==='petit'||v==='moyen')?'Cadre noir ou blanc':(px?'Plexiglas brillant':'Toile, bords pliés');
  document.getElementById('bcTotal').textContent=total+' €';
  cnt.textContent=msg.value.length+' / 140';
  var direct=f.querySelector('input[name="bcsend"]:checked').value==='direct';d1.hidden=!direct;d2.hidden=!direct;
