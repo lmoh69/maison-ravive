@@ -1008,7 +1008,7 @@ a.shop-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(0
   </div>
   <div class="wrap tabs" role="navigation" aria-label="Onglets"><a href="#noel" data-view="noel" class="tab-noel">Spécial Noël</a><a href="#particuliers" data-view="particuliers">Particuliers</a><a href="#bon-cadeau" data-view="bon-cadeau">Bon cadeau</a><a href="#petit-cadre" data-view="petit-cadre">Les cadres</a><a href="#entreprises" data-view="entreprises">Entreprises<span> et événements</span></a><a href="#partenaires" data-view="partenaires">Partenaires<span> professionnels</span></a></div>
 </header>
-<div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Cadres prêts pour Noël, dès 49 €<span class="pb-more"> · le 2e à 20 € avec le code <b>NOEL</b></span> · commandez avant le 18 décembre</span><a href="#noel">Voir l’offre</a></div></div>
+<div class="promo-bar" role="note"><div class="wrap"><span class="pb-tag">Lancement · Noël</span><span class="pb-txt">Cadres prêts pour Noël : 39 € l’un, 59 € les deux<span class="pb-more"> · livraison offerte</span> · commandez avant le 18 décembre</span><a href="#noel">Voir l’offre</a></div></div>
 
 <main id="top">
 <section class="introb" id="introb" aria-label="Vidéo : un geste du téléphone près du repère, et le film du moment démarre">
@@ -1049,8 +1049,8 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
   <p class="kicker">Disponibles maintenant</p>
   <h2 id="t-shop">Prêts pour Noël</h2>
   <div class="shop-grid">
-    <a class="shop-card" href="#petit-cadre" data-go="pcOrder" data-pcsize="petit"><div class="sc-vis"><div class="sc-frame sm"><i></i></div></div><div class="sc-txt"><h3>Petit cadre 10 × 15</h3><p>À poser sur un meuble. Noir ou blanc, avec passe-partout.</p><p class="sc-price"><b>49 €</b><span>39 € avec le code NOEL</span></p><span class="btn">Commander</span></div></a>
-    <a class="shop-card" href="#petit-cadre" data-go="pcOrder" data-pcsize="moyen"><div class="sc-vis"><div class="sc-frame md"><i></i></div></div><div class="sc-txt"><h3>Cadre moyen 21 × 30</h3><p>Plus de présence, à poser ou à accrocher. Cadre noir.</p><p class="sc-price"><b>69 €</b><span>59 € avec le code NOEL</span></p><span class="btn">Commander</span></div></a>
+    <a class="shop-card" href="#petit-cadre" data-go="pcOrder" data-pcsize="petit"><div class="sc-vis"><div class="sc-frame sm"><i></i></div></div><div class="sc-txt"><h3>Petit cadre 10 × 15</h3><p>À poser sur un meuble. Noir ou blanc, avec passe-partout.</p><p class="sc-price"><b>39 €</b><span>59 € les deux</span></p><span class="btn">Commander</span></div></a>
+    <a class="shop-card" href="#petit-cadre" data-go="pcOrder" data-pcsize="moyen"><div class="sc-vis"><div class="sc-frame md"><i></i></div></div><div class="sc-txt"><h3>Cadre moyen 21 × 30</h3><p>Plus de présence, à poser ou à accrocher. Cadre noir.</p><p class="sc-price"><b>59 €</b><span>109 € les deux</span></p><span class="btn">Commander</span></div></a>
     <div class="shop-card soon"><div class="sc-txt"><p class="kicker">Carnet de janvier ouvert</p><h3>Toile sur châssis</h3><p>Chaque toile est fabriquée à la commande. Réservez la vôtre dès maintenant, elle est livrée en janvier. Pour Noël, glissez le bon cadeau sous le sapin.</p><p class="sc-links"><a href="#commande">Réserver ma toile</a><a href="#bon-cadeau">Offrir un bon cadeau</a></p></div></div>
   </div>
   <p class="shop-promo">Avec le code <b>NOEL</b> : un cadre pour vous à 39 €, <b>le 2e pour vos parents à 20 €</b>. Jusqu’au 18 décembre.</p>
@@ -1695,11 +1695,12 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
 <section class="hero" aria-labelledby="t-pc">
   <div class="wrap">
     <div>
-      <p class="product">Petit cadre et cadre moyen</p>
-      <h1 id="t-pc">Le même souvenir, à poser sur un meuble.</h1>
-      <p>Une photo 10 × 15 cm dans un cadre à poser, ou 20 × 30 cm dans un cadre moyen noir, avec le même repère discret : on approche son téléphone, le film démarre. Pour une table de chevet, un bureau, une commode, ou à offrir aux grands-parents.</p>
-      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a><a class="btn ghost" href="#particuliers"><span>Voir les grands formats</span></a></div>
-      <small>Créé par un photographe vidéaste professionnel. Une photo de téléphone suffit : je la vérifie avant de fabriquer.</small>
+      <p class="product">Le cadre photo qui rejoue son film</p>
+      <h1 id="t-pc">Offrez une photo qui rejoue son film.</h1>
+      <p>Un vrai cadre photo, à poser sur un meuble. On approche son téléphone du coin du cadre : la vidéo du moment démarre. Rien à installer.</p>
+      <p class="pc-price" id="pcHeroPrice"><b>39 €</b> le cadre · <b>59 €</b> les deux<span>Livraison offerte · avant Noël pour toute commande jusqu’au 18 décembre</span></p>
+      <div class="actions"><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a></div>
+      <small>Naissance, mariage, vacances, anniversaire : votre photo et votre vidéo, envoyées depuis votre téléphone. Je vérifie la photo avant de fabriquer.</small>
     </div>
     <div class="ps-scene" id="psScene" aria-label="Démonstration : un téléphone approché du petit cadre posé sur une commode lance le film">
       <div class="ps-wall"></div>
@@ -1733,7 +1734,7 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
         <span class="cv-pill" id="pfPill">Cadre noir à poser, photo 10 × 15</span>
       </div>
       <div class="cv-side pf-side">
-        <h3>Deux formats, noir ou blanc</h3>
+        <h3>Petit en noir ou blanc, moyen en noir</h3>
         <p class="cv-p">L’aperçu tourne pour vous montrer le cadre sous tous les angles, chevalet compris.</p>
         <div class="pf-cols pf-sizes" role="group" aria-label="Format du cadre"><button class="pf-sz" type="button" data-size="petit" aria-pressed="true">Petit 10 × 15</button><button class="pf-sz" type="button" data-size="moyen" aria-pressed="false">Moyen 21 × 30</button></div>
         <div class="pf-cols" role="group" aria-label="Couleur du cadre">
@@ -1754,13 +1755,13 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
 <section aria-labelledby="t-pcq">
   <div class="wrap split">
     <div>
-      <h2 id="t-pcq">Quand choisir le petit cadre ?</h2>
-      <p>Toutes les photos ne supportent pas un agrandissement en 60 × 40 cm. Plutôt que d’imprimer une image floue, je vous propose un format qui la met en valeur.</p>
+      <h2 id="t-pcq">Un cadeau qu’on ne range pas dans un tiroir</h2>
+      <p>La photo reste sous les yeux toute l’année. Le film, lui, se rejoue quand on en a envie : les voix, les rires, la musique.</p>
     </div>
     <div class="facts">
-      <div><h3>Votre photo vient d’un téléphone ou de WhatsApp</h3><p>Une image de 1 200 × 800 pixels suffit. La plupart des photos envoyées par messagerie conviennent.</p></div>
-      <div><h3>Vous voulez un cadeau à poser</h3><p>Sur une table de chevet, un buffet ou un bureau, à hauteur de main : on le prend, on approche son téléphone.</p></div>
-      <div><h3>Vous l’offrez en plusieurs exemplaires</h3><p>Pour les parents et les beaux-parents, le même film dans chaque cadre.</p></div>
+      <div><h3>Pour les parents et les grands-parents</h3><p>Les premiers pas, un anniversaire, un message des petits-enfants. Le cadre se pose sur un buffet ou une table de chevet, à hauteur de main.</p></div>
+      <div><h3>Une photo de téléphone suffit</h3><p>Pas besoin d’un photographe : une photo nette de votre galerie et une vidéo, même courte. Je vérifie tout avant de fabriquer.</p></div>
+      <div><h3>Tous les téléphones l’ouvrent</h3><p>Un geste du téléphone vers le coin du cadre. Et si un appareil ne le lit pas, la carte de secours livrée avec le cadre ouvre le film par un simple QR code.</p></div>
     </div>
   </div>
 </section>
@@ -1768,13 +1769,18 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
 <section class="plaster" id="pcOrder" aria-labelledby="t-pco">
   <div class="wrap">
     <h2 id="t-pco">Commander mon cadre</h2>
-    <p class="lead">Après le paiement, je vérifie votre photo et vous envoie un aperçu sous 24 h, avant la fabrication.</p>
+    <p class="lead">Deux minutes pour commander. Je vérifie votre photo et vous envoie un aperçu sous 24 h, avant de fabriquer.</p>
+    <ol class="pc-steps"><li><b>1</b><span>Vous choisissez et vous payez</span></li><li><b>2</b><span>Vous envoyez votre vidéo depuis votre téléphone</span></li><li><b>3</b><span>Votre cadre arrive, prêt à offrir</span></li></ol>
     <form class="order" id="pcForm" novalidate>
       <div>
         <fieldset><legend>Format</legend><div class="opts">
-          <div class="opt"><input type="radio" name="pcsize" id="pcs1" value="petit" checked><label for="pcs1">Petit cadre 10 × 15<small>49 € · 39 € avec NOEL</small></label></div>
-          <div class="opt"><input type="radio" name="pcsize" id="pcs2" value="moyen"><label for="pcs2">Cadre moyen 21 × 30<small>69 € · 59 € avec NOEL</small></label></div>
+          <div class="opt"><input type="radio" name="pcsize" id="pcs1" value="petit" checked><label for="pcs1">Petit cadre 10 × 15<small id="pcP1">39 €</small></label></div>
+          <div class="opt"><input type="radio" name="pcsize" id="pcs2" value="moyen"><label for="pcs2">Cadre moyen 21 × 30<small id="pcP2">59 €</small></label></div>
         </div></fieldset>
+        <fieldset><legend>Combien de cadres ?</legend><div class="opts">
+          <div class="opt"><input type="radio" name="pcq" id="pcq1" value="1" checked><label for="pcq1">Un cadre<small id="pcQ1">39 €</small></label></div>
+          <div class="opt"><input type="radio" name="pcq" id="pcq2" value="2"><label for="pcq2">Deux cadres<small id="pcQ2">59 €</small></label></div>
+        </div><p class="help">Deux cadres : la même photo et le même film, un pour vous, un à offrir. <a href="#" id="pcqMore">Trois cadres ou plus</a></p></fieldset>
         <fieldset><legend>Finition</legend><div class="opts">
           <div class="opt"><input type="radio" name="pcfin" id="pcf1" value="Cadre noir" checked><label for="pcf1">Cadre noir</label></div>
           <div class="opt"><input type="radio" name="pcfin" id="pcf2" value="Cadre blanc"><label for="pcf2">Cadre blanc</label></div>
@@ -1788,7 +1794,7 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
           <div class="field"><label for="pccheck">Ajoutez votre photo</label><input id="pccheck" type="file" accept="image/*"><span class="help">Je la vérifie aussitôt. Choisissez l’original dans votre galerie plutôt qu’une photo reçue par messagerie.</span></div>
           <div class="pmsg" id="pcmsg" aria-live="polite"></div>
         </fieldset>
-        <fieldset class="filmset" data-scope="pc"><legend>Votre film</legend>
+        <fieldset class="filmset" data-scope="pc"><legend>La vidéo qui s’ouvrira</legend>
           <div class="fopts">
             <label class="fopt"><input type="radio" name="pcfilm" value="lien"><span><b>J’ai un lien</b><em>YouTube, Vimeo ou Google Drive.</em></span></label>
             <div class="fdet" data-for="lien"><div class="field"><label for="pcvideo">Lien de la vidéo</label><input id="pcvideo" type="url" placeholder="https://youtu.be/…" inputmode="url"></div></div>
@@ -1798,18 +1804,21 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
               <div class="opt"><input type="radio" name="pcfilmc" id="pcfilmc1" value="montage" checked><label for="pcfilmc1">Montage de vos vidéos, 1 à 2 min<small>+ 49 €</small></label></div>
               <div class="opt"><input type="radio" name="pcfilmc" id="pcfilmc2" value="diaporama"><label for="pcfilmc2">Diaporama animé de vos photos<small>+ 29 €</small></label></div>
             </div><p class="help">Avec une musique libre de droits, choisie ensemble.</p></div>
-            <label class="fopt"><input type="radio" name="pcfilm" value="plus-tard" checked><span><b>Je l’ajouterai plus tard</b><em>Le tableau part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
+            <label class="fopt"><input type="radio" name="pcfilm" value="plus-tard" checked><span><b>Je l’ajouterai plus tard</b><em>Le cadre part quand même. En attendant, il ouvre une page « Votre film arrive bientôt ».</em></span></label>
             <label class="fopt"><input type="radio" name="pcfilm" value="lmoh"><span><b>Mariés LMOH Photography</b><em>Votre film est déjà prêt, rien à envoyer.</em></span></label>
           </div>
         </fieldset>
-        <fieldset><legend>Code promo</legend>
-          <div class="field"><label for="pccode">Votre code <span class="help">(facultatif)</span></label><input id="pccode" type="text" autocomplete="off" placeholder="NOEL"><span class="help">Avec NOEL jusqu’au 18 décembre : petit cadre 39 € (59 € les deux), cadre moyen 59 € (109 € les deux).</span></div>
+        <fieldset hidden><legend>Code promo</legend>
+          <div class="field"><label for="pccode">Votre code <span class="help">(facultatif)</span></label><input id="pccode" type="text" autocomplete="off" placeholder="NOEL" value="NOEL"><span class="help">Avec NOEL jusqu’au 18 décembre : petit cadre 39 € (59 € les deux), cadre moyen 59 € (109 € les deux).</span></div>
         </fieldset>
         
 <fieldset><legend>Vos coordonnées</legend>
           <div class="field"><label for="pcname">Prénom et nom</label><input id="pcname" autocomplete="name" required></div>
           <div class="field"><label for="pcmail">E-mail</label><input id="pcmail" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="pcqty">Nombre de cadres</label><input id="pcqty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
+          <div class="field"><label for="pcadr">Adresse de livraison</label><input id="pcadr" autocomplete="street-address" placeholder="Numéro et rue" required></div>
+          <div class="pc-2"><div class="field"><label for="pczip">Code postal</label><input id="pczip" autocomplete="postal-code" inputmode="numeric" maxlength="5" required></div><div class="field"><label for="pccity">Ville</label><input id="pccity" autocomplete="address-level2" required></div></div>
+          <div class="field"><label for="pctel">Téléphone <span class="help">(facultatif, pour le livreur)</span></label><input id="pctel" type="tel" autocomplete="tel"></div>
+          <div class="field" id="pcqtyF" hidden><label for="pcqty">Nombre de cadres</label><input id="pcqty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
           <label class="check optin"><input type="checkbox" id="optin2"> Je souhaite recevoir les offres Maison Ravive par e-mail. Désinscription en un clic à tout moment.</label>
           <p class="help privacy">Vos coordonnées servent à traiter votre demande et ne sont jamais cédées. <a href="#cgv" data-go="cg14">Données personnelles</a></p>
         </fieldset>
@@ -1818,7 +1827,8 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
         <div class="line"><span>Format</span><span id="pcSumFmt">Photo 10 × 15 cm</span></div>
         <div class="line"><span>Finition</span><span id="pcSumFin">Cadre noir</span></div>
         <div class="line"><span>Technologie sans contact</span><span>incluse</span></div>
-        <div class="line" id="pcPromoLine" hidden><span>Offre NOEL</span><span>appliquée</span></div>
+        <div class="line"><span>Carte de secours avec QR code</span><span>incluse</span></div>
+        <div class="line" id="pcPromoLine" hidden><span>Offre de Noël</span><span>appliquée</span></div>
         <div class="line" id="pcSumFilmLine" hidden><span>Création du film</span><span>+ 0 €</span></div>
         <div class="line"><span>Livraison en France</span><span>offerte</span></div>
         <div class="total"><span>Total</span><b id="pcTotal">49 €</b></div>
@@ -2133,7 +2143,7 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
 <footer>
   <div class="wrap">
     <div><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><p>Maison Ravive : la photo au mur, le film au creux de la main. Fabriqué près de Lyon.</p></div>
-    <p><a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a><br><a href="tel:+33651287900">06 51 28 79 00</a>, ou <a href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20Maison%20Ravive." target="_blank" rel="noopener">sur WhatsApp</a><br><a href="/blog/">Le journal</a> · <a href="https://lmohphotography.com" target="_blank" rel="noopener">Photo et vidéo : LMOH Photography</a> · <a href="#cgv">Conditions générales de vente et mentions légales</a><br><small style="opacity:.7">Musique : « Heartwarming », Kevin MacLeod (incompetech.com), licence CC BY 4.0.</small><br>Site en cours de validation.</p>
+    <p><a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a><br><a href="tel:+33651287900">06 51 28 79 00</a>, ou <a href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20Maison%20Ravive." target="_blank" rel="noopener">sur WhatsApp</a><br><a href="/blog/">Le journal</a> · <a href="https://lmohphotography.com" target="_blank" rel="noopener">Photo et vidéo : LMOH Photography</a> · <a href="#cgv">Conditions générales de vente et mentions légales</a><br><small style="opacity:.7">Musique : « Heartwarming », Kevin MacLeod (incompetech.com), licence CC BY 4.0.</small></p>
   </div>
 </footer>
 
@@ -2436,8 +2446,12 @@ pf.addEventListener('submit',function(e){e.preventDefault();var err=document.get
   if(!fits([pcp.w,pcp.h],'10x15')){err.textContent='Votre photo est trop petite, même pour le petit cadre.';repick(pcin);return}
   if(!n){err.textContent='Indiquez votre prénom et votre nom.';document.getElementById('pcname').focus();return}
   if(!/^\S+@\S+\.\S+$/.test(m)){err.textContent='Indiquez une adresse e-mail valide, pour recevoir l’aperçu.';document.getElementById('pcmail').focus();return}
+  var ad=document.getElementById('pcadr').value.trim(),zp=document.getElementById('pczip').value.trim(),ct=document.getElementById('pccity').value.trim(),tl=document.getElementById('pctel').value.trim();
+  if(!ad){err.textContent='Indiquez l’adresse de livraison.';document.getElementById('pcadr').focus();return}
+  if(!/^\d{5}$/.test(zp)){err.textContent='Indiquez un code postal à 5 chiffres.';document.getElementById('pczip').focus();return}
+  if(!ct){err.textContent='Indiquez la ville.';document.getElementById('pccity').focus();return}
   err.textContent='';var q=pcUpdate();
-  var body=['Produit : '+(window.mrPcSizeLabel?mrPcSizeLabel():'petit cadre 10 × 15 cm'),'Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
+  var body=['Produit : '+(window.mrPcSizeLabel?mrPcSizeLabel():'petit cadre 10 × 15 cm'),'Finition : '+pf.querySelector('input[name=pcfin]:checked').value,'Orientation : '+pf.querySelector('input[name=pcori]:checked').value,'Quantité : '+q,'Code : '+((document.getElementById('pccode')||{}).value||'aucun'),'Total : '+((window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0))+' €','Photo : '+pcp.name+', '+pcp.w+' × '+pcp.h+' px','Film : '+(window.mrFilmLabel?mrFilmLabel('pc'):document.getElementById('pcvideo').value.trim()),'Nom : '+n,'E-mail : '+m,'Adresse de livraison : '+ad+', '+zp+' '+ct,'Téléphone : '+(tl||'non indiqué'),'Offres Maison Ravive : '+(document.getElementById('optin2').checked?'oui':'non'),'Partenaire : '+(window.MR_REF||'aucun')].join('\n');
   mrPay({box:'pcPay',amount:(window.mrPcPrice?mrPcPrice(q):q*PRICE)+(window.mrFilmExtra?mrFilmExtra('pc'):0),desc:(window.mrPcSizeLabel&&/moyen/.test(mrPcSizeLabel())?'Cadre moyen':'Petit cadre')+' Maison Ravive x'+q,subject:(window.mrPcSizeLabel&&/moyen/.test(mrPcSizeLabel())?'Cadre moyen':'Petit cadre')+' : commande de '+n,body:body})});
 
 /* Petit cadre sur la commode : démonstration animée */
@@ -2770,12 +2784,12 @@ if(late){
     var l=document.createElement('label');l.className='late-ok';l.innerHTML='<input type="checkbox" id="lateOk"> <span>Je précommande : ma toile sera livrée en janvier.</span>';
     var btn=f.querySelector('button[type=submit]');if(btn)btn.parentNode.insertBefore(l,btn)}
   var nv=document.getElementById('v-noel');if(nv){var n2=document.createElement('div');n2.className='wrap';n2.innerHTML='<p class="late-note" style="margin-top:1rem">'+NOTE2+'</p>';nv.insertBefore(n2,nv.firstChild)}
-  var pb=document.querySelector('.pb-txt');if(pb)pb.innerHTML='Cadres prêts pour Noël, dès 49 €<span class="pb-more"> · le 2e à 20 € avec le code <b>NOEL</b> · toiles : carnet de janvier ouvert</span>';
+  var pb=document.querySelector('.pb-txt');if(pb)pb.innerHTML='Cadres prêts pour Noël : 39 € l’un, 59 € les deux<span class="pb-more"> · livraison offerte · toiles : carnet de janvier ouvert</span>';
   document.querySelectorAll('.pc-code').forEach(function(p){p.innerHTML=p.innerHTML.replace('Toiles commandées avant le 14 décembre, livrées pour Noël.','Toiles en précommande, livrées en janvier.')});
   var bh=document.querySelector('#v-cadeau .hero small');if(bh)bh.innerHTML='<b>Offrez la surprise à Noël, la toile en janvier.</b> Le bon se glisse sous le sapin, le tableau arrive chez eux début janvier.';
   document.addEventListener('submit',function(e){var c=document.getElementById('lateOk');if(e.target&&e.target.id==='orderForm'&&c&&!c.checked){e.preventDefault();e.stopImmediatePropagation();c.closest('label').classList.add('need');c.focus()}},true);
 }
-var m=document.createElement('a');m.className='mcta';m.href=late?'#petit-cadre':'#commande';m.textContent=late?'Choisir mon cadeau':'Créer mon tableau';document.body.appendChild(m);
+var m=document.createElement('a');m.className='mcta';m.href=late?'#petit-cadre':'#commande';m.textContent=late?'Commander mon cadre':'Créer mon tableau';document.body.appendChild(m);
 function upd(){var top=document.getElementById('top'),on=top&&!top.hidden,c=document.getElementById('commande'),r=c?c.getBoundingClientRect():null,near=r&&r.top<innerHeight&&r.bottom>0;m.classList.toggle('show',!!(on&&!near&&scrollY>500))}
 addEventListener('scroll',upd,{passive:true});addEventListener('hashchange',function(){setTimeout(upd,60)});upd();
 })();
@@ -2850,6 +2864,34 @@ try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
 /* Offre lisible + choix du format depuis les cartes de l’accueil */
 document.querySelectorAll('.pc-list span').forEach(function(x){if(x.textContent.trim()==='39 € l’un, 59 € les deux')x.textContent='39 € l’un, le 2e à 20 €'});
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-pcsize]');if(!a)return;var v=a.getAttribute('data-pcsize');setTimeout(function(){var r=document.getElementById(v==='moyen'?'pcs2':'pcs1');if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}))}},350)});
+})();
+</script>
+<style>
+.pc-price{margin:1.4rem 0 0;font-size:1.15rem;color:#F3EFE8}.pc-price b{font-weight:500;font-size:1.7rem;color:#E4C995}.pc-price span{display:block;font-size:.9rem;margin-top:.35rem;color:rgba(243,239,232,.8)}
+#v-petit .hero .actions{margin-top:1.4rem}
+#pcOrder{padding-top:clamp(2.5rem,6vw,4rem)}#pcOrder .lead{margin-bottom:1.4rem}
+.pc-steps{list-style:none;padding:0;margin:0 0 2.4rem;display:grid;gap:.7rem;grid-template-columns:repeat(3,minmax(0,1fr));max-width:46rem}
+.pc-steps li{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem;line-height:1.35}
+.pc-steps b{flex:none;width:1.7rem;height:1.7rem;border-radius:50%;border:1px solid #B8925A;color:#8A6B3C;display:grid;place-items:center;font-weight:400;font-size:.85rem}
+.pc-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:.8rem}
+@media (max-width:700px){.pc-steps{grid-template-columns:1fr}}
+</style>
+<script>
+/* Page des cadres : offre de Noël appliquée d'office, nombre de cadres en un clic, commande remontée */
+(function(){var pf=document.getElementById('pcForm');if(!pf)return;
+var v=document.getElementById('v-petit'),o=document.getElementById('pcOrder'),t=v&&v.querySelector('.trust');if(o&&t)t.after(o);
+var qty=document.getElementById('pcqty'),box=document.getElementById('pcqtyF'),more=document.getElementById('pcqMore');
+function fire(){qty.dispatchEvent(new Event('input',{bubbles:true}))}
+pf.querySelectorAll('input[name=pcq]').forEach(function(r){r.addEventListener('change',function(){if(r.checked){qty.value=r.value;box.hidden=true;fire()}})});
+if(more)more.addEventListener('click',function(e){e.preventDefault();pf.querySelectorAll('input[name=pcq]').forEach(function(r){r.checked=false});box.hidden=false;if(+qty.value<3){qty.value=3;fire()}qty.focus()});
+function labels(){if(!window.mrPcPrice)return;var r=pf.querySelector('input[name=pcsize]:checked'),cur=r?r.value:'petit',keep=qty.value;
+  function price(size,q){var x=document.getElementById(size==='moyen'?'pcs2':'pcs1'),was=pf.querySelector('input[name=pcsize]:checked');x.checked=true;var p=mrPcPrice(q);if(was)was.checked=true;return p}
+  var a1=price('petit',1),a2=price('petit',2),b1=price('moyen',1),b2=price('moyen',2);
+  var e;(e=document.getElementById('pcP1'))&&(e.textContent=a1+' €');(e=document.getElementById('pcP2'))&&(e.textContent=b1+' €');
+  (e=document.getElementById('pcQ1'))&&(e.textContent=(cur==='moyen'?b1:a1)+' €');(e=document.getElementById('pcQ2'))&&(e.textContent=(cur==='moyen'?b2:a2)+' €');
+  (e=document.getElementById('pcHeroPrice'))&&a1!==39&&(e.innerHTML='<b>'+a1+' €</b> le cadre · <b>'+a2+' €</b> les deux<span>Livraison offerte en France</span>');
+  qty.value=keep}
+pf.addEventListener('change',function(e){if(e.target&&e.target.name==='pcsize')labels()});labels();fire();
 })();
 </script>
 </body>
