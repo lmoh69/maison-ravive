@@ -2894,5 +2894,60 @@ function labels(){if(!window.mrPcPrice)return;var r=pf.querySelector('input[name
 pf.addEventListener('change',function(e){if(e.target&&e.target.name==='pcsize')labels()});labels();fire();
 })();
 </script>
+<style>
+.mrc-btn{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:.55rem;padding:.8rem 1.15rem;border:0;border-radius:999px;background:#1A1918;color:#F3EFE8;font:400 .95rem/1 Jost,system-ui,sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.mrc-btn svg{width:20px;height:20px;flex:none;color:#E4C995}
+.mrc{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:80;width:min(380px,calc(100vw - 28px));height:min(560px,calc(100dvh - 90px));display:none;flex-direction:column;background:#1F2530;color:#F3EFE8;border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45);font:300 .95rem/1.5 Jost,system-ui,sans-serif}
+.mrc.open{display:flex}.mrc-h{display:flex;align-items:center;gap:.7rem;padding:.9rem 1rem;border-bottom:1px solid rgba(243,239,232,.12)}
+.mrc-h b{font-weight:500;display:block}.mrc-h small{display:block;color:rgba(243,239,232,.65);font-size:.78rem}
+.mrc-h i{flex:none;width:34px;height:34px;border-radius:50%;background:#E4C995;color:#1A1918;display:grid;place-items:center;font-style:normal}
+.mrc-h i svg{width:18px;height:18px}.mrc-x{margin-left:auto;background:none;border:0;color:#F3EFE8;font-size:1.5rem;line-height:1;cursor:pointer;padding:.2rem .5rem}
+.mrc-log{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;overscroll-behavior:contain}
+.mrc-m{max-width:88%;padding:.6rem .85rem;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.mrc-m.a{align-self:flex-start;background:rgba(243,239,232,.09)}.mrc-m.u{align-self:flex-end;background:#E4C995;color:#1A1918;font-weight:400}
+.mrc-m.w{opacity:.7;font-style:italic}.mrc-m a{color:#E4C995}
+.mrc-q{display:flex;flex-wrap:wrap;gap:.45rem;padding:0 1rem .8rem}
+.mrc-q button{font:inherit;font-size:.85rem;color:#F3EFE8;background:none;border:1px solid rgba(243,239,232,.3);border-radius:999px;padding:.4rem .8rem;cursor:pointer}
+.mrc-f{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid rgba(243,239,232,.12)}
+.mrc-f input{flex:1;min-width:0;font:inherit;font-size:16px;color:#F3EFE8;background:rgba(243,239,232,.08);border:1px solid rgba(243,239,232,.18);border-radius:999px;padding:.6rem .95rem}
+.mrc-f input::placeholder{color:rgba(243,239,232,.5)}
+.mrc-f button{flex:none;border:0;border-radius:999px;background:#E4C995;color:#1A1918;font:500 .9rem/1 Jost,system-ui,sans-serif;padding:0 1rem;cursor:pointer}
+.mrc-f button:disabled{opacity:.5}
+.mrc-n{padding:0 1rem .7rem;font-size:.74rem;color:rgba(243,239,232,.55)}.mrc-n a{color:inherit}
+@media (max-width:700px){.mrc-btn span{display:none}.mrc-btn{padding:.85rem}.mrc-btn.up{bottom:calc(74px + env(safe-area-inset-bottom,0px))}}
+</style>
+<script>
+/* Conseiller IA : réponses automatiques sur les cadres, relais vers WhatsApp */
+(function(){
+var HOOK='https://hook.eu1.make.com/owncsdsv5za7ky2djrno97jn8l2f4lbr',MAX=20,hist=[],n=0,busy=false;
+var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg>';
+var WA='<a href="https://wa.me/33651287900" target="_blank" rel="noopener">WhatsApp au 06 51 28 79 00</a>';
+var b=document.createElement('button');b.type='button';b.className='mrc-btn';b.setAttribute('aria-label','Poser une question au conseiller');b.innerHTML=ICON+'<span>Une question ?</span>';
+var p=document.createElement('div');p.className='mrc';p.setAttribute('role','dialog');p.setAttribute('aria-label','Conseiller Maison Ravive');
+p.innerHTML='<div class="mrc-h"><i>'+ICON+'</i><div><b>Conseiller Maison Ravive</b><small>Assistant IA · réponse immédiate</small></div><button class="mrc-x" type="button" aria-label="Fermer">×</button></div><div class="mrc-log" aria-live="polite"></div><div class="mrc-q"></div><form class="mrc-f"><input type="text" maxlength="300" placeholder="Votre question…" aria-label="Votre question" autocomplete="off"><button type="submit">Envoyer</button></form><p class="mrc-n">Réponses générées par une IA. Pour parler à Lmoh : '+WA+'.</p>';
+document.body.appendChild(b);document.body.appendChild(p);
+var log=p.querySelector('.mrc-log'),qs=p.querySelector('.mrc-q'),f=p.querySelector('form'),inp=f.querySelector('input'),send=f.querySelector('button');
+function add(t,c,html){var d=document.createElement('div');d.className='mrc-m '+c;if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function clean(t){return String(t||'').replace(/\*\*/g,'').replace(/\bNFC\b/gi,'sans contact').replace(/\bpuces?\b/gi,'repère').trim()}
+function ask(q){q=String(q||'').trim().slice(0,300);if(!q||busy)return;qs.hidden=true;add(q,'u');
+  if(n>=MAX){add('Pour aller plus loin, écrivez directement à Lmoh : '+WA+'.','a',true);return}
+  n++;busy=true;send.disabled=true;hist.push({role:'user',parts:[{text:q}]});var w=add('…','a w');
+  var body=new URLSearchParams();body.set('c',JSON.stringify(hist.slice(-8)));
+  var ctl=window.AbortController?new AbortController():null,to=setTimeout(function(){ctl&&ctl.abort()},30000);
+  fetch(HOOK,{method:'POST',body:body,signal:ctl?ctl.signal:undefined}).then(function(r){return r.text()}).then(function(t){
+    t=clean(t);if(!t||t==='Accepted')throw 0;w.className='mrc-m a';w.textContent=t;hist.push({role:'model',parts:[{text:t}]})
+  }).catch(function(){hist.pop();w.className='mrc-m a';w.innerHTML='Je n’arrive pas à répondre pour le moment. Écrivez à Lmoh : '+WA+'.'
+  }).then(function(){clearTimeout(to);busy=false;send.disabled=false;log.scrollTop=log.scrollHeight});
+}
+['Comment ça marche ?','Livré avant Noël ?','Je n’ai pas de vidéo','Quel format choisir ?'].forEach(function(t){var x=document.createElement('button');x.type='button';x.textContent=t;x.addEventListener('click',function(){ask(t)});qs.appendChild(x)});
+function open(){p.classList.add('open');b.style.display='none';if(!log.children.length)add('Bonjour ! Je suis le conseiller de Maison Ravive, une IA. Posez-moi vos questions sur les cadres, les prix ou la livraison.','a');if(matchMedia('(min-width:701px)').matches)inp.focus()}
+function close(){p.classList.remove('open');b.style.display=''}
+b.addEventListener('click',open);p.querySelector('.mrc-x').addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+f.addEventListener('submit',function(e){e.preventDefault();var v=inp.value;inp.value='';ask(v)});
+function lift(){var m=document.querySelector('.mcta');b.classList.toggle('up',!!(m&&m.classList.contains('show')))}
+addEventListener('scroll',lift,{passive:true});lift();
+})();
+</script>
 </body>
 </html>
