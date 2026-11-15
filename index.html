@@ -2899,9 +2899,22 @@ pf.addEventListener('change',function(e){if(e.target&&e.target.name==='pcsize')l
 .mrc-btn svg{width:20px;height:20px;flex:none;color:#E4C995}
 .mrc{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:80;width:min(380px,calc(100vw - 28px));height:min(560px,calc(100dvh - 90px));display:none;flex-direction:column;background:#1F2530;color:#F3EFE8;border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45);font:300 .95rem/1.5 Jost,system-ui,sans-serif}
 .mrc.open{display:flex}.mrc-h{display:flex;align-items:center;gap:.7rem;padding:.9rem 1rem;border-bottom:1px solid rgba(243,239,232,.12)}
-.mrc-h b{font-weight:500;display:block}.mrc-h small{display:block;color:rgba(243,239,232,.65);font-size:.78rem}
+.mrc-h b{font-weight:500;display:block;white-space:nowrap}.mrc-h>div{min-width:0}.mrc-h small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;color:rgba(243,239,232,.65);font-size:.78rem}
 .mrc-h i{flex:none;width:34px;height:34px;border-radius:50%;background:#E4C995;color:#1A1918;display:grid;place-items:center;font-style:normal}
-.mrc-h i svg{width:18px;height:18px}.mrc-x{margin-left:auto;background:none;border:0;color:#F3EFE8;font-size:1.5rem;line-height:1;cursor:pointer;padding:.2rem .5rem}
+.mrc-h i svg{width:18px;height:18px}.mrc-t{margin-left:auto;display:flex;align-items:center;gap:.1rem}
+.mrc-i{background:none;border:0;color:#F3EFE8;cursor:pointer;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;line-height:1;padding:0}.mrc-i:hover{background:rgba(243,239,232,.1)}.mrc-i svg{width:19px;height:19px}
+.mrc{position:fixed}.mrc-menu{position:absolute;top:58px;right:10px;z-index:2;width:min(280px,calc(100% - 20px));background:#2A3140;border:1px solid rgba(243,239,232,.16);border-radius:12px;padding:.5rem;box-shadow:0 12px 30px rgba(0,0,0,.4)}.mrc-menu[hidden]{display:none}
+.mrc-menu button,.mrc-menu a{display:block;width:100%;text-align:left;font:inherit;color:#F3EFE8;background:none;border:0;border-radius:8px;padding:.6rem .7rem;cursor:pointer;text-decoration:none}.mrc-menu button:hover,.mrc-menu a:hover{background:rgba(243,239,232,.08)}
+.mrc-menu p{margin:.4rem .7rem .3rem;padding-top:.6rem;border-top:1px solid rgba(243,239,232,.12);font-size:.76rem;line-height:1.45;color:rgba(243,239,232,.6)}
+.mrc.big{width:min(620px,calc(100vw - 28px));height:calc(100dvh - 28px)}
+.mcta{display:none!important}
+.mrbar{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:65;transform:translate(-50%,170%);transition:transform .35s;display:flex;align-items:center;gap:.8rem;width:min(600px,calc(100vw - 20px));padding:.55rem .6rem .55rem .7rem;background:#fff;color:#1A1918;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.28);font:300 .9rem/1.3 Jost,system-ui,sans-serif}
+.mrbar.show{transform:translate(-50%,0)}
+.mrbar-f{flex:none;width:42px;height:42px;border-radius:50%;background:#2A3140 center/cover;border:2px solid #1A1918}
+.mrbar-t{min-width:0;flex:1}.mrbar-t b{display:block;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mrbar-t span{display:block;font-size:.78rem;color:#6E6A64;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrbar strong{flex:none;font-weight:500;font-size:1.15rem}.mrbar .btn{flex:none;padding:.7rem 1.1rem;background:#1A1918;color:#F3EFE8;border-radius:999px;text-decoration:none;font-weight:400}
+.mrc-btn.up{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+@media (max-width:700px){.mrc.big{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0}.mrbar{gap:.5rem;font-size:.84rem;padding-left:.55rem}.mrbar-f{width:34px;height:34px}.mrbar strong{font-size:1.02rem}.mrbar .btn{padding:.65rem .85rem;font-size:.9rem}}
 .mrc-log{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;overscroll-behavior:contain}
 .mrc-m{max-width:88%;padding:.6rem .85rem;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}
 .mrc-m.a{align-self:flex-start;background:rgba(243,239,232,.09)}.mrc-m.u{align-self:flex-end;background:#E4C995;color:#1A1918;font-weight:400}
@@ -2916,7 +2929,7 @@ pf.addEventListener('change',function(e){if(e.target&&e.target.name==='pcsize')l
 .mrc-n{padding:0 1rem .7rem;font-size:.74rem;color:rgba(243,239,232,.55)}.mrc-n a{color:inherit}
 .mrc-n .mrc-go{display:block;text-align:center;margin:0 0 .6rem;padding:.6rem;border-radius:999px;border:1px solid #E4C995;color:#E4C995;font-size:.9rem;text-decoration:none}
 .mrc-wa{align-self:flex-start;background:#25D366;color:#0b2a17;font-weight:500;text-decoration:none;padding:.55rem .95rem;border-radius:999px;font-size:.9rem}
-@media (max-width:700px){.mrc-btn span{display:none}.mrc-btn{padding:.85rem}.mrc-btn.up{bottom:calc(74px + env(safe-area-inset-bottom,0px))}}
+@media (max-width:700px){.mrc-btn span{display:none}.mrc-btn{padding:.85rem}}
 </style>
 <script>
 /* Conseiller IA : réponses automatiques sur les cadres, relais vers WhatsApp */
@@ -2927,7 +2940,7 @@ var WA='<a href="https://wa.me/33651287900" target="_blank" rel="noopener">Whats
 function waBtn(q){var a=document.createElement('a');a.className='mrc-wa';a.target='_blank';a.rel='noopener';a.href='https://wa.me/33651287900?text='+encodeURIComponent('Bonjour Lmoh, une question depuis maisonravive.fr : '+(q||''));a.textContent='Écrire à Lmoh sur WhatsApp';log.appendChild(a);log.scrollTop=log.scrollHeight}
 var b=document.createElement('button');b.type='button';b.className='mrc-btn';b.setAttribute('aria-label','Poser une question au conseiller');b.innerHTML=ICON+'<span>Une question ?</span>';
 var p=document.createElement('div');p.className='mrc';p.setAttribute('role','dialog');p.setAttribute('aria-label','Conseiller Maison Ravive');
-p.innerHTML='<div class="mrc-h"><i>'+ICON+'</i><div><b>Conseiller Maison Ravive</b><small>Assistant IA · réponse immédiate</small></div><button class="mrc-x" type="button" aria-label="Fermer">×</button></div><div class="mrc-log" aria-live="polite"></div><div class="mrc-q"></div><form class="mrc-f"><input type="text" maxlength="300" placeholder="Votre question…" aria-label="Votre question" autocomplete="off"><button type="submit">Envoyer</button></form><p class="mrc-n"><a class="mrc-go" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a>Réponses générées par une IA. Lmoh répond en personne sur '+WA+', en journée.</p>';
+p.innerHTML='<div class="mrc-h"><i>'+ICON+'</i><div><b>Conseiller IA</b><small>Maison Ravive · réponse immédiate</small></div><div class="mrc-t"><button class="mrc-i" type="button" data-a="order" aria-label="Commander mon cadre" title="Commander"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></button><button class="mrc-i" type="button" data-a="size" aria-label="Agrandir la discussion" title="Agrandir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg></button><button class="mrc-i" type="button" data-a="menu" aria-label="Options" aria-expanded="false" title="Options"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg></button><button class="mrc-i mrc-x" type="button" aria-label="Fermer" title="Fermer">×</button></div></div><div class="mrc-menu" hidden><button type="button" data-a="new">Nouvelle conversation</button><a data-a="wa" href="https://wa.me/33651287900" target="_blank" rel="noopener">Écrire à Lmoh sur WhatsApp</a><a data-a="cgv" href="#cgv" data-go="cg14">Données personnelles</a><p>Ce conseiller est une IA : il peut se tromper. Vos messages lui sont transmis pour vous répondre ; n’y indiquez pas d’informations personnelles.</p></div><div class="mrc-log" aria-live="polite"></div><div class="mrc-q"></div><form class="mrc-f"><input type="text" maxlength="300" placeholder="Votre question…" aria-label="Votre question" autocomplete="off"><button type="submit">Envoyer</button></form><p class="mrc-n"><a class="mrc-go" href="#petit-cadre" data-go="pcOrder">Commander mon cadre</a>Réponses générées par une IA. Lmoh répond en personne sur '+WA+', en journée.</p>';
 document.body.appendChild(b);document.body.appendChild(p);
 var log=p.querySelector('.mrc-log'),qs=p.querySelector('.mrc-q'),f=p.querySelector('form'),inp=f.querySelector('input'),send=f.querySelector('button');
 function add(t,c,html){var d=document.createElement('div');d.className='mrc-m '+c;if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
@@ -2943,13 +2956,30 @@ function ask(q){q=String(q||'').trim().slice(0,300);if(!q||busy)return;qs.hidden
   }).then(function(){clearTimeout(to);busy=false;send.disabled=false;log.scrollTop=log.scrollHeight});
 }
 ['Comment ça marche ?','Ça marche sur tous les téléphones ?',NOEL?'Livré avant Noël ?':'Offrir un bon cadeau ?','Je n’ai pas de vidéo','Et si ça ne marche plus ?'].forEach(function(t){var x=document.createElement('button');x.type='button';x.textContent=t;x.addEventListener('click',function(){ask(t)});qs.appendChild(x)});
-function open(){p.classList.add('open');b.style.display='none';if(!log.children.length){add('Bonjour ! Je suis le conseiller de Maison Ravive, une IA. Posez-moi vos questions sur les cadres, les prix ou la livraison.'+(NOEL?' Pour Noël, commandez avant le 18 décembre.':''),'a');log.appendChild(qs)};if(matchMedia('(min-width:701px)').matches)inp.focus()}
+function hello(){add('Bonjour ! Je suis le conseiller de Maison Ravive, une IA. Posez-moi vos questions sur les cadres, les prix ou la livraison.'+(NOEL?' Pour Noël, commandez avant le 18 décembre.':''),'a');qs.hidden=false;log.appendChild(qs)}
+function open(){p.classList.add('open');b.style.display='none';if(!log.children.length)hello();;if(matchMedia('(min-width:701px)').matches)inp.focus()}
 function close(){p.classList.remove('open');b.style.display=''}
 b.addEventListener('click',open);p.querySelector('.mrc-x').addEventListener('click',close);p.querySelector('.mrc-go').addEventListener('click',close);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 f.addEventListener('submit',function(e){e.preventDefault();var v=inp.value;inp.value='';ask(v)});
-function lift(){var m=document.querySelector('.mcta');b.classList.toggle('up',!!(m&&m.classList.contains('show')))}
-addEventListener('scroll',lift,{passive:true});lift();
+var menu=p.querySelector('.mrc-menu'),mb=p.querySelector('[data-a=menu]');
+function setMenu(on){menu.hidden=!on;mb.setAttribute('aria-expanded',on)}
+p.addEventListener('click',function(e){var t=e.target.closest('[data-a]');if(!t){if(!menu.hidden&&!e.target.closest('.mrc-menu'))setMenu(false);return}var a=t.getAttribute('data-a');
+  if(a==='menu'){setMenu(menu.hidden);return}
+  if(a==='size'){p.classList.toggle('big');log.scrollTop=log.scrollHeight}
+  if(a==='order'){p.querySelector('.mrc-go').click()}
+  if(a==='new'){hist.length=0;n=0;busy=false;send.disabled=false;log.textContent='';hello()}
+  if(a==='cgv'){close()}
+  setMenu(false)});
+/* Barre d'offre : rappelle le choix en cours et mène à la commande */
+var bar=document.createElement('div');bar.className='mrbar';bar.innerHTML='<i class="mrbar-f"></i><div class="mrbar-t"><b></b><span></span></div><strong></strong><a class="btn" href="#petit-cadre" data-go="pcOrder">Commander</a>';document.body.appendChild(bar);
+var bn=bar.querySelector('b'),bs=bar.querySelector('span'),bp=bar.querySelector('strong'),bf=bar.querySelector('.mrbar-f'),pr0=document.getElementById('print');if(pr0)bf.style.backgroundImage=pr0.style.backgroundImage;
+function fill(){var pf=document.getElementById('pcForm');if(!pf)return;var sz=pf.querySelector('input[name=pcsize]:checked'),fin=pf.querySelector('input[name=pcfin]:checked'),q=Math.max(1,parseInt(document.getElementById('pcqty').value,10)||1),m=sz&&sz.value==='moyen';
+  bn.textContent=q>1?q+(m?' cadres moyens':' petits cadres'):(m?'Cadre moyen':'Petit cadre');bs.textContent=(m?'21 × 30':'10 × 15')+' · '+(fin?fin.value.toLowerCase():'cadre noir')+' · livraison offerte';bp.textContent=document.getElementById('pcTotal').textContent}
+function lift(){var top=document.getElementById('top'),vp=document.getElementById('v-petit'),on=(top&&!top.hidden)||(vp&&!vp.hidden),o=document.getElementById('pcOrder'),r=o&&vp&&!vp.hidden?o.getBoundingClientRect():null,near=r&&r.top<innerHeight*.75&&r.bottom>120,show=!!(on&&!near&&scrollY>500&&!p.classList.contains('open'));
+  if(show)fill();bar.classList.toggle('show',show);b.classList.toggle('up',show)}
+addEventListener('scroll',lift,{passive:true});addEventListener('hashchange',function(){setTimeout(lift,80)});document.addEventListener('change',function(){if(bar.classList.contains('show'))fill()});
+b.addEventListener('click',lift);p.querySelector('.mrc-x').addEventListener('click',function(){setTimeout(lift,0)});lift();
 })();
 </script>
 </body>
