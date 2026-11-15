@@ -2117,6 +2117,8 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
     <p><b>Offres par e-mail.</b> LMOH Photography envoie des offres Maison Ravive uniquement aux personnes qui l’ont accepté en cochant la case prévue dans les formulaires. Chaque e-mail contient un lien de désinscription immédiate. Ces données sont conservées 3 ans après le dernier contact, puis supprimées.</p>
     <p><b>Bon cadeau.</b> L’e-mail du bénéficiaire, quand l’acheteur demande un envoi direct, sert uniquement à lui envoyer le bon et à traiter sa commande. Il ne reçoit aucune offre sans son accord.</p>
     <p><b>Partenaires.</b> Lorsqu’un client arrive par le lien d’un partenaire, le code de ce partenaire est enregistré avec la commande pour calculer sa commission. Le partenaire ne reçoit aucune coordonnée du client. LMOH Photography n’utilise aucun fichier de clients transmis par un partenaire.</p>
+    <p><b>Cookies et mesure des publicités.</b> Le site ne dépose aucun cookie publicitaire sans votre accord. Si vous l’acceptez, le pixel Meta (Meta Platforms Ireland Ltd) enregistre vos visites et vos commandes, ainsi que, sous forme chiffrée, l’adresse e-mail et le téléphone saisis dans les formulaires, afin de mesurer l’efficacité des publicités Maison Ravive sur Facebook et Instagram et de les montrer à des personnes susceptibles d’être intéressées. Votre choix est conservé 6 mois dans votre navigateur ; vous pouvez le modifier à tout moment grâce au lien « Gérer les cookies » en bas de chaque page.</p>
+    <p><b>Conseiller en ligne.</b> Les questions posées au conseiller du site sont transmises, par l’intermédiaire de Make, au service d’intelligence artificielle de Google (Gemini) pour générer la réponse. Maison Ravive ne les enregistre pas dans ses fichiers clients. N’y indiquez pas d’informations personnelles.</p>
     <p>Toute personne peut demander l’accès, la rectification ou l’effacement de ses données, ou s’opposer à la prospection, à contact@maisonravive.fr, et saisir la CNIL.</p>
 
     <h2 id="cg15">15. Médiation et litiges</h2>
@@ -2143,7 +2145,7 @@ set();if(mq.addEventListener)mq.addEventListener('change',set);else if(mq.addLis
 <footer>
   <div class="wrap">
     <div><span class="mrlogo"><small>MAISON</small><b>RAV<span class="mri">I<svg viewBox="0 0 20 12" aria-hidden="true"><path d="M2 10.5a11 11 0 0116 0M5.2 7.6a6.6 6.6 0 019.6 0M8.3 4.8a2.4 2.4 0 013.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>VE</b><span class="mrby">BY<svg aria-hidden="true"><use href="#mono"/></svg></span></span><p>Maison Ravive : la photo au mur, le film au creux de la main. Fabriqué près de Lyon.</p></div>
-    <p><a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a><br><a href="tel:+33651287900">06 51 28 79 00</a>, ou <a href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20Maison%20Ravive." target="_blank" rel="noopener">sur WhatsApp</a><br><a href="/blog/">Le journal</a> · <a href="https://lmohphotography.com" target="_blank" rel="noopener">Photo et vidéo : LMOH Photography</a> · <a href="#cgv">Conditions générales de vente et mentions légales</a><br><small style="opacity:.7">Musique : « Heartwarming », Kevin MacLeod (incompetech.com), licence CC BY 4.0.</small></p>
+    <p><a href="mailto:contact@maisonravive.fr">contact@maisonravive.fr</a><br><a href="tel:+33651287900">06 51 28 79 00</a>, ou <a href="https://wa.me/33651287900?text=Bonjour%2C%20j%E2%80%99ai%20une%20question%20sur%20Maison%20Ravive." target="_blank" rel="noopener">sur WhatsApp</a><br><a href="/blog/">Le journal</a> · <a href="https://lmohphotography.com" target="_blank" rel="noopener">Photo et vidéo : LMOH Photography</a> · <a href="#cgv">Conditions générales de vente et mentions légales</a> · <a href="#" id="mrCookies">Gérer les cookies</a><br><small style="opacity:.7">Musique : « Heartwarming », Kevin MacLeod (incompetech.com), licence CC BY 4.0.</small></p>
   </div>
 </footer>
 
@@ -2853,7 +2855,7 @@ window.mrGift=function(){if(!c.checked)return null;var v=function(id){return (do
 (function(){
 /* Retour du paiement par carte (Stripe) */
 var q=location.search;if(!/[?&](paye|stripe)=/.test(q))return;
-var ok=/paye=carte/.test(q),t=ok?'Paiement par carte reçu, merci ! Je vérifie votre photo et vous envoie un aperçu sous 24 h.':(/stripe=annule/.test(q)?'Paiement annulé : rien n’a été débité. Vous pouvez reprendre votre commande quand vous voulez.':'Le paiement par carte n’a pas pu démarrer. Réessayez, ou payez avec PayPal.');
+var ok=/paye=carte/.test(q);window.MR_PAID=ok;var t=ok?'Paiement par carte reçu, merci ! Je vérifie votre photo et vous envoie un aperçu sous 24 h.':(/stripe=annule/.test(q)?'Paiement annulé : rien n’a été débité. Vous pouvez reprendre votre commande quand vous voulez.':'Le paiement par carte n’a pas pu démarrer. Réessayez, ou payez avec PayPal.');
 var d=document.createElement('div');d.className='pay-toast'+(ok?' ok':'');d.setAttribute('role','status');d.innerHTML='<span>'+t+'</span><button type="button" aria-label="Fermer">×</button>';
 document.body.appendChild(d);d.querySelector('button').onclick=function(){d.remove()};setTimeout(function(){d.classList.add('on')},300);
 try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
@@ -2980,6 +2982,49 @@ function lift(){var top=document.getElementById('top'),vp=document.getElementByI
   if(show)fill();bar.classList.toggle('show',show);b.classList.toggle('up',show)}
 addEventListener('scroll',lift,{passive:true});addEventListener('hashchange',function(){setTimeout(lift,80)});document.addEventListener('change',function(){if(bar.classList.contains('show'))fill()});
 b.addEventListener('click',lift);p.querySelector('.mrc-x').addEventListener('click',function(){setTimeout(lift,0)});lift();
+})();
+</script>
+<style>
+.mrcc{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:95;transform:translate(-50%,140%);visibility:hidden;transition:transform .35s,visibility .35s;display:flex;gap:1rem;align-items:center;width:min(660px,calc(100vw - 20px));box-sizing:border-box;background:#1F2530;color:#F3EFE8;border:1px solid rgba(243,239,232,.14);border-radius:16px;padding:1rem 1.1rem;box-shadow:0 14px 40px rgba(0,0,0,.4);font:300 .9rem/1.5 Jost,system-ui,sans-serif}
+.mrcc.on{transform:translate(-50%,0);visibility:visible}
+.mrcc p{margin:0;flex:1}.mrcc p b{display:block;font-weight:500;font-size:.98rem;margin-bottom:.2rem}.mrcc a{color:#E4C995}
+.mrcc div{display:flex;gap:.5rem;flex:none}
+.mrcc button{font:400 .92rem/1 Jost,system-ui,sans-serif;min-width:7.5rem;padding:.8rem 1.2rem;border-radius:999px;cursor:pointer;border:1px solid #E4C995;background:#E4C995;color:#1A1918}
+body.mr-cc .mrbar,body.mr-cc .mrc-btn{visibility:hidden}
+@media (max-width:700px){.mrcc{flex-direction:column;align-items:stretch;gap:.8rem}.mrcc div button{flex:1;min-width:0}}
+</style>
+<script>
+/* Cookies : pixel Meta chargé uniquement après accord, choix gardé 6 mois */
+(function(){
+var PID='1165990012595714',KEY='mrConsent',MAX=182*864e5,on=false,q=[];
+function get(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&Date.now()-c.t<MAX)return c.v}catch(e){}return null}
+function set(v){try{localStorage.setItem(KEY,JSON.stringify({v:v,t:Date.now()}))}catch(e){}}
+function load(){if(on)return;on=true;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',PID);fbq('track','PageView');q.forEach(function(a){fbq('track',a[0],a[1])});q=[]}
+window.mrTrack=function(ev,p){try{if(on&&window.fbq)fbq('track',ev,p||{});else if(get()!=='no')q.push([ev,p||{}])}catch(e){}};
+var bn=document.createElement('div');bn.className='mrcc';bn.setAttribute('role','dialog');bn.setAttribute('aria-label','Vos choix de cookies');
+bn.innerHTML='<p><b>Vos choix de cookies</b>Avec votre accord, nous utilisons le pixel Meta pour savoir si nos publicités Facebook et Instagram vous ont amené ici. Si vous refusez, aucun cookie publicitaire n’est déposé et le site fonctionne de la même façon. <a href="#cgv" data-go="cg14">En savoir plus</a></p><div><button type="button" data-c="no">Refuser</button><button type="button" data-c="yes">Accepter</button></div>';
+document.body.appendChild(bn);
+function show(){bn.classList.add('on');document.body.classList.add('mr-cc')}
+function hide(){bn.classList.remove('on');document.body.classList.remove('mr-cc')}
+bn.addEventListener('click',function(e){var b=e.target.closest('[data-c]');if(!b)return;var v=b.getAttribute('data-c');set(v);hide();
+  if(v==='yes')load();else{q=[];if(on){['','.maisonravive.fr'].forEach(function(d){document.cookie='_fbp=; Max-Age=0; path=/'+(d?'; domain='+d:'')});location.reload()}}});
+var fl=document.getElementById('mrCookies');if(fl)fl.addEventListener('click',function(e){e.preventDefault();show()});
+var c=get();if(c==='yes')load();else if(c===null)setTimeout(show,1200);
+/* Mesures : page des cadres, début de commande, paiement, achat, demande de devis */
+function pend(){try{return JSON.parse(sessionStorage.getItem('mrPend')||'{}')}catch(e){return{}}}
+function clear(){try{sessionStorage.removeItem('mrPend')}catch(e){}}
+var seen=false;function vc(){var v=document.getElementById('v-petit');if(!seen&&v&&!v.hidden){seen=true;mrTrack('ViewContent',{content_name:'Cadres',content_category:'Cadre photo',value:39,currency:'EUR'})}}
+addEventListener('hashchange',function(){setTimeout(vc,120)});setTimeout(vc,300);
+var op=window.mrPay;if(op)window.mrPay=function(o){var v=parseFloat(o&&o.amount)||0;mrTrack('InitiateCheckout',{value:v,currency:'EUR',content_name:o&&o.desc,num_items:1});
+  try{sessionStorage.setItem('mrPend',JSON.stringify({v:v,d:o&&o.desc}))}catch(e){}return op.apply(this,arguments)};
+var os=window.mrSend;if(os)window.mrSend=function(subject,body,type,paid){
+  if(paid==='carte en cours')mrTrack('AddPaymentInfo',{value:pend().v||0,currency:'EUR',content_name:type});
+  else if(paid==='PayPal reçu'){var m=String(body||'').match(/PAYPAL REÇU : ([\d.,]+) €/);mrTrack('Purchase',{value:m?parseFloat(m[1].replace(',','.')):(pend().v||0),currency:'EUR',content_name:type});clear()}
+  else if(paid===undefined)mrTrack('Lead',{content_name:type||'Demande'});
+  return os.apply(this,arguments)};
+if(window.MR_PAID){var p=pend();mrTrack('Purchase',{value:p.v||0,currency:'EUR',content_name:p.d||'Commande Maison Ravive'});clear()}
 })();
 </script>
 </body>
