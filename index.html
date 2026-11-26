@@ -3037,10 +3037,10 @@ function pend(){try{return JSON.parse(sessionStorage.getItem('mrPend')||'{}')}ca
 function clear(){try{sessionStorage.removeItem('mrPend')}catch(e){}}
 var seen=false;function vc(){var v=document.getElementById('v-petit');if(!seen&&v&&!v.hidden){seen=true;mrTrack('ViewContent',{content_name:'Cadres',content_category:'Cadre photo',value:39,currency:'EUR'})}}
 addEventListener('hashchange',function(){setTimeout(vc,120)});setTimeout(vc,300);
-var op=window.mrPay;if(op)window.mrPay=function(o){if(window.MR_V)MR_V.step('paiement');var v=parseFloat(o&&o.amount)||0;mrTrack('InitiateCheckout',{value:v,currency:'EUR',content_name:o&&o.desc,num_items:1});
+var op=window.mrPay;if(op)window.mrPay=function(o){if(window.MR_V)MR_V.step('paiement');var v=parseFloat(o&&o.amount)||0;mrTrack('AddToCart',{value:v,currency:'EUR',content_name:o&&o.desc,num_items:1});
   try{sessionStorage.setItem('mrPend',JSON.stringify({v:v,d:o&&o.desc}))}catch(e){}return op.apply(this,arguments)};
 var os=window.mrSend;if(os)window.mrSend=function(subject,body,type,paid){
-  if(paid==='carte en cours')mrTrack('AddPaymentInfo',{value:pend().v||0,currency:'EUR',content_name:type});
+  if(paid==='carte en cours')mrTrack('InitiateCheckout',{value:pend().v||0,currency:'EUR',content_name:type,num_items:1});
   else if(paid==='PayPal reçu'){var m=String(body||'').match(/PAYPAL REÇU : ([\d.,]+) €/);mrTrack('Purchase',{value:m?parseFloat(m[1].replace(',','.')):(pend().v||0),currency:'EUR',content_name:type});clear()}
   else if(paid===undefined)mrTrack('Lead',{content_name:type||'Demande'});
   return os.apply(this,arguments)};
